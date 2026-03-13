@@ -253,6 +253,25 @@ footer a{color:rgba(255,255,255,.18);text-decoration:none}
 }
 .toast.show{transform:translateX(-50%) translateY(0)}
 
+/* 검색 드롭다운 */
+.sdrop{
+  display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;
+  background:#fff;border-radius:10px;overflow:hidden;
+  box-shadow:0 8px 32px rgba(0,0,0,.18);z-index:100;
+}
+.sdrop.show{display:block}
+.sdrop-item{
+  display:flex;align-items:center;gap:10px;
+  padding:11px 16px;cursor:pointer;transition:.1s;
+  font-size:13px;font-weight:500;color:var(--ink);
+  border-bottom:1px solid #f0ede8;
+}
+.sdrop-item:last-child{border-bottom:none}
+.sdrop-item:hover,.sdrop-item.focused{background:#f7f6f2}
+.sdrop-flag{font-size:18px;width:24px;text-align:center}
+.sdrop-name{font-weight:700}
+.sdrop-country{font-size:11px;color:var(--muted);margin-left:4px;font-weight:400}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .anim{animation:fadeUp .2s ease both}
 </style>
@@ -266,8 +285,6 @@ footer a{color:rgba(255,255,255,.18);text-decoration:none}
   </a>
   <div class="nav-r">
     <button class="nav-link on">버스 비교</button>
-    <button class="nav-link" onclick="goPage('hopquiz.html')">추천 퀴즈</button>
-    <button class="nav-btn" onclick="goPage('hopquiz.html')">내 버스 찾기 →</button>
   </div>
 </nav>
 
@@ -278,9 +295,10 @@ footer a{color:rgba(255,255,255,.18);text-decoration:none}
     <h1>도시의 모든 버스를<br><span>한눈에 비교</span></h1>
     <p class="hero-desc">City Sightseeing · Big Bus부터 GYG 로컬 투어까지<br>해당 도시에서 탈 수 있는 모든 버스를 한 페이지에서 비교하세요</p>
     <div class="search-wrap">
-      <div class="search">
-        <input id="si" placeholder="도시 검색 (파리, 런던, 두바이...)" oninput="handleSearch(this.value)" type="text">
-        <button class="search-go">검색</button>
+      <div class="search" style="position:relative">
+        <input id="si" placeholder="도시 검색 (파리, 런던, 두바이...)" oninput="handleSearch(this.value)" onfocus="handleSearch(this.value)" onblur="setTimeout(hideDropdown,150)" autocomplete="off" type="text">
+        <button class="search-go" onclick="searchGo()">검색</button>
+        <div id="sdrop" class="sdrop"></div>
       </div>
     </div>
     <div class="pills" id="pills"></div>
@@ -505,10 +523,44 @@ function pick(k,el){
 }
 
 function handleSearch(v){
-  if(!v.trim()){render(active);return;}
-  const q=v.toLowerCase();
-  const hit=Object.entries(CITIES).find(([,c])=>c.name.toLowerCase().includes(q)||c.country.toLowerCase().includes(q));
-  if(hit)render(hit[0]);
+  const drop=document.getElementById('sdrop');
+  const q=v.trim().toLowerCase();
+  // 매칭 도시 필터
+  const hits=KEYS.filter(k=>{
+    const c=CITIES[k];
+    return !q || c.name.toLowerCase().includes(q) || c.country.toLowerCase().includes(q);
+  });
+  if(!hits.length){drop.classList.remove('show');return;}
+  drop.innerHTML=hits.map(k=>{
+    const c=CITIES[k];
+    return `<div class="sdrop-item" onmousedown="pickFromDrop('${k}')">
+      <span class="sdrop-flag">${c.flag}</span>
+      <span class="sdrop-name">${c.name}</span>
+      <span class="sdrop-country">${c.country}</span>
+    </div>`;
+  }).join('');
+  drop.classList.add('show');
+}
+
+function pickFromDrop(k){
+  document.getElementById('si').value=CITIES[k].name;
+  hideDropdown();
+  pick(k,null);
+  // 필 동기화
+  document.querySelectorAll('.pill').forEach(p=>{
+    p.classList.toggle('on', p.textContent.trim()===CITIES[k].flag+' '+CITIES[k].name);
+  });
+}
+
+function hideDropdown(){
+  document.getElementById('sdrop').classList.remove('show');
+}
+
+function searchGo(){
+  const v=document.getElementById('si').value.trim().toLowerCase();
+  if(!v)return;
+  const hit=KEYS.find(k=>CITIES[k].name.toLowerCase().includes(v)||CITIES[k].country.toLowerCase().includes(v));
+  if(hit)pickFromDrop(hit);
 }
 
 /* ═══════════ RENDER ═══════════ */

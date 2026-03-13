@@ -136,6 +136,24 @@ h1 span{color:#C8A040}
 .pill:hover{border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.75)}
 .pill.on{background:var(--red);border-color:var(--red);color:#fff}
 
+/* 도시 선택 카드 섹션 */
+.city-select{background:#f7f6f2;border-bottom:1px solid var(--line);display:none}
+.city-select.open{display:block}
+.city-select-inner{max-width:1060px;margin:0 auto;padding:24px 32px}
+.city-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+.ccard{
+  background:#fff;border:1px solid var(--line);border-radius:8px;
+  padding:14px 12px;cursor:pointer;transition:.15s;
+  display:flex;align-items:center;gap:10px;
+}
+.ccard:hover{border-color:var(--red);transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.ccard.on{border-color:var(--red);background:#fff5f5}
+.ccard-flag{font-size:20px;flex-shrink:0}
+.ccard-info{}
+.ccard-name{font-size:12px;font-weight:700;color:var(--ink);line-height:1.2}
+.ccard-country{font-size:10px;color:var(--muted);font-weight:400;margin-top:2px}
+@media(max-width:640px){.city-cards{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}}
+
 /* ═══════════ MAIN ═══════════ */
 .main{max-width:1060px;margin:0 auto;padding:40px 32px 100px}
 
@@ -315,7 +333,13 @@ footer a{color:rgba(255,255,255,.18);text-decoration:none}
       <div id="sdrop" class="sdrop"></div>
     </div>
     <div class="region-tabs" id="rtabs"></div>
-    <div class="pills" id="pills"></div>
+  </div>
+</div>
+
+<!-- 도시 선택 카드 그리드 -->
+<div class="city-select" id="city-select">
+  <div class="city-select-inner">
+    <div class="city-cards" id="city-cards"></div>
   </div>
 </div>
 
@@ -608,47 +632,53 @@ function initRegions(){
   document.getElementById('rtabs').innerHTML=Object.keys(REGIONS).map(r=>
     `<button class="rtab${r===activeRegion?' on':''}" onclick="pickRegion('${r}')">${r}</button>`
   ).join('');
-  initPills(activeRegion);
+  initCityCards(activeRegion);
+  openCitySelect();
 }
 
 function pickRegion(r){
   activeRegion=r;
   document.querySelectorAll('.rtab').forEach(t=>t.classList.toggle('on',t.textContent===r));
-  initPills(r);
-  // 첫 도시 콘텐츠만 렌더 (스크롤 없음)
-  const first=REGIONS[r][0];
-  if(first){active=first;render(first);}
+  initCityCards(r);
+  openCitySelect();
 }
 
-function initPills(region){
+function openCitySelect(){
+  document.getElementById('city-select').classList.add('open');
+}
+
+function initCityCards(region){
   const keys=REGIONS[region]||[];
-  document.getElementById('pills').innerHTML=keys.map(k=>{
+  document.getElementById('city-cards').innerHTML=keys.map(k=>{
     const c=CITIES[k];
-    return `<button class="pill${k===active?' on':''}" onclick="pick('${k}',this)">${c.flag} ${c.name}</button>`;
+    return `<div class="ccard${k===active?' on':''}" onclick="pickCity('${k}')">
+      <span class="ccard-flag">${c.flag}</span>
+      <div class="ccard-info">
+        <div class="ccard-name">${c.name}</div>
+        <div class="ccard-country">${c.country}</div>
+      </div>
+    </div>`;
   }).join('');
 }
 
-function pick(k,el){
+function pickCity(k){
   if(!CITIES[k])return;
   active=k;
-  // 해당 도시가 속한 지역 탭 자동 활성화
+  // 지역 탭 자동 전환
   const region=Object.keys(REGIONS).find(r=>REGIONS[r].includes(k));
   if(region&&region!==activeRegion){
     activeRegion=region;
     document.querySelectorAll('.rtab').forEach(t=>t.classList.toggle('on',t.textContent===region));
-    initPills(region);
+    initCityCards(region);
   }
-  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));
-  if(el)el.classList.add('on');
-  else{
-    document.querySelectorAll('.pill').forEach(p=>{
-      if(p.textContent.trim()===CITIES[k].flag+' '+CITIES[k].name)p.classList.add('on');
-    });
-  }
+  // 카드 on 동기화
+  document.querySelectorAll('.ccard').forEach(c=>c.classList.toggle('on',c.getAttribute('onclick')===`pickCity('${k}')`));
   document.getElementById('si').value='';
   render(k);
   document.querySelector('.main').scrollIntoView({behavior:'smooth',block:'start'});
 }
+
+function pick(k,el){pickCity(k);}  // 하위 호환
 
 function handleSearch(v){
   const drop=document.getElementById('sdrop');
@@ -683,11 +713,7 @@ function handleSearch(v){
 function pickFromDrop(k){
   document.getElementById('si').value=CITIES[k].name;
   hideDropdown();
-  pick(k,null);
-  // 필 동기화
-  document.querySelectorAll('.pill').forEach(p=>{
-    p.classList.toggle('on', p.textContent.trim()===CITIES[k].flag+' '+CITIES[k].name);
-  });
+  pickCity(k);
 }
 
 function hideDropdown(){

@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    { "source": "/compare", "destination": "/compare.html" },
+    { "source": "/paris", "destination": "/paris.html" },
+    { "source": "/london", "destination": "/london.html" },
+    { "source": "/rome", "destination": "/rome.html" },
+    { "source": "/barcelona", "destination": "/barcelona.html" },
+    { "source": "/dubai", "destination": "/dubai.html" },
+    { "source": "/new-york", "destination": "/new-york.html" },
+    { "source": "/tokyo", "destination": "/tokyo.html" },
+    { "source": "/(.*)", "destination": "/compare.html" }
+  ]
+}

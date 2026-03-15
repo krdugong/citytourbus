@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- 메인 페이지 -->
+  <url>
+    <loc>https://citytourbus.kr/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://citytourbus.kr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://citytourbus.kr/?lang=en"/>
+  </url>
+
+  <!-- 유럽 -->
+  <url><loc>https://citytourbus.kr/paris</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://citytourbus.kr/london</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://citytourbus.kr/rome</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://citytourbus.kr/barcelona</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://citytourbus.kr/berlin</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://citytourbus.kr/madrid</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://citytourbus.kr/lisbon</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://citytourbus.kr/amsterdam</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://citytourbus.kr/prague</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://citytourbus.kr/budapest</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://citytourbus.kr/edinburgh</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://citytourbus.kr/dublin</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://citytourbus.kr/athens</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://citytourbus.kr/copenhagen</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://citytourbus.kr/stockholm</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://citytourbus.kr/oslo</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://citytourbus.kr/helsinki</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://citytourbus.kr/seville</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://citytourbus.kr/porto</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://citytourbus.kr/reykjavik</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://citytourbus.kr/warsaw</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://citytourbus.kr/tallinn</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://citytourbus.kr/split</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://citytourbus.kr/galway</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://citytourbus.kr/brighton</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://citytourbus.kr/oxford</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://citytourbus.kr/cambridge</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://citytourbus.kr/york</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://citytourbus.kr/belfast</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://citytourbus.kr/glasgow</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://citytourbus.kr/malaga</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://citytourbus.kr/mallorca</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://citytourbus.kr/toledo</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://citytourbus.kr/malta</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://citytourbus.kr/corfu</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://citytourbus.kr/thessaloniki</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://citytourbus.kr/bergen</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://citytourbus.kr/gothenburg</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://citytourbus.kr/funchal</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- 중동·아프리카 -->
+  <url><loc>https://citytourbus.kr/dubai</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://citytourbus.kr/abu-dhabi</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://citytourbus.kr/sharjah</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://citytourbus.kr/cape-town</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://citytourbus.kr/johannesburg</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- 아시아 -->
+  <url><loc>https://citytourbus.kr/tokyo</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://citytourbus.kr/sydney</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://citytourbus.kr/bangkok</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://citytourbus.kr/pattaya</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://citytourbus.kr/hanoi</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://citytourbus.kr/saigon</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- 미주 -->
+  <url><loc>https://citytourbus.kr/new-york</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://citytourbus.kr/chicago</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://citytourbus.kr/los-angeles</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://citytourbus.kr/san-francisco</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://citytourbus.kr/las-vegas</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://citytourbus.kr/miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://citytourbus.kr/washington-dc</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://citytourbus.kr/toronto</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://citytourbus.kr/seattle</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://citytourbus.kr/philadelphia</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://citytourbus.kr/new-orleans</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+</urlset>

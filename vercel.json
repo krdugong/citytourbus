@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/compare", "destination": "/compare.html" },
+    { "source": "/compare/:path*", "destination": "/compare.html" }
   ]
 }
-

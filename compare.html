@@ -255,7 +255,7 @@ function render(k){
     const label=isCS?'City Sightseeing':'Big Bus Tours';
     if(!d)return `<div class="ob ob-${brand} ob-na"><div class="ob-l"><div class="ob-brand">${label}</div><div class="ob-name">${label}</div><div class="ob-feats"><span class="ob-feat">${C.name} 미운영</span></div></div><div class="ob-r"><div class="ob-price">—</div></div></div>`;
     const isLow=low===brand;
-    return `<div class="ob ob-${brand}" onclick="go('${d.link}','${label} ${C.name}')">
+    return `<a class="ob ob-${brand}" href="${d.link}" target="_blank" rel="noopener">
       <div class="ob-l">
         <div class="ob-brand">${isCS?'글로벌 1위 · 공식 홈페이지':'프리미엄 브랜드 · 공식 홈페이지'}</div>
         <div class="ob-name">${label}</div>
@@ -268,14 +268,14 @@ function render(k){
           ${isLow?`<span class="ob-low">💰 최저가</span>`:''}
         </div>
       </div>
-    </div>`;
+    </a>`;
   }
 
   function tr(t){
     const link=t.directLink||(t.id?gTour(t.id,C.gygSlug):gCat(C.gygSlug));
     const isAll=t.prov.includes('전체');
     const isOfficial=t.directLink&&(t.directLink.includes('jdoqocy')||t.directLink.includes('dpbolvw')||t.directLink.includes('anrdoezrs')||t.directLink.includes('bigbustours.com'));
-    return `<div class="tr${t.pop?' pop':''} anim" onclick="go('${link}','${t.name.replace(/'/g,"\\'")}')">
+    return `<a class="tr${t.pop?' pop':''} anim" href="${link}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:16px">
       <div class="tr-accent" style="background:${t.color}"></div>
       <div class="tr-main">
         <div class="tr-top">
@@ -289,14 +289,14 @@ function render(k){
       <div class="tr-r">
         <div class="tr-rating">★ ${t.rating} <em>(${t.cnt})</em></div>
         ${t.price?`<div class="tr-price" style="color:${t.color}">${t.price}</div>`:''}
-        <button class="tr-btn${isAll?' gyg':''}">${isAll?'GYG 보기':'예약 →'}</button>
+        <span class="tr-btn${isAll?' gyg':''}">${isAll?'GYG 보기':'예약 →'}</span>
         <div class="tr-foot">${isOfficial?'🔒 공식 사이트':'🟠 GetYourGuide'}</div>
       </div>
-    </div>`;
+    </a>`;
   }
 
   function ul(u){
-    return `<div class="ul-row anim" onclick="go('${u.link}','${u.name.replace(/'/g,"\\'")}')">
+    return `<a class="ul-row anim" href="${u.link}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
       <div class="ul-ico">${u.ico}</div>
       <div class="ul-main">
         <div class="ul-cat">${u.cat}</div>
@@ -305,9 +305,9 @@ function render(k){
       </div>
       <div class="ul-r">
         <span class="ul-price">${u.price}</span>
-        <button class="ul-cta">보기 →</button>
+        <span class="ul-cta">보기 →</span>
       </div>
-    </div>`;
+    </a>`;
   }
 
   const noGlobal=!C.cs&&!C.bb;

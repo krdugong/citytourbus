@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#0A1F44"/>
+  <g transform="translate(8,16)">
+    <!-- 버스 본체 -->
+    <rect x="0" y="6" width="48" height="22" rx="4" fill="#FFFFFF"/>
+    <!-- 빨간 지붕 라인 -->
+    <rect x="0" y="6" width="48" height="6" rx="3" fill="#D0001B"/>
+    <!-- 창문 -->
+    <rect x="5" y="14" width="9" height="7" rx="1.5" fill="#0A1F44"/>
+    <rect x="17" y="14" width="9" height="7" rx="1.5" fill="#0A1F44"/>
+    <rect x="29" y="14" width="9" height="7" rx="1.5" fill="#0A1F44"/>
+    <!-- 바닥 라인 -->
+    <rect x="0" y="24" width="48" height="3" fill="#C8A040"/>
+    <!-- 바퀴 -->
+    <circle cx="11" cy="29" r="5" fill="#0A1F44"/>
+    <circle cx="11" cy="29" r="2" fill="#FFFFFF"/>
+    <circle cx="37" cy="29" r="5" fill="#0A1F44"/>
+    <circle cx="37" cy="29" r="2" fill="#FFFFFF"/>
+  </g>
+</svg>

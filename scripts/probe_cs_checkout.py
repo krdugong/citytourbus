@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # Temporary diagnostic used to map the City Sightseeing checkout flow before production promo verification.
+# Probe revision 3: click the rendered button by accessible role/name.
 import asyncio
 import json
 import re

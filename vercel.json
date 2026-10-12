@@ -1,9 +1,14 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "functions": {
+    "api/compare.js": {
+      "includeFiles": "compare.html"
+    }
+  },
   "rewrites": [
-    { "source": "/compare", "destination": "/compare.html" },
-    { "source": "/compare/:path*", "destination": "/compare.html" }
+    { "source": "/compare", "destination": "/api/compare" },
+    { "source": "/compare/:path*", "destination": "/api/compare" }
   ],
   "headers": [
     {
@@ -24,6 +29,13 @@
       "source": "/robots.txt",
       "headers": [
         { "key": "Content-Type", "value": "text/plain; charset=utf-8" }
+      ]
+    },
+    {
+      "source": "/prices.json",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=300, stale-while-revalidate=1800" },
+        { "key": "Content-Type", "value": "application/json; charset=utf-8" }
       ]
     }
   ]

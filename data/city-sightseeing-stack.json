@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "defaultStatus": "unknown",
+  "allowedStatuses": [
+    "unknown",
+    "verified-stackable",
+    "verified-not-stackable"
+  ],
+  "cities": {}
+}

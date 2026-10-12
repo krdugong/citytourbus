@@ -1,0 +1,46 @@
+name: Apply high-contrast UI refresh
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - audit/affiliate-seo-20261012
+    paths:
+      - "scripts/apply_contrast_refresh.py"
+      - ".github/workflows/apply-contrast-refresh.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-ui:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply contrast refresh
+        run: python scripts/apply_contrast_refresh.py
+
+      - name: Sanity checks
+        run: |
+          grep -q -- "--paper:#F5F5F7" compare.html
+          grep -q -- "color:rgba(255,255,255,.74)" compare.html
+          grep -q -- "font-family:'Noto Sans KR',sans-serif;font-size:58px" compare.html
+          grep -q -- "--paper:#F5F5F7" index.html
+          grep -q -- "color:rgba(255,255,255,.76)" index.html
+
+      - name: Commit refreshed UI
+        run: |
+          git config user.name "citytourbus-ui-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add compare.html index.html
+          if git diff --cached --quiet; then
+            echo "No UI changes"
+            exit 0
+          fi
+          git commit -m "Improve contrast and simplify visual hierarchy"
+          git pull --rebase origin audit/affiliate-seo-20261012
+          git push origin HEAD:audit/affiliate-seo-20261012

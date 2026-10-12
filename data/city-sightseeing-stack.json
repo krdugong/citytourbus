@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
   "defaultStatus": "unknown",
+  "note": "Never mark discounts as stackable from arithmetic alone. Use verified-stackable only after CJTRAVEL10 is confirmed at checkout on top of the city's current official sale price.",
   "allowedStatuses": [
     "unknown",
     "verified-stackable",

@@ -5,7 +5,7 @@ on:
     branches:
       - audit/affiliate-seo-20261012
     paths:
-      - "scripts/probe_bigbus.py"
+      - "api/bigbus-probe.js"
       - ".github/workflows/probe-bigbus.yml"
 
 jobs:
@@ -13,8 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - run: python scripts/probe_bigbus.py
+      - name: Wait for branch deployment
+        run: sleep 30
+      - name: Call Vercel Big Bus probe
+        run: |
+          curl --fail-with-body --max-time 60 -sS \
+            "https://citytourbus-git-audit-affili-ed1c6c-amazondewook-3299s-projects.vercel.app/api/bigbus-probe?ts=$(date +%s)"

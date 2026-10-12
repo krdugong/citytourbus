@@ -48,7 +48,7 @@ jobs:
 
       - name: Commit changed prices
         run: |
-          if git diff --quiet -- prices.json; then
+          if [ -z "$(git status --porcelain -- prices.json)" ]; then
             echo "No price changes"
             exit 0
           fi

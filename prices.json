@@ -1,6 +1,870 @@
 {
   "schemaVersion": 1,
-  "generatedAt": null,
-  "note": "This file is refreshed automatically from official operator pages. Affiliate URLs are never used by the scraper.",
-  "cities": {}
+  "generatedAt": "2026-10-12T02:33:04Z",
+  "note": "Prices are scraped only from operators' official pages. Affiliate URLs are never used by the scraper.",
+  "cities": {
+    "paris": {
+      "bb": {
+        "status": "error",
+        "checkedAt": "2026-10-12T02:33:05Z",
+        "lastSuccessAt": null,
+        "sourceUrl": "https://www.bigbustours.com/en/paris/paris-tour-tickets-and-passes",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-12898986?sid=PAR-W-citycompare",
+        "lastError": "No plausible bus price found"
+      }
+    },
+    "london": {
+      "bb": {
+        "status": "error",
+        "checkedAt": "2026-10-12T02:33:05Z",
+        "lastSuccessAt": null,
+        "sourceUrl": "https://www.bigbustours.com/en/london/london-tour-tickets-and-passes",
+        "affiliateUrl": "https://www.dpbolvw.net/click-8754229-12523134?sid=LON-BB-W-citycompare",
+        "lastError": "No plausible bus price found"
+      },
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:23Z",
+        "lastSuccessAt": "2026-10-12T02:33:23Z",
+        "sourceUrl": "https://city-sightseeing.com/en/95/london",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=LON-W-citycompare&url=https://city-sightseeing.com/en/95/london",
+        "currency": "$",
+        "salePrice": 33.1,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "24, 48 or 72-hour bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "rome": {
+      "bb": {
+        "status": "error",
+        "checkedAt": "2026-10-12T02:33:05Z",
+        "lastSuccessAt": null,
+        "sourceUrl": "https://www.bigbustours.com/en/rome/rome-tour-tickets-and-passes",
+        "affiliateUrl": "https://www.anrdoezrs.net/click-8754229-15011800?sid=ROM-W-citycompare",
+        "lastError": "No plausible bus price found"
+      }
+    },
+    "berlin": {
+      "bb": {
+        "status": "error",
+        "checkedAt": "2026-10-12T02:33:09Z",
+        "lastSuccessAt": null,
+        "sourceUrl": "https://www.bigbustours.com/en/berlin/berlin-tour-tickets-and-passes",
+        "affiliateUrl": "https://www.dpbolvw.net/click-8754229-14106614?sid=BER-BB-W-citycompare",
+        "lastError": "No plausible bus price found"
+      },
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:25Z",
+        "lastSuccessAt": "2026-10-12T02:33:25Z",
+        "sourceUrl": "https://city-sightseeing.com/en/3/berlin",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=BER-W-citycompare&url=https://city-sightseeing.com/en/3/berlin",
+        "currency": "$",
+        "salePrice": 15.57,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "24-hour hop-on hop-off bus tour",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "madrid": {
+      "bb": {
+        "status": "error",
+        "checkedAt": "2026-10-12T02:33:09Z",
+        "lastSuccessAt": null,
+        "sourceUrl": "https://www.bigbustours.com/en/madrid/madrid-tour-tickets-and-passes",
+        "affiliateUrl": "https://www.dpbolvw.net/click-8754229-15766154?sid=MAD-BB-W-citycompare",
+        "lastError": "No plausible bus price found"
+      },
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:28Z",
+        "lastSuccessAt": "2026-10-12T02:33:28Z",
+        "sourceUrl": "https://city-sightseeing.com/en/114/madrid",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=MAD-W-citycompare&url=https://city-sightseeing.com/en/114/madrid",
+        "currency": "$",
+        "salePrice": 53.45,
+        "regularPrice": 57.17,
+        "onsiteDiscountPercent": 10,
+        "label": "24 or 48-hour hop-on hop-off bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "dubai": {
+      "bb": {
+        "status": "error",
+        "checkedAt": "2026-10-12T02:33:09Z",
+        "lastSuccessAt": null,
+        "sourceUrl": "https://www.bigbustours.com/en/dubai/dubai-tour-tickets-and-passes",
+        "affiliateUrl": "https://www.anrdoezrs.net/click-8754229-12653291?sid=DXB-BB-W-citycompare",
+        "lastError": "No plausible bus price found"
+      },
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:31Z",
+        "lastSuccessAt": "2026-10-12T02:33:31Z",
+        "sourceUrl": "https://city-sightseeing.com/en/112/dubai",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=DXB-W-citycompare&url=https://city-sightseeing.com/en/112/dubai",
+        "currency": "$",
+        "salePrice": 56.0,
+        "regularPrice": 70.0,
+        "onsiteDiscountPercent": 20,
+        "label": "24/48/72hr hop-on hop-off bus tour",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "new-york": {
+      "bb": {
+        "status": "error",
+        "checkedAt": "2026-10-12T02:33:13Z",
+        "lastSuccessAt": null,
+        "sourceUrl": "https://www.bigbustours.com/en/new-york/new-york-tour-tickets-and-passes",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-12523130?sid=NYC-BB-W-citycompare",
+        "lastError": "No plausible bus price found"
+      },
+      "cs": {
+        "status": "error",
+        "checkedAt": "2026-10-12T02:33:31Z",
+        "lastSuccessAt": null,
+        "sourceUrl": "https://city-sightseeing.com/en/34/new-york",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=NYC-W-citycompare&url=https://city-sightseeing.com/en/34/new-york",
+        "lastError": "No plausible bus price found"
+      }
+    },
+    "sydney": {
+      "bb": {
+        "status": "error",
+        "checkedAt": "2026-10-12T02:33:13Z",
+        "lastSuccessAt": null,
+        "sourceUrl": "https://www.bigbustours.com/en/sydney/sydney-tour-tickets-and-passes",
+        "affiliateUrl": "https://www.dpbolvw.net/click-8754229-13459437?sid=SYD-W-citycompare",
+        "lastError": "No plausible bus price found"
+      }
+    },
+    "chicago": {
+      "bb": {
+        "status": "error",
+        "checkedAt": "2026-10-12T02:33:13Z",
+        "lastSuccessAt": null,
+        "sourceUrl": "https://www.bigbustours.com/en/chicago/chicago-tour-tickets-and-passes",
+        "affiliateUrl": "https://www.kqzyfj.com/click-8754229-12523142?sid=CHI-W-citycompare",
+        "lastError": "No plausible bus price found"
+      }
+    },
+    "las-vegas": {
+      "bb": {
+        "status": "error",
+        "checkedAt": "2026-10-12T02:33:17Z",
+        "lastSuccessAt": null,
+        "sourceUrl": "https://www.bigbustours.com/en/las-vegas/las-vegas-tour-tickets-and-passes",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-12581783?sid=LAS-W-citycompare",
+        "lastError": "No plausible bus price found"
+      }
+    },
+    "miami": {
+      "bb": {
+        "status": "error",
+        "checkedAt": "2026-10-12T02:33:17Z",
+        "lastSuccessAt": null,
+        "sourceUrl": "https://www.bigbustours.com/en/miami/miami-tour-tickets-and-passes",
+        "affiliateUrl": "https://www.dpbolvw.net/click-8754229-13344538?sid=MIA-W-citycompare",
+        "lastError": "No plausible bus price found"
+      }
+    },
+    "washington-dc": {
+      "bb": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:17Z",
+        "lastSuccessAt": "2026-10-12T02:33:17Z",
+        "sourceUrl": "https://www.bigbustours.com/en/washington-dc/washington-dc-tour-tickets-and-passes",
+        "affiliateUrl": "https://www.dpbolvw.net/click-8754229-12523131?sid=WAS-W-citycompare",
+        "currency": "US$",
+        "salePrice": 10.0,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": null
+      }
+    },
+    "san-francisco": {
+      "bb": {
+        "status": "error",
+        "checkedAt": "2026-10-12T02:33:21Z",
+        "lastSuccessAt": null,
+        "sourceUrl": "https://www.bigbustours.com/en/san-francisco/san-francisco-tour-tickets-and-passes",
+        "affiliateUrl": "https://www.kqzyfj.com/click-8754229-12523200?sid=SFO-W-citycompare",
+        "lastError": "No plausible bus price found"
+      },
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:34:14Z",
+        "lastSuccessAt": "2026-10-12T02:34:14Z",
+        "sourceUrl": "https://city-sightseeing.com/en/37/san-francisco",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=SFO-CS-W-citycompare&url=https://city-sightseeing.com/en/37/san-francisco",
+        "currency": "$",
+        "salePrice": 83.75,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "1 or 2-day hop-on hop-off bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "budapest": {
+      "bb": {
+        "status": "error",
+        "checkedAt": "2026-10-12T02:33:21Z",
+        "lastSuccessAt": null,
+        "sourceUrl": "https://www.bigbustours.com/en/budapest/budapest-tour-tickets-and-passes",
+        "affiliateUrl": "https://www.anrdoezrs.net/click-8754229-13447647?sid=BUD-W-citycompare",
+        "lastError": "No plausible bus price found"
+      },
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:57Z",
+        "lastSuccessAt": "2026-10-12T02:33:57Z",
+        "sourceUrl": "https://city-sightseeing.com/en/48/budapest",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=BUD-CS-W-citycompare&url=https://city-sightseeing.com/en/48/budapest",
+        "currency": "$",
+        "salePrice": 49.3,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "24hr hop-on hop-off bus tour",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "barcelona": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:25Z",
+        "lastSuccessAt": "2026-10-12T02:33:25Z",
+        "sourceUrl": "https://city-sightseeing.com/en/17/barcelona",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=BCN-W-citycompare&url=https://city-sightseeing.com/en/17/barcelona",
+        "currency": "$",
+        "salePrice": 46.1,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "24-hour hop-on hop-off bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "copenhagen": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:33Z",
+        "lastSuccessAt": "2026-10-12T02:33:33Z",
+        "sourceUrl": "https://city-sightseeing.com/en/16/copenhagen",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=CPH-W-citycompare&url=https://city-sightseeing.com/en/16/copenhagen",
+        "currency": "$",
+        "salePrice": 56.81,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "48-hour hop-on hop-off bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "prague": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:35Z",
+        "lastSuccessAt": "2026-10-12T02:33:35Z",
+        "sourceUrl": "https://city-sightseeing.com/en/102/prague",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=PRG-W-citycompare&url=https://city-sightseeing.com/en/102/prague",
+        "currency": "$",
+        "salePrice": 39.22,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "24 or 48-hour hop-on hop-off bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "helsinki": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:36Z",
+        "lastSuccessAt": "2026-10-12T02:33:36Z",
+        "sourceUrl": "https://city-sightseeing.com/en/40/helsinki",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=HEL-W-citycompare&url=https://city-sightseeing.com/en/40/helsinki",
+        "currency": "$",
+        "salePrice": 40.34,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": null,
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "reykjavik": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:38Z",
+        "lastSuccessAt": "2026-10-12T02:33:38Z",
+        "sourceUrl": "https://city-sightseeing.com/en/49/reykjavik",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=REK-W-citycompare&url=https://city-sightseeing.com/en/49/reykjavik",
+        "currency": "$",
+        "salePrice": 78.43,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "24 or 48-hour hop-on hop-off bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "dublin": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:41Z",
+        "lastSuccessAt": "2026-10-12T02:33:41Z",
+        "sourceUrl": "https://city-sightseeing.com/en/50/dublin",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=DUB-W-citycompare&url=https://city-sightseeing.com/en/50/dublin",
+        "currency": "$",
+        "salePrice": 25.21,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "24, 48 or 72-hour hop-on hop-off bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "oslo": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:41Z",
+        "lastSuccessAt": "2026-10-12T02:33:41Z",
+        "sourceUrl": "https://city-sightseeing.com/en/69/oslo",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=OSL-W-citycompare&url=https://city-sightseeing.com/en/69/oslo",
+        "currency": "$",
+        "salePrice": 81.23,
+        "regularPrice": 90.26,
+        "onsiteDiscountPercent": 10,
+        "label": "24 or 48-hour hop-on hop-off bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "amsterdam": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:43Z",
+        "lastSuccessAt": "2026-10-12T02:33:43Z",
+        "sourceUrl": "https://city-sightseeing.com/en/45/amsterdam",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=AMS-W-citycompare&url=https://city-sightseeing.com/en/45/amsterdam",
+        "currency": "$",
+        "salePrice": 39.22,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "24 or 48-hour hop-on hop-off bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "warsaw": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:46Z",
+        "lastSuccessAt": "2026-10-12T02:33:46Z",
+        "sourceUrl": "https://city-sightseeing.com/en/74/warsaw",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=WAW-W-citycompare&url=https://city-sightseeing.com/en/74/warsaw",
+        "currency": "$",
+        "salePrice": 40.34,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "24hr/48hr/72hr hop-on hop-off bus tour",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "porto": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:46Z",
+        "lastSuccessAt": "2026-10-12T02:33:46Z",
+        "sourceUrl": "https://city-sightseeing.com/en/79/porto",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=OPO-W-citycompare&url=https://city-sightseeing.com/en/79/porto",
+        "currency": "$",
+        "salePrice": 33.61,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "24-hour hop-on hop-off bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "lisbon": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:48Z",
+        "lastSuccessAt": "2026-10-12T02:33:48Z",
+        "sourceUrl": "https://city-sightseeing.com/en/80/lisbon",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=LIS-W-citycompare&url=https://city-sightseeing.com/en/80/lisbon",
+        "currency": "$",
+        "salePrice": 39.22,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "24-hour hop-on hop-off bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "stockholm": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:51Z",
+        "lastSuccessAt": "2026-10-12T02:33:51Z",
+        "sourceUrl": "https://city-sightseeing.com/en/109/stockholm",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=STO-W-citycompare&url=https://city-sightseeing.com/en/109/stockholm",
+        "currency": "$",
+        "salePrice": 47.0,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "24 or 72-hour hop-on hop-off bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "seville": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:51Z",
+        "lastSuccessAt": "2026-10-12T02:33:51Z",
+        "sourceUrl": "https://city-sightseeing.com/en/1/seville",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=SVQ-W-citycompare&url=https://city-sightseeing.com/en/1/seville",
+        "currency": "$",
+        "salePrice": 20.17,
+        "regularPrice": 22.41,
+        "onsiteDiscountPercent": 10,
+        "label": "24-hour hop-on hop-off bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "malaga": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:53Z",
+        "lastSuccessAt": "2026-10-12T02:33:53Z",
+        "sourceUrl": "https://city-sightseeing.com/en/24/malaga",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=AGP-W-citycompare&url=https://city-sightseeing.com/en/24/malaga",
+        "currency": "$",
+        "salePrice": 16.81,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "24-hour hop-on hop-off bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "athens": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:56Z",
+        "lastSuccessAt": "2026-10-12T02:33:56Z",
+        "sourceUrl": "https://city-sightseeing.com/en/43/athens",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=ATH-W-citycompare&url=https://city-sightseeing.com/en/43/athens",
+        "currency": "$",
+        "salePrice": 19.72,
+        "regularPrice": 24.65,
+        "onsiteDiscountPercent": 20,
+        "label": "Bus (Athens)",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "edinburgh": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:33:58Z",
+        "lastSuccessAt": "2026-10-12T02:33:58Z",
+        "sourceUrl": "https://city-sightseeing.com/en/91/edinburgh",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=EDI-W-citycompare&url=https://city-sightseeing.com/en/91/edinburgh",
+        "currency": "$",
+        "salePrice": 34.43,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "24-hour hop-on hop-off bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "tallinn": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:34:01Z",
+        "lastSuccessAt": "2026-10-12T02:34:01Z",
+        "sourceUrl": "https://city-sightseeing.com/en/39/tallinn",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=TLL-W-citycompare&url=https://city-sightseeing.com/en/39/tallinn",
+        "currency": "$",
+        "salePrice": 35.85,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": null,
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "galway": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:34:02Z",
+        "lastSuccessAt": "2026-10-12T02:34:02Z",
+        "sourceUrl": "https://city-sightseeing.com/en/127/galway",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=GWY-W-citycompare&url=https://city-sightseeing.com/en/127/galway",
+        "currency": "$",
+        "salePrice": 23.53,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": null,
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "split": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:34:04Z",
+        "lastSuccessAt": "2026-10-12T02:34:04Z",
+        "sourceUrl": "https://city-sightseeing.com/en/171/split",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=SPU-W-citycompare&url=https://city-sightseeing.com/en/171/split",
+        "currency": "$",
+        "salePrice": 25.77,
+        "regularPrice": 30.32,
+        "onsiteDiscountPercent": 15,
+        "label": "Bus (All Lines)",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "abu-dhabi": {
+      "cs": {
+        "status": "error",
+        "checkedAt": "2026-10-12T02:34:05Z",
+        "lastSuccessAt": null,
+        "sourceUrl": "https://city-sightseeing.com/en/170/abu-dhabi",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=AUH-W-citycompare&url=https://city-sightseeing.com/en/170/abu-dhabi",
+        "lastError": "No plausible bus price found"
+      }
+    },
+    "sharjah": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:34:07Z",
+        "lastSuccessAt": "2026-10-12T02:34:07Z",
+        "sourceUrl": "https://city-sightseeing.com/en/113/sharjah",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=SHJ-W-citycompare&url=https://city-sightseeing.com/en/113/sharjah",
+        "currency": "$",
+        "salePrice": 27.23,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": null,
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "cape-town": {
+      "cs": {
+        "status": "error",
+        "checkedAt": "2026-10-12T02:34:08Z",
+        "lastSuccessAt": null,
+        "sourceUrl": "https://city-sightseeing.com/en/107/cape-town",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=CPT-W-citycompare&url=https://city-sightseeing.com/en/107/cape-town",
+        "lastError": "No plausible bus price found"
+      }
+    },
+    "johannesburg": {
+      "cs": {
+        "status": "error",
+        "checkedAt": "2026-10-12T02:34:10Z",
+        "lastSuccessAt": null,
+        "sourceUrl": "https://city-sightseeing.com/en/108/johannesburg",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=JNB-W-citycompare&url=https://city-sightseeing.com/en/108/johannesburg",
+        "lastError": "No plausible bus price found"
+      }
+    },
+    "bangkok": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:34:12Z",
+        "lastSuccessAt": "2026-10-12T02:34:12Z",
+        "sourceUrl": "https://city-sightseeing.com/en/163/bangkok",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=BKK-W-citycompare&url=https://city-sightseeing.com/en/163/bangkok",
+        "currency": "$",
+        "salePrice": 41.96,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "24-hour hop-on hop-off bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "hanoi": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:34:12Z",
+        "lastSuccessAt": "2026-10-12T02:34:12Z",
+        "sourceUrl": "https://city-sightseeing.com/en/155/hanoi",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=HAN-W-citycompare&url=https://city-sightseeing.com/en/155/hanoi",
+        "currency": "$",
+        "salePrice": 19.0,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": null,
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "toronto": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:34:17Z",
+        "lastSuccessAt": "2026-10-12T02:34:17Z",
+        "sourceUrl": "https://city-sightseeing.com/en/13/toronto",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=YYZ-W-citycompare&url=https://city-sightseeing.com/en/13/toronto",
+        "currency": "$",
+        "salePrice": 19.81,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "24 or 48-hour hop-on hop-off bus tour to enjoy amazing views",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "philadelphia": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:34:17Z",
+        "lastSuccessAt": "2026-10-12T02:34:17Z",
+        "sourceUrl": "https://city-sightseeing.com/en/35/philadelphia",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=PHL-W-citycompare&url=https://city-sightseeing.com/en/35/philadelphia",
+        "currency": "$",
+        "salePrice": 64.99,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "1, 2 or 3-day hop-on hop-off bus tour",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "new-orleans": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:34:19Z",
+        "lastSuccessAt": "2026-10-12T02:34:19Z",
+        "sourceUrl": "https://city-sightseeing.com/en/33/new-orleans",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=MSY-W-citycompare&url=https://city-sightseeing.com/en/33/new-orleans",
+        "currency": "$",
+        "salePrice": 29.0,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "3-day hop-on hop-off bus tour",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "los-angeles": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:34:22Z",
+        "lastSuccessAt": "2026-10-12T02:34:22Z",
+        "sourceUrl": "https://city-sightseeing.com/en/30/hollywood-los-angeles",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=LAX-W-citycompare&url=https://city-sightseeing.com/en/30/hollywood-los-angeles",
+        "currency": "$",
+        "salePrice": 49.0,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": "24hr/48hr/72hr hop-on hop-off bus tour",
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    },
+    "seattle": {
+      "cs": {
+        "status": "ok",
+        "checkedAt": "2026-10-12T02:34:22Z",
+        "lastSuccessAt": "2026-10-12T02:34:22Z",
+        "sourceUrl": "https://city-sightseeing.com/en/142/seattle",
+        "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=SEA-W-citycompare&url=https://city-sightseeing.com/en/142/seattle",
+        "currency": "$",
+        "salePrice": 65.0,
+        "regularPrice": null,
+        "onsiteDiscountPercent": null,
+        "label": null,
+        "promoCode": "CJTRAVEL10",
+        "promoPercent": 10,
+        "stacking": {
+          "status": "unknown",
+          "verifiedAt": null,
+          "evidence": null
+        }
+      }
+    }
+  }
 }

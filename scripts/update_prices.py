@@ -14,8 +14,9 @@ CONFIG_PATH = ROOT / "data" / "price-sources.json"
 STACK_PATH = ROOT / "data" / "city-sightseeing-stack.json"
 OUTPUT_PATH = ROOT / "prices.json"
 
+CURRENCY_PATTERN = r"AED|AU\$|A\$|CA\$|C\$|US\$|NZ\$|HK\$|SG\$|£|€|\$|¥|JPY|GBP|EUR|USD"
 MONEY_RE = re.compile(
-    r"(?P<currency>AED|AU\$|A\$|CA\$|C\$|US\$|NZ\$|HK\$|SG\$|£|€|\$|¥|JPY|GBP|EUR|USD)\s*(?P<amount>\d{1,5}(?:[.,]\d{1,2})?)",
+    rf"(?P<currency>{CURRENCY_PATTERN})\s*(?P<amount>\d{{1,5}}(?:[.,]\d{{1,2}})?)",
     re.I,
 )
 PERCENT_RE = re.compile(r"(?:-|save\s+|up\s+to\s+|save\s+over\s+)?(?P<pct>\d{1,2})\s*%", re.I)
@@ -51,6 +52,10 @@ def load_json(path, default):
 
 def normalize_lines(text):
     return [re.sub(r"\s+", " ", line).strip() for line in text.splitlines() if line.strip()]
+
+
+def normalize_text(text):
+    return re.sub(r"\s+", " ", text).strip()
 
 
 def html_to_text(raw):
@@ -102,7 +107,6 @@ def build_candidate(currency, sale, regular=None, explicit_pct=None, label=None)
     calc_pct = None
     if regular and regular > sale:
         calc_pct = round((1 - sale / regular) * 100)
-    # Actual price difference is more reliable than a marketing "up to X%" badge.
     onsite_pct = calc_pct or explicit_pct
     return {
         "currency": currency,
@@ -139,9 +143,6 @@ def candidate_from_price_lines(lines, price_idx, label_idx=None):
 def extract_city_sightseeing(text):
     lines = normalize_lines(text)
     candidates = []
-
-    # City Sightseeing destination pages put the pure bus product type before its From price.
-    # Example: -10% / Bus / ... / From / $38.92 / $35.03.
     for i, line in enumerate(lines):
         low = line.lower().strip()
         is_bus_product = low == "bus" or (low.startswith("bus (") and "+" not in low)
@@ -150,7 +151,6 @@ def extract_city_sightseeing(text):
         for j in range(i + 1, min(len(lines), i + 28)):
             jlow = lines[j].lower().strip()
             if jlow == "from" or jlow.startswith("from "):
-                # Price often sits on the next line, but sometimes on the From line itself.
                 if money_matches(lines[j]):
                     cand = candidate_from_price_lines(lines, j, i)
                 elif j + 1 < len(lines):
@@ -161,7 +161,6 @@ def extract_city_sightseeing(text):
                     candidates.append(cand)
                 break
 
-    # Fallback for product/detail layouts where the product-type label is absent.
     if not candidates:
         bus_terms = ("hop-on hop-off", "hop on hop off", "bus tour", "panoramic")
         exclude_terms = ("museum", "cruise", "boat", "aquarium", "oceanarium", "stadium", "flamenco", "walking tour")
@@ -180,41 +179,51 @@ def extract_city_sightseeing(text):
                         if cand:
                             candidates.append(cand)
                     break
-
     return choose_candidate(candidates)
 
 
 def extract_big_bus(text):
-    lines = normalize_lines(text)
     candidates = []
+    flat = normalize_text(text)
+    flat_lower = flat.lower()
 
-    # Only accept prices attached to known hop-on-hop-off ticket names. This prevents
-    # unrelated "$10 off" marketing copy or attraction prices from becoming the city price.
-    for i, line in enumerate(lines):
-        low = line.lower().strip()
-        if not any(marker in low for marker in BIG_BUS_TICKET_MARKERS):
-            continue
-
-        sale_currency = None
-        sale = None
-        regular = None
-        for j in range(i + 1, min(len(lines), i + 14)):
-            jlow = lines[j].lower()
-            matches = money_matches(lines[j])
-            if not matches:
+    # Big Bus pages are server-rendered, but different HTML templates can collapse
+    # ticket name, sale price and full price into one text line. Scan a bounded text
+    # window after a known hop-on-hop-off ticket label instead of relying on newlines.
+    seen_positions = set()
+    for marker in BIG_BUS_TICKET_MARKERS:
+        marker_re = re.compile(re.escape(marker), re.I)
+        for match in marker_re.finditer(flat):
+            if match.start() in seen_positions:
                 continue
-            if sale is None and ("adult from" in jlow or jlow.startswith("from ") or jlow == "from"):
-                sale_currency, sale = matches[0]
+            seen_positions.add(match.start())
+            segment = flat[match.start():match.start() + 650]
+            sale_match = re.search(
+                rf"(?:Adult\s+)?from\s*(?P<currency>{CURRENCY_PATTERN})\s*(?P<amount>\d{{1,5}}(?:[.,]\d{{1,2}})?)",
+                segment,
+                re.I,
+            )
+            if not sale_match:
                 continue
-            if sale is not None and "full price" in jlow:
-                cur, value = matches[0]
-                if cur == sale_currency and value > sale:
+            currency = sale_match.group("currency").upper()
+            sale = float(sale_match.group("amount").replace(",", "."))
+            after_sale = segment[sale_match.end():]
+            full_match = re.search(
+                rf"Full\s+price\s+from\s*(?P<currency>{CURRENCY_PATTERN})\s*(?P<amount>\d{{1,5}}(?:[.,]\d{{1,2}})?)",
+                after_sale,
+                re.I,
+            )
+            regular = None
+            if full_match and full_match.group("currency").upper() == currency:
+                value = float(full_match.group("amount").replace(",", "."))
+                if value > sale:
                     regular = value
-                break
 
-        if sale is not None:
-            explicit_pct = pct_near(lines, i - 5, i + 3)
-            cand = build_candidate(sale_currency, sale, regular, explicit_pct, line)
+            before = flat[max(0, match.start() - 100):match.start()]
+            pcts = [int(m.group("pct")) for m in PERCENT_RE.finditer(before) if 1 <= int(m.group("pct")) <= 80]
+            explicit_pct = max(pcts) if pcts else None
+            label = flat[match.start():match.start() + len(marker)]
+            cand = build_candidate(currency, sale, regular, explicit_pct, label)
             if cand:
                 candidates.append(cand)
 
@@ -276,13 +285,22 @@ async def get_page_text(browser, url):
         await page.close()
 
 
+def previous_is_safe(operator, prev):
+    if not prev or prev.get("status") not in ("ok", "stale") or not prev.get("lastSuccessAt"):
+        return False
+    price = prev.get("salePrice")
+    if not isinstance(price, (int, float)) or price <= 0:
+        return False
+    if operator == "bb" and price < 15:
+        return False
+    return True
+
+
 async def scrape_one(browser, operator, city, item, stack_overrides, previous):
     checked = now_iso()
     prev = previous or {}
     try:
         parsed = None
-        # Big Bus publishes ticket prices in server-rendered HTML on many city pages.
-        # Prefer that path because it is both lighter and less prone to geolocation UI noise.
         if operator == "bb":
             try:
                 static_text = await get_static_text(item["source"])
@@ -296,8 +314,6 @@ async def scrape_one(browser, operator, city, item, stack_overrides, previous):
 
         if not parsed:
             raise RuntimeError("No plausible bus price found")
-
-        # Sanity guard against common false positives such as "$10 off" copy.
         if operator == "bb" and parsed["salePrice"] < 15:
             raise RuntimeError(f"Rejected implausibly low Big Bus price: {parsed['salePrice']}")
 
@@ -329,8 +345,7 @@ async def scrape_one(browser, operator, city, item, stack_overrides, previous):
 
         return result
     except Exception as exc:
-        # Never erase a last-known-good price because one scrape failed.
-        if prev and prev.get("status") in ("ok", "stale") and prev.get("lastSuccessAt"):
+        if previous_is_safe(operator, prev):
             stale = dict(prev)
             stale.update({
                 "status": "stale",

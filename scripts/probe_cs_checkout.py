@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Temporary diagnostic used to map the City Sightseeing checkout flow before production promo verification.
 import asyncio
 import json
 from pathlib import Path

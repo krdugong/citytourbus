@@ -7,5 +7,11 @@
     "verified-stackable",
     "verified-not-stackable"
   ],
-  "cities": {}
+  "cities": {
+    "barcelona": {
+      "status": "verified-stackable",
+      "verifiedAt": "2026-10-12",
+      "evidence": "Checkout verification: CJTravel10 applied an extra 10% to subtotal EUR 29.70, discount EUR 2.97, total EUR 26.73."
+    }
+  }
 }

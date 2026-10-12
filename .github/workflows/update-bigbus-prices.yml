@@ -1,0 +1,74 @@
+name: Update Big Bus prices
+
+# Big Bus protects product pages and product GraphQL queries from cloud-hosted runners.
+# This workflow intentionally runs only on the residential Mac runner labelled
+# `citytourbus-home`. Keep it manual until that runner has been registered and
+# one successful refresh has been verified; then add the twice-daily schedule.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: citytourbus-price-write-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: [self-hosted, macOS, ARM64, citytourbus-home]
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install scraper dependency
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright==1.55.0
+          python -m playwright install chromium
+
+      - name: Refresh Big Bus official prices
+        run: python scripts/update_operator_prices.py --operator bb
+
+      - name: Validate generated JSON
+        run: python -m json.tool prices.json >/dev/null
+
+      - name: Require at least one fresh Big Bus price
+        run: |
+          python - <<'PY'
+          import json
+          data=json.load(open('prices.json', encoding='utf-8'))
+          rows=[v.get('bb',{}) for v in data.get('cities',{}).values() if v.get('bb')]
+          fresh=[r for r in rows if r.get('status')=='ok']
+          if not fresh:
+              raise SystemExit('No fresh Big Bus prices were collected; refusing to publish.')
+          print(f'Fresh Big Bus cities: {len(fresh)} / {len(rows)}')
+          PY
+
+      - name: Commit changed prices
+        run: |
+          if [ -z "$(git status --porcelain -- prices.json)" ]; then
+            echo "No price changes"
+            exit 0
+          fi
+          cp prices.json /tmp/prices.json
+          git reset --hard HEAD
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          cp /tmp/prices.json prices.json
+          if [ -z "$(git status --porcelain -- prices.json)" ]; then
+            echo "Price output already present after rebase"
+            exit 0
+          fi
+          git config user.name "citytourbus-price-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prices.json
+          git commit -m "chore: refresh Big Bus prices"
+          git push origin HEAD:"$GITHUB_REF_NAME"

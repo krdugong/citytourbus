@@ -1,4 +1,4 @@
-name: Update live tour prices
+name: Update City Sightseeing prices
 
 on:
   workflow_dispatch:
@@ -11,6 +11,7 @@ on:
       - audit/affiliate-seo-20261012
     paths:
       - "scripts/update_prices.py"
+      - "scripts/update_operator_prices.py"
       - "data/price-sources.json"
       - "data/city-sightseeing-stack.json"
       - ".github/workflows/update-live-prices.yml"
@@ -19,7 +20,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: citytourbus-live-prices-${{ github.ref }}
+  group: citytourbus-price-write-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -43,8 +44,8 @@ jobs:
           pip install playwright==1.55.0
           python -m playwright install --with-deps chromium
 
-      - name: Scrape official operator pages
-        run: python scripts/update_prices.py
+      - name: Refresh City Sightseeing official prices
+        run: python scripts/update_operator_prices.py --operator cs
 
       - name: Validate generated JSON
         run: python -m json.tool prices.json >/dev/null
@@ -66,5 +67,5 @@ jobs:
           git config user.name "citytourbus-price-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add prices.json
-          git commit -m "chore: refresh official tour prices"
+          git commit -m "chore: refresh City Sightseeing prices"
           git push origin HEAD:"$GITHUB_REF_NAME"

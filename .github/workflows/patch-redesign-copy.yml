@@ -1,0 +1,36 @@
+name: Patch redesign homepage copy
+
+on:
+  push:
+    branches:
+      - redesign/world-map-20261012
+    paths:
+      - "scripts/patch_redesign_copy.py"
+      - ".github/workflows/patch-redesign-copy.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Apply customer-facing copy patch
+        run: python scripts/patch_redesign_copy.py
+      - name: Remove one-time patch files
+        run: |
+          rm scripts/patch_redesign_copy.py
+          rm .github/workflows/patch-redesign-copy.yml
+      - name: Commit homepage copy
+        run: |
+          git config user.name "citytourbus-copy-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index-v2.html scripts/patch_redesign_copy.py .github/workflows/patch-redesign-copy.yml
+          git commit -m "Refine homepage benefits for travelers"
+          git push origin HEAD:redesign/world-map-20261012

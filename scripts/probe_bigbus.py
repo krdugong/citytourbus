@@ -30,7 +30,7 @@ def gql(label, query, variables=None, store=STORE):
         print("ERROR", repr(e))
     return None
 
-PRODUCT_FIELDS = '''
+PRODUCT_FIELDS = """
   sku name url_key __typename
   price_range {
     minimum_price {
@@ -44,9 +44,19 @@ PRODUCT_FIELDS = '''
       discount { amount_off percent_off }
     }
   }
-'''
+"""
 
-query_key = f'''query ByKey($key:String!){{products(filter:{{url_key:{{eq:$key}}}}){{total_count items{{{PRODUCT_FIELDS}}}}}}}}'''
+query_key = """
+query ByKey($key:String!){
+  products(filter:{url_key:{eq:$key}}){
+    total_count
+    items{
+      %s
+    }
+  }
+}
+""" % PRODUCT_FIELDS
+
 for key in [
     "london-same-day-ticket-without-cruise",
     "london-discover-ticket",
@@ -55,6 +65,16 @@ for key in [
 ]:
     gql("url_key " + key, query_key, {"key": key})
 
-query_search = f'''query Search($q:String!){{products(search:$q,pageSize:30){{total_count items{{{PRODUCT_FIELDS}}}}}}}}'''
+query_search = """
+query Search($q:String!){
+  products(search:$q,pageSize:30){
+    total_count
+    items{
+      %s
+    }
+  }
+}
+""" % PRODUCT_FIELDS
+
 for term in ["One Day Ticket", "Discover Ticket", "Essential Ticket", "Explore Ticket"]:
     gql("search " + term, query_search, {"q": term})

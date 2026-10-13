@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
+const CLEAN_PATHS = new Set(['paris','london','rome','barcelona','dubai','berlin','madrid','sydney']);
+
 const CITIES = {
   paris:['파리','프랑스','🗼'], london:['런던','영국','🎡'], rome:['로마','이탈리아','🏛'],
   barcelona:['바르셀로나','스페인','🏖'], berlin:['베를린','독일','🏙'], madrid:['마드리드','스페인','💃'],
@@ -48,7 +50,11 @@ module.exports = function handler(req, res) {
       ? `${city[0]} 홉온홉오프 시티투어버스의 운영사, 현재 확인 가격과 할인 조건을 비교하세요. 예약 전 노선과 프로모션 조건을 한눈에 확인할 수 있습니다.`
       : '전 세계 주요 도시의 홉온홉오프 시티투어버스 운영사, 현재 확인 가격과 할인 조건을 비교하세요.';
     const canonical = city
-      ? (slug === 'new-york' ? 'https://www.citytourbus.kr/new-york-city-tour-bus' : `https://www.citytourbus.kr/compare?city=${encodeURIComponent(slug)}`)
+      ? (slug === 'new-york'
+          ? 'https://www.citytourbus.kr/new-york-city-tour-bus'
+          : (CLEAN_PATHS.has(slug)
+              ? `https://www.citytourbus.kr/${slug}-city-tour-bus`
+              : `https://www.citytourbus.kr/compare?city=${encodeURIComponent(slug)}`))
       : 'https://www.citytourbus.kr/compare';
 
     html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${esc(title)}</title>`);

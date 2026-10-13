@@ -1,0 +1,56 @@
+name: Hotfix UI consistency
+on:
+  push:
+    branches: [hotfix/ui-consistency-20261013]
+permissions:
+  contents: write
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: hotfix/ui-consistency-20261013
+      - name: Patch homepage and compare UI
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('index-v2.html')
+          s = p.read_text()
+          old = ".heroin{max-width:1180px;margin:auto;padding:68px 28px 58px;display:grid;grid-template-columns:minmax(0,1fr) minmax(470px,.98fr);gap:58px;align-items:center}"
+          new = ".heroin{max-width:1180px;margin:auto;padding:68px 28px 58px;display:grid;grid-template-columns:minmax(610px,1.16fr) minmax(430px,.84fr);gap:36px;align-items:center}"
+          if old not in s:
+              raise SystemExit('homepage grid pattern not found')
+          s = s.replace(old, new, 1)
+          old = ".hero h1{font-size:56px;line-height:1.13;letter-spacing:-3.2px;font-weight:800;word-break:keep-all;overflow-wrap:normal;text-wrap:balance;margin-bottom:20px}"
+          new = ".hero h1{font-size:52px;line-height:1.13;letter-spacing:-2.7px;font-weight:800;word-break:keep-all;overflow-wrap:normal;text-wrap:balance;margin-bottom:20px}"
+          if old not in s:
+              raise SystemExit('homepage title pattern not found')
+          s = s.replace(old, new, 1)
+          s = s.replace('@media(max-width:1050px){.heroin{grid-template-columns:1fr;gap:40px}', '@media(max-width:1120px){.heroin{grid-template-columns:1fr;gap:40px}', 1)
+          p.write_text(s)
+
+          p = Path('compare.html')
+          s = p.read_text()
+          if '/compare-redesign.css' not in s:
+              marker = '</style>\n</head>'
+              if marker not in s:
+                  raise SystemExit('compare style marker not found')
+              s = s.replace(marker, '</style>\n<link rel="stylesheet" href="/compare-redesign.css?v=20261013">\n</head>', 1)
+          s = s.replace('<title>시티투어버스 비교 | 전세계 홉온홉오프 최저가 | CITYTOURBUS</title>', '<title>시티투어버스 비교 | 전세계 홉온홉오프 가격·할인 비교 | CITYTOURBUS</title>', 1)
+          s = s.replace('<meta name="description" content="파리·런던·로마·두바이·뉴욕 등 전세계 도시 시티투어버스 홉온홉오프 최저가 비교. City Sightseeing·Big Bus·GetYourGuide 한눈에 비교하고 할인코드로 예약하세요.">', '<meta name="description" content="파리·런던·로마·두바이·뉴욕 등 전 세계 주요 도시의 시티투어버스를 한눈에 비교하세요. 운영사별 현재 확인 가격과 할인 조건을 비교할 수 있습니다.">', 1)
+          s = s.replace('<span class="l4">.COM</span>', '<span class="l4">.KR</span>', 1)
+          s = s.replace('<h1>도시의 모든 버스를<br><span>한눈에 비교</span></h1>', '<h1>도시별 시티투어버스를<br><span>한눈에 비교</span></h1>', 1)
+          s = s.replace('<p class="hero-desc">City Sightseeing · Big Bus부터 GYG 로컬 투어까지<br>해당 도시에서 탈 수 있는 모든 버스를 한 페이지에서 비교하세요</p>', '<p class="hero-desc">여행 도시를 고르면 이용 가능한 시티투어버스와<br>현재 확인 가격·할인 조건을 한 페이지에서 비교할 수 있습니다.</p>', 1)
+          p.write_text(s)
+          PY
+      - name: Remove one-time workflow and commit
+        run: |
+          rm .github/workflows/hotfix-ui-consistency.yml
+          git config user.name citytourbus-ui-bot
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git commit -m "Fix homepage headline wrapping and unify compare UI"
+          git push origin HEAD:hotfix/ui-consistency-20261013

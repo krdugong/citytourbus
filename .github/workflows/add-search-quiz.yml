@@ -1,4 +1,4 @@
-name: Add search autocomplete and trip-fit quiz
+name: Apply search and quiz UI
 
 on:
   push:
@@ -16,56 +16,29 @@ jobs:
         with:
           ref: feature/search-quiz-20261013
           fetch-depth: 0
-      - name: Patch homepage search and quiz
+      - name: Patch homepage
+        shell: bash
         run: |
-          python - <<'PY'
+          python3 <<'PY'
           from pathlib import Path
-
-          p = Path('index-v2.html')
-          s = p.read_text()
-
-          # Replace native datalist (unreliable on iOS Safari) with custom dropdown.
-          s = s.replace(' list="opts"', '')
-          s = s.replace('<datalist id="opts"></datalist>', '<div class="suggestions" id="suggestions" aria-live="polite"></div>')
-
-          # Search UI styles.
-          s = s.replace('.search{display:flex;max-width:560px;background:#fff;border:1px solid #d6d6da;border-radius:16px;padding:7px;box-shadow:0 8px 30px rgba(0,0,0,.055)}', '.search{display:flex;max-width:560px;background:#fff;border:1px solid #d6d6da;border-radius:16px;padding:7px;box-shadow:0 8px 30px rgba(0,0,0,.055);position:relative;z-index:30}')
-          if '.suggestions{' not in s:
-              s = s.replace('.search button{border:0;border-radius:11px;background:var(--ink);color:#fff;padding:13px 18px;font-size:12px;font-weight:700;cursor:pointer}', '.search button{border:0;border-radius:11px;background:var(--ink);color:#fff;padding:13px 18px;font-size:12px;font-weight:700;cursor:pointer}.suggestions{display:none;position:absolute;left:0;right:0;top:calc(100% + 8px);background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 45px rgba(0,0,0,.12);overflow:hidden;z-index:100}.suggestions.show{display:block}.sug{width:100%;border:0;background:#fff;padding:13px 15px;display:flex;align-items:center;justify-content:space-between;gap:14px;text-align:left;cursor:pointer;border-bottom:1px solid #f0f0f2}.sug:last-child{border-bottom:0}.sug:hover,.sug:focus{background:#f7f7f9;outline:none}.sug b{font-size:13px}.sug span{font-size:10px;color:var(--muted);white-space:nowrap}.sug-empty{padding:15px;font-size:12px;color:var(--muted)}')
-
-          # Insert quiz section between popular cities and value proposition section.
-          marker = '<section class="section"><div class="sectionhd"><div><h2>도시만 정하면 혜택까지 한눈에</h2>'
-          quiz = '''<section class="section quizsec" id="quiz"><div class="sectionhd"><div><h2>내 여행에 시티투어버스가 잘 맞을까요?</h2><p>3가지만 골라보세요. 약 10초면 됩니다.</p></div></div><div class="quizbox"><div class="quizq" data-q="1"><div class="quiznum">1</div><div class="quizbody"><h3>누구와 여행하나요?</h3><div class="quizopts"><button type="button" data-score="2">가족·아이와</button><button type="button" data-score="2">부모님과</button><button type="button" data-score="1">커플·친구와</button><button type="button" data-score="0">혼자</button></div></div></div><div class="quizq" data-q="2"><div class="quiznum">2</div><div class="quizbody"><h3>이번 여행에서 중요한 건?</h3><div class="quizopts"><button type="button" data-score="2">첫 방문, 핵심 명소 많이 보기</button><button type="button" data-score="2">짧은 일정, 동선 단순하게</button><button type="button" data-score="1">여유롭게 구경하기</button><button type="button" data-score="0">한두 곳만 깊게 보기</button></div></div></div><div class="quizq" data-q="3"><div class="quiznum">3</div><div class="quizbody"><h3>도시 이동은 어떻게 하고 싶나요?</h3><div class="quizopts"><button type="button" data-score="2">많이 걷고 싶지 않아요</button><button type="button" data-score="2">타고 내리며 자유롭게 보고 싶어요</button><button type="button" data-score="1">대중교통과 섞어 쓰고 싶어요</button><button type="button" data-score="0">지하철·버스만으로도 괜찮아요</button></div></div></div><div class="quizresult" id="quizResult"><div><em id="quizBadge">결과</em><h3 id="quizTitle">세 가지를 모두 선택해보세요.</h3><p id="quizText">여행 방식에 맞춰 시티투어버스를 어떻게 쓰면 좋은지 알려드릴게요.</p></div><button type="button" id="quizCta">내 도시 비교하기</button></div></div></section>\n'''
+          p=Path('index-v2.html')
+          s=p.read_text()
+          s=s.replace(' list="opts"','')
+          if 'id="suggestions"' not in s:
+              s=s.replace('<datalist id="opts"></datalist>','<datalist id="opts"></datalist><div class="suggestions" id="suggestions" aria-live="polite"></div>',1)
+          if '/search-quiz.css' not in s:
+              s=s.replace('</head>','<link rel="stylesheet" href="/search-quiz.css?v=20261013">\n</head>',1)
+          marker='<section class="section"><div class="sectionhd"><div><h2>도시만 정하면 혜택까지 한눈에</h2>'
+          quiz='''<section class="section quizsec" id="quiz"><div class="sectionhd"><div><h2>내 여행에 시티투어버스가 잘 맞을까요?</h2><p>3가지만 골라보세요. 약 10초면 됩니다.</p></div></div><div class="quizbox"><div class="quizq" data-q="1"><div class="quiznum">1</div><div class="quizbody"><h3>누구와 여행하나요?</h3><div class="quizopts"><button type="button" data-score="2">가족·아이와</button><button type="button" data-score="2">부모님과</button><button type="button" data-score="1">커플·친구와</button><button type="button" data-score="0">혼자</button></div></div></div><div class="quizq" data-q="2"><div class="quiznum">2</div><div class="quizbody"><h3>이번 여행에서 중요한 건?</h3><div class="quizopts"><button type="button" data-score="2">첫 방문, 핵심 명소 많이 보기</button><button type="button" data-score="2">짧은 일정, 동선 단순하게</button><button type="button" data-score="1">여유롭게 구경하기</button><button type="button" data-score="0">한두 곳만 깊게 보기</button></div></div></div><div class="quizq" data-q="3"><div class="quiznum">3</div><div class="quizbody"><h3>도시 이동은 어떻게 하고 싶나요?</h3><div class="quizopts"><button type="button" data-score="2">많이 걷고 싶지 않아요</button><button type="button" data-score="2">타고 내리며 자유롭게 보고 싶어요</button><button type="button" data-score="1">대중교통과 섞어 쓰고 싶어요</button><button type="button" data-score="0">지하철·버스만으로도 괜찮아요</button></div></div></div><div class="quizresult"><div><em id="quizBadge">결과</em><h3 id="quizTitle">세 가지를 모두 선택해보세요.</h3><p id="quizText">여행 방식에 맞춰 시티투어버스를 어떻게 쓰면 좋은지 알려드릴게요.</p></div><button type="button" id="quizCta">내 도시 비교하기</button></div></div></section>'''
           if 'id="quiz"' not in s:
-              s = s.replace(marker, quiz + marker, 1)
-
-          if '.quizbox{' not in s:
-              s = s.replace('.values{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}', '.quizbox{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#fff}.quizq{display:grid;grid-template-columns:42px 1fr;gap:12px;padding:22px;border-bottom:1px solid var(--line)}.quiznum{width:32px;height:32px;border-radius:50%;background:var(--paper);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--sub)}.quizbody h3{font-size:15px;margin-bottom:12px}.quizopts{display:flex;gap:8px;flex-wrap:wrap}.quizopts button{border:1px solid var(--line);background:#fff;color:var(--sub);border-radius:999px;padding:9px 13px;font-size:11px;font-weight:600;cursor:pointer}.quizopts button:hover{border-color:#b9b9bf;color:var(--ink)}.quizopts button.on{background:var(--ink);border-color:var(--ink);color:#fff}.quizresult{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px;background:var(--paper)}.quizresult em{font-style:normal;font-size:10px;font-weight:800;color:var(--accent)}.quizresult h3{font-size:18px;margin:4px 0 6px}.quizresult p{font-size:12px;color:var(--sub);line-height:1.7;max-width:670px}.quizresult button{border:0;background:var(--ink);color:#fff;border-radius:12px;padding:12px 16px;font-size:11px;font-weight:700;white-space:nowrap;cursor:pointer}.values{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}')
-              s = s.replace('@media(max-width:720px){nav{height:58px}', '@media(max-width:720px){.quizq{grid-template-columns:32px 1fr;padding:18px 14px}.quizopts{display:grid;grid-template-columns:1fr 1fr}.quizopts button{border-radius:12px;text-align:left;line-height:1.45}.quizresult{display:block}.quizresult button{width:100%;margin-top:14px;padding:13px}.suggestions{top:calc(100% + 7px)}nav{height:58px}')
-
-          # Replace native datalist population with custom mobile-safe suggestions.
-          old = "const opts=document.getElementById('opts');all.forEach(x=>{const o=document.createElement('option');o.value=x[1];o.label=x[2];opts.appendChild(o)});"
-          new = r'''const qInput=document.getElementById('q'),suggestions=document.getElementById('suggestions');
-const quickSlugs=['new-york','paris','london','rome','barcelona','dubai'];
-function searchCities(value){const v=value.trim().toLowerCase();if(!v)return quickSlugs.map(slug=>all.find(x=>x[0]===slug)).filter(Boolean);return all.filter(x=>x[1].toLowerCase().includes(v)||x[0].toLowerCase().includes(v)||x[2].toLowerCase().includes(v)).slice(0,7)}
-function renderSuggestions(value){const rows=searchCities(value);if(!rows.length){suggestions.innerHTML='<div class="sug-empty">일치하는 도시를 찾지 못했습니다.</div>';suggestions.classList.add('show');return}suggestions.innerHTML=rows.map(x=>`<button type="button" class="sug" data-slug="${x[0]}" data-name="${x[1]}"><b>${x[1]}</b><span>${x[2]}</span></button>`).join('');suggestions.classList.add('show')}
-qInput.addEventListener('focus',()=>renderSuggestions(qInput.value));qInput.addEventListener('input',()=>renderSuggestions(qInput.value));suggestions.addEventListener('click',e=>{const b=e.target.closest('.sug');if(!b)return;qInput.value=b.dataset.name;location.href=href(b.dataset.slug)});document.addEventListener('click',e=>{if(!e.target.closest('.search'))suggestions.classList.remove('show')});'''
-          if old in s:
-              s = s.replace(old, new, 1)
-
-          # Quiz behavior.
-          if "const quizAnswers={};" not in s:
-              insert_before = "const popular=['paris','london','rome','barcelona','dubai','new-york'];"
-              quiz_js = r'''const quizAnswers={};document.querySelectorAll('.quizq').forEach(q=>q.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{q.querySelectorAll('button').forEach(b=>b.classList.remove('on'));btn.classList.add('on');quizAnswers[q.dataset.q]=Number(btn.dataset.score);const chosen=Object.keys(quizAnswers).length;if(chosen===3){const score=Object.values(quizAnswers).reduce((a,b)=>a+b,0),badge=document.getElementById('quizBadge'),title=document.getElementById('quizTitle'),text=document.getElementById('quizText');if(score>=5){badge.textContent='아주 잘 맞아요';title.textContent='시티투어버스가 여행 동선을 꽤 편하게 만들어줄 수 있어요.';text.textContent='주요 명소를 한 번에 훑고, 원하는 곳에서 내려 구경한 뒤 다시 타는 방식이 특히 잘 맞습니다.'}else if(score>=3){badge.textContent='잘 맞을 가능성이 높아요';title.textContent='하루 정도 섞어 쓰면 효율이 좋아질 수 있어요.';text.textContent='첫날에는 시티투어버스로 도시를 익히고, 이후 일정은 지하철이나 도보와 섞어 쓰는 방식이 잘 맞습니다.'}else{badge.textContent='필요한 날만';title.textContent='전 일정보다 특정 날에만 쓰는 편이 더 잘 맞을 수 있어요.';text.textContent='한두 곳을 깊게 보는 여행이라면 대중교통이 더 단순할 수 있습니다. 다만 첫날 도시 전체를 훑는 용도로는 여전히 유용합니다.'}}})));document.getElementById('quizCta').addEventListener('click',()=>{document.getElementById('q').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>document.getElementById('q').focus(),450)});
-'''
-              s = s.replace(insert_before, quiz_js + insert_before, 1)
-
+              s=s.replace(marker,quiz+marker,1)
+          if '/search-quiz.js' not in s:
+              s=s.replace('</body>','<script src="/search-quiz.js?v=20261013"></script>\n</body>',1)
           p.write_text(s)
           PY
-
           git config user.name 'citytourbus-ui-bot'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git rm .github/workflows/add-search-quiz.yml
           git add index-v2.html
-          git commit -m 'Add mobile autocomplete and trip-fit quiz'
+          git commit -m 'Wire mobile autocomplete and trip-fit quiz'
           git push origin feature/search-quiz-20261013

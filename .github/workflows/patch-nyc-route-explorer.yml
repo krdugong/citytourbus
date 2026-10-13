@@ -1,0 +1,54 @@
+name: Patch NYC route explorer
+on:
+  push:
+    branches:
+      - feature/nyc-route-explorer-20261013
+    paths:
+      - .github/workflows/patch-nyc-route-explorer.yml
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/nyc-route-explorer-20261013
+          fetch-depth: 0
+      - name: Patch page
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('new-york-city-tour-bus.html')
+          s=p.read_text()
+          css='<link rel="stylesheet" href="/nyc-route-explorer.css?v=20261013a">'
+          js='<script src="/nyc-route-explorer.js?v=20261013a" defer></script>'
+          if css not in s:
+              s=s.replace('</head>', css+'\n</head>', 1)
+          if js not in s:
+              s=s.replace('</body>', js+'\n</body>', 1)
+          new_section='''  <section id="route">
+    <div class="eyebrow">노선 · 인터랙티브 노선도</div>
+    <h2>뉴욕 빅버스 노선 — 레드·블루 루프 한눈에 보기</h2>
+    <p class="sec-intro">현재 Big Bus 공식 안내 기준 뉴욕은 <strong>다운타운 레드 루프</strong>와 <strong>업타운 블루 루프</strong> 두 노선을 운영합니다. 아래 흐름도에서 노선을 켜고 끄거나 정류장 번호를 눌러 실제 승차 위치와 첫차·막차 시간을 확인할 수 있습니다.</p>
+
+    <div id="nyc-route-explorer"><div class="rx-loading">뉴욕 Big Bus 노선 흐름도를 불러오는 중입니다.</div></div>
+
+    <p><strong>레드 루프</strong>는 타임스퀘어·엠파이어스테이트빌딩·소호·브루클린브리지·월스트리트·월드트레이드센터·허드슨야드처럼 다운타운 핵심 명소를 연결합니다. <strong>블루 루프</strong>는 록펠러센터·메트로폴리탄 미술관·센트럴파크 동쪽·콜럼버스서클을 중심으로 움직입니다. 두 노선 모두 One Times Square 정류장을 공유하므로 환승 동선을 잡을 때 참고하기 좋습니다.</p>
+  </section>'''
+          pattern=r'  <section id="route">.*?</section>'
+          s2,n=re.subn(pattern,new_section,s,count=1,flags=re.S)
+          if n!=1:
+              raise SystemExit(f'route section replacement count={n}')
+          p.write_text(s2)
+          PY
+      - name: Remove one-time workflow
+        run: rm .github/workflows/patch-nyc-route-explorer.yml
+      - name: Commit changes
+        run: |
+          git config user.name "citytourbus-ui-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add new-york-city-tour-bus.html .github/workflows/patch-nyc-route-explorer.yml
+          git commit -m "Add interactive NYC Big Bus route explorer"
+          git push origin HEAD:feature/nyc-route-explorer-20261013

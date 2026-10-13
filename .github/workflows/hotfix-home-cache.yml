@@ -1,0 +1,55 @@
+name: Apply homepage cache hotfix
+
+on:
+  push:
+    branches: [hotfix/home-cache-autocomplete-20261013]
+    paths: ['.github/workflows/hotfix-home-cache.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: hotfix/home-cache-autocomplete-20261013
+          fetch-depth: 0
+      - name: Patch homepage and Vercel cache headers
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+
+          p=Path('index-v2.html')
+          s=p.read_text()
+          # Make sure old copy cannot survive in source and remove native datalist remnant.
+          old='City Sightseeing, Big Bus, GetYourGuide를 도시별로 모았습니다. 운영사와 현재 확인 가격, 프로모션 조건을 비교한 뒤 예약 페이지로 이동하세요.'
+          new='<strong>내리고 싶은 곳에서 내리고, 다시 타고 싶은 곳에서 타세요.</strong> 전 세계 주요 도시의 홉온홉오프 시티투어버스를 한곳에서 비교하고, <strong>CITYTOURBUS 전용 10% 할인코드까지</strong> 확인하세요.'
+          s=s.replace(old,new)
+          s=s.replace('<datalist id="opts"></datalist>','')
+          s=s.replace('/search-quiz.css?v=20261013','/search-quiz.css?v=20261013b')
+          s=s.replace('/search-quiz.js?v=20261013','/search-quiz.js?v=20261013b')
+          p.write_text(s)
+
+          v=Path('vercel.json')
+          data=json.loads(v.read_text())
+          headers=data.setdefault('headers',[])
+          # Remove previous cache rules for these exact paths if any.
+          headers=[h for h in headers if h.get('source') not in ['/', '/index-v2.html', '/search-quiz.js', '/search-quiz.css']]
+          no_cache=[
+            {'source':'/','headers':[{'key':'Cache-Control','value':'no-store, no-cache, must-revalidate, max-age=0'}]},
+            {'source':'/index-v2.html','headers':[{'key':'Cache-Control','value':'no-store, no-cache, must-revalidate, max-age=0'}]},
+            {'source':'/search-quiz.js','headers':[{'key':'Cache-Control','value':'no-cache, must-revalidate, max-age=0'}]},
+            {'source':'/search-quiz.css','headers':[{'key':'Cache-Control','value':'no-cache, must-revalidate, max-age=0'}]},
+          ]
+          data['headers']=no_cache+headers
+          v.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+          PY
+          git config user.name 'citytourbus-ui-bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm .github/workflows/hotfix-home-cache.yml
+          git add index-v2.html vercel.json
+          git commit -m 'Force fresh homepage copy and autocomplete assets'
+          git push origin hotfix/home-cache-autocomplete-20261013

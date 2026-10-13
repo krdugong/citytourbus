@@ -20,13 +20,9 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-
           p = Path('index-v2.html')
           s = p.read_text()
-          old = '<span class="line">전 세계 시티투어버스를</span>'
-          new = '<span class="line">전 세계 <span class="nowrap-word">시티투어버스를</span></span>'
-          if old in s:
-              s = s.replace(old, new, 1)
+          s = s.replace('<span class="line">전 세계 시티투어버스를</span>', '<span class="line">전 세계 <span class="nowrap-word">시티투어버스를</span></span>', 1)
           if '.nowrap-word{white-space:nowrap}' not in s:
               s = s.replace('.hero h1 .subline{display:block;color:var(--sub);white-space:nowrap}', '.hero h1 .subline{display:block;color:var(--sub);white-space:nowrap}.nowrap-word{white-space:nowrap}', 1)
           p.write_text(s)
@@ -37,27 +33,7 @@ jobs:
               s = s.replace('</head>', '<link rel="stylesheet" href="/nyc-redesign.css?v=20261013">\n</head>', 1)
           s = s.replace('<span class="l4">.COM</span>', '<span class="l4">.KR</span>')
           p.write_text(s)
-
-          css = r'''
-:root{--ink:#1d1d1f!important;--paper:#f5f5f7!important;--card:#fff!important;--red:#e22b37!important;--navy:#1d1d1f!important;--muted:#86868b!important;--line:#e5e5ea!important;--sub:#515154!important;--blue:#3276d5!important}
-body{background:#fff!important;color:var(--ink)!important}
-nav{height:64px!important;background:rgba(255,255,255,.94)!important;backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,.06)!important;padding:0 28px!important}.logo{font-family:'Noto Sans KR',sans-serif!important;font-weight:800!important;letter-spacing:-.7px!important}.l1{font-family:inherit!important;color:var(--red)!important;font-size:18px!important}.l2,.l3{font-family:inherit!important;color:var(--ink)!important;font-size:18px!important}.l4{color:var(--muted)!important;font-size:9px!important}.nav-link{color:var(--sub)!important;border-radius:999px!important}.nav-link:hover{color:var(--ink)!important;background:#f1f1f3!important}
-.bc{background:#fff!important;border-bottom:1px solid var(--line)!important}.bc-inner{max-width:1120px!important}
-.hero{background:linear-gradient(180deg,#fff,#fbfbfd)!important;padding:54px 32px 44px!important;border-bottom:1px solid var(--line)!important}.hero::after{display:none!important}.hero-inner{max-width:1120px!important}.hero-label{color:var(--red)!important;letter-spacing:1.6px!important}.city-hd{align-items:center!important}h1{font-family:'Noto Sans KR',sans-serif!important;color:var(--ink)!important;font-size:44px!important;line-height:1.15!important;letter-spacing:-2px!important;font-weight:800!important;word-break:keep-all!important}h1 span{color:var(--sub)!important}.hero-desc{color:var(--sub)!important;font-size:14px!important;max-width:720px!important;font-weight:400!important}.hero-stats{gap:10px!important}.hstat{background:var(--paper)!important;border-radius:14px!important;padding:12px 14px!important;min-width:110px!important}.hstat-v{font-family:'Noto Sans KR',sans-serif!important;color:var(--ink)!important;font-size:18px!important;font-weight:700!important}.hstat-l{color:var(--muted)!important}
-.toc{top:64px!important;background:rgba(255,255,255,.95)!important;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)!important}.toc-inner{max-width:1120px!important}.toc a{background:#fff!important;border-color:var(--line)!important;color:var(--sub)!important}.toc a:hover{border-color:var(--ink)!important;color:var(--ink)!important}
-.main{max-width:1120px!important;padding:52px 32px 100px!important}.eyebrow{color:var(--red)!important;letter-spacing:1.4px!important}h2{font-family:'Noto Sans KR',sans-serif!important;font-size:28px!important;letter-spacing:-1px!important;font-weight:800!important;word-break:keep-all!important}.sec-intro,p{color:var(--sub)!important}
-.cta-box{gap:12px!important}.ob{background:#fff!important;border:1px solid var(--line)!important;border-radius:18px!important;box-shadow:none!important}.ob:hover{filter:none!important;transform:translateY(-2px)!important;box-shadow:0 10px 28px rgba(0,0,0,.06)!important;border-color:#cfcfd4!important}.ob-brand{color:var(--muted)!important}.ob-name{color:var(--ink)!important}.ob-feat{color:var(--sub)!important;background:var(--paper)!important;border:1px solid var(--line)!important}.ob-from{color:var(--muted)!important}.ob-price{font-family:'Noto Sans KR',sans-serif!important;color:var(--ink)!important;font-size:24px!important;font-weight:800!important}
-.table-wrap{border-color:var(--line)!important;border-radius:16px!important;box-shadow:none!important}table{background:#fff!important}th{background:var(--paper)!important;color:var(--ink)!important;border-color:var(--line)!important}td{border-color:var(--line)!important}.bb-col,.tv-col{color:var(--ink)!important}
-.ticket-list{background:transparent!important;border:0!important;gap:8px!important;overflow:visible!important}.tk{border:1px solid var(--line)!important;border-radius:16px!important;background:#fff!important}.tk:hover,.tk.best{background:#fff!important}.tk.best{box-shadow:0 8px 24px rgba(0,0,0,.04)!important}.tk-accent{background:var(--ink)!important}.tk-price{font-family:'Noto Sans KR',sans-serif!important;font-size:20px!important;font-weight:800!important}.tk-who{background:var(--paper)!important;border-radius:8px!important}
-.callout{background:var(--paper)!important;border:0!important;border-radius:16px!important;padding:18px!important}.callout-t{color:var(--ink)!important}
-.route-grid,.pros-cons,.upsell-grid{gap:12px!important}.route-card,.pc,.up{background:#fff!important;border:1px solid var(--line)!important;border-radius:16px!important;box-shadow:none!important}.route-card:hover,.up:hover{box-shadow:0 8px 24px rgba(0,0,0,.04)!important}.route-meta,.route-stops,.pc li,.up-sub{color:var(--sub)!important}
-.steps{gap:8px!important}.step{background:#fff!important;border:1px solid var(--line)!important;border-radius:14px!important}.step-n{background:var(--ink)!important;color:#fff!important}.step-d{color:var(--sub)!important}.up-price{color:var(--ink)!important}.up-cat{color:var(--red)!important}
-footer{background:var(--paper)!important;border-top:1px solid var(--line)!important;color:var(--muted)!important}footer a{color:var(--sub)!important}
-@media(max-width:720px){nav{padding:0 18px!important}.hero{padding:42px 20px 36px!important}.hero-inner{max-width:none!important}h1{font-size:36px!important;letter-spacing:-1.6px!important}.main{padding:38px 20px 80px!important}.toc{top:58px!important;padding-left:20px!important;padding-right:20px!important}.bc{padding-left:20px!important;padding-right:20px!important}}
-'''
-          Path('nyc-redesign.css').write_text(css)
           PY
-
           git config user.name 'citytourbus-ui-bot'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git rm .github/workflows/hotfix-nyc-ui.yml

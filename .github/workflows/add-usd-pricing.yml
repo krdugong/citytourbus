@@ -1,0 +1,35 @@
+name: Apply USD pricing layer
+
+on:
+  push:
+    branches: [feature/usd-pricing-20261013]
+    paths: ['.github/workflows/add-usd-pricing.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/usd-pricing-20261013
+          fetch-depth: 0
+      - name: Add USD display layer to compare page
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('compare.html')
+          s = p.read_text()
+          tag = '<script src="/usd-prices.js?v=20261013"></script>'
+          if tag not in s:
+              s = s.replace('</body>', tag + '\n</body>', 1)
+          p.write_text(s)
+          PY
+          git config user.name 'citytourbus-ui-bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm .github/workflows/add-usd-pricing.yml
+          git add compare.html usd-prices.js
+          git commit -m 'Display comparison prices in USD'
+          git push origin feature/usd-pricing-20261013

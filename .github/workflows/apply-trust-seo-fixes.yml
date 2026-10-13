@@ -1,0 +1,141 @@
+name: Apply trust and SEO fixes
+on:
+  push:
+    branches: [fix/trust-seo-20261013]
+    paths: [.github/workflows/apply-trust-seo-fixes.yml]
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/trust-seo-20261013
+          fetch-depth: 0
+      - name: Patch public copy, New York data and site trust pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          def must_replace(s, old, new, label, count=None):
+              found=s.count(old)
+              if count is not None and found != count:
+                  raise SystemExit(f'{label}: expected {count}, found {found}')
+              if found == 0:
+                  raise SystemExit(f'{label}: target missing')
+              return s.replace(old,new)
+
+          # Homepage: align canonical host and expose policy pages.
+          p=Path('index-v2.html'); s=p.read_text()
+          s=must_replace(s,'<link rel="canonical" href="https://citytourbus.kr/">','<link rel="canonical" href="https://www.citytourbus.kr/">','home canonical',1)
+          s=must_replace(s,'<meta property="og:url" content="https://citytourbus.kr/">','<meta property="og:url" content="https://www.citytourbus.kr/">','home og url',1)
+          s=s.replace('에딘버러','에든버러')
+          old='<div class="fl"><a href="/compare">도시 비교</a><a href="#cities">전체 도시</a></div>'
+          new='<div class="fl"><a href="/compare">도시 비교</a><a href="#cities">전체 도시</a><a href="/terms">이용약관</a><a href="/privacy">개인정보처리방침</a></div>'
+          s=must_replace(s,old,new,'home footer policy links',1)
+          p.write_text(s)
+
+          # Compare: remove false brand-wide Korean claim; Korean affiliate disclosure; real policy links.
+          p=Path('compare.html'); s=p.read_text()
+          s=s.replace('https://citytourbus.kr/compare','https://www.citytourbus.kr/compare')
+          s=s.replace('에딘버러','에든버러')
+          s=must_replace(s,'<div class="wc"><span class="wc-ico">🎙</span><div class="wc-t">한국어 오디오</div><div class="wc-d">주요 브랜드 모두 한국어 지원</div></div>',
+            '<div class="wc"><span class="wc-ico">🎙</span><div class="wc-t">오디오 언어 확인</div><div class="wc-d">지원 언어는 도시·운영사별로 다릅니다</div></div>','compare audio claim',1)
+          old='This site contains affiliate links. We may earn a commission when you book — at no extra cost to you.<br>\n  <a href="/">홈</a> · <a href="#">이용약관</a> · <a href="#">개인정보처리방침</a>'
+          new='이 페이지에는 제휴 링크가 포함되어 있으며, 예약 시 이용자 추가 비용 없이 CITYTOURBUS.KR이 수수료를 받을 수 있습니다.<br>\n  <a href="/">홈</a> · <a href="/terms">이용약관</a> · <a href="/privacy">개인정보처리방침</a>'
+          s=must_replace(s,old,new,'compare footer disclosure',1)
+          s=s.replace('rel="noopener"','rel="sponsored noopener"')
+
+          # New York compare data: current official Big Bus starting prices and no unverified Korean claim.
+          s=must_replace(s,"'new-york':{name:'뉴욕',country:'미국',flag:'🗽',gygSlug:'new-york-city-l59',cs:{price:'$49',link:'https://www.jdoqocy.com/click-8754229-15734727?sid=new-yorkEJ-code-1111&url=https://city-sightseeing.com/en/34/new-york',feats:['2개 노선','한국어 오디오','10% 할인코드']},bb:{price:'$60',link:'https://www.jdoqocy.com/click-8754229-12523130?sid=nyc',feats:['최저 $60~','라이브 가이드','자유 날짜 변경']}",
+            "'new-york':{name:'뉴욕',country:'미국',flag:'🗽',gygSlug:'new-york-city-l59',cs:null,bb:{price:'$62',link:'https://www.jdoqocy.com/click-8754229-12523130?sid=NYC-BB-W-citycompare',feats:['24시간권 US$62~','한국어 해설 미지원','자유 날짜 변경']}", 'compare NYC operator data',1)
+          s=s.replace("name:'Big Bus NYC — Discover Ticket (24h)',sub:'다운타운 루프 · 라이브 가이드 · 자유 날짜 변경',price:'$60~'", "name:'Big Bus NYC — Discover Ticket (24h)',sub:'다운타운 루프 · 자유 날짜 변경',price:'$62~'")
+          s=s.replace("name:'Big Bus NYC — Essential Ticket (48h)',sub:'다운타운+업타운 2개 루프 · Best Value',price:'$81~'", "name:'Big Bus NYC — Essential Ticket (48h)',sub:'다운타운+업타운 2개 루프 · 나이트 투어 포함',price:'$83~'")
+          s=s.replace("name:'Big Bus NYC — Sizzler (48h + 야간투어 + 크루즈)',sub:'48h 버스 + 야간투어 + 크루즈 선택 포함',price:'$99~'", "name:'Big Bus NYC — Explore Ticket (72h)',sub:'다운타운+업타운 · 나이트 투어 + Circle Line 크루즈 포함',price:'$99~'")
+          # Remove the unverified City Sightseeing New York product card until an active current bus product is verified.
+          cs_card=",{id:'',prov:'City Sightseeing',color:'var(--red)',name:'City Sightseeing New York — 홉온홉오프',sub:'독점 할인코드 CJTRAVEL10',price:'$49~',rating:'4.4',cnt:'2,200+',tags:['글로벌 1위','한국어'],directLink:'https://www.jdoqocy.com/click-8754229-15734727?sid=new-yorkEJ-code-1111&url=https://city-sightseeing.com/en/34/new-york'}"
+          s=s.replace(cs_card,'')
+          # Position-level SIDs on visible NYC Big Bus comparison cards.
+          for label, sid in [('Discover Ticket','NYC-BB-W-compare-discover'),('Essential Ticket','NYC-BB-W-compare-essential'),('Explore Ticket','NYC-BB-W-compare-explore')]:
+              pattern=r"(name:'Big Bus NYC — [^']*"+re.escape(label)+r"[^']*'[^}]*?directLink:')https://www\.jdoqocy\.com/click-8754229-12523130\?sid=nyc(')"
+              s,n=re.subn(pattern,lambda m:m.group(1)+f'https://www.jdoqocy.com/click-8754229-12523130?sid={sid}'+m.group(2),s,count=1)
+              if n != 1: print('warning: compare SID not replaced for', label)
+          p.write_text(s)
+
+          # New York dedicated page: correct Big Bus language, current official ticket set, tracking and disclosure.
+          p=Path('new-york-city-tour-bus.html'); s=p.read_text()
+          s=s.replace('https://citytourbus.kr','https://www.citytourbus.kr')
+          s=re.sub(r'\n<meta name="keywords"[^>]*>','',s,count=1)
+          s=s.replace('뉴욕 빅버스 $62~, 탑뷰 $39~.','뉴욕 빅버스 공식 가격과 노선, 탑뷰 등 다른 선택지를 비교합니다.')
+          s=must_replace(s,'{"@type":"Question","name":"뉴욕 빅버스 한국어 오디오가 되나요?","acceptedAnswer":{"@type":"Answer","text":"네. 빅버스와 탑뷰 모두 한국어를 포함한 다국어 오디오 가이드를 제공합니다. 탑뷰는 11개 언어를 지원합니다."}}',
+            '{"@type":"Question","name":"뉴욕 빅버스 한국어 오디오가 되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. Big Bus 공식 New York 안내에서 확인되는 녹음 해설 언어는 영어·스페인어·프랑스어·독일어·이탈리아어·포르투갈어이며 한국어는 포함되지 않습니다. 다른 운영사의 언어 지원은 예약 전 공식 페이지에서 확인하세요."}}','NY FAQ schema language',1)
+          s=must_replace(s,'<div class="hstat"><span class="hstat-v">한국어</span><span class="hstat-l">오디오 지원</span></div>',
+            '<div class="hstat"><span class="hstat-v">6개 언어</span><span class="hstat-l">빅버스 녹음 해설</span></div>','NY hero audio',1)
+          s=s.replace('둘 다 한국어 오디오를 지원하고 다운타운·업타운 노선을 커버하지만, 세부 조건이 다릅니다.','운영사마다 노선과 해설 언어, 취소 조건이 다르므로 예약 전에 필요한 조건을 따로 확인하는 편이 안전합니다.')
+          s=must_replace(s,'<tr><td><strong>한국어 오디오</strong></td><td>지원</td><td>지원 (11개 언어)</td></tr>',
+            '<tr><td><strong>한국어 오디오</strong></td><td><strong>미지원</strong> (공식 안내 확인)</td><td>최신 공식 페이지에서 확인</td></tr>','NY comparison audio row',1)
+          s=s.replace('<span class="ob-feat">한국어</span>','<span class="ob-feat">여러 상품 비교</span>')
+          s=must_replace(s,'좌석의 이어폰 단자에 이어폰을 꽂고 한국어 채널을 선택하면 명소 설명이 나옵니다. 2층 오픈탑 좌석이 전망이 가장 좋습니다.',
+            '좌석의 오디오 장치에서 지원 언어를 선택해 명소 설명을 들을 수 있습니다. Big Bus New York 공식 안내 기준 한국어는 지원하지 않으며, 영어·스페인어·프랑스어·독일어·이탈리아어·포르투갈어가 안내되어 있습니다.','NY how-to audio',1)
+          s=s.replace('2층 오픈탑의 전망과 사진 찍기 좋은 환경, 한국어 오디오 가이드가 호평받습니다.','2층 오픈탑에서 주요 명소를 한 번에 보는 동선과 사진 촬영이 편리하다는 점이 장점입니다.')
+          s=s.replace('<span class="review-num">4.5</span>','<span class="review-num">8K+</span>')
+          s=s.replace('빅버스 뉴욕 · 트립어드바이저 기준<br>8,000개 이상의 리뷰 · 뉴욕 홉온홉오프 상위권','Big Bus 공식 페이지 표시 기준<br>8,000개 이상의 이용 후기 · 평점은 예약 페이지에서 확인')
+          s=must_replace(s,'<div class="faq-item"><div class="faq-q">예매와 현장구매 중 뭐가 저렴한가요?</div><div class="faq-a">온라인 예매가 거의 항상 저렴합니다. 성수기 좌석도 보장되고 모바일 티켓으로 바로 탑승할 수 있습니다. City Sightseeing은 할인코드 CJTRAVEL10으로 10% 추가 할인됩니다.</div></div>',
+            '<div class="faq-item"><div class="faq-q">예매와 현장구매 중 뭐가 저렴한가요?</div><div class="faq-a">온라인 가격과 현장 가격은 시점과 재고에 따라 달라질 수 있습니다. Big Bus 공식 예약 페이지에서 방문일 기준 현재 가격을 확인하세요. CJTRAVEL10은 City Sightseeing의 대상 링크·상품에서만 적용 여부를 예약 단계에서 확인해야 합니다.</div></div>','NY FAQ promo',1)
+          s=must_replace(s,'<div class="faq-item"><div class="faq-q">한국어 오디오 가이드가 되나요?</div><div class="faq-a">네. 빅버스와 탑뷰 모두 한국어를 포함한 다국어 오디오를 제공합니다. 탑뷰는 11개 언어를 지원합니다. 좌석 이어폰 단자에서 한국어 채널을 선택하면 됩니다.</div></div>',
+            '<div class="faq-item"><div class="faq-q">한국어 오디오 가이드가 되나요?</div><div class="faq-a">Big Bus New York은 현재 공식 안내 기준 한국어 오디오를 지원하지 않습니다. 안내된 녹음 해설 언어는 영어·스페인어·프랑스어·독일어·이탈리아어·포르투갈어입니다. 다른 운영사는 예약 전 공식 언어 목록을 확인하세요.</div></div>','NY visible FAQ audio',1)
+          s=s.replace('빅버스 뉴욕은 4종류의 티켓이 있습니다.','현재 Big Bus 공식 페이지에서 비교되는 대표 티켓은 Discover·Essential·Explore입니다.')
+          s=s.replace('다운타운+업타운 2개 루프 모두 탑승','다운타운+업타운 2개 루프 · 2시간 나이트 투어 포함')
+          s=s.replace('New York Unlocked (48시간)','Explore Ticket (72시간)')
+          s=s.replace('버스 + 자유의 여신상/엠파이어 + 명소 1곳 선택','다운타운+업타운 72시간 · 2시간 나이트 투어 · Circle Line 크루즈 포함')
+          s=s.replace('👉 입장권까지 한 번에 묶어 가장 아끼고 싶은 분 (정상가 $208)','👉 3일 동안 여유롭게 보고 나이트 투어와 크루즈까지 이용하고 싶은 분 (정상가 $208)')
+          # Remove the obsolete Sizzler card without crossing another ticket anchor.
+          pattern=r'\s*<a class="tk"[^>]*>(?:(?!</a>)[\s\S])*?<span class="tk-name">New York Sizzler[^<]*</span>(?:(?!</a>)[\s\S])*?</a>'
+          s,n=re.subn(pattern,'',s,count=1)
+          if n != 1: raise SystemExit(f'NY Sizzler removal expected 1, got {n}')
+          # Unique affiliate SIDs by click position.
+          base=r'https://www\.jdoqocy\.com/click-8754229-12523130\?sid=nyc'
+          names=['NYC-BB-W-nyc-hero','NYC-BB-W-nyc-discover','NYC-BB-W-nyc-essential','NYC-BB-W-nyc-explore','NYC-BB-W-nyc-bottom','NYC-BB-W-nyc-extra']
+          idx=[0]
+          def sid_repl(m):
+              i=idx[0]; idx[0]+=1
+              sid=names[i] if i < len(names) else f'NYC-BB-W-nyc-{i+1}'
+              return 'https://www.jdoqocy.com/click-8754229-12523130?sid='+sid
+          s=re.sub(base,sid_repl,s)
+          if 'sid=nyc"' in s: raise SystemExit('Unsegmented NYC Big Bus SID remains')
+          s=s.replace('rel="noopener"','rel="sponsored noopener"')
+          s=must_replace(s,'<div class="disclaimer">This site contains affiliate links. We may earn a commission when you book — at no extra cost to you.</div>',
+            '<div class="disclaimer">이 페이지에는 제휴 링크가 포함되어 있으며, 예약 시 이용자 추가 비용 없이 CITYTOURBUS.KR이 수수료를 받을 수 있습니다. · <a href="/terms">이용약관</a> · <a href="/privacy">개인정보처리방침</a></div>','NY affiliate disclosure',1)
+          s=s.replace('최종 업데이트: 2026년 6월 · 가격은 브랜드 공식 기준이며 환율·시즌에 따라 변동될 수 있습니다.','최종 확인: 2026년 10월 13일 · Big Bus 가격과 오디오 언어는 공식 페이지 기준이며 예약 시점에 변동될 수 있습니다.')
+          p.write_text(s)
+
+          # Sitemap: add real trust pages, keep preferred www host.
+          p=Path('sitemap.xml'); s=p.read_text()
+          if '/terms' not in s:
+              addition='''  <url>\n    <loc>https://www.citytourbus.kr/terms</loc>\n    <lastmod>2026-10-13</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.3</priority>\n  </url>\n  <url>\n    <loc>https://www.citytourbus.kr/privacy</loc>\n    <lastmod>2026-10-13</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.3</priority>\n  </url>\n'''
+              s=s.replace('</urlset>',addition+'</urlset>')
+          p.write_text(s)
+
+          # Guardrails: fail the job if high-risk public claims remain.
+          compare=Path('compare.html').read_text(); ny=Path('new-york-city-tour-bus.html').read_text()
+          checks=[
+            ('brand-wide Korean claim','주요 브랜드 모두 한국어 지원' not in compare),
+            ('NY Big Bus Korean yes','<td>지원</td><td>지원 (11개 언어)</td>' not in ny),
+            ('NY stale June','최종 업데이트: 2026년 6월' not in ny),
+            ('compare placeholder policies','href="#">이용약관' not in compare),
+            ('NY English disclosure','This site contains affiliate links' not in ny),
+          ]
+          for label, ok in checks:
+              if not ok: raise SystemExit('Guard failed: '+label)
+          print('All trust/SEO content guardrails passed')
+          PY
+      - name: Commit generated fixes
+        run: |
+          git config user.name "citytourbus-fix-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index-v2.html compare.html new-york-city-tour-bus.html sitemap.xml
+          git diff --cached --quiet && exit 0
+          git commit -m "Fix public trust claims and New York comparison data"
+          git push origin HEAD:fix/trust-seo-20261013

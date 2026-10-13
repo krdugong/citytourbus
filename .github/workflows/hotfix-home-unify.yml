@@ -1,0 +1,65 @@
+name: Hotfix home unify
+
+on:
+  push:
+    branches: [hotfix/home-unify-20261013]
+    paths: ['.github/workflows/hotfix-home-unify.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: hotfix/home-unify-20261013
+          fetch-depth: 0
+      - name: Unify home files and prevent Korean word splitting
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('index-v2.html')
+          s = p.read_text()
+
+          s = re.sub(
+              r'\.heroin\{max-width:1180px;margin:auto;padding:68px 28px 58px;display:grid;grid-template-columns:[^}]+?;gap:[^;]+;align-items:center\}',
+              '.heroin{max-width:1180px;margin:auto;padding:68px 28px 58px;display:grid;grid-template-columns:minmax(640px,1.18fr) minmax(400px,.82fr);gap:28px;align-items:center}',
+              s,
+              count=1
+          )
+          s = re.sub(
+              r'\.hero h1\{font-size:\d+px;line-height:1\.13;letter-spacing:[^;]+;font-weight:800;word-break:keep-all;overflow-wrap:normal(?:;text-wrap:balance)?;margin-bottom:20px\}',
+              '.hero h1{font-size:48px;line-height:1.13;letter-spacing:-2.4px;font-weight:800;word-break:keep-all;overflow-wrap:normal;margin-bottom:20px}',
+              s,
+              count=1
+          )
+          s = re.sub(
+              r'<h1>.*?</h1>',
+              '<h1><span class="title-top"><span class="nowrap-word">전 세계</span> <span class="nowrap-word">시티투어버스를</span></span><span class="subline">한곳에서 비교하세요.</span></h1>',
+              s,
+              count=1,
+              flags=re.S
+          )
+          s = re.sub(
+              r'\.hero h1 \.line\{display:block;white-space:nowrap\}\.hero h1 \.subline\{display:block;color:var\(--sub\);white-space:nowrap\}(?:\.nowrap-word\{(?:display:inline-block;)?white-space:nowrap\})?',
+              '.hero h1 .title-top{display:block}.hero h1 .subline{display:block;color:var(--sub);white-space:nowrap}.nowrap-word{display:inline-block;white-space:nowrap}',
+              s,
+              count=1
+          )
+          s = s.replace('.hero h1 .line,.hero h1 .subline{white-space:normal}', '.hero h1 .title-top,.hero h1 .subline{white-space:normal}')
+          p.write_text(s)
+
+          # Keep both possible homepage entry files identical.
+          Path('index.html').write_text(s)
+          PY
+
+          git config user.name 'citytourbus-ui-bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm .github/workflows/hotfix-home-unify.yml
+          git add index.html index-v2.html
+          git commit -m 'Unify homepage files and prevent Korean title splitting'
+          git push origin hotfix/home-unify-20261013

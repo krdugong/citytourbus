@@ -1,10 +1,8 @@
 name: Patch Hong Kong nearby stop finder
 on:
   push:
-    branches:
-      - feature/hong-kong-route-map-20261018
-    paths:
-      - .github/workflows/patch-hk-nearby-search.yml
+    branches: [feature/hong-kong-route-map-20261018]
+    paths: [.github/workflows/patch-hk-nearby-search.yml]
 permissions:
   contents: write
 jobs:
@@ -15,40 +13,15 @@ jobs:
         with:
           ref: feature/hong-kong-route-map-20261018
           fetch-depth: 0
-      - name: Patch prototype and clean temporary workflows
+      - name: Patch HTML
+        env:
+          BLOCK_B64: PGRpdiBjbGFzcz0icGxhY2VmaW5kZXIiPgogICAgICAgICAgPGRpdiBjbGFzcz0icGxhY2VmaW5kZXIta2lja2VyIj7rp5vsp5Egwrcg7Zi47YWUIMK3IOq0gOq0keyngCDsnpDsnKDqsoDsg4k8L2Rpdj4KICAgICAgICAgIDxoMj7rgrTqsIAg6rCA66Ck64qUIOqzs+yXkOyEnCDqsIDquYzsmrQg7KCV66WY7J6lIOywvuq4sDwvaDI+CiAgICAgICAgICA8cCBjbGFzcz0icGxhY2VmaW5kZXItbGVhZCI+7ZmN7L2p7J2YIOyDge2YuOuqheydtOuCmCDtmLjthZTCt+q0gOq0keyngOulvCDqsoDsg4ntlZjrqbQg6rCA7J6lIOqwgOq5jOyatCBCaWcgQnVzIOygleulmOyepeqzvCDqt7gg7KCV66WY7J6l7J2EIOyngOuCmOuKlCDrhbjshKDsnYQg67O07Jes65Oc66a964uI64ukLjwvcD4KICAgICAgICAgIDxmb3JtIGNsYXNzPSJwbGFjZWZpbmRlci1mb3JtIiBpZD0icGxhY2VGaW5kZXJGb3JtIj4KICAgICAgICAgICAgPGlucHV0IGlkPSJwbGFjZVNlYXJjaElucHV0IiB0eXBlPSJzZWFyY2giIGF1dG9jb21wbGV0ZT0ib2ZmIiBwbGFjZWhvbGRlcj0i7JiIOiDtjIDtmLjsmYQg7ZmN7L2p7JetLCDtjpjri4zsipDrnbwg7ZmN7L2pIj4KICAgICAgICAgICAgPGJ1dHRvbiB0eXBlPSJzdWJtaXQiPuygleulmOyepSDssL7quLA8L2J1dHRvbj4KICAgICAgICAgIDwvZm9ybT4KICAgICAgICAgIDxkaXYgY2xhc3M9InBsYWNlZmluZGVyLXN0YXR1cyIgaWQ9InBsYWNlU2VhcmNoU3RhdHVzIj7tlZzquIDCt+yYgeusuCDsg4HtmLjrqoUg66qo65GQIOqygOyDie2VoCDsiJgg7J6I7Iq164uI64ukLjwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzcz0icGxhY2VmaW5kZXItcmVzdWx0cyIgaWQ9InBsYWNlU2VhcmNoUmVzdWx0cyI+PC9kaXY+CiAgICAgICAgICA8ZGl2IGlkPSJuZWFyZXN0U3RvcFJlc3VsdCI+PC9kaXY+CiAgICAgICAgPC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ic2lkZS1kaXZpZGVyIj48L2Rpdj4=
+          CSS_B64: PGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSIvaGstbmVhcmJ5LXBsYWNlLXNlYXJjaC5jc3M/dj0yMDI2MTAxOGEiPg==
+          JS_B64: PHNjcmlwdCBzcmM9Ii9oay1uZWFyYnktcGxhY2Utc2VhcmNoLmpzP3Y9MjAyNjEwMThhIj48L3NjcmlwdD4=
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          p=Path('hong-kong-route-prototype.html')
-          s=p.read_text()
-          css='<link rel="stylesheet" href="/hk-nearby-place-search.css?v=20261018a">'
-          if css not in s:
-              s=s.replace('</head>',css+'\n</head>',1)
-          marker='id="placeFinderForm"'
-          block='''<div class="placefinder">
-          <div class="placefinder-kicker">맛집 · 호텔 · 관광지 자유검색</div>
-          <h2>내가 가려는 곳에서 가까운 정류장 찾기</h2>
-          <p class="placefinder-lead">홍콩의 상호명이나 호텔·관광지를 검색하면 가장 가까운 Big Bus 정류장과 그 정류장을 지나는 노선을 보여드립니다.</p>
-          <form class="placefinder-form" id="placeFinderForm">
-            <input id="placeSearchInput" type="search" autocomplete="off" placeholder="예: 팀호완 홍콩역, 페닌슐라 홍콩">
-            <button type="submit">정류장 찾기</button>
-          </form>
-          <div class="placefinder-status" id="placeSearchStatus">한글·영문 상호명 모두 검색할 수 있습니다.</div>
-          <div class="placefinder-results" id="placeSearchResults"></div>
-          <div id="nearestStopResult"></div>
-        </div>
-        <div class="side-divider"></div>'''
-          if marker not in s:
-              s=s.replace('<aside class="side">','<aside class="side">\n        '+block,1)
-          js='<script src="/hk-nearby-place-search.js?v=20261018a"></script>'
-          if js not in s:
-              s=s.replace('</body>',js+'\n</body>',1)
-          p.write_text(s)
-          PY
-          git config user.name "citytourbus-ui-bot"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python -c 'from pathlib import Path; import os,base64; p=Path("hong-kong-route-prototype.html"); s=p.read_text(); block=base64.b64decode(os.environ["BLOCK_B64"]).decode(); css=base64.b64decode(os.environ["CSS_B64"]).decode(); js=base64.b64decode(os.environ["JS_B64"]).decode(); s=s if css in s else s.replace("</head>",css+"\n</head>",1); s=s if "placeFinderForm" in s else s.replace("<aside class=\"side\">","<aside class=\"side\">\n        "+block,1); s=s if js in s else s.replace("</body>",js+"\n</body>",1); p.write_text(s)'
+          git config user.name citytourbus-ui-bot
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add hong-kong-route-prototype.html
-          git rm -f .github/workflows/patch-hk-nearby-search.yml || true
-          git rm -f .github/workflows/patch-hk-trip-planner.yml || true
           git commit -m "Add nearby stop search for Hong Kong places"
           git push origin HEAD:feature/hong-kong-route-map-20261018

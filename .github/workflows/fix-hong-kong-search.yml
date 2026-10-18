@@ -1,0 +1,116 @@
+name: Fix Hong Kong search and homepage visibility
+
+on:
+  push:
+    branches:
+      - fix/hong-kong-search-visibility-20261018
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Patch homepage and place search
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          import json
+
+          root = Path('.')
+          home = root / 'index-v2.html'
+          s = home.read_text(encoding='utf-8')
+
+          old_group = "'아시아·오세아니아':[['tokyo','도쿄','일본'],['sydney','시드니','호주'],['bangkok','방콕','태국'],['hanoi','하노이','베트남']],"
+          new_group = "'아시아·오세아니아':[['hong-kong','홍콩','홍콩'],['tokyo','도쿄','일본'],['sydney','시드니','호주'],['bangkok','방콕','태국'],['hanoi','하노이','베트남']],"
+          if old_group not in s and "['hong-kong','홍콩','홍콩']" not in s:
+              raise SystemExit('Asia/Oceania group marker not found')
+          s = s.replace(old_group, new_group)
+
+          old_countries = "'캐나다':'🇨🇦 캐나다'};"
+          if old_countries in s:
+              s = s.replace(old_countries, "'캐나다':'🇨🇦 캐나다','홍콩':'🇭🇰 홍콩'};")
+          elif "'홍콩':'🇭🇰 홍콩'" not in s:
+              raise SystemExit('countryNames marker not found')
+
+          old_coords = "'캐나다':[165,107]};"
+          if old_coords in s:
+              s = s.replace(old_coords, "'캐나다':[165,107],'홍콩':[704,193]};")
+          elif "'홍콩':[704,193]" not in s:
+              raise SystemExit('coords marker not found')
+
+          old_href = "function href(slug){const clean=['paris','london','rome','barcelona','dubai','berlin','madrid','sydney'];return slug==='new-york'?'/new-york-city-tour-bus':clean.includes(slug)?'/'+slug+'-city-tour-bus':'/compare?city='+slug}"
+          new_href = "function href(slug){const clean=['paris','london','rome','barcelona','dubai','berlin','madrid','sydney'];if(slug==='hong-kong')return '/route-check/hong-kong';return slug==='new-york'?'/new-york-city-tour-bus':clean.includes(slug)?'/'+slug+'-city-tour-bus':'/compare?city='+slug}"
+          if old_href in s:
+              s = s.replace(old_href, new_href)
+          elif "slug==='hong-kong'" not in s:
+              raise SystemExit('href marker not found')
+
+          s = s.replace('27개국 · 45개 도시', '27개국·지역 · 46개 도시')
+          s = s.replace('27개국 45개 도시', '27개국·지역 46개 도시')
+          s = s.replace('27개국 45개 도시의', '27개국·지역 46개 도시의')
+          home.write_text(s, encoding='utf-8')
+          (root / 'index.html').write_text(s, encoding='utf-8')
+
+          hk = root / 'hk-nearby-place-search.js'
+          h = hk.read_text(encoding='utf-8')
+          marker = "  async function searchPlace(q){\n"
+          fallback = """  function localFallback(q){\n    if(typeof pois==='undefined'||!Array.isArray(pois))return [];\n    const needle=String(q||'').toLowerCase().replace(/\\s+/g,'');\n    return pois.filter(p=>[p.ko,p.en].some(v=>String(v||'').toLowerCase().replace(/\\s+/g,'').includes(needle))).slice(0,5).map(p=>({name:p.ko,display_name:`${p.ko} · Hong Kong`,lat:String(p.lat),lon:String(p.lng)}));\n  }\n\n"""
+          if 'function localFallback(q)' not in h:
+              if marker not in h:
+                  raise SystemExit('HK search function marker not found')
+              h = h.replace(marker, fallback + marker)
+
+          old_fetch = """      const params=new URLSearchParams({format:'jsonv2',limit:'5',countrycodes:'hk','accept-language':'ko,en',addressdetails:'1',q});\n      const res=await fetch(`https://nominatim.openstreetmap.org/search?${params.toString()}`,{headers:{'Accept':'application/json'}});\n      if(!res.ok)throw new Error(`HTTP ${res.status}`);\n      const data=await res.json();renderSearchResults(Array.isArray(data)?data:[]);\n    }catch(e){status.textContent='장소 검색에 실패했습니다. 잠시 뒤 다시 시도해 주세요.';console.warn('place search failed',e)}\n"""
+          new_fetch = """      const res=await fetch(`/api/place-search?city=hong-kong&q=${encodeURIComponent(q)}`,{headers:{'Accept':'application/json'}});\n      if(!res.ok)throw new Error(`HTTP ${res.status}`);\n      let data=await res.json();data=Array.isArray(data)?data:[];if(!data.length)data=localFallback(q);renderSearchResults(data);\n    }catch(e){const fallbackItems=localFallback(q);if(fallbackItems.length){status.textContent='기본 관광지 데이터에서 찾았습니다.';renderSearchResults(fallbackItems)}else{status.textContent='장소 검색에 실패했습니다. 잠시 뒤 다시 시도해 주세요.'}console.warn('place search failed',e)}\n"""
+          if old_fetch in h:
+              h = h.replace(old_fetch, new_fetch)
+          elif '/api/place-search?city=hong-kong' not in h:
+              raise SystemExit('HK upstream fetch block not found')
+          hk.write_text(h, encoding='utf-8')
+
+          ny = root / 'new-york-route-check.html'
+          n = ny.read_text(encoding='utf-8')
+          old_ny = "try{const params=new URLSearchParams({format:'jsonv2',limit:'5','accept-language':'ko,en',addressdetails:'1',bounded:'1',viewbox:'-74.03,40.88,-73.90,40.68',q});const res=await fetch('https://nominatim.openstreetmap.org/search?'+params.toString(),{headers:{Accept:'application/json'}});if(!res.ok)throw new Error(res.status);renderPlaceResults(await res.json())}catch(err){st.textContent='장소 검색에 실패했습니다. 잠시 뒤 다시 시도해 주세요.'}"
+          new_ny = "try{const res=await fetch('/api/place-search?city=new-york&q='+encodeURIComponent(q),{headers:{Accept:'application/json'}});if(!res.ok)throw new Error(res.status);let data=await res.json();data=Array.isArray(data)?data:[];if(!data.length)data=searchPoi(q).slice(0,5).map(p=>({name:p.ko,display_name:p.ko+' · New York',lat:String(p.lat),lon:String(p.lng)}));renderPlaceResults(data)}catch(err){const fb=searchPoi(q).slice(0,5).map(p=>({name:p.ko,display_name:p.ko+' · New York',lat:String(p.lat),lon:String(p.lng)}));if(fb.length){st.textContent='기본 관광지 데이터에서 찾았습니다.';renderPlaceResults(fb)}else st.textContent='장소 검색에 실패했습니다. 잠시 뒤 다시 시도해 주세요.'}"
+          if old_ny in n:
+              n = n.replace(old_ny, new_ny)
+          elif '/api/place-search?city=new-york' not in n:
+              raise SystemExit('NY upstream fetch block not found')
+          ny.write_text(n, encoding='utf-8')
+
+          vp = root / 'vercel.json'
+          cfg = json.loads(vp.read_text(encoding='utf-8'))
+          headers = cfg.setdefault('headers', [])
+          wanted = {
+              '/index.html': 'no-store, no-cache, must-revalidate, max-age=0',
+              '/route-check/(.*)': 'no-store, no-cache, must-revalidate, max-age=0',
+              '/hk-nearby-place-search.js': 'no-cache, must-revalidate, max-age=0',
+          }
+          existing = {x.get('source') for x in headers}
+          insert_at = 0
+          for source, value in wanted.items():
+              if source not in existing:
+                  headers.insert(insert_at, {'source': source, 'headers': [{'key':'Cache-Control','value':value}]})
+                  insert_at += 1
+          vp.write_text(json.dumps(cfg, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          wf = root / '.github/workflows/fix-hong-kong-search.yml'
+          if wf.exists():
+              wf.unlink()
+          PY
+      - name: Commit patched files
+        run: |
+          git config user.name "citytourbus-ui-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Fix Hong Kong search and homepage visibility"
+          git push origin HEAD:${GITHUB_REF_NAME}

@@ -1,0 +1,26 @@
+name: Promote route checkers
+on:
+  push:
+    branches: [feature/live-route-checkers-20261018]
+    paths:
+      - .github/workflows/promote-route-checkers.yml
+permissions:
+  contents: write
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/live-route-checkers-20261018
+          fetch-depth: 0
+      - name: Promote route checker pages and homepage block
+        run: python scripts/promote_route_checkers.py
+      - name: Commit promoted pages
+        run: |
+          git config user.name citytourbus-ui-bot
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git rm -f scripts/promote_route_checkers.py .github/workflows/promote-route-checkers.yml
+          git add -A
+          git commit -m "Launch New York and Hong Kong route checkers"
+          git push origin HEAD:feature/live-route-checkers-20261018

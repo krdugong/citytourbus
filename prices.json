@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-18T08:05:58Z",
+  "generatedAt": "2026-10-18T18:10:21Z",
   "note": "Prices are collected only from operators' official pages. Affiliate URLs are never called by the price collector. Operator refreshes are merged so a failed or separate run never erases the other operator's data.",
   "cities": {
     "paris": {
@@ -24,8 +24,8 @@
       },
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:05:58Z",
-        "lastSuccessAt": "2026-10-18T08:05:58Z",
+        "checkedAt": "2026-10-18T18:10:22Z",
+        "lastSuccessAt": "2026-10-18T18:10:22Z",
         "sourceUrl": "https://city-sightseeing.com/en/95/london",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=LON-W-citycompare&url=https://city-sightseeing.com/en/95/london",
         "currency": "£",
@@ -63,8 +63,8 @@
       },
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:05:58Z",
-        "lastSuccessAt": "2026-10-18T08:05:58Z",
+        "checkedAt": "2026-10-18T18:10:22Z",
+        "lastSuccessAt": "2026-10-18T18:10:22Z",
         "sourceUrl": "https://city-sightseeing.com/en/3/berlin",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=BER-W-citycompare&url=https://city-sightseeing.com/en/3/berlin",
         "currency": "£",
@@ -92,8 +92,8 @@
       },
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:03Z",
-        "lastSuccessAt": "2026-10-18T08:06:03Z",
+        "checkedAt": "2026-10-18T18:10:27Z",
+        "lastSuccessAt": "2026-10-18T18:10:27Z",
         "sourceUrl": "https://city-sightseeing.com/en/114/madrid",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=MAD-W-citycompare&url=https://city-sightseeing.com/en/114/madrid",
         "currency": "£",
@@ -121,8 +121,8 @@
       },
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:03Z",
-        "lastSuccessAt": "2026-10-18T08:06:03Z",
+        "checkedAt": "2026-10-18T18:10:27Z",
+        "lastSuccessAt": "2026-10-18T18:10:27Z",
         "sourceUrl": "https://city-sightseeing.com/en/112/dubai",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=DXB-W-citycompare&url=https://city-sightseeing.com/en/112/dubai",
         "currency": "£",
@@ -150,7 +150,7 @@
       },
       "cs": {
         "status": "error",
-        "checkedAt": "2026-10-18T08:06:03Z",
+        "checkedAt": "2026-10-18T18:10:27Z",
         "lastSuccessAt": null,
         "sourceUrl": "https://city-sightseeing.com/en/34/new-york",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=NYC-W-citycompare&url=https://city-sightseeing.com/en/34/new-york",
@@ -223,8 +223,8 @@
       },
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:39Z",
-        "lastSuccessAt": "2026-10-18T08:06:39Z",
+        "checkedAt": "2026-10-18T18:11:04Z",
+        "lastSuccessAt": "2026-10-18T18:11:04Z",
         "sourceUrl": "https://city-sightseeing.com/en/37/san-francisco",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=SFO-CS-W-citycompare&url=https://city-sightseeing.com/en/37/san-francisco",
         "currency": "£",
@@ -257,8 +257,8 @@
       },
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:25Z",
-        "lastSuccessAt": "2026-10-18T08:06:25Z",
+        "checkedAt": "2026-10-18T18:10:49Z",
+        "lastSuccessAt": "2026-10-18T18:10:49Z",
         "sourceUrl": "https://city-sightseeing.com/en/48/budapest",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=BUD-CS-W-citycompare&url=https://city-sightseeing.com/en/48/budapest",
         "currency": "£",
@@ -278,8 +278,8 @@
     "barcelona": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:05:58Z",
-        "lastSuccessAt": "2026-10-18T08:05:58Z",
+        "checkedAt": "2026-10-18T18:10:22Z",
+        "lastSuccessAt": "2026-10-18T18:10:22Z",
         "sourceUrl": "https://city-sightseeing.com/en/17/barcelona",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=BCN-W-citycompare&url=https://city-sightseeing.com/en/17/barcelona",
         "currency": "£",
@@ -301,8 +301,8 @@
     "copenhagen": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:07Z",
-        "lastSuccessAt": "2026-10-18T08:06:07Z",
+        "checkedAt": "2026-10-18T18:10:31Z",
+        "lastSuccessAt": "2026-10-18T18:10:31Z",
         "sourceUrl": "https://city-sightseeing.com/en/16/copenhagen",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=CPH-W-citycompare&url=https://city-sightseeing.com/en/16/copenhagen",
         "currency": "£",
@@ -322,8 +322,8 @@
     "prague": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:08Z",
-        "lastSuccessAt": "2026-10-18T08:06:08Z",
+        "checkedAt": "2026-10-18T18:10:32Z",
+        "lastSuccessAt": "2026-10-18T18:10:32Z",
         "sourceUrl": "https://city-sightseeing.com/en/102/prague",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=PRG-W-citycompare&url=https://city-sightseeing.com/en/102/prague",
         "currency": "£",
@@ -343,8 +343,8 @@
     "helsinki": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:08Z",
-        "lastSuccessAt": "2026-10-18T08:06:08Z",
+        "checkedAt": "2026-10-18T18:10:32Z",
+        "lastSuccessAt": "2026-10-18T18:10:32Z",
         "sourceUrl": "https://city-sightseeing.com/en/40/helsinki",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=HEL-W-citycompare&url=https://city-sightseeing.com/en/40/helsinki",
         "currency": "£",
@@ -364,12 +364,12 @@
     "reykjavik": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:11Z",
-        "lastSuccessAt": "2026-10-18T08:06:11Z",
+        "checkedAt": "2026-10-18T18:10:36Z",
+        "lastSuccessAt": "2026-10-18T18:10:36Z",
         "sourceUrl": "https://city-sightseeing.com/en/49/reykjavik",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=REK-W-citycompare&url=https://city-sightseeing.com/en/49/reykjavik",
         "currency": "£",
-        "salePrice": 33.8,
+        "salePrice": 33.81,
         "regularPrice": null,
         "onsiteDiscountPercent": null,
         "label": "Bus",
@@ -385,8 +385,8 @@
     "dublin": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:12Z",
-        "lastSuccessAt": "2026-10-18T08:06:12Z",
+        "checkedAt": "2026-10-18T18:10:36Z",
+        "lastSuccessAt": "2026-10-18T18:10:36Z",
         "sourceUrl": "https://city-sightseeing.com/en/50/dublin",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=DUB-W-citycompare&url=https://city-sightseeing.com/en/50/dublin",
         "currency": "£",
@@ -406,8 +406,8 @@
     "oslo": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:12Z",
-        "lastSuccessAt": "2026-10-18T08:06:12Z",
+        "checkedAt": "2026-10-18T18:10:37Z",
+        "lastSuccessAt": "2026-10-18T18:10:37Z",
         "sourceUrl": "https://city-sightseeing.com/en/69/oslo",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=OSL-W-citycompare&url=https://city-sightseeing.com/en/69/oslo",
         "currency": "£",
@@ -427,8 +427,8 @@
     "amsterdam": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:15Z",
-        "lastSuccessAt": "2026-10-18T08:06:15Z",
+        "checkedAt": "2026-10-18T18:10:40Z",
+        "lastSuccessAt": "2026-10-18T18:10:40Z",
         "sourceUrl": "https://city-sightseeing.com/en/45/amsterdam",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=AMS-W-citycompare&url=https://city-sightseeing.com/en/45/amsterdam",
         "currency": "£",
@@ -448,8 +448,8 @@
     "warsaw": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:16Z",
-        "lastSuccessAt": "2026-10-18T08:06:16Z",
+        "checkedAt": "2026-10-18T18:10:40Z",
+        "lastSuccessAt": "2026-10-18T18:10:40Z",
         "sourceUrl": "https://city-sightseeing.com/en/74/warsaw",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=WAW-W-citycompare&url=https://city-sightseeing.com/en/74/warsaw",
         "currency": "£",
@@ -469,8 +469,8 @@
     "porto": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:16Z",
-        "lastSuccessAt": "2026-10-18T08:06:16Z",
+        "checkedAt": "2026-10-18T18:10:41Z",
+        "lastSuccessAt": "2026-10-18T18:10:41Z",
         "sourceUrl": "https://city-sightseeing.com/en/79/porto",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=OPO-W-citycompare&url=https://city-sightseeing.com/en/79/porto",
         "currency": "£",
@@ -490,8 +490,8 @@
     "lisbon": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:19Z",
-        "lastSuccessAt": "2026-10-18T08:06:19Z",
+        "checkedAt": "2026-10-18T18:10:44Z",
+        "lastSuccessAt": "2026-10-18T18:10:44Z",
         "sourceUrl": "https://city-sightseeing.com/en/80/lisbon",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=LIS-W-citycompare&url=https://city-sightseeing.com/en/80/lisbon",
         "currency": "£",
@@ -511,8 +511,8 @@
     "stockholm": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:20Z",
-        "lastSuccessAt": "2026-10-18T08:06:20Z",
+        "checkedAt": "2026-10-18T18:10:44Z",
+        "lastSuccessAt": "2026-10-18T18:10:44Z",
         "sourceUrl": "https://city-sightseeing.com/en/109/stockholm",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=STO-W-citycompare&url=https://city-sightseeing.com/en/109/stockholm",
         "currency": "£",
@@ -532,8 +532,8 @@
     "seville": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:21Z",
-        "lastSuccessAt": "2026-10-18T08:06:21Z",
+        "checkedAt": "2026-10-18T18:10:45Z",
+        "lastSuccessAt": "2026-10-18T18:10:45Z",
         "sourceUrl": "https://city-sightseeing.com/en/1/seville",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=SVQ-W-citycompare&url=https://city-sightseeing.com/en/1/seville",
         "currency": "£",
@@ -553,8 +553,8 @@
     "malaga": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:23Z",
-        "lastSuccessAt": "2026-10-18T08:06:23Z",
+        "checkedAt": "2026-10-18T18:10:48Z",
+        "lastSuccessAt": "2026-10-18T18:10:48Z",
         "sourceUrl": "https://city-sightseeing.com/en/24/malaga",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=AGP-W-citycompare&url=https://city-sightseeing.com/en/24/malaga",
         "currency": "£",
@@ -574,8 +574,8 @@
     "athens": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:24Z",
-        "lastSuccessAt": "2026-10-18T08:06:24Z",
+        "checkedAt": "2026-10-18T18:10:49Z",
+        "lastSuccessAt": "2026-10-18T18:10:49Z",
         "sourceUrl": "https://city-sightseeing.com/en/43/athens",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=ATH-W-citycompare&url=https://city-sightseeing.com/en/43/athens",
         "currency": "£",
@@ -595,8 +595,8 @@
     "edinburgh": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:28Z",
-        "lastSuccessAt": "2026-10-18T08:06:28Z",
+        "checkedAt": "2026-10-18T18:10:52Z",
+        "lastSuccessAt": "2026-10-18T18:10:52Z",
         "sourceUrl": "https://city-sightseeing.com/en/91/edinburgh",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=EDI-W-citycompare&url=https://city-sightseeing.com/en/91/edinburgh",
         "currency": "£",
@@ -616,8 +616,8 @@
     "tallinn": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:28Z",
-        "lastSuccessAt": "2026-10-18T08:06:28Z",
+        "checkedAt": "2026-10-18T18:10:53Z",
+        "lastSuccessAt": "2026-10-18T18:10:53Z",
         "sourceUrl": "https://city-sightseeing.com/en/39/tallinn",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=TLL-W-citycompare&url=https://city-sightseeing.com/en/39/tallinn",
         "currency": "£",
@@ -637,8 +637,8 @@
     "galway": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:29Z",
-        "lastSuccessAt": "2026-10-18T08:06:29Z",
+        "checkedAt": "2026-10-18T18:10:54Z",
+        "lastSuccessAt": "2026-10-18T18:10:54Z",
         "sourceUrl": "https://city-sightseeing.com/en/127/galway",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=GWY-W-citycompare&url=https://city-sightseeing.com/en/127/galway",
         "currency": "£",
@@ -658,8 +658,8 @@
     "split": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:32Z",
-        "lastSuccessAt": "2026-10-18T08:06:32Z",
+        "checkedAt": "2026-10-18T18:10:57Z",
+        "lastSuccessAt": "2026-10-18T18:10:57Z",
         "sourceUrl": "https://city-sightseeing.com/en/171/split",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=SPU-W-citycompare&url=https://city-sightseeing.com/en/171/split",
         "currency": "£",
@@ -679,7 +679,7 @@
     "abu-dhabi": {
       "cs": {
         "status": "error",
-        "checkedAt": "2026-10-18T08:06:32Z",
+        "checkedAt": "2026-10-18T18:10:57Z",
         "lastSuccessAt": null,
         "sourceUrl": "https://city-sightseeing.com/en/170/abu-dhabi",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=AUH-W-citycompare&url=https://city-sightseeing.com/en/170/abu-dhabi",
@@ -689,8 +689,8 @@
     "sharjah": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:33Z",
-        "lastSuccessAt": "2026-10-18T08:06:33Z",
+        "checkedAt": "2026-10-18T18:10:58Z",
+        "lastSuccessAt": "2026-10-18T18:10:58Z",
         "sourceUrl": "https://city-sightseeing.com/en/113/sharjah",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=SHJ-W-citycompare&url=https://city-sightseeing.com/en/113/sharjah",
         "currency": "£",
@@ -710,7 +710,7 @@
     "cape-town": {
       "cs": {
         "status": "error",
-        "checkedAt": "2026-10-18T08:06:35Z",
+        "checkedAt": "2026-10-18T18:11:00Z",
         "lastSuccessAt": null,
         "sourceUrl": "https://city-sightseeing.com/en/107/cape-town",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=CPT-W-citycompare&url=https://city-sightseeing.com/en/107/cape-town",
@@ -720,7 +720,7 @@
     "johannesburg": {
       "cs": {
         "status": "error",
-        "checkedAt": "2026-10-18T08:06:36Z",
+        "checkedAt": "2026-10-18T18:11:01Z",
         "lastSuccessAt": null,
         "sourceUrl": "https://city-sightseeing.com/en/108/johannesburg",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=JNB-W-citycompare&url=https://city-sightseeing.com/en/108/johannesburg",
@@ -730,8 +730,8 @@
     "bangkok": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:37Z",
-        "lastSuccessAt": "2026-10-18T08:06:37Z",
+        "checkedAt": "2026-10-18T18:11:01Z",
+        "lastSuccessAt": "2026-10-18T18:11:01Z",
         "sourceUrl": "https://city-sightseeing.com/en/163/bangkok",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=BKK-W-citycompare&url=https://city-sightseeing.com/en/163/bangkok",
         "currency": "£",
@@ -751,8 +751,8 @@
     "hanoi": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:39Z",
-        "lastSuccessAt": "2026-10-18T08:06:39Z",
+        "checkedAt": "2026-10-18T18:11:04Z",
+        "lastSuccessAt": "2026-10-18T18:11:04Z",
         "sourceUrl": "https://city-sightseeing.com/en/155/hanoi",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=HAN-W-citycompare&url=https://city-sightseeing.com/en/155/hanoi",
         "currency": "£",
@@ -772,8 +772,8 @@
     "toronto": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:41Z",
-        "lastSuccessAt": "2026-10-18T08:06:41Z",
+        "checkedAt": "2026-10-18T18:11:06Z",
+        "lastSuccessAt": "2026-10-18T18:11:06Z",
         "sourceUrl": "https://city-sightseeing.com/en/13/toronto",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=YYZ-W-citycompare&url=https://city-sightseeing.com/en/13/toronto",
         "currency": "£",
@@ -793,8 +793,8 @@
     "philadelphia": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:43Z",
-        "lastSuccessAt": "2026-10-18T08:06:43Z",
+        "checkedAt": "2026-10-18T18:11:08Z",
+        "lastSuccessAt": "2026-10-18T18:11:08Z",
         "sourceUrl": "https://city-sightseeing.com/en/35/philadelphia",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=PHL-W-citycompare&url=https://city-sightseeing.com/en/35/philadelphia",
         "currency": "£",
@@ -814,8 +814,8 @@
     "new-orleans": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:43Z",
-        "lastSuccessAt": "2026-10-18T08:06:43Z",
+        "checkedAt": "2026-10-18T18:11:08Z",
+        "lastSuccessAt": "2026-10-18T18:11:08Z",
         "sourceUrl": "https://city-sightseeing.com/en/33/new-orleans",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=MSY-W-citycompare&url=https://city-sightseeing.com/en/33/new-orleans",
         "currency": "£",
@@ -835,8 +835,8 @@
     "los-angeles": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:45Z",
-        "lastSuccessAt": "2026-10-18T08:06:45Z",
+        "checkedAt": "2026-10-18T18:11:10Z",
+        "lastSuccessAt": "2026-10-18T18:11:10Z",
         "sourceUrl": "https://city-sightseeing.com/en/30/hollywood-los-angeles",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=LAX-W-citycompare&url=https://city-sightseeing.com/en/30/hollywood-los-angeles",
         "currency": "£",
@@ -856,8 +856,8 @@
     "seattle": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-18T08:06:47Z",
-        "lastSuccessAt": "2026-10-18T08:06:47Z",
+        "checkedAt": "2026-10-18T18:11:12Z",
+        "lastSuccessAt": "2026-10-18T18:11:12Z",
         "sourceUrl": "https://city-sightseeing.com/en/142/seattle",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=SEA-W-citycompare&url=https://city-sightseeing.com/en/142/seattle",
         "currency": "£",

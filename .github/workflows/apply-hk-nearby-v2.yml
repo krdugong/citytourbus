@@ -1,0 +1,25 @@
+name: Apply Hong Kong nearby stop patch
+on: [push]
+permissions:
+  contents: write
+jobs:
+  patch:
+    if: github.ref == 'refs/heads/feature/hong-kong-route-map-20261018'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/hong-kong-route-map-20261018
+          fetch-depth: 0
+      - run: python scripts/apply_hk_nearby_patch.py
+      - name: Commit patch if changed
+        run: |
+          if git diff --quiet; then
+            echo "No HTML patch needed"
+            exit 0
+          fi
+          git config user.name citytourbus-ui-bot
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add hong-kong-route-prototype.html
+          git commit -m "Wire nearby stop search into Hong Kong prototype"
+          git push origin HEAD:feature/hong-kong-route-map-20261018

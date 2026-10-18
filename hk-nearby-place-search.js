@@ -89,14 +89,19 @@
       renderNearest({name,address:x.display_name||'',lat:+x.lat,lng:+x.lon});
     });
   }
+  function localFallback(q){
+    if(typeof pois==='undefined'||!Array.isArray(pois))return [];
+    const needle=String(q||'').toLowerCase().replace(/\s+/g,'');
+    return pois.filter(p=>[p.ko,p.en].some(v=>String(v||'').toLowerCase().replace(/\s+/g,'').includes(needle))).slice(0,5).map(p=>({name:p.ko,display_name:`${p.ko} · Hong Kong`,lat:String(p.lat),lon:String(p.lng)}));
+  }
+
   async function searchPlace(q){
     submit.disabled=true;status.textContent='홍콩 내 장소를 찾는 중입니다…';results.innerHTML='';nearest.innerHTML='';
     try{
-      const params=new URLSearchParams({format:'jsonv2',limit:'5',countrycodes:'hk','accept-language':'ko,en',addressdetails:'1',q});
-      const res=await fetch(`https://nominatim.openstreetmap.org/search?${params.toString()}`,{headers:{'Accept':'application/json'}});
+      const res=await fetch(`/api/place-search?city=hong-kong&q=${encodeURIComponent(q)}`,{headers:{'Accept':'application/json'}});
       if(!res.ok)throw new Error(`HTTP ${res.status}`);
-      const data=await res.json();renderSearchResults(Array.isArray(data)?data:[]);
-    }catch(e){status.textContent='장소 검색에 실패했습니다. 잠시 뒤 다시 시도해 주세요.';console.warn('place search failed',e)}
+      let data=await res.json();data=Array.isArray(data)?data:[];if(!data.length)data=localFallback(q);renderSearchResults(data);
+    }catch(e){const fallbackItems=localFallback(q);if(fallbackItems.length){status.textContent='기본 관광지 데이터에서 찾았습니다.';renderSearchResults(fallbackItems)}else{status.textContent='장소 검색에 실패했습니다. 잠시 뒤 다시 시도해 주세요.'}console.warn('place search failed',e)}
     finally{submit.disabled=false}
   }
   form.addEventListener('submit',e=>{e.preventDefault();const q=input.value.trim();if(q.length<2){status.textContent='맛집·호텔·관광지 이름을 2글자 이상 입력해 주세요.';return}searchPlace(q)});

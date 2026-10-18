@@ -13,11 +13,11 @@
     },
     {
       "source": "/route-check/new-york",
-      "destination": "/new-york-route-check.html"
+      "destination": "/new-york-route-check"
     },
     {
       "source": "/route-check/hong-kong",
-      "destination": "/hong-kong-route-check.html"
+      "destination": "/hong-kong-route-check"
     },
     {
       "source": "/paris-city-tour-bus",

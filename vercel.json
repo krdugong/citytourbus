@@ -12,14 +12,6 @@
       "destination": "/index-v2.html"
     },
     {
-      "source": "/route-check/new-york",
-      "destination": "/new-york-route-check"
-    },
-    {
-      "source": "/route-check/hong-kong",
-      "destination": "/hong-kong-route-check"
-    },
-    {
       "source": "/paris-city-tour-bus",
       "destination": "/api/compare?city=paris"
     },
@@ -175,23 +167,33 @@
   ],
   "redirects": [
     {
+      "source": "/route-check/new-york",
+      "destination": "/new-york-route-check",
+      "permanent": false
+    },
+    {
+      "source": "/route-check/hong-kong",
+      "destination": "/hong-kong-route-check",
+      "permanent": false
+    },
+    {
       "source": "/new-york-route-prototype.html",
-      "destination": "/route-check/new-york",
+      "destination": "/new-york-route-check",
       "permanent": true
     },
     {
       "source": "/new-york-route-prototype",
-      "destination": "/route-check/new-york",
+      "destination": "/new-york-route-check",
       "permanent": true
     },
     {
       "source": "/hong-kong-route-prototype.html",
-      "destination": "/route-check/hong-kong",
+      "destination": "/hong-kong-route-check",
       "permanent": true
     },
     {
       "source": "/hong-kong-route-prototype",
-      "destination": "/route-check/hong-kong",
+      "destination": "/hong-kong-route-check",
       "permanent": true
     }
   ]

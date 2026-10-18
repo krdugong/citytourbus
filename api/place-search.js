@@ -16,16 +16,22 @@ export default async function handler(req, res) {
     q,
   });
 
-  if (city === 'hong-kong') {
-    params.set('countrycodes', 'hk');
-  } else if (city === 'new-york') {
-    params.set('countrycodes', 'us');
-    params.set('bounded', '1');
-    params.set('viewbox', '-74.03,40.88,-73.90,40.68');
-  } else {
+  const cityConfig = {
+    'hong-kong': { countrycodes: 'hk' },
+    'new-york': { countrycodes: 'us', bounded: '1', viewbox: '-74.03,40.88,-73.90,40.68' },
+    paris: { countrycodes: 'fr', bounded: '1', viewbox: '2.20,48.92,2.42,48.80' },
+    london: { countrycodes: 'gb', bounded: '1', viewbox: '-0.25,51.56,0.02,51.45' },
+    rome: { countrycodes: 'it', bounded: '1', viewbox: '12.40,41.95,12.58,41.82' },
+    dubai: { countrycodes: 'ae', bounded: '1', viewbox: '55.08,25.35,55.40,24.98' },
+    barcelona: { countrycodes: 'es', bounded: '1', viewbox: '2.05,41.47,2.24,41.32' },
+  };
+
+  const selected = cityConfig[city];
+  if (!selected) {
     res.status(400).json({ error: 'unsupported_city' });
     return;
   }
+  Object.entries(selected).forEach(([k, v]) => params.set(k, v));
 
   try {
     const upstream = await fetch(`https://nominatim.openstreetmap.org/search?${params.toString()}`, {

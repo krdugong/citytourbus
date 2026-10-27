@@ -12,22 +12,6 @@
       "destination": "/index-v2.html"
     },
     {
-      "source": "/paris-city-tour-bus",
-      "destination": "/api/compare?city=paris"
-    },
-    {
-      "source": "/london-city-tour-bus",
-      "destination": "/api/compare?city=london"
-    },
-    {
-      "source": "/rome-city-tour-bus",
-      "destination": "/api/compare?city=rome"
-    },
-    {
-      "source": "/barcelona-city-tour-bus",
-      "destination": "/api/compare?city=barcelona"
-    },
-    {
       "source": "/dubai-city-tour-bus",
       "destination": "/api/compare?city=dubai"
     },

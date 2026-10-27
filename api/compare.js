@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const CLEAN_PATHS = new Set(['paris','london','rome','barcelona','dubai','berlin','madrid','sydney']);
+const CLEAN_PATHS = new Set(['paris','london','rome','barcelona','tokyo','dubai','berlin','madrid','sydney']);
 
 const CITIES = {
   paris:['파리','프랑스','🗼'], london:['런던','영국','🎡'], rome:['로마','이탈리아','🏛'],

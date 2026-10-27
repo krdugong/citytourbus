@@ -38,8 +38,16 @@ for c in cards {
   NSColor(white: 1, alpha: 0.18).setFill(); NSBezierPath(roundedRect: pill, xRadius: 31 * s, yRadius: 31 * s).fill()
   text(c.eyebrow, ef, white, pill.insetBy(dx: 22 * s, dy: 12 * s))
   let wide = W > H
-  let tf = font((wide ? 92 : 128) * s, bold: true)
   let titleH = (wide ? 230 : 340) * s
+  // shrink the title until it fits the box (long city names would otherwise be clipped)
+  var size = (wide ? 92 : 128) * s
+  var tf = font(size, bold: true)
+  let tp = NSMutableParagraphStyle(); tp.lineHeightMultiple = 1.05; tp.lineBreakStrategy = .hangulWordPriority
+  while size > 40 * s {
+    let h = (c.title as NSString).boundingRect(with: NSSize(width: W - pad * 2, height: 10000), options: [.usesLineFragmentOrigin], attributes: [.font: tf, .paragraphStyle: tp]).height
+    if h <= titleH { break }
+    size -= 4 * s; tf = font(size, bold: true)
+  }
   text(c.title, tf, white, NSRect(x: pad, y: H / 2 - titleH / 2 + (wide ? 10 : 30) * s, width: W - pad * 2, height: titleH), lineHeight: 1.05)
   text(c.sub, font((wide ? 36 : 42) * s, bold: false), NSColor(white: 1, alpha: 0.92), NSRect(x: pad, y: pad + 70 * s, width: W - pad * 2, height: 120 * s))
   text("CITYTOURBUS.KR", font(28 * s, bold: true), NSColor(white: 1, alpha: 0.75), NSRect(x: pad, y: pad - 10 * s, width: W - pad * 2, height: 50 * s))

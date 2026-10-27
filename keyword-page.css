@@ -18,3 +18,4 @@
 .kw-steps{padding-left:22px}
 .kw-steps li{margin-bottom:10px}
 @media(max-width:760px){.kw-hero{grid-template-columns:1fr;gap:24px}.kw-hero .kw-figure img{max-width:100%}}
+.kw-map img{max-width:620px;aspect-ratio:auto}

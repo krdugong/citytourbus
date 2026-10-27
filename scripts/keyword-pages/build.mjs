@@ -41,6 +41,22 @@ function figure(p, key) {
   if (!im) return '';
   return `<figure class="kw-figure"><img src="${imgPath(p, key)}" alt="${esc(im.alt)}" width="1080" height="1080" loading="${key === 'main' ? 'eager' : 'lazy'}" decoding="async"><figcaption>${esc(im.alt)}</figcaption></figure>`;
 }
+
+// Route-map images made by scripts/route-maps (overview + one per route, in data/route-maps order)
+function routeMap(p) {
+  const out = { overview: null, perRoute: [] };
+  const overview = `img/${p.slug}/${p.slug}-map.jpg`;
+  if (fs.existsSync(path.join(ROOT, overview))) out.overview = `/${overview}`;
+  const dataFile = path.join(ROOT, 'data/route-maps', `${p.slug}.json`);
+  if (fs.existsSync(dataFile)) {
+    for (const r of JSON.parse(fs.readFileSync(dataFile, 'utf8')).routes) {
+      const f = `img/${p.slug}/${p.slug}-map-${r.key}.jpg`;
+      out.perRoute.push(fs.existsSync(path.join(ROOT, f)) ? { src: `/${f}`, title: r.title || r.name } : null);
+    }
+  }
+  return out;
+}
+const mapFigure = (src, alt) => `<figure class="kw-figure kw-map"><img src="${src}" alt="${esc(alt)}" width="1080" height="1080" loading="lazy" decoding="async"><figcaption>${esc(alt)} · 정류장 순서 기준 참고용 · © OpenStreetMap contributors</figcaption></figure>`;
 const cta = (p) => `<a class="button kw-cta" href="${esc(p.booking.url)}" target="_blank" rel="sponsored nofollow noopener">${esc(p.booking.label)} →</a>`;
 const kvTable = (rows, cls = '') => `<div class="table-scroll"><table${cls ? ` class="${cls}"` : ''}><tbody>${rows.map(([a, b]) => `<tr><th scope="row">${esc(a)}</th><td>${esc(b)}</td></tr>`).join('')}</tbody></table></div>`;
 
@@ -63,10 +79,11 @@ function render(p, all) {
   sec('summary', 'SUMMARY', `${k} 한눈에 보기`, '한눈에 보기', kvTable(p.summary, 'kw-summary'));
 
   const routeNames = p.routes.map(r => `${r.name.replace(/ \(.*\)/, '')}${r.area ? `(${r.area})` : ''}`).join(', ');
+  const map = routeMap(p);
   sec('route', 'ROUTE', h2.route, '노선',
-    figure(p, 'routes') +
+    (map.overview ? mapFigure(map.overview, `${k} 노선도`) : figure(p, 'routes')) +
     `<p>${esc(k)}는 ${esc(routeNames)} ${p.routes.length > 1 ? `${p.routes.length}개 노선으로` : '노선 하나로'} 운행합니다.${p.routeCheck ? ` 정류장 위치는 <a href="${esc(p.routeCheck.url)}">${esc(p.routeCheck.label)}</a>에서 지도로 볼 수 있습니다.` : ''}</p>` +
-    p.routes.map(r => `<div class="kw-route" style="--rc:${r.color}"><h3>${esc(k)} ${esc(r.name)}${r.area ? ` · ${esc(r.area)}` : ''}</h3><p class="small">${esc(r.en)} · ${esc(r.duration)} · ${esc(r.interval)} · ${esc(r.hours)}</p>${r.stops && r.stops.length ? `<ol class="kw-stops">${r.stops.map(s => `<li>${esc(s)}</li>`).join('')}</ol>` : ''}<p>${esc(r.tip)}</p></div>`).join(''));
+    p.routes.map((r, i) => `<div class="kw-route" style="--rc:${r.color}"><h3>${esc(k)} ${esc(r.name)}${r.area ? ` · ${esc(r.area)}` : ''}</h3><p class="small">${esc(r.en)} · ${esc(r.duration)} · ${esc(r.interval)} · ${esc(r.hours)}</p>${r.stops && r.stops.length ? `<ol class="kw-stops">${r.stops.map(s => `<li>${esc(s)}</li>`).join('')}</ol>` : ''}<p>${esc(r.tip)}</p>${map.perRoute[i] ? mapFigure(map.perRoute[i].src, `${k} ${map.perRoute[i].title} 노선도`) : ''}</div>`).join(''));
 
   if (p.night) sec('night', 'NIGHT TOUR', h2.night, '나이트 투어',
     figure(p, 'night') + `<p>${esc(p.night.text)}</p><ul><li><b>출발</b> ${esc(p.night.time)}</li><li><b>출발 장소</b> ${esc(p.night.start)}</li><li><b>소요 시간</b> ${esc(p.night.duration)}</li><li><b>가격</b> ${esc(p.night.price)}</li></ul>`);
@@ -105,7 +122,7 @@ function render(p, all) {
       {
         '@type': 'Article', '@id': `${url}#article`, headline: p.title, description: p.description,
         inLanguage: 'ko-KR', datePublished: p.updated, dateModified: p.updated, mainEntityOfPage: url,
-        image: [ogImg, ...Object.keys(p.images).map(key => `${SITE}${imgPath(p, key)}`)],
+        image: [ogImg, ...Object.keys(p.images).map(key => `${SITE}${imgPath(p, key)}`), ...[map.overview, ...map.perRoute.map(x => x && x.src)].filter(Boolean).map(src => `${SITE}${src}`)],
         author: { '@type': 'Organization', name: 'CITYTOURBUS', url: `${SITE}/` },
         publisher: { '@type': 'Organization', name: 'CITYTOURBUS', logo: { '@type': 'ImageObject', url: `${SITE}/apple-touch-icon.png` } }
       },

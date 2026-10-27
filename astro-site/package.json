@@ -1,0 +1,21 @@
+{
+  "name": "citytourbus-static",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-data.mjs",
+    "images": "node scripts/process-images.mjs",
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "npm run validate && npm run images && ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "check:output": "node scripts/check-output.mjs"
+  },
+  "dependencies": {
+    "@astrojs/rss": "latest",
+    "@astrojs/sitemap": "latest",
+    "@tailwindcss/vite": "latest",
+    "astro": "latest",
+    "csv-parse": "latest",
+    "sharp": "latest",
+    "tailwindcss": "latest"
+  }
+}

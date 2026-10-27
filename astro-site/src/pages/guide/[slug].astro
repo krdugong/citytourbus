@@ -1,0 +1,7 @@
+---
+import Base from '../../layouts/Base.astro';
+import { pathFor } from '../../lib/site.mjs';
+export function getStaticPaths() { return Object.entries(import.meta.glob('../../content/guide/*.md', {eager:true})).map(([file,mod]) => ({params:{slug:file.split('/').at(-1).replace('.md','')},props:{frontmatter:mod.frontmatter,Content:mod.Content}})); }
+const {frontmatter,Content} = Astro.props;
+---
+<Base title={`${frontmatter.title} | CITYTOURBUS`} description={frontmatter.description} path={`/guide/${Astro.params.slug}/`} type="article"><article class="container max-w-3xl py-16"><nav class="text-sm text-slate-500"><a href={pathFor('/')}>홈</a> &gt; <a href={pathFor('/guide/')}>가이드</a></nav><h1 class="mt-8 text-4xl font-black">{frontmatter.title}</h1><p class="mt-4 text-slate-500">{frontmatter.pubDate?.toLocaleDateString?.('ko-KR') || frontmatter.pubDate}</p><div class="prose mt-9 leading-8 text-slate-700"><Content /></div></article></Base>

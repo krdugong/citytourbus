@@ -151,14 +151,25 @@
   ],
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "citytourbus.kr"
+        }
+      ],
+      "destination": "https://www.citytourbus.kr/:path*",
+      "permanent": true
+    },
+    {
       "source": "/route-check/new-york",
       "destination": "/new-york-route-check",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/route-check/hong-kong",
       "destination": "/hong-kong-route-check",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/new-york-route-prototype.html",

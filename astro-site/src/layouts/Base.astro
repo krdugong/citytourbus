@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+import { SITE_NAME, absolute, pathFor, imageUrl } from '../lib/site.mjs';
+const {title = SITE_NAME, description = '도시별 시티투어버스 상품을 비교합니다.', path = '/', image = '', type = 'website', schemas = []} = Astro.props;
+const canonical = absolute(path);
+const ogImage = image ? absolute(image.replace(pathFor('/'), '/')) : absolute('/og-image.png');
+const naver = import.meta.env.PUBLIC_NAVER_SITE_VERIFICATION;
+const google = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href={pathFor('/favicon.svg')} />
+    <title>{title}</title>
+    <meta name="description" content={description.slice(0,150)} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE_NAME} 가이드 RSS`} href={absolute('/rss.xml')} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description.slice(0,150)} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    {naver && <meta name="naver-site-verification" content={naver} />}
+    {google && <meta name="google-site-verification" content={google} />}
+    {schemas.map(schema => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}
+  </head>
+  <body class="min-h-screen bg-[#f6f9fc] text-[#173047]">
+    <header class="border-b border-sky-100 bg-white">
+      <div class="container flex flex-wrap items-center justify-between gap-4 py-5">
+        <a href={pathFor('/')} class="text-xl font-black tracking-tight text-[#087ca8]">CITYTOURBUS<span class="text-[#ffb247]">.</span>KR</a>
+        <nav aria-label="주요 메뉴" class="flex items-center gap-5 text-sm font-semibold text-slate-600">
+          <a href={pathFor('/')} class="hover:text-sky-700">홈</a>
+          <a href={pathFor('/city/')} class="hover:text-sky-700">전체 도시</a>
+          <a href={pathFor('/guide/')} class="hover:text-sky-700">이용 가이드</a>
+          <a href={pathFor('/about/')} class="hover:text-sky-700">서비스 소개</a>
+        </nav>
+      </div>
+    </header>
+    <main><slot /></main>
+    <footer class="mt-20 border-t border-sky-100 bg-white py-12 text-sm text-slate-600">
+      <div class="container grid gap-5 md:grid-cols-[1fr_auto]">
+        <div><p class="font-black text-[#087ca8]">CITYTOURBUS.KR</p><p class="mt-2">도시별 시티투어버스 정보를 비교합니다. 예약 전 최신 조건은 운영사 페이지에서 확인하세요.</p></div>
+        <nav aria-label="하단 메뉴" class="flex flex-wrap gap-4"><a href={pathFor('/city/')}>전체 도시</a><a href={pathFor('/guide/')}>가이드</a><a href={pathFor('/about/')}>소개</a><a href={pathFor('/privacy/')}>개인정보처리방침</a><a href={pathFor('/terms/')}>이용약관</a><a href={pathFor('/disclosure/')}>제휴 고지</a></nav>
+      </div>
+    </footer>
+  </body>
+</html>

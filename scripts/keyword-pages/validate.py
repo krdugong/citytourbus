@@ -17,6 +17,9 @@ for f in [f for f in glob.glob('*.html') + glob.glob('*/**/*.html', recursive=Tr
     for a in re.findall(r'href="(/[a-z0-9-]+)"', h):
         if not ex(a) and a not in redir: probs.append((f, 'dead link', a))
 same = open('index.html').read() == open('index-v2.html').read()
+import subprocess
+js = subprocess.run(['node', '-e', "const h=require('fs').readFileSync('index.html','utf8');for(const m of h.matchAll(/<script>([\\s\\S]*?)<\\/script>/g))new Function(m[1]);"], capture_output=True, text=True)
+if js.returncode: probs.append(('index.html', 'inline script does not parse', js.stderr.strip().splitlines()[-1] if js.stderr else ''))
 print(f'sitemap {len(locs)} dupes {len(locs) - len(set(locs))} bad {bad}')
 print('problems', probs[:20]); print('home in sync', same)
 raise SystemExit(1 if bad or probs or not same or len(locs) != len(set(locs)) else 0)

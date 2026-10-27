@@ -12,10 +12,6 @@
       "destination": "/index-v2.html"
     },
     {
-      "source": "/berlin-city-tour-bus",
-      "destination": "/api/compare?city=berlin"
-    },
-    {
       "source": "/sydney-city-tour-bus",
       "destination": "/api/compare?city=sydney"
     },

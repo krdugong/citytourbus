@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.citytourbus.kr/sitemap.xml
+Sitemap: https://www.citytourbus.kr/sitemap-index.xml

@@ -1,0 +1,9 @@
+---
+import { pathFor, imageUrl } from '../lib/site.mjs';
+import { operators } from '../lib/data.mjs';
+const {city} = Astro.props;
+---
+<a href={pathFor(`/city/${city.city_slug}/`)} class="card group block overflow-hidden transition hover:-translate-y-1 hover:shadow-xl">
+  {city.hero_image && <img src={imageUrl(city.hero_image)} width="1200" height="720" alt={city.hero_image_alt} loading="lazy" class="h-40 w-full object-cover" />}
+  <div class="p-5"><p class="text-xs font-bold text-sky-700">{city.country}</p><h3 class="mt-1 text-xl font-black group-hover:text-sky-700">{city.city} 시티투어버스</h3><p class="mt-2 text-sm text-slate-500">운영사 {operators(city).length}곳 · 상품 {city.products.length}개</p><span class="mt-4 inline-block text-sm font-bold text-sky-700">비교 페이지 보기 →</span></div>
+</a>

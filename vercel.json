@@ -16,10 +16,6 @@
       "destination": "/api/compare?city=berlin"
     },
     {
-      "source": "/madrid-city-tour-bus",
-      "destination": "/api/compare?city=madrid"
-    },
-    {
       "source": "/sydney-city-tour-bus",
       "destination": "/api/compare?city=sydney"
     },

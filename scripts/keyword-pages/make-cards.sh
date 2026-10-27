@@ -4,5 +4,6 @@
 set -e
 DIR="scripts/keyword-pages"
 node "$DIR/build.mjs"
+node "$DIR/link_home.mjs"
 swiftc -O "$DIR/cards.swift" -o "$DIR/.cache/cards"
 "$DIR/.cache/cards" "$DIR/.cache/cards.json" .

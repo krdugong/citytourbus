@@ -15,6 +15,7 @@ const google = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
     <link rel="icon" type="image/svg+xml" href={pathFor('/favicon.svg')} />
     <title>{title}</title>
     <meta name="description" content={description.slice(0,150)} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="canonical" href={canonical} />
     <link rel="alternate" type="application/rss+xml" title={`${SITE_NAME} 가이드 RSS`} href={absolute('/rss.xml')} />
     <meta property="og:title" content={title} />

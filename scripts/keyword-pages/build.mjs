@@ -192,7 +192,7 @@ fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
 
 // homepage: list every keyword page (index.html is what "/" serves; keep index-v2.html in sync)
 const homeLinks = pages.map(p => `<a href="/${p.slug}" style="display:block;background:#fff;border:1px solid #e5e5ea;border-radius:12px;padding:16px;text-decoration:none;font-size:14px;font-weight:700">${esc(p.keyword)} <span style="float:right;color:#e22b37">→</span></a>`).join('');
-const homeBlock = `<div style="max-width:1180px;margin:28px auto 0"><h2 style="font-size:22px;letter-spacing:-.6px;margin:0 0 14px">빅버스 노선·가격 총정리</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px">${homeLinks}</div></div>`;
+const homeBlock = `<div style="max-width:1180px;margin:28px auto 0"><h2 style="font-size:22px;letter-spacing:-.6px;margin:0 0 14px">도시별 시티투어버스 노선·가격 총정리</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px">${homeLinks}</div></div>`;
 for (const f of ['index.html', 'index-v2.html']) setBlock(f, 'kw-home', homeBlock, '</section><footer>');
 
 fs.mkdirSync(path.join(ROOT, 'scripts/keyword-pages/.cache'), { recursive: true });

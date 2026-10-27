@@ -3,7 +3,7 @@ import '../styles/global.css';
 import { SITE_NAME, absolute, pathFor, imageUrl } from '../lib/site.mjs';
 const {title = SITE_NAME, description = '도시별 시티투어버스 상품을 비교합니다.', path = '/', image = '', type = 'website', schemas = []} = Astro.props;
 const canonical = absolute(path);
-const ogImage = image ? absolute(image.replace(pathFor('/'), '/')) : absolute('/favicon.svg');
+const ogImage = image ? absolute(image.replace(pathFor('/'), '/')) : absolute('/og-image.png');
 const naver = import.meta.env.PUBLIC_NAVER_SITE_VERIFICATION;
 const google = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 ---
@@ -15,6 +15,7 @@ const google = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
     <link rel="icon" type="image/svg+xml" href={pathFor('/favicon.svg')} />
     <title>{title}</title>
     <meta name="description" content={description.slice(0,150)} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="canonical" href={canonical} />
     <link rel="alternate" type="application/rss+xml" title={`${SITE_NAME} 가이드 RSS`} href={absolute('/rss.xml')} />
     <meta property="og:title" content={title} />

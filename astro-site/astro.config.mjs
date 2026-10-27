@@ -9,7 +9,8 @@ export default defineConfig({
   site,
   base,
   output: 'static',
-  trailingSlash: 'always',
+  trailingSlash: 'never',
+  build: { format: 'directory' },
   integrations: [sitemap()],
   vite: { plugins: [tailwindcss()] }
 });

@@ -299,7 +299,7 @@ function pick(k,el){
   render(k);
   document.querySelector('.main').scrollIntoView({behavior:'smooth',block:'start'});
   // URL 업데이트 (새로고침 없이)
-  try{const clean=['paris','london','rome','barcelona','dubai','berlin','madrid','sydney'];history.replaceState(null,'',clean.includes(k)?`/${k}-city-tour-bus`:`/compare?city=${k}`);}catch(e){}
+  try{history.replaceState(null,'',`/compare?city=${encodeURIComponent(k)}`);}catch(e){}
 }
 
 function handleSearch(v){

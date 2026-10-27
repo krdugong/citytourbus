@@ -18,10 +18,14 @@ const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 const lon2x = (lng, z) => (lng + 180) / 360 * TILE * 2 ** z;
 const lat2y = (lat, z) => { const r = lat * Math.PI / 180; return (1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2 * TILE * 2 ** z; };
 
-async function roadPath(route) {
-  const pts = [...route.stops, ...(route.loop === false ? [] : [route.stops[0]])];
-  const coords = pts.map(s => `${s.lng},${s.lat}`).join(';');
-  const file = path.join(CACHE, 'osrm', `${Buffer.from(coords).toString('base64url').slice(0, 120)}.json`);
+const hav = (a, b) => {
+  const R = 6371000, r = Math.PI / 180, dLat = (b.lat - a.lat) * r, dLng = (b.lng - a.lng) * r;
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+};
+async function osrmLeg(a, b) {
+  const coords = `${a.lng},${a.lat};${b.lng},${b.lat}`;
+  const file = path.join(CACHE, 'osrm', `leg-${coords.replace(/[^0-9.,;-]/g, '')}.json`);
   if (!fs.existsSync(file)) {
     const res = await fetch(`https://router.project-osrm.org/route/v1/driving/${coords}?overview=full&geometries=geojson`, { headers: { 'User-Agent': UA } });
     if (!res.ok) throw new Error(`OSRM ${res.status}`);
@@ -29,8 +33,21 @@ async function roadPath(route) {
     await sleep(1100); // be polite to the public demo server
   }
   const j = JSON.parse(fs.readFileSync(file, 'utf8'));
-  if (j.code !== 'Ok') throw new Error(`OSRM: ${j.code}`);
-  return j.routes[0].geometry.coordinates.map(([lng, lat]) => ({ lat, lng }));
+  return j.code === 'Ok' ? j.routes[0] : null;
+}
+// Road path stop by stop. A leg that detours more than DETOUR x the straight distance (tunnels,
+// ring roads, one-way loops) is drawn as a straight line instead, so the map never wanders off.
+const DETOUR = 2.2;
+async function roadPath(route) {
+  const pts = [...route.stops, ...(route.loop === false ? [] : [route.stops[0]])];
+  const out = [pts[0]];
+  for (let i = 1; i < pts.length; i++) {
+    const a = pts[i - 1], b = pts[i], straight = hav(a, b);
+    const leg = straight < 30 ? null : await osrmLeg(a, b);
+    if (leg && leg.distance <= Math.max(DETOUR * straight, straight + 400)) out.push(...leg.geometry.coordinates.map(([lng, lat]) => ({ lat, lng })));
+    else out.push(b);
+  }
+  return out;
 }
 
 async function tile(z, x, y) {

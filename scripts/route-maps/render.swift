@@ -67,7 +67,9 @@ for s in specs {
   // title panel
   let tp = NSRect(x: 40, y: 40, width: W - 80, height: 120)
   NSColor(white: 1, alpha: 0.94).setFill(); NSBezierPath(roundedRect: tp, xRadius: 22, yRadius: 22).fill()
-  (s.title as NSString).draw(at: NSPoint(x: 70, y: 56), withAttributes: attrs(font(50, true), NSColor(white: 0.1, alpha: 1)))
+  var tsize: CGFloat = 50
+  while tsize > 28 && (s.title as NSString).size(withAttributes: attrs(font(tsize, true), .black)).width > W - 400 { tsize -= 2 }
+  (s.title as NSString).draw(at: NSPoint(x: 70, y: 56 + (50 - tsize) / 2), withAttributes: attrs(font(tsize, true), NSColor(white: 0.1, alpha: 1)))
   (s.sub as NSString).draw(at: NSPoint(x: 72, y: 118), withAttributes: attrs(font(24, false), NSColor(white: 0.35, alpha: 1)))
   ("CITYTOURBUS.KR" as NSString).draw(at: NSPoint(x: W - 280, y: 64), withAttributes: attrs(font(22, true), color("#e22b37")))
   // legend

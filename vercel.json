@@ -12,10 +12,6 @@
       "destination": "/index-v2.html"
     },
     {
-      "source": "/dubai-city-tour-bus",
-      "destination": "/api/compare?city=dubai"
-    },
-    {
       "source": "/berlin-city-tour-bus",
       "destination": "/api/compare?city=berlin"
     },

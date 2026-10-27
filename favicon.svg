@@ -1,20 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#0A1F44"/>
-  <g transform="translate(8,16)">
-    <!-- 버스 본체 -->
-    <rect x="0" y="6" width="48" height="22" rx="4" fill="#FFFFFF"/>
-    <!-- 빨간 지붕 라인 -->
-    <rect x="0" y="6" width="48" height="6" rx="3" fill="#D0001B"/>
-    <!-- 창문 -->
-    <rect x="5" y="14" width="9" height="7" rx="1.5" fill="#0A1F44"/>
-    <rect x="17" y="14" width="9" height="7" rx="1.5" fill="#0A1F44"/>
-    <rect x="29" y="14" width="9" height="7" rx="1.5" fill="#0A1F44"/>
-    <!-- 바닥 라인 -->
-    <rect x="0" y="24" width="48" height="3" fill="#C8A040"/>
-    <!-- 바퀴 -->
-    <circle cx="11" cy="29" r="5" fill="#0A1F44"/>
-    <circle cx="11" cy="29" r="2" fill="#FFFFFF"/>
-    <circle cx="37" cy="29" r="5" fill="#0A1F44"/>
-    <circle cx="37" cy="29" r="2" fill="#FFFFFF"/>
-  </g>
+  <rect x="5" y="13" width="54" height="37" rx="8" fill="#d62828"/>
+  <path d="M14 19h36a4 4 0 0 1 4 4v10H10V23a4 4 0 0 1 4-4Z" fill="#f04438"/>
+  <rect x="13" y="22" width="13" height="10" rx="2" fill="#e8f7ff"/>
+  <rect x="29" y="22" width="12" height="10" rx="2" fill="#e8f7ff"/>
+  <rect x="44" y="22" width="8" height="10" rx="2" fill="#e8f7ff"/>
+  <rect x="10" y="37" width="44" height="4" rx="2" fill="#a51521"/>
+  <circle cx="18" cy="50" r="7" fill="#23354a"/>
+  <circle cx="46" cy="50" r="7" fill="#23354a"/>
+  <circle cx="18" cy="50" r="3" fill="#d7e3eb"/>
+  <circle cx="46" cy="50" r="3" fill="#d7e3eb"/>
+  <rect x="51" y="40" width="5" height="4" rx="1" fill="#ffd166"/>
 </svg>

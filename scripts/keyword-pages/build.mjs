@@ -10,7 +10,7 @@
 //   onsite?{text,compare[[k,v]]}, extra?[{id,label,h2,image?,paras?[],table?[[k,v]]}],
 //   howToBook?[], howToRide?[] (Big Bus defaults used when operator is "bigbus"),
 //   h2?{route,night,price,booking,onsite,ride,faq}, faq[{q,a}], images{key:{alt,eyebrow,title,sub,bg}},
-//   asideNote, operator?
+//   asideNote, operator?, affiliate? (false = booking button goes to the operator's own site)
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -57,7 +57,7 @@ function routeMap(p) {
   return out;
 }
 const mapFigure = (src, alt) => `<figure class="kw-figure kw-map"><img src="${src}" alt="${esc(alt)}" width="1080" height="1080" loading="lazy" decoding="async"><figcaption>${esc(alt)} · 정류장 순서 기준 참고용 · © OpenStreetMap contributors</figcaption></figure>`;
-const cta = (p) => `<a class="button kw-cta" href="${esc(p.booking.url)}" target="_blank" rel="sponsored nofollow noopener">${esc(p.booking.label)} →</a>`;
+const cta = (p) => `<a class="button kw-cta" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${esc(p.booking.label)} →</a>`;
 const kvTable = (rows, cls = '') => `<div class="table-scroll"><table${cls ? ` class="${cls}"` : ''}><tbody>${rows.map(([a, b]) => `<tr><th scope="row">${esc(a)}</th><td>${esc(b)}</td></tr>`).join('')}</tbody></table></div>`;
 
 function render(p, all) {
@@ -155,7 +155,7 @@ function render(p, all) {
 <header class="site-header"><div class="header-inner"><a class="logo" href="/"><span>CITY</span>TOURBUS<small>.KR</small></a><nav aria-label="주요 메뉴"><a href="/">전체 도시</a><a href="/compare">한눈에 비교</a></nav></div></header>
 <main><div class="wrap">
 <nav class="breadcrumbs" aria-label="이동 경로"><a href="/">홈</a><span>›</span><span>${esc(k)}</span></nav>
-<section class="hero kw-hero"><div><p class="eyebrow">${p.flag} ${esc(p.city)} · ${y}년 ${Number(m)}월 업데이트</p><h1>${esc(k)}<br><span>${esc(p.h1Sub)}</span></h1><p class="lead">${esc(p.lead)}</p><div class="hero-actions">${cta(p)}<a class="text-link" href="#price">가격 먼저 보기 ↓</a></div><p class="small kw-verified">공식 정보 확인일 ${esc(p.verified)} · 예약 링크는 제휴 링크이며 이용자 추가 비용은 없습니다.</p></div>${figure(p, 'main')}</section>
+<section class="hero kw-hero"><div><p class="eyebrow">${p.flag} ${esc(p.city)} · ${y}년 ${Number(m)}월 업데이트</p><h1>${esc(k)}<br><span>${esc(p.h1Sub)}</span></h1><p class="lead">${esc(p.lead)}</p><div class="hero-actions">${cta(p)}<a class="text-link" href="#price">가격 먼저 보기 ↓</a></div><p class="small kw-verified">공식 정보 확인일 ${esc(p.verified)} · ${p.affiliate === false ? '예약 버튼은 운영사 공식 사이트로 연결됩니다.' : '예약 링크는 제휴 링크이며 이용자 추가 비용은 없습니다.'}</p></div>${figure(p, 'main')}</section>
 <nav class="kw-toc" aria-label="목차">${toc.join('')}</nav>
 <div class="grid"><article class="main-content">
 ${sections.join('\n')}

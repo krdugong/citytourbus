@@ -145,6 +145,7 @@ function render(p, all) {
   return `<!doctype html>
 <html lang="ko">
 <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BS2Y7SJ7BT"></script><script src="/analytics.js"></script>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(p.title)}</title>
 <meta name="description" content="${esc(p.description)}">

@@ -1,5 +1,5 @@
 """Site checks: sitemap URLs exist, no dead internal links, no missing images, JSON-LD parses,
-index.html == index-v2.html. Usage: python3 scripts/keyword-pages/validate.py"""
+index.html == index-v2.html, every page has the analytics tag once. Usage: python3 scripts/keyword-pages/validate.py"""
 import re, json, os, glob
 SITE = 'https://www.citytourbus.kr'
 v = json.load(open('vercel.json')); rew = {r['source'] for r in v['rewrites']}; redir = {r['source'] for r in v['redirects']}
@@ -9,6 +9,7 @@ bad = [l for l in locs if (l != SITE + '/' and l.endswith('/')) or not ex(l[len(
 probs = []
 for f in [f for f in glob.glob('*.html') + glob.glob('*/**/*.html', recursive=True) if not f.startswith(('astro-site', '_astro'))]:
     h = open(f, encoding='utf-8').read()
+    if h.count('src="/analytics.js"') != 1: probs.append((f, 'analytics tag missing or doubled (run node scripts/add_analytics.mjs)', ''))
     for s in re.findall(r'<script type="application/ld\+json">(.*?)</script>', h, re.S):
         try: json.loads(s)
         except Exception as e: probs.append((f, 'json', str(e)))

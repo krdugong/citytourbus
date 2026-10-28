@@ -2,7 +2,7 @@
 index.html == index-v2.html, every page has the analytics tag once. Usage: python3 scripts/keyword-pages/validate.py"""
 import re, json, os, glob
 SITE = 'https://www.citytourbus.kr'
-v = json.load(open('vercel.json')); rew = {r['source'] for r in v['rewrites']}; redir = {r['source'] for r in v['redirects']}
+v = json.load(open('vercel.json')); rew = {r['source'] for r in v['rewrites']}; redir = {r['source'] for r in v['redirects'] if not r.get('has')}  # query-conditional redirects (e.g. /compare?city=) keep the plain path live
 ex = lambda p: p == '/' or p in rew or os.path.exists(p.strip('/') + '.html') or os.path.exists(p.strip('/') + '/index.html')
 locs = re.findall(r'<loc>([^<]+)</loc>', open('sitemap.xml').read())
 bad = [l for l in locs if (l != SITE + '/' and l.endswith('/')) or not ex(l[len(SITE):]) or l[len(SITE):] in redir]

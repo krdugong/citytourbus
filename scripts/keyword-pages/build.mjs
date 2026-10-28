@@ -3,7 +3,7 @@
 // Card images are made separately by scripts/keyword-pages/make-cards.sh (macOS).
 //
 // Page JSON fields (optional ones marked ?):
-//   slug, keyword, city, flag, updated, verified, title, description, h1Sub, lead,
+//   slug, keyword, city, flag, updated, verified, title, description, h1Sub, lead, aka?[],
 //   booking{url,label}, official, routeCheck?{url,label}, cityGuide?{url,label},
 //   summary[[k,v]], routes[{color,name,area?,en,duration,interval,hours,stops?[],tip}],
 //   night?{time,start,duration,price,text}, tickets[{name,validity,price,includes[],for}], priceNote,
@@ -81,7 +81,11 @@ function render(p, all) {
     if (tocLabel) toc.push(`<a href="#${id}">${esc(tocLabel)}</a>`);
   };
 
-  sec('summary', 'SUMMARY', `${k} 한눈에 보기`, '한눈에 보기', kvTable(p.summary, 'kw-summary'));
+  // Other spellings people search with (Naver autocomplete), shown as a plain "also known as" row
+  const aka = p.aka || (/빅버스$/.test(k)
+    ? [`${p.city} 빅버스 투어`, `${p.city} 시티투어버스`, `${p.city} 시티투어 버스`, `${p.city} 2층버스 투어`, `${p.city} 홉온홉오프 버스`]
+    : [`${p.city} 시티투어 버스`, `${p.city} 버스투어`, `${p.city} 2층버스 투어`, `${p.city} 홉온홉오프 버스`]);
+  sec('summary', 'SUMMARY', `${k} 한눈에 보기`, '한눈에 보기', kvTable([['다른 이름', aka.join(', ')], ...p.summary], 'kw-summary'));
 
   const routeNames = p.routes.map(r => `${r.name.replace(/ \(.*\)/, '')}${r.area ? `(${r.area})` : ''}`).join(', ');
   const map = routeMap(p);

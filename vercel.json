@@ -152,92 +152,92 @@
         }
       ],
       "destination": "https://www.citytourbus.kr/:path*",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/route-check/new-york",
       "destination": "/new-york-route-check",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/route-check/hong-kong",
       "destination": "/hong-kong-route-check",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/new-york-route-prototype.html",
       "destination": "/new-york-route-check",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/new-york-route-prototype",
       "destination": "/new-york-route-check",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/hong-kong-route-prototype.html",
       "destination": "/hong-kong-route-check",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/hong-kong-route-prototype",
       "destination": "/hong-kong-route-check",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/city/paris",
       "destination": "/paris-big-bus",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/city/london",
       "destination": "/london-big-bus",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/city/rome",
       "destination": "/rome-big-bus",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/city/barcelona",
       "destination": "/barcelona-city-tour-bus",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/city/new-york",
       "destination": "/new-york-city-tour-bus",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/city/tokyo",
       "destination": "/tokyo-city-tour-bus",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/city",
       "destination": "/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/paris-city-tour-bus",
       "destination": "/paris-big-bus",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/london-city-tour-bus",
       "destination": "/london-big-bus",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/rome-city-tour-bus",
       "destination": "/rome-big-bus",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/sydney-city-tour-bus",
       "destination": "/sydney-big-bus",
-      "permanent": true
+      "statusCode": 301
     }
   ]
 }

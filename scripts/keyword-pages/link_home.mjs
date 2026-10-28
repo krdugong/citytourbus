@@ -46,6 +46,15 @@ const swapInner = (h, open, close, inner) => {
 html = swapInner(html, '<div class="pop" id="popular">', '</div></section>', popHtml);
 html = swapInner(html, '<div class="regions" id="regions">', '</div></section>', regHtml);
 
+// Home JSON-LD: the ItemList names every keyword page (the old hand-written list pointed at redirected URLs) and the
+// Organization links to the site's own Naver blog so search engines can connect the two.
+const itemList = `{"@type":"ItemList","name":"도시별 시티투어버스 가이드","itemListElement":[${pages.map((s, i) => `{"@type":"ListItem","position":${i + 1},"url":"https://www.citytourbus.kr/${s}"}`).join(',')}]}`;
+const ilRe = /\{"@type":"ItemList","name":"도시별 시티투어버스 가이드","itemListElement":\[[\s\S]*?\]\}/;
+if (!ilRe.test(html)) throw new Error('home ItemList not found');
+html = html.replace(ilRe, itemList);
+const orgHead = '{"@type":"Organization","@id":"https://www.citytourbus.kr/#org",';
+if (!html.includes('"sameAs"')) html = html.replace(orgHead, orgHead + '"sameAs":["https://blog.naver.com/u5j4gjymi"],');
+
 // sanity: every inline script must still parse
 for (const m of html.matchAll(/<script>([\s\S]*?)<\/script>/g)) new Function(m[1]);
 for (const f of ['index.html', 'index-v2.html']) fs.writeFileSync(path.join(ROOT, f), html);

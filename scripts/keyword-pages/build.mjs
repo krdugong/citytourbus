@@ -13,6 +13,7 @@
 //   asideNote, operator?, affiliate? (false = booking button goes to the operator's own site)
 import fs from 'node:fs';
 import path from 'node:path';
+import { TAG, ICONS, PRECONNECT, fontLinks } from '../head-bits.mjs';
 
 const ROOT = process.cwd();
 const SITE = 'https://www.citytourbus.kr';
@@ -44,7 +45,8 @@ const imgPath = (p, key) => `/img/${p.slug}/${p.slug}-${key}.jpg`;
 function figure(p, key) {
   const im = p.images[key];
   if (!im) return '';
-  return `<figure class="kw-figure"><img src="${imgPath(p, key)}" alt="${esc(im.alt)}" width="1080" height="1080" loading="${key === 'main' ? 'eager' : 'lazy'}" decoding="async"><figcaption>${esc(im.alt)}</figcaption></figure>`;
+  // the hero card is the largest thing above the fold, so it is fetched first; everything else waits until scrolled to
+  return `<figure class="kw-figure"><img src="${imgPath(p, key)}" alt="${esc(im.alt)}" width="1080" height="1080" ${key === 'main' ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'} decoding="async"><figcaption>${esc(im.alt)}</figcaption></figure>`;
 }
 
 // Route-map images made by scripts/route-maps (overview + one per route, in data/route-maps order)
@@ -149,7 +151,7 @@ function render(p, all) {
   return `<!doctype html>
 <html lang="ko">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BS2Y7SJ7BT"></script><script src="/analytics.js"></script>
+${TAG}
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(p.title)}</title>
 <meta name="description" content="${esc(p.description)}">
@@ -160,8 +162,8 @@ function render(p, all) {
 <meta property="og:image" content="${ogImg}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(p.images.main.alt)}">
 <meta property="article:published_time" content="${p.updated}T09:00:00+09:00"><meta property="article:modified_time" content="${p.updated}T09:00:00+09:00">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(p.title)}"><meta name="twitter:image" content="${ogImg}">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+${ICONS}
+${PRECONNECT}${fontLinks()}
 <link rel="stylesheet" href="/city-guide.css"><link rel="stylesheet" href="/keyword-page.css">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 </head><body>
@@ -174,6 +176,8 @@ function render(p, all) {
 ${sections.join('\n')}
 </article><aside><div class="aside-card"><strong>${esc(k)} 예약</strong><p>${esc(p.asideNote)}</p>${cta(p)}${p.routeCheck ? `<a class="aside-link" href="${esc(p.routeCheck.url)}">정류장 지도 보기 →</a>` : `<a class="aside-link" href="#route">노선·정류장 보기 →</a>`}</div></aside></div>
 </div></main><footer><div class="wrap"><a href="/">CITYTOURBUS.KR</a><p>전 세계 시티투어버스를 비교합니다. 일부 예약 링크를 통해 수수료를 받을 수 있으며 이용자 추가 비용은 없습니다.</p><a href="/terms">이용약관</a> · <a href="/privacy">개인정보처리방침</a></div></footer>
+<div class="kw-sticky" id="kw-sticky" hidden><div class="kw-sticky-txt"><b>${esc(k)}</b><small>${esc(p.tickets[0].price)}</small></div><a class="button kw-cta" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">예약하기 →</a></div>
+<script>(function(){var s=document.getElementById('kw-sticky'),h=document.querySelector('.hero-actions');if(!s||!h||!('IntersectionObserver' in window))return;new IntersectionObserver(function(e){var r=e[0],show=!r.isIntersecting&&r.boundingClientRect.top<0;s.hidden=!show;document.body.classList.toggle('has-sticky',show)}).observe(h)})();</script>
 </body></html>
 `;
 }

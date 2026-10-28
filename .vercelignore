@@ -1,0 +1,6 @@
+# Source and build inputs that the live site never needs (and search engines should not find)
+data/
+scripts/
+astro-site/
+*.md
+.gitignore

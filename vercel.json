@@ -238,6 +238,546 @@
       "source": "/sydney-city-tour-bus",
       "destination": "/sydney-big-bus",
       "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "amsterdam"
+        }
+      ],
+      "destination": "/amsterdam-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "athens"
+        }
+      ],
+      "destination": "/athens-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "bangkok"
+        }
+      ],
+      "destination": "/bangkok-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "barcelona"
+        }
+      ],
+      "destination": "/barcelona-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "berlin"
+        }
+      ],
+      "destination": "/berlin-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "budapest"
+        }
+      ],
+      "destination": "/budapest-big-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "chicago"
+        }
+      ],
+      "destination": "/chicago-big-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "copenhagen"
+        }
+      ],
+      "destination": "/copenhagen-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "dubai"
+        }
+      ],
+      "destination": "/dubai-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "dublin"
+        }
+      ],
+      "destination": "/dublin-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "edinburgh"
+        }
+      ],
+      "destination": "/edinburgh-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "fukuoka"
+        }
+      ],
+      "destination": "/fukuoka-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "galway"
+        }
+      ],
+      "destination": "/galway-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "hanoi"
+        }
+      ],
+      "destination": "/hanoi-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "helsinki"
+        }
+      ],
+      "destination": "/helsinki-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "hong-kong"
+        }
+      ],
+      "destination": "/hong-kong-big-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "las-vegas"
+        }
+      ],
+      "destination": "/las-vegas-big-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "lisbon"
+        }
+      ],
+      "destination": "/lisbon-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "london"
+        }
+      ],
+      "destination": "/london-big-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "los-angeles"
+        }
+      ],
+      "destination": "/los-angeles-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "madrid"
+        }
+      ],
+      "destination": "/madrid-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "malaga"
+        }
+      ],
+      "destination": "/malaga-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "miami"
+        }
+      ],
+      "destination": "/miami-big-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "new-orleans"
+        }
+      ],
+      "destination": "/new-orleans-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "new-york"
+        }
+      ],
+      "destination": "/new-york-big-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "osaka"
+        }
+      ],
+      "destination": "/osaka-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "oslo"
+        }
+      ],
+      "destination": "/oslo-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "paris"
+        }
+      ],
+      "destination": "/paris-big-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "philadelphia"
+        }
+      ],
+      "destination": "/philadelphia-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "porto"
+        }
+      ],
+      "destination": "/porto-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "prague"
+        }
+      ],
+      "destination": "/prague-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "reykjavik"
+        }
+      ],
+      "destination": "/reykjavik-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "rome"
+        }
+      ],
+      "destination": "/rome-big-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "san-francisco"
+        }
+      ],
+      "destination": "/san-francisco-big-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "seattle"
+        }
+      ],
+      "destination": "/seattle-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "seoul"
+        }
+      ],
+      "destination": "/seoul-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "seville"
+        }
+      ],
+      "destination": "/seville-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "sharjah"
+        }
+      ],
+      "destination": "/sharjah-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "split"
+        }
+      ],
+      "destination": "/split-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "stockholm"
+        }
+      ],
+      "destination": "/stockholm-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "sydney"
+        }
+      ],
+      "destination": "/sydney-big-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "tokyo"
+        }
+      ],
+      "destination": "/tokyo-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "toronto"
+        }
+      ],
+      "destination": "/toronto-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "warsaw"
+        }
+      ],
+      "destination": "/warsaw-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "washington-dc"
+        }
+      ],
+      "destination": "/washington-dc-big-bus",
+      "statusCode": 301
     }
   ]
 }

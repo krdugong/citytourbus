@@ -89,6 +89,6 @@ for s in specs {
   NSGraphicsContext.restoreGraphicsState()
   let url = URL(fileURLWithPath: args[2]).appendingPathComponent(s.out)
   try! FileManager.default.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
-  try! rep.representation(using: .jpeg, properties: [.compressionFactor: 0.86])!.write(to: url)
+  try! rep.representation(using: .jpeg, properties: [.compressionFactor: 0.65])!.write(to: url)
   print("wrote", s.out)
 }

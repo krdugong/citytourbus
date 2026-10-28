@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.citytourbus.kr/</loc><lastmod>2026-10-27</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.citytourbus.kr/</loc><lastmod>2026-10-28</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://www.citytourbus.kr/compare</loc><lastmod>2026-10-13</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.citytourbus.kr/seoul-city-tour-bus</loc><lastmod>2026-10-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.citytourbus.kr/tokyo-city-tour-bus</loc><lastmod>2026-10-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.citytourbus.kr/osaka-city-tour-bus</loc><lastmod>2026-10-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.citytourbus.kr/fukuoka-city-tour-bus</loc><lastmod>2026-10-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.citytourbus.kr/new-york-city-tour-bus</loc><lastmod>2026-10-13</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.citytourbus.kr/barcelona-city-tour-bus</loc><lastmod>2026-10-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.citytourbus.kr/barcelona-city-tour-bus</loc><lastmod>2026-10-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.citytourbus.kr/dubai-city-tour-bus</loc><lastmod>2026-10-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.citytourbus.kr/berlin-city-tour-bus</loc><lastmod>2026-10-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.citytourbus.kr/madrid-city-tour-bus</loc><lastmod>2026-10-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
@@ -15,20 +15,15 @@
   <url><loc>https://www.citytourbus.kr/privacy</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
   <url><loc>https://www.citytourbus.kr/new-york-route-check</loc><lastmod>2026-10-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.citytourbus.kr/hong-kong-route-check</loc><lastmod>2026-10-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.citytourbus.kr/paris-route-check</loc><lastmod>2026-10-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.citytourbus.kr/london-route-check</loc><lastmod>2026-10-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.citytourbus.kr/rome-route-check</loc><lastmod>2026-10-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.citytourbus.kr/barcelona-route-check</loc><lastmod>2026-10-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.citytourbus.kr/dubai-route-check</loc><lastmod>2026-10-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.citytourbus.kr/about</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.citytourbus.kr/about</loc><lastmod>2026-10-28</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
   <url><loc>https://www.citytourbus.kr/disclosure</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
   <url><loc>https://www.citytourbus.kr/guide</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.citytourbus.kr/guide/compare-tickets</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.citytourbus.kr/hong-kong-big-bus</loc><lastmod>2026-10-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.citytourbus.kr/london-big-bus</loc><lastmod>2026-10-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.citytourbus.kr/new-york-big-bus</loc><lastmod>2026-10-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.citytourbus.kr/paris-big-bus</loc><lastmod>2026-10-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.citytourbus.kr/rome-big-bus</loc><lastmod>2026-10-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.citytourbus.kr/hong-kong-big-bus</loc><lastmod>2026-10-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.citytourbus.kr/london-big-bus</loc><lastmod>2026-10-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.citytourbus.kr/new-york-big-bus</loc><lastmod>2026-10-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.citytourbus.kr/paris-big-bus</loc><lastmod>2026-10-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.citytourbus.kr/rome-big-bus</loc><lastmod>2026-10-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.citytourbus.kr/san-francisco-big-bus</loc><lastmod>2026-10-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.citytourbus.kr/sydney-big-bus</loc><lastmod>2026-10-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.citytourbus.kr/lisbon-city-tour-bus</loc><lastmod>2026-10-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>

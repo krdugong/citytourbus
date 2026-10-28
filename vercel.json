@@ -140,6 +140,33 @@
           "value": "public, max-age=86400, stale-while-revalidate=604800"
         }
       ]
+    },
+    {
+      "source": "/keyword-page.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/city-guide.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/analytics.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
     }
   ],
   "redirects": [
@@ -777,6 +804,16 @@
         }
       ],
       "destination": "/washington-dc-big-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/sitemap-0.xml",
+      "destination": "/sitemap.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/sitemap-index.xml",
+      "destination": "/sitemap.xml",
       "statusCode": 301
     }
   ]

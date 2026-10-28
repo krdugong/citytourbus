@@ -1,9 +1,9 @@
-// Puts the Google Analytics tag (gtag.js + /analytics.js) right after <head> in every static page.
-// Replaces the old inline gtag snippet. Safe to run again. Usage (from repo root): node scripts/add_analytics.mjs
+// Puts the analytics tag (gtag.js + deferred /analytics.js) right after <head> in every static page, replacing any
+// older form of it. Safe to run again. Usage (from repo root): node scripts/add_analytics.mjs
 import fs from 'node:fs';
 import path from 'node:path';
+import { TAG, TAG_RE } from './head-bits.mjs';
 
-export const TAG = '<script async src="https://www.googletagmanager.com/gtag/js?id=G-BS2Y7SJ7BT"></script><script src="/analytics.js"></script>';
 const SKIP = new Set(['node_modules', '.git', 'astro-site', 'scripts']);
 const OLD = /<!-- Google tag \(gtag\.js\) -->\s*<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=G-[A-Z0-9]+"><\/script>\s*<script>[\s\S]*?<\/script>\s*/;
 
@@ -22,10 +22,13 @@ for (const f of files) {
   let html = fs.readFileSync(f, 'utf8');
   const before = html;
   html = html.replace(OLD, '');
-  if (!html.includes('src="/analytics.js"')) {
-    const m = html.match(/<head[^>]*>/i);
-    if (!m) throw new Error(`no <head> in ${f}`);
-    html = html.replace(m[0], m[0] + '\n' + TAG);
+  if (!html.includes(TAG)) {
+    if (TAG_RE.test(html)) html = html.replace(TAG_RE, TAG);
+    else {
+      const m = html.match(/<head[^>]*>/i);
+      if (!m) throw new Error(`no <head> in ${f}`);
+      html = html.replace(m[0], m[0] + '\n' + TAG);
+    }
   }
   if (html !== before) { fs.writeFileSync(f, html); changed++; }
 }

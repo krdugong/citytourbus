@@ -1,9 +1,20 @@
-// Google Analytics (GA4) for every page, plus click events for outbound and affiliate links.
+// Google Analytics (GA4) and Naver Analytics for every page, plus GA click events for outbound and affiliate links.
 // Loaded from <head> next to gtag.js. Events: affiliate_click (booking / GetYourGuide links) and outbound_click.
 window.dataLayer = window.dataLayer || [];
 function gtag() { dataLayer.push(arguments); }
 gtag('js', new Date());
 gtag('config', 'G-BS2Y7SJ7BT');
+
+// Naver Analytics (site id from analytics.naver.com)
+window.wcs_add = window.wcs_add || {};
+wcs_add['wa'] = '1b9fef917767ec0';
+(function () {
+  var s = document.createElement('script');
+  s.src = 'https://wcs.pstatic.net/wcslog.js';
+  s.async = true;
+  s.onload = function () { if (window.wcs) wcs_do(); };
+  document.head.appendChild(s);
+})();
 
 (function () {
   var CJ = /(^|\.)(jdoqocy|dpbolvw|anrdoezrs|kqzyfj|tkqlhce)\.(com|net)$/;

@@ -5,7 +5,7 @@ SITE = 'https://www.citytourbus.kr'
 v = json.load(open('vercel.json')); rew = {r['source'] for r in v['rewrites']}; redir = {r['source'] for r in v['redirects']}
 ex = lambda p: p == '/' or p in rew or os.path.exists(p.strip('/') + '.html') or os.path.exists(p.strip('/') + '/index.html')
 locs = re.findall(r'<loc>([^<]+)</loc>', open('sitemap.xml').read())
-bad = [l for l in locs if (l != SITE + '/' and l.endswith('/')) or not ex(l[len(SITE):])]
+bad = [l for l in locs if (l != SITE + '/' and l.endswith('/')) or not ex(l[len(SITE):]) or l[len(SITE):] in redir]
 probs = []
 for f in [f for f in glob.glob('*.html') + glob.glob('*/**/*.html', recursive=True) if not f.startswith(('astro-site', '_astro'))]:
     h = open(f, encoding='utf-8').read()
@@ -16,6 +16,7 @@ for f in [f for f in glob.glob('*.html') + glob.glob('*/**/*.html', recursive=Tr
         if not os.path.exists(src.lstrip('/')): probs.append((f, 'missing img', src))
     for a in re.findall(r'href="(/[a-z0-9-]+)"', h):
         if not ex(a) and a not in redir: probs.append((f, 'dead link', a))
+        if a in redir and not f.startswith('city/') and f[:-5] not in {r.lstrip('/') for r in redir}: probs.append((f, 'link to redirected url', a))
 same = open('index.html').read() == open('index-v2.html').read()
 import subprocess
 js = subprocess.run(['node', '-e', "const h=require('fs').readFileSync('index.html','utf8');for(const m of h.matchAll(/<script>([\\s\\S]*?)<\\/script>/g))new Function(m[1]);"], capture_output=True, text=True)

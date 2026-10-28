@@ -207,6 +207,23 @@ for (const p of pages) {
 }
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
 
+// rss.xml (submitted to Naver Search Advisor): every keyword page plus the ticket guide, newest first
+const rssItems = [
+  ...pages.map(p => ({ title: p.title, link: `${SITE}/${p.slug}`, description: p.description, date: p.updated })),
+  { title: '시티투어버스 티켓을 비교하는 방법', link: `${SITE}/guide/compare-tickets`, description: '이용시간, 노선, 정류장, 취소 조건을 기준으로 시티투어버스 티켓을 비교하는 방법을 설명합니다.', date: '2026-10-27' }
+].sort((a, b) => b.date.localeCompare(a.date) || a.link.localeCompare(b.link));
+const rssDate = (d) => new Date(`${d}T09:00:00+09:00`).toUTCString();
+fs.writeFileSync(path.join(ROOT, 'rss.xml'), `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+<title>CITYTOURBUS 도시별 시티투어버스 가이드</title>
+<link>${SITE}/</link>
+<description>전 세계 도시별 시티투어버스·빅버스 노선, 가격, 예약 방법, 타는법 정리</description>
+<language>ko</language>
+<lastBuildDate>${rssDate(rssItems[0].date)}</lastBuildDate>
+${rssItems.map(i => `<item><title>${esc(i.title)}</title><link>${i.link}</link><guid isPermaLink="true">${i.link}</guid><description>${esc(i.description)}</description><pubDate>${rssDate(i.date)}</pubDate></item>`).join('\n')}
+</channel></rss>
+`);
+
 // homepage: list every keyword page (index.html is what "/" serves; keep index-v2.html in sync)
 const homeLinks = pages.map(p => `<a href="/${p.slug}" style="display:block;background:#fff;border:1px solid #e5e5ea;border-radius:12px;padding:16px;text-decoration:none;font-size:14px;font-weight:700">${esc(p.keyword)} <span style="float:right;color:#e22b37">→</span></a>`).join('');
 const homeBlock = `<div style="max-width:1180px;margin:28px auto 0"><h2 style="font-size:22px;letter-spacing:-.6px;margin:0 0 14px">도시별 시티투어버스 노선·가격 총정리</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px">${homeLinks}</div></div>`;

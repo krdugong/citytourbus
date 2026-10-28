@@ -12,10 +12,6 @@
       "destination": "/index-v2.html"
     },
     {
-      "source": "/sydney-city-tour-bus",
-      "destination": "/api/compare?city=sydney"
-    },
-    {
       "source": "/compare",
       "destination": "/api/compare"
     },
@@ -135,6 +131,15 @@
           "value": "application/json; charset=utf-8"
         }
       ]
+    },
+    {
+      "source": "/img/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
     }
   ],
   "redirects": [
@@ -177,6 +182,61 @@
     {
       "source": "/hong-kong-route-prototype",
       "destination": "/hong-kong-route-check",
+      "permanent": true
+    },
+    {
+      "source": "/city/paris",
+      "destination": "/paris-big-bus",
+      "permanent": true
+    },
+    {
+      "source": "/city/london",
+      "destination": "/london-big-bus",
+      "permanent": true
+    },
+    {
+      "source": "/city/rome",
+      "destination": "/rome-big-bus",
+      "permanent": true
+    },
+    {
+      "source": "/city/barcelona",
+      "destination": "/barcelona-city-tour-bus",
+      "permanent": true
+    },
+    {
+      "source": "/city/new-york",
+      "destination": "/new-york-city-tour-bus",
+      "permanent": true
+    },
+    {
+      "source": "/city/tokyo",
+      "destination": "/tokyo-city-tour-bus",
+      "permanent": true
+    },
+    {
+      "source": "/city",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/paris-city-tour-bus",
+      "destination": "/paris-big-bus",
+      "permanent": true
+    },
+    {
+      "source": "/london-city-tour-bus",
+      "destination": "/london-big-bus",
+      "permanent": true
+    },
+    {
+      "source": "/rome-city-tour-bus",
+      "destination": "/rome-big-bus",
+      "permanent": true
+    },
+    {
+      "source": "/sydney-city-tour-bus",
+      "destination": "/sydney-big-bus",
       "permanent": true
     }
   ]

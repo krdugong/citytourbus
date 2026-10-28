@@ -17,6 +17,11 @@ import path from 'node:path';
 const ROOT = process.cwd();
 const SITE = 'https://www.citytourbus.kr';
 const DATA_DIR = path.join(ROOT, 'data/keyword-pages');
+const GYG = JSON.parse(fs.readFileSync(path.join(DATA_DIR, '_getyourguide.json'), 'utf8'));
+const gygUrl = (p) => {
+  const loc = GYG.cities[p.slug.replace(/-(big-bus|city-tour-bus)$/, '')];
+  return loc ? `https://www.getyourguide.com/ko-kr/${loc}/?${GYG.partner}` : null;
+};
 
 const BIGBUS_DEFAULTS = {
   howToBook: [
@@ -108,6 +113,9 @@ function render(p, all) {
 
   sec('faq', 'FAQ', h2.faq, 'FAQ', p.faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join(''));
 
+  const gyg = gygUrl(p);
+  if (gyg) sections.push(`<section class="card kw-more"><p class="section-no">MORE TOURS</p><h2>${esc(p.city)} 투어·입장권 더 보기</h2><p>${esc(p.city)}에서 시티투어버스 말고도 투어, 입장권, 근교 당일치기 같은 다른 상품을 찾아볼 수 있습니다.</p><a class="button kw-cta" href="${esc(gyg)}" target="_blank" rel="sponsored nofollow noopener">더 많은 투어 알아보기 →</a><p class="small">GetYourGuide 제휴 링크이며 이용자 추가 비용은 없습니다.</p></section>`);
+
   const related = [
     ...(p.cityGuide ? [[p.cityGuide.url, p.cityGuide.label]] : []),
     ...(p.routeCheck ? [[p.routeCheck.url, p.routeCheck.label.replace(/로 정류장 찾기$/, '')]] : []),
@@ -155,7 +163,7 @@ function render(p, all) {
 <header class="site-header"><div class="header-inner"><a class="logo" href="/"><span>CITY</span>TOURBUS<small>.KR</small></a><nav aria-label="주요 메뉴"><a href="/">전체 도시</a><a href="/compare">한눈에 비교</a></nav></div></header>
 <main><div class="wrap">
 <nav class="breadcrumbs" aria-label="이동 경로"><a href="/">홈</a><span>›</span><span>${esc(k)}</span></nav>
-<section class="hero kw-hero"><div><p class="eyebrow">${p.flag} ${esc(p.city)} · ${y}년 ${Number(m)}월 업데이트</p><h1>${esc(k)}<br><span>${esc(p.h1Sub)}</span></h1><p class="lead">${esc(p.lead)}</p><div class="hero-actions">${cta(p)}<a class="text-link" href="#price">가격 먼저 보기 ↓</a></div><p class="small kw-verified">공식 정보 확인일 ${esc(p.verified)} · ${p.affiliate === false ? '예약 버튼은 운영사 공식 사이트로 연결됩니다.' : '예약 링크는 제휴 링크이며 이용자 추가 비용은 없습니다.'}</p></div>${figure(p, 'main')}</section>
+<section class="hero kw-hero"><div><p class="eyebrow">${p.flag} ${esc(p.city)} · ${y}년 ${Number(m)}월 업데이트</p><h1>${esc(k)}<br><span>${esc(p.h1Sub)}</span></h1><p class="lead">${esc(p.lead)}</p><div class="hero-actions">${cta(p)}<a class="text-link" href="#price">가격 먼저 보기 ↓</a></div><p class="small kw-verified">공식 정보 확인일 ${esc(p.verified)} · ${p.affiliate === false ? '예약 버튼은 운영사 공식 사이트로 연결되고, 아래 GetYourGuide 링크는 제휴 링크입니다.' : '예약 링크는 제휴 링크이며 이용자 추가 비용은 없습니다.'}</p></div>${figure(p, 'main')}</section>
 <nav class="kw-toc" aria-label="목차">${toc.join('')}</nav>
 <div class="grid"><article class="main-content">
 ${sections.join('\n')}

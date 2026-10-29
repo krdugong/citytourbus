@@ -1,0 +1,87 @@
+{
+  "hong-kong": {
+    "slug": "hong-kong-big-bus",
+    "ko": "홍콩",
+    "en": "Hong Kong",
+    "brand": "빅버스",
+    "startStop": [
+      "red",
+      1
+    ],
+    "links": [
+      {
+        "from": [
+          "red",
+          1
+        ],
+        "to": [
+          "blue",
+          16
+        ],
+        "min": 22,
+        "icon": "🛳",
+        "label": "스타페리로 침사추이 건너가기 (센트럴 7번 부두 → 침사추이 선착장, 도보 포함)"
+      }
+    ]
+  },
+  "new-york": {
+    "slug": "new-york-big-bus",
+    "ko": "뉴욕",
+    "en": "New York",
+    "brand": "빅버스",
+    "startStop": [
+      "red",
+      1
+    ]
+  },
+  "paris": {
+    "slug": "paris-big-bus",
+    "ko": "파리",
+    "en": "Paris",
+    "brand": "빅버스",
+    "startStop": [
+      "red",
+      1
+    ]
+  },
+  "london": {
+    "slug": "london-big-bus",
+    "ko": "런던",
+    "en": "London",
+    "brand": "빅버스",
+    "startStop": [
+      "red",
+      1
+    ]
+  },
+  "rome": {
+    "slug": "rome-big-bus",
+    "ko": "로마",
+    "en": "Rome",
+    "brand": "빅버스",
+    "startStop": [
+      "red",
+      1
+    ]
+  },
+  "dubai": {
+    "slug": "dubai-city-tour-bus",
+    "ko": "두바이",
+    "en": "Dubai",
+    "brand": "시티투어버스",
+    "startStop": [
+      "red",
+      1
+    ]
+  },
+  "barcelona": {
+    "slug": "barcelona-city-tour-bus",
+    "ko": "바르셀로나",
+    "en": "Barcelona",
+    "brand": "시티투어버스",
+    "startStop": [
+      "red",
+      1
+    ]
+  }
+}

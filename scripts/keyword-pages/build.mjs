@@ -102,7 +102,7 @@ function render(p, all) {
   const map = routeMap(p);
   sec('route', 'ROUTE', h2.route, '노선',
     (map.overview ? mapFigure(map.overview, `${k} 노선도`) : figure(p, 'routes')) +
-    `<p>${esc(k)}는 ${esc(routeNames)} ${p.routes.length > 1 ? `${p.routes.length}개 노선으로` : '노선 하나로'} 운행합니다.${p.routeCheck ? ` 정류장 위치는 <a href="${esc(p.routeCheck.url)}">${esc(p.routeCheck.label)}</a>에서 지도로 볼 수 있습니다.` : ''}</p>` +
+    `<p>${esc(k)}는 ${esc(routeNames)} ${p.routes.length > 1 ? `${p.routes.length}개 노선으로` : '노선 하나로'} 운행합니다.${p.routeCheck ? ` 정류장 위치는 <a href="${esc(p.routeCheck.url)}">${esc(p.routeCheck.label)}</a>에서 지도로 볼 수 있습니다.` : ''}${SIM[p.slug] ? ` 가고 싶은 곳을 넣으면 탈 노선과 내릴 정류장을 순서대로 짜 주는 <a href="${SIM[p.slug].url}">${esc(SIM[p.slug].label)}</a>도 있습니다.` : ''}</p>` +
     p.routes.map((r, i) => `<div class="kw-route" style="--rc:${r.color}"><h3>${esc(k)} ${esc(r.name)}${r.area ? ` · ${esc(r.area)}` : ''}</h3><p class="small">${esc(r.en)} · ${esc(r.duration)} · ${esc(r.interval)} · ${esc(r.hours)}</p>${r.stops && r.stops.length ? `<ol class="kw-stops">${r.stops.map(s => `<li>${esc(s)}</li>`).join('')}</ol>` : ''}<p>${esc(r.tip)}</p>${map.perRoute[i] ? mapFigure(map.perRoute[i].src, `${k} ${map.perRoute[i].title} 노선도`) : ''}</div>`).join(''));
 
   if (p.night) sec('night', 'NIGHT TOUR', h2.night, '나이트 투어',
@@ -134,6 +134,7 @@ function render(p, all) {
   const related = [
     ...(p.cityGuide ? [[p.cityGuide.url, p.cityGuide.label]] : []),
     ...(p.routeCheck ? [[p.routeCheck.url, p.routeCheck.label.replace(/로 정류장 찾기$/, '')]] : []),
+    ...(SIM[p.slug] ? [[SIM[p.slug].url, SIM[p.slug].label]] : []),
     ...all.filter(o => o.slug !== p.slug).map(o => [`/${o.slug}`, o.keyword])
   ];
   sections.push(`<section class="card related"><p class="section-no">함께 보기</p><h2>다른 도시 빅버스·시티투어버스</h2><div class="related-links">${related.map(([h, t]) => `<a href="${esc(h)}">${esc(t)}</a>`).join('')}</div></section>`);
@@ -183,7 +184,7 @@ ${PRECONNECT}${fontLinks()}
 <nav class="kw-toc" aria-label="목차">${toc.join('')}</nav>
 <div class="grid"><article class="main-content">
 ${sections.join('\n')}
-</article><aside><div class="aside-card"><strong>${esc(k)} 예약</strong><p>${esc(p.asideNote)}</p>${cta(p)}${p.routeCheck ? `<a class="aside-link" href="${esc(p.routeCheck.url)}">정류장 지도 보기 →</a>` : `<a class="aside-link" href="#route">노선·정류장 보기 →</a>`}</div></aside></div>
+</article><aside><div class="aside-card"><strong>${esc(k)} 예약</strong><p>${esc(p.asideNote)}</p>${cta(p)}${p.routeCheck ? `<a class="aside-link" href="${esc(p.routeCheck.url)}">정류장 지도 보기 →</a>` : `<a class="aside-link" href="#route">노선·정류장 보기 →</a>`}${SIM[p.slug] ? `<a class="aside-link" href="${SIM[p.slug].url}">하루 코스 시뮬레이터 →</a>` : ''}</div></aside></div>
 </div></main><footer><div class="wrap"><a href="/">CITYTOURBUS.KR</a><p>전 세계 시티투어버스를 비교합니다. 일부 예약 링크를 통해 수수료를 받을 수 있으며 이용자 추가 비용은 없습니다.</p><a href="/terms">이용약관</a> · <a href="/privacy">개인정보처리방침</a></div></footer>
 <div class="kw-sticky" id="kw-sticky" hidden><div class="kw-sticky-txt"><b>${esc(k)}</b><small>${esc(p.tickets[0].price)}</small></div><a class="button kw-cta" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">예약하기 →</a></div>
 <script>(function(){var s=document.getElementById('kw-sticky'),h=document.querySelector('.hero-actions');if(!s||!h||!('IntersectionObserver' in window))return;new IntersectionObserver(function(e){var r=e[0],show=!r.isIntersecting&&r.boundingClientRect.top<0;s.hidden=!show;document.body.classList.toggle('has-sticky',show)}).observe(h)})();</script>
@@ -213,6 +214,7 @@ function setBlock(file, name, html, insertBefore) {
   return false;
 }
 
+const SIM = Object.fromEntries(Object.entries(JSON.parse(fs.readFileSync('data/simulator/cities.json', 'utf8'))).map(([k, c]) => [c.slug, { url: `/${k}-bus-simulator`, label: `${c.ko} ${c.brand} 시뮬레이터` }]));
 const pages = fs.readdirSync(DATA_DIR).filter(f => f.endsWith('.json') && !f.startsWith('_')).sort()
   .map(f => JSON.parse(fs.readFileSync(path.join(DATA_DIR, f), 'utf8')));
 const specs = [];

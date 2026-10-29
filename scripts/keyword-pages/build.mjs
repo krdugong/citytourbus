@@ -3,7 +3,9 @@
 // Card images are made separately by scripts/keyword-pages/make-cards.sh (macOS).
 //
 // Page JSON fields (optional ones marked ?):
-//   slug, keyword, city, flag, updated, verified, title, description, h1Sub, lead, aka?[],
+//   slug, keyword, city, flag, published?, updated, verified, title, description, h1Sub, lead, aka?[],
+//   (published = the day the URL first went live, kept fixed; updated = last content change. Article
+//   datePublished and the RSS pubDate use published, dateModified and the sitemap lastmod use updated.)
 //   booking{url,label}, official, routeCheck?{url,label}, cityGuide?{url,label},
 //   summary[[k,v]], routes[{color,name,area?,en,duration,interval,hours,stops?[],tip}],
 //   night?{time,start,duration,price,text}, tickets[{name,validity,price,includes[],for}], priceNote,
@@ -70,6 +72,7 @@ const kvTable = (rows, cls = '') => `<div class="table-scroll"><table${cls ? ` c
 function render(p, all) {
   const url = `${SITE}/${p.slug}`;
   const k = p.keyword;
+  const published = p.published || p.updated;
   const h2 = { route: `${k} 노선(루트)`, night: `${k} 나이트 투어 (야경투어)`, price: `${k} 가격과 티켓 종류`, booking: `${k} 예약 방법`, onsite: `${k} 현장구매`, ride: `${k} 타는법`, faq: `${k} 자주 묻는 질문`, ...(p.h2 || {}) };
   const defaults = p.operator === 'bigbus' ? BIGBUS_DEFAULTS : {};
   const howToBook = p.howToBook || defaults.howToBook;
@@ -135,7 +138,7 @@ function render(p, all) {
     '@graph': [
       {
         '@type': 'Article', '@id': `${url}#article`, headline: p.title, description: p.description,
-        inLanguage: 'ko-KR', datePublished: p.updated, dateModified: p.updated, mainEntityOfPage: url,
+        inLanguage: 'ko-KR', datePublished: published, dateModified: p.updated, mainEntityOfPage: url,
         image: [ogImg, ...Object.keys(p.images).map(key => `${SITE}${imgPath(p, key)}`), ...[map.overview, ...map.perRoute.map(x => x && x.src)].filter(Boolean).map(src => `${SITE}${src}`)],
         author: { '@type': 'Organization', name: 'CITYTOURBUS', url: `${SITE}/` },
         publisher: { '@type': 'Organization', name: 'CITYTOURBUS', logo: { '@type': 'ImageObject', url: `${SITE}/apple-touch-icon.png` } }
@@ -160,7 +163,7 @@ ${TAG}
 <meta property="og:type" content="article"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="CITYTOURBUS">
 <meta property="og:title" content="${esc(p.title)}"><meta property="og:description" content="${esc(p.description)}"><meta property="og:url" content="${url}">
 <meta property="og:image" content="${ogImg}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(p.images.main.alt)}">
-<meta property="article:published_time" content="${p.updated}T09:00:00+09:00"><meta property="article:modified_time" content="${p.updated}T09:00:00+09:00">
+<meta property="article:published_time" content="${published}T09:00:00+09:00"><meta property="article:modified_time" content="${p.updated}T09:00:00+09:00">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(p.title)}"><meta name="twitter:image" content="${ogImg}">
 ${ICONS}
 ${PRECONNECT}${fontLinks()}
@@ -224,9 +227,11 @@ for (const p of pages) {
 }
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
 
-// rss.xml (submitted to Naver Search Advisor): every keyword page plus the ticket guide, newest first
+// rss.xml (submitted to Naver Search Advisor): every keyword page plus the ticket guide, newest first.
+// pubDate is the first-publish date so an edit never makes an old page look like a new post; the channel's
+// lastBuildDate is the latest content change so the feed itself still reads as updated.
 const rssItems = [
-  ...pages.map(p => ({ title: p.title, link: `${SITE}/${p.slug}`, description: p.description, date: p.updated })),
+  ...pages.map(p => ({ title: p.title, link: `${SITE}/${p.slug}`, description: p.description, date: p.published || p.updated })),
   { title: '시티투어버스 티켓을 비교하는 방법', link: `${SITE}/guide/compare-tickets`, description: '이용시간, 노선, 정류장, 취소 조건을 기준으로 시티투어버스 티켓을 비교하는 방법을 설명합니다.', date: '2026-10-27' }
 ].sort((a, b) => b.date.localeCompare(a.date) || a.link.localeCompare(b.link));
 const rssDate = (d) => new Date(`${d}T09:00:00+09:00`).toUTCString();
@@ -236,7 +241,7 @@ fs.writeFileSync(path.join(ROOT, 'rss.xml'), `<?xml version="1.0" encoding="UTF-
 <link>${SITE}/</link>
 <description>전 세계 도시별 시티투어버스·빅버스 노선, 가격, 예약 방법, 타는법 정리</description>
 <language>ko</language>
-<lastBuildDate>${rssDate(rssItems[0].date)}</lastBuildDate>
+<lastBuildDate>${rssDate(pages.map(p => p.updated).sort().pop())}</lastBuildDate>
 ${rssItems.map(i => `<item><title>${esc(i.title)}</title><link>${i.link}</link><guid isPermaLink="true">${i.link}</guid><description>${esc(i.description)}</description><pubDate>${rssDate(i.date)}</pubDate></item>`).join('\n')}
 </channel></rss>
 `);

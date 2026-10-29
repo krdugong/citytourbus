@@ -5,15 +5,20 @@ function gtag() { dataLayer.push(arguments); }
 gtag('js', new Date());
 gtag('config', 'G-BS2Y7SJ7BT');
 
-// Naver Analytics (site id from analytics.naver.com)
+// Naver Analytics (site id from analytics.naver.com). Loaded once the page has finished loading: wcslog.js pulls in
+// a chain of further Naver scripts and frames, and none of that should compete with the first paint.
 window.wcs_add = window.wcs_add || {};
 wcs_add['wa'] = '1b9fef917767ec0';
 (function () {
-  var s = document.createElement('script');
-  s.src = 'https://wcs.pstatic.net/wcslog.js';
-  s.async = true;
-  s.onload = function () { if (window.wcs) wcs_do(); };
-  document.head.appendChild(s);
+  function load() {
+    var s = document.createElement('script');
+    s.src = 'https://wcs.pstatic.net/wcslog.js';
+    s.async = true;
+    s.onload = function () { if (window.wcs) wcs_do(); };
+    document.head.appendChild(s);
+  }
+  if (document.readyState === 'complete') load();
+  else window.addEventListener('load', load, { once: true });
 })();
 
 (function () {

@@ -1,5 +1,7 @@
-# Source and build inputs that the live site never needs (and search engines should not find)
-data/
+# Build inputs the live site never needs (and search engines should not find).
+# Keep data/price-sources.json deployed: /live-prices.js fetches it on /compare.
+data/keyword-pages/
+data/route-maps/
 scripts/
 astro-site/
 *.md

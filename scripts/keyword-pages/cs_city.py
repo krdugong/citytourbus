@@ -37,9 +37,12 @@ def cs_page(*, slug, keyword, city, flag, cs_url, sid, lead, title, description,
     for x in extra or []:
         if x.get('image') and x['image'] not in images:
             images[x['image']] = {'alt': x.get('alt', x['h2']), 'eyebrow': x['label'], 'title': f"{short}\n{x.get('card', x['toc'])}", 'sub': x.get('card_sub', ''), 'bg': '#0f766e'}
+    # a rewrite of an existing page keeps the day its URL first went live
+    fp = os.path.join(ROOT, 'data/keyword-pages', f'{slug}.json')
+    published = json.load(open(fp, encoding='utf-8')).get('published', date) if os.path.exists(fp) else date
     d = {
         'slug': slug, 'keyword': keyword, 'city': city, 'flag': flag, 'operator': 'city-sightseeing',
-        'updated': date, 'verified': date, 'title': title, 'description': description,
+        'published': published, 'updated': date, 'verified': date, 'title': title, 'description': description,
         'h1Sub': '노선·가격·예약 총정리', 'lead': lead, 'booking': booking, 'official': cs_url,
         'summary': [['운영', operator_note]] + summary,
         'routes': routes, 'tickets': tickets,
@@ -54,7 +57,7 @@ def cs_page(*, slug, keyword, city, flag, cs_url, sid, lead, title, description,
         d['night'] = night
     if extra:
         d['extra'] = extra
-    with open(os.path.join(ROOT, 'data/keyword-pages', f'{slug}.json'), 'w', encoding='utf-8') as f:
+    with open(fp, 'w', encoding='utf-8') as f:
         json.dump(d, f, ensure_ascii=False, indent=2)
         f.write('\n')
     print('wrote', slug)

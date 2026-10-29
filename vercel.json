@@ -815,6 +815,42 @@
       "source": "/sitemap-index.xml",
       "destination": "/sitemap.xml",
       "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "cape-town"
+        }
+      ],
+      "destination": "/cape-town-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "tallinn"
+        }
+      ],
+      "destination": "/tallinn-city-tour-bus",
+      "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "abu-dhabi"
+        }
+      ],
+      "destination": "/abu-dhabi-city-tour-bus",
+      "statusCode": 301
     }
   ]
 }

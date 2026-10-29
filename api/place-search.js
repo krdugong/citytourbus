@@ -17,7 +17,8 @@ export default async function handler(req, res) {
   });
 
   const cityConfig = {
-    'hong-kong': { countrycodes: 'hk' },
+    // Nominatim tags Hong Kong places with country_code "cn", so "hk" alone returned nothing; the viewbox keeps results inside Hong Kong
+    'hong-kong': { countrycodes: 'hk,cn', bounded: '1', viewbox: '113.83,22.56,114.41,22.15' },
     'new-york': { countrycodes: 'us', bounded: '1', viewbox: '-74.03,40.88,-73.90,40.68' },
     paris: { countrycodes: 'fr', bounded: '1', viewbox: '2.20,48.92,2.42,48.80' },
     london: { countrycodes: 'gb', bounded: '1', viewbox: '-0.25,51.56,0.02,51.45' },

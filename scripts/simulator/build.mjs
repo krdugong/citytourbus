@@ -113,7 +113,7 @@ ${PRECONNECT}${fontLinks()}
 ${ICONS}
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 </head><body data-city="${key}">
-<div class="topbar"><a class="brand" href="/"><b>CITY</b>TOURBUS.KR</a><span class="sub">${esc(d.ko)} ${esc(d.brand)} 시뮬레이터</span><a class="back" href="${d.page.url}">${esc(d.ko)} ${esc(d.brand)} 총정리</a></div>
+<div class="topbar"><a class="brand" href="/"><b>CITY</b>TOURBUS.KR</a><span class="sub">${esc(d.ko)} ${esc(d.brand)} 시뮬레이터</span><a class="back" href="/bus-simulator">다른 도시</a><a class="back" href="${d.page.url}">${esc(d.ko)} ${esc(d.brand)} 총정리</a></div>
 <section class="hero"><div class="eyebrow">${esc(d.operator)} · ${esc(d.ko)}</div><h1>${esc(d.ko)} ${esc(d.brand)} 시뮬레이터<br><span>가고 싶은 곳만 고르면 하루 코스가 나옵니다</span></h1><p>관광지·맛집·호텔을 고르면 <strong>어느 노선을 타고 어디서 내릴지</strong>를 순서대로 계산하고, 지도 위에서 버스가 코스를 따라 움직이며 <strong>하차 정류장과 도보 거리</strong>를 보여줍니다. 노선: ${esc(routeList)}.</p><div class="source-note">정류장·노선: 공식 페이지 기준 ${esc(d.verified)} · <a href="${esc(d.source)}" target="_blank" rel="noopener nofollow">공식 노선 확인</a>${d.page.routeCheck ? ` · <a href="${d.page.routeCheck}">정류장만 찾기(루트체커)</a>` : ''}</div></section>
 <main class="wrap"><div class="sim" id="sim">
 <aside class="panel">
@@ -149,11 +149,54 @@ ${ICONS}
   fs.writeFileSync(`${key}-bus-simulator.html`, html);
 }
 
+
+// --- hub page: /bus-simulator ---
+{
+  const title = '시티투어버스 시뮬레이터 | 가고 싶은 곳만 고르면 노선·하차 정류장·하루 코스 자동 추천';
+  const desc = '서울·부산·홍콩·뉴욕·파리·런던·로마·두바이·바르셀로나 시티투어버스(빅버스) 시뮬레이터. 가고 싶은 곳을 고르면 어느 노선을 타고 어디서 내릴지 순서대로 계산하고, 지도 위에서 버스가 코스를 따라 움직입니다.';
+  const url = `${SITE}/bus-simulator`;
+  const blurb = { seoul: '경복궁·북촌·명동·남산타워를 도심고궁남산 코스로', busan: '해운대·광안리·감천·태종대를 레드·그린·오렌지 조합으로', 'hong-kong': '피크·스탠리·구룡 야시장, 스타페리 환승 포함', 'new-york': '타임스퀘어에서 브루클린브리지까지 다운타운·업타운', paris: '루브르·에펠탑·개선문을 레드 노선 한 바퀴로', london: '빅벤·런던탑·버킹엄궁을 레드·블루 환승으로', rome: '콜로세움·바티칸·스페인 계단, 버스와 도보를 섞어', dubai: '부르즈칼리파·두바이 프레임·골드수크를 시티 레드로', barcelona: '사그라다·구엘공원·몬주익을 레드·블루 조합으로' };
+  const order = ['seoul', 'busan', 'hong-kong', 'new-york', 'paris', 'london', 'rome', 'dubai', 'barcelona'].filter(k => out[k]);
+  const cards = order.map(k => { const d = out[k]; const n = Object.values(d.routes).reduce((a, r) => a + r.stops.length, 0); return `<a class="hub-card" href="/${k}-bus-simulator"><div class="hub-city">${esc(d.ko)} <small>${esc(d.brand)}</small></div><p>${esc(blurb[k] || '')}</p><div class="hub-meta">${Object.values(d.routes).map(r => `<i style="background:${r.color}"></i>${esc(r.ko)}`).join(' · ')} · 정류장 ${n}곳</div><span class="hub-go">코스 만들기 →</span></a>`; }).join('');
+  const faq = [
+    ['시뮬레이터는 무엇을 해 주나요?', '가고 싶은 관광지·맛집·호텔을 고르면 탑승 정류장, 노선, 하차 정류장, 도보 거리, 예상 시각을 순서대로 계산합니다. 재생을 누르면 지도 위에서 버스가 코스를 따라 움직이며 내릴 곳을 알려 줍니다.'],
+    ['어떤 도시에서 쓸 수 있나요?', `지금은 ${order.map(k => out[k].ko).join('·')} ${order.length}개 도시입니다. 정류장 좌표가 확인된 도시부터 순서대로 늘리고 있습니다.`],
+    ['예상 시간은 얼마나 정확한가요?', '정류장 간 거리와 공식 한 바퀴 소요 시간, 배차 간격으로 계산한 추정치입니다. 실제 교통 상황에 따라 달라질 수 있으니 여유 있게 잡으세요.'],
+    ['티켓은 어디서 사나요?', '각 도시 시뮬레이터의 코스 결과 아래에 맞는 티켓과 예약 버튼이 나옵니다. 가격·노선 전체는 도시별 총정리 페이지에서 확인할 수 있습니다.'],
+  ];
+  const ld = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'CollectionPage', name: '시티투어버스 시뮬레이터', url, inLanguage: 'ko', description: desc, hasPart: order.map(k => ({ '@type': 'WebApplication', name: `${out[k].ko} ${out[k].brand} 시뮬레이터`, url: `${SITE}/${k}-bus-simulator` })) },
+    { '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+    { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: '홈', item: SITE + '/' }, { '@type': 'ListItem', position: 2, name: '시뮬레이터', item: url }] },
+  ] };
+  const html = `<!DOCTYPE html><html lang="ko"><head>
+${TAG}<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(desc)}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"><link rel="canonical" href="${url}">
+<meta property="og:type" content="website"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="CITYTOURBUS"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${SITE}/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+${PRECONNECT}${fontLinks()}
+<link rel="stylesheet" href="/bus-simulator.css?v=${V}">
+<style>.hub{max-width:1280px;margin:0 auto;padding:0 28px 40px}.hub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.hub-card{text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:20px;padding:20px;background:#fff;display:flex;flex-direction:column;gap:8px;transition:.16s}.hub-card:hover{transform:translateY(-2px);border-color:#bfc0c5;box-shadow:0 12px 30px rgba(0,0,0,.06)}.hub-city{font-size:20px;font-weight:900;letter-spacing:-.6px}.hub-city small{font-size:12px;color:var(--sub);font-weight:700;margin-left:4px}.hub-card p{margin:0;font-size:12px;line-height:1.7;color:var(--sub);word-break:keep-all}.hub-meta{font-size:10px;color:var(--sub);display:flex;flex-wrap:wrap;gap:4px;align-items:center}.hub-meta i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:3px}.hub-go{margin-top:auto;font-size:12px;font-weight:800;color:var(--brand)}.how{max-width:1280px;margin:0 auto;padding:0 28px 30px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.how div{background:var(--paper);border-radius:16px;padding:16px}.how b{display:block;font-size:14px;margin-bottom:5px}.how p{margin:0;font-size:12px;color:var(--sub);line-height:1.7}@media(max-width:900px){.hub-grid,.how{grid-template-columns:1fr 1fr}}@media(max-width:600px){.hub,.how{padding-left:16px;padding-right:16px}.hub-grid,.how{grid-template-columns:1fr}}</style>
+${ICONS}
+<script type="application/ld+json">${JSON.stringify(ld)}</script>
+</head><body>
+<div class="topbar"><a class="brand" href="/"><b>CITY</b>TOURBUS.KR</a><span class="sub">시티투어버스 시뮬레이터</span><a class="back" href="/">전체 도시</a></div>
+<section class="hero"><div class="eyebrow">SIMULATOR · ${order.length}개 도시</div><h1>시티투어버스 시뮬레이터<br><span>가고 싶은 곳만 고르면 하루 코스가 나옵니다</span></h1><p>관광지·맛집·호텔을 고르면 <strong>어느 노선을 타고 어디서 내릴지</strong>를 순서대로 계산하고, 지도 위에서 버스가 코스를 따라 움직이며 <strong>하차 정류장과 도보 거리</strong>를 보여줍니다. 도시를 고르세요.</p></section>
+<main class="hub"><div class="hub-grid">${cards}</div></main>
+<section class="how"><div><b>1 · 장소 고르기</b><p>인기 관광지를 누르거나 호텔·맛집 이름을 검색해 넣습니다. 머무는 시간도 정할 수 있습니다.</p></div><div><b>2 · 코스 만들기</b><p>출발 정류장과 시각을 정하면 가장 적게 갈아타고 적게 걷는 순서로 탑승·하차 정류장을 짜 줍니다.</p></div><div><b>3 · 지도에서 재생</b><p>버스가 코스를 따라 움직이고 내릴 정류장에서 멈춥니다. 링크를 복사해 동행에게 보낼 수 있습니다.</p></div></section>
+<section class="faq"><h2>시뮬레이터 자주 묻는 질문</h2>${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}
+<p class="foot">정류장·노선은 각 운영사 공식 페이지를 기준으로 정리했습니다. 운행 시간·요금은 도시별 총정리 페이지와 공식 사이트에서 다시 확인하세요.</p></section>
+</body></html>
+`;
+  fs.writeFileSync('bus-simulator.html', html);
+}
+
 // --- sitemap ---
 let sm = fs.readFileSync('sitemap.xml', 'utf8');
 let added = 0;
-for (const key of Object.keys(out)) {
-  const loc = `${SITE}/${key}-bus-simulator`;
+for (const key of ['', ...Object.keys(out)]) {
+  const loc = key ? `${SITE}/${key}-bus-simulator` : `${SITE}/bus-simulator`;
   if (sm.includes(`<loc>${loc}</loc>`)) continue;
   sm = sm.replace('</urlset>', `  <url><loc>${loc}</loc><lastmod>${TODAY}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>\n</urlset>`);
   added++;

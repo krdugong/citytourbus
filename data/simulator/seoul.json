@@ -1,0 +1,358 @@
+{
+ "ko": "서울",
+ "en": "Seoul",
+ "operator": "서울시티투어버스",
+ "verified": "2026-10-29",
+ "source": "https://www.seoulcitybus.com/ko/tours/1",
+ "center": [
+  37.566,
+  126.99
+ ],
+ "zoom": 13,
+ "bounds": [
+  [
+   37.535,
+   126.965
+  ],
+  [
+   37.59,
+   127.015
+  ]
+ ],
+ "routes": {
+  "red": {
+   "ko": "도심·고궁·남산 코스",
+   "en": "Downtown Palace Namsan Course",
+   "color": "#e22b37",
+   "frequency": "25분",
+   "duration": "약 1시간 30분",
+   "stops": [
+    {
+     "n": 1,
+     "ko": "광화문 (동화면세점 앞)",
+     "en": "Gwanghwamun · Donghwa Duty Free",
+     "lat": 37.5692,
+     "lng": 126.9772,
+     "addr": "세종대로 149 동화면세점 앞 · 출발 정류장"
+    },
+    {
+     "n": 2,
+     "ko": "명동",
+     "en": "Myeongdong",
+     "lat": 37.5612,
+     "lng": 126.9855,
+     "addr": "명동 입구 · 퇴계로"
+    },
+    {
+     "n": 3,
+     "ko": "남산골한옥마을",
+     "en": "Namsangol Hanok Village",
+     "lat": 37.5593,
+     "lng": 126.9945,
+     "addr": "퇴계로34길 28"
+    },
+    {
+     "n": 4,
+     "ko": "앰배서더 서울 풀만 호텔",
+     "en": "Ambassador Seoul Pullman",
+     "lat": 37.5601,
+     "lng": 127.0025,
+     "addr": "동호로 287"
+    },
+    {
+     "n": 5,
+     "ko": "신라호텔·장충단공원",
+     "en": "Shilla Hotel · Jangchungdan Park",
+     "lat": 37.5584,
+     "lng": 127.0055,
+     "addr": "장충단로"
+    },
+    {
+     "n": 6,
+     "ko": "N서울타워",
+     "en": "N Seoul Tower",
+     "lat": 37.5512,
+     "lng": 126.9882,
+     "addr": "남산공원길 105"
+    },
+    {
+     "n": 7,
+     "ko": "그랜드 하얏트 서울",
+     "en": "Grand Hyatt Seoul",
+     "lat": 37.5393,
+     "lng": 126.9983,
+     "addr": "소월로 322"
+    },
+    {
+     "n": 8,
+     "ko": "동대문디자인플라자(DDP)·동대문시장",
+     "en": "DDP · Dongdaemun Market",
+     "lat": 37.5671,
+     "lng": 127.0099,
+     "addr": "을지로 281"
+    },
+    {
+     "n": 9,
+     "ko": "대학로",
+     "en": "Daehangno",
+     "lat": 37.5798,
+     "lng": 127.0025,
+     "addr": "대학로 마로니에공원 앞"
+    },
+    {
+     "n": 10,
+     "ko": "창경궁",
+     "en": "Changgyeonggung Palace",
+     "lat": 37.5786,
+     "lng": 126.9955,
+     "addr": "창경궁로 185"
+    },
+    {
+     "n": 11,
+     "ko": "창덕궁",
+     "en": "Changdeokgung Palace",
+     "lat": 37.579,
+     "lng": 126.991,
+     "addr": "율곡로 99 돈화문 앞"
+    },
+    {
+     "n": 12,
+     "ko": "인사동·북촌",
+     "en": "Insadong · Bukchon",
+     "lat": 37.5758,
+     "lng": 126.9858,
+     "addr": "안국역 · 인사동 입구"
+    },
+    {
+     "n": 13,
+     "ko": "청와대 앞",
+     "en": "Cheong Wa Dae",
+     "lat": 37.585,
+     "lng": 126.975,
+     "addr": "청와대로"
+    },
+    {
+     "n": 14,
+     "ko": "경복궁·국립민속박물관·국립현대미술관",
+     "en": "Gyeongbokgung · Folk Museum · MMCA",
+     "lat": 37.581,
+     "lng": 126.979,
+     "addr": "삼청로 국립민속박물관 앞"
+    },
+    {
+     "n": 15,
+     "ko": "세종문화회관·광화문광장",
+     "en": "Sejong Center · Gwanghwamun Square",
+     "lat": 37.5726,
+     "lng": 126.9756,
+     "addr": "세종대로 175"
+    }
+   ]
+  }
+ },
+ "pois": [
+  {
+   "id": "gyeongbok",
+   "ko": "경복궁",
+   "en": "Gyeongbokgung",
+   "lat": 37.5796,
+   "lng": 126.977,
+   "aliases": [
+    "경복궁",
+    "gyeongbokgung"
+   ]
+  },
+  {
+   "id": "bukchon",
+   "ko": "북촌한옥마을",
+   "en": "Bukchon Hanok Village",
+   "lat": 37.5826,
+   "lng": 126.983,
+   "aliases": [
+    "북촌",
+    "한옥마을",
+    "bukchon"
+   ]
+  },
+  {
+   "id": "insadong",
+   "ko": "인사동",
+   "en": "Insadong",
+   "lat": 37.574,
+   "lng": 126.9855,
+   "aliases": [
+    "인사동",
+    "insadong"
+   ]
+  },
+  {
+   "id": "myeongdong",
+   "ko": "명동",
+   "en": "Myeongdong",
+   "lat": 37.5636,
+   "lng": 126.9834,
+   "aliases": [
+    "명동",
+    "myeongdong"
+   ]
+  },
+  {
+   "id": "ntower",
+   "ko": "N서울타워",
+   "en": "N Seoul Tower",
+   "lat": 37.5512,
+   "lng": 126.9882,
+   "aliases": [
+    "남산타워",
+    "서울타워",
+    "n seoul tower",
+    "남산"
+   ]
+  },
+  {
+   "id": "ddp",
+   "ko": "동대문 DDP",
+   "en": "Dongdaemun Design Plaza",
+   "lat": 37.5671,
+   "lng": 127.0099,
+   "aliases": [
+    "동대문",
+    "ddp",
+    "디자인플라자"
+   ]
+  },
+  {
+   "id": "changdeok",
+   "ko": "창덕궁",
+   "en": "Changdeokgung",
+   "lat": 37.5794,
+   "lng": 126.991,
+   "aliases": [
+    "창덕궁",
+    "비원",
+    "changdeokgung"
+   ]
+  },
+  {
+   "id": "changgyeong",
+   "ko": "창경궁",
+   "en": "Changgyeonggung",
+   "lat": 37.5786,
+   "lng": 126.9955,
+   "aliases": [
+    "창경궁"
+   ]
+  },
+  {
+   "id": "gwangjang",
+   "ko": "광장시장",
+   "en": "Gwangjang Market",
+   "lat": 37.57,
+   "lng": 126.9996,
+   "aliases": [
+    "광장시장",
+    "gwangjang"
+   ]
+  },
+  {
+   "id": "cheonggye",
+   "ko": "청계천",
+   "en": "Cheonggyecheon",
+   "lat": 37.569,
+   "lng": 126.978,
+   "aliases": [
+    "청계천",
+    "cheonggyecheon"
+   ]
+  },
+  {
+   "id": "namdaemun",
+   "ko": "남대문시장",
+   "en": "Namdaemun Market",
+   "lat": 37.5594,
+   "lng": 126.9774,
+   "aliases": [
+    "남대문",
+    "namdaemun"
+   ]
+  },
+  {
+   "id": "ikseon",
+   "ko": "익선동",
+   "en": "Ikseon-dong",
+   "lat": 37.5743,
+   "lng": 126.9898,
+   "aliases": [
+    "익선동",
+    "ikseon"
+   ]
+  },
+  {
+   "id": "daehangno",
+   "ko": "대학로",
+   "en": "Daehangno",
+   "lat": 37.5798,
+   "lng": 127.0025,
+   "aliases": [
+    "대학로",
+    "혜화",
+    "마로니에"
+   ]
+  },
+  {
+   "id": "namsangol",
+   "ko": "남산골한옥마을",
+   "en": "Namsangol Hanok Village",
+   "lat": 37.5593,
+   "lng": 126.9945,
+   "aliases": [
+    "남산골"
+   ]
+  },
+  {
+   "id": "deoksu",
+   "ko": "덕수궁",
+   "en": "Deoksugung",
+   "lat": 37.5658,
+   "lng": 126.9751,
+   "aliases": [
+    "덕수궁",
+    "deoksugung",
+    "시청"
+   ]
+  },
+  {
+   "id": "gwanghwamun",
+   "ko": "광화문광장",
+   "en": "Gwanghwamun Square",
+   "lat": 37.572,
+   "lng": 126.9769,
+   "aliases": [
+    "광화문",
+    "gwanghwamun"
+   ]
+  },
+  {
+   "id": "itaewon",
+   "ko": "이태원",
+   "en": "Itaewon",
+   "lat": 37.5345,
+   "lng": 126.9946,
+   "aliases": [
+    "이태원",
+    "itaewon"
+   ]
+  },
+  {
+   "id": "cheongwadae",
+   "ko": "청와대",
+   "en": "Cheong Wa Dae",
+   "lat": 37.5867,
+   "lng": 126.9761,
+   "aliases": [
+    "청와대",
+    "blue house"
+   ]
+  }
+ ]
+}

@@ -5,6 +5,7 @@
 // Safe to run again. Usage (from repo root): node scripts/simulator/build.mjs
 import fs from 'node:fs';
 import vm from 'node:vm';
+import crypto from 'node:crypto';
 import { TAG, PRECONNECT, fontLinks, ICONS } from '../head-bits.mjs';
 
 const SITE = 'https://www.citytourbus.kr';
@@ -51,7 +52,8 @@ const out = {};
 for (const [key, c] of Object.entries(cities)) {
   const page = JSON.parse(fs.readFileSync(`data/keyword-pages/${c.slug}.json`, 'utf8'));
   let base;
-  if (rc[key]) base = rc[key];
+  if (fs.existsSync(`data/simulator/${key}.json`)) base = JSON.parse(fs.readFileSync(`data/simulator/${key}.json`, 'utf8'));
+  else if (rc[key]) base = rc[key];
   else { const d = inlineData(`${key}-route-check.html`); base = { ...inlineMeta[key], routes: d.routes, pois: d.pois }; }
   const routes = {};
   Object.entries(base.routes).forEach(([rk, r], i) => {
@@ -69,7 +71,7 @@ for (const [key, c] of Object.entries(cities)) {
   out[key] = {
     key, ko: c.ko, en: c.en, brand: c.brand, operator: base.operator, source: base.source, verified: base.verified,
     center: base.center, zoom: base.zoom, bounds: base.bounds, startStop: c.startStop,
-    page: { url: `/${c.slug}`, title: page.keyword || page.title, booking: page.booking, tickets, routeCheck: `/${key}-route-check` },
+    page: { url: `/${c.slug}`, title: page.keyword || page.title, booking: page.booking, tickets, routeCheck: fs.existsSync(`${key}-route-check.html`) ? `/${key}-route-check` : null, affiliate: page.affiliate !== false },
     routes, pois,
     links: (c.links || []).map(l => ({ from: l.from, to: l.to, min: l.min, icon: l.icon || '🚇', label: l.label })),
   };
@@ -77,7 +79,8 @@ for (const [key, c] of Object.entries(cities)) {
 fs.writeFileSync('simulator-data.js', 'window.SIM_DATA=' + JSON.stringify(out) + ';\n');
 
 // --- pages ---
-const V = TODAY.replace(/-/g, '');
+// cache-buster for the page's js/css/data: changes whenever any of them changes
+const V = crypto.createHash('md5').update(fs.readFileSync('bus-simulator.js')).update(fs.readFileSync('bus-simulator.css')).update(JSON.stringify(out)).digest('hex').slice(0, 10);
 for (const [key, d] of Object.entries(out)) {
   const name = `${d.ko} ${d.brand}`;
   const title = `${name} 시뮬레이터 | 가고 싶은 곳 입력하면 노선·하차 정류장 자동 추천`;
@@ -111,7 +114,7 @@ ${ICONS}
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 </head><body data-city="${key}">
 <div class="topbar"><a class="brand" href="/"><b>CITY</b>TOURBUS.KR</a><span class="sub">${esc(d.ko)} ${esc(d.brand)} 시뮬레이터</span><a class="back" href="${d.page.url}">${esc(d.ko)} ${esc(d.brand)} 총정리</a></div>
-<section class="hero"><div class="eyebrow">${esc(d.operator)} · ${esc(d.ko)}</div><h1>${esc(d.ko)} ${esc(d.brand)} 시뮬레이터<br><span>가고 싶은 곳만 고르면 하루 코스가 나옵니다</span></h1><p>관광지·맛집·호텔을 고르면 <strong>어느 노선을 타고 어디서 내릴지</strong>를 순서대로 계산하고, 지도 위에서 버스가 코스를 따라 움직이며 <strong>하차 정류장과 도보 거리</strong>를 보여줍니다. 노선: ${esc(routeList)}.</p><div class="source-note">정류장·노선: 공식 페이지 기준 ${esc(d.verified)} · <a href="${esc(d.source)}" target="_blank" rel="noopener nofollow">공식 노선 확인</a> · <a href="${d.page.routeCheck}">정류장만 찾기(루트체커)</a></div></section>
+<section class="hero"><div class="eyebrow">${esc(d.operator)} · ${esc(d.ko)}</div><h1>${esc(d.ko)} ${esc(d.brand)} 시뮬레이터<br><span>가고 싶은 곳만 고르면 하루 코스가 나옵니다</span></h1><p>관광지·맛집·호텔을 고르면 <strong>어느 노선을 타고 어디서 내릴지</strong>를 순서대로 계산하고, 지도 위에서 버스가 코스를 따라 움직이며 <strong>하차 정류장과 도보 거리</strong>를 보여줍니다. 노선: ${esc(routeList)}.</p><div class="source-note">정류장·노선: 공식 페이지 기준 ${esc(d.verified)} · <a href="${esc(d.source)}" target="_blank" rel="noopener nofollow">공식 노선 확인</a>${d.page.routeCheck ? ` · <a href="${d.page.routeCheck}">정류장만 찾기(루트체커)</a>` : ''}</div></section>
 <main class="wrap"><div class="sim" id="sim">
 <aside class="panel">
   <div class="panel-block">

@@ -25,6 +25,8 @@ export default async function handler(req, res) {
     rome: { countrycodes: 'it', bounded: '1', viewbox: '12.40,41.95,12.58,41.82' },
     dubai: { countrycodes: 'ae', bounded: '1', viewbox: '55.08,25.35,55.40,24.98' },
     barcelona: { countrycodes: 'es', bounded: '1', viewbox: '2.05,41.47,2.24,41.32' },
+    seoul: { countrycodes: 'kr', bounded: '1', viewbox: '126.80,37.70,127.20,37.42' },
+    busan: { countrycodes: 'kr', bounded: '1', viewbox: '128.85,35.33,129.30,34.98' },
   };
 
   const selected = cityConfig[city];

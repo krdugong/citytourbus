@@ -1,0 +1,551 @@
+{
+ "ko": "부산",
+ "en": "Busan",
+ "operator": "부산시티투어",
+ "verified": "2026-10-29",
+ "source": "https://www.citytourbusan.com/",
+ "center": [
+  35.115,
+  129.06
+ ],
+ "zoom": 12,
+ "bounds": [
+  [
+   35.045,
+   128.945
+  ],
+  [
+   35.18,
+   129.17
+  ]
+ ],
+ "routes": {
+  "red": {
+   "ko": "레드라인",
+   "en": "Red Line · Haeundae",
+   "color": "#e2252b",
+   "frequency": "50분",
+   "duration": "약 2시간 10분",
+   "stops": [
+    {
+     "n": 1,
+     "ko": "부산역",
+     "en": "Busan Station",
+     "lat": 35.1156,
+     "lng": 129.0426,
+     "addr": "부산역 광장 앞 · 출발 정류장"
+    },
+    {
+     "n": 2,
+     "ko": "UN기념공원",
+     "en": "UN Memorial Cemetery",
+     "lat": 35.1275,
+     "lng": 129.0966,
+     "addr": "유엔평화로"
+    },
+    {
+     "n": 3,
+     "ko": "부산박물관",
+     "en": "Busan Museum",
+     "lat": 35.1294,
+     "lng": 129.0942,
+     "addr": "유엔평화로 63"
+    },
+    {
+     "n": 4,
+     "ko": "용호만유람선터미널",
+     "en": "Yongho Bay Cruise Terminal",
+     "lat": 35.1326,
+     "lng": 129.1155,
+     "addr": "분포로"
+    },
+    {
+     "n": 5,
+     "ko": "광안리해수욕장",
+     "en": "Gwangalli Beach",
+     "lat": 35.1532,
+     "lng": 129.1187,
+     "addr": "광안해변로"
+    },
+    {
+     "n": 6,
+     "ko": "마린시티 (수영만요트경기장)",
+     "en": "Marine City · Yacht Stadium",
+     "lat": 35.1565,
+     "lng": 129.1386,
+     "addr": "해운대해변로"
+    },
+    {
+     "n": 7,
+     "ko": "동백섬",
+     "en": "Dongbaek Island",
+     "lat": 35.156,
+     "lng": 129.153,
+     "addr": "동백로 입구"
+    },
+    {
+     "n": 8,
+     "ko": "해운대해수욕장",
+     "en": "Haeundae Beach",
+     "lat": 35.1593,
+     "lng": 129.16,
+     "addr": "해운대해변로"
+    },
+    {
+     "n": 9,
+     "ko": "센텀시티 (영화의전당)",
+     "en": "Centum City · Busan Cinema Center",
+     "lat": 35.1712,
+     "lng": 129.1267,
+     "addr": "수영강변대로 120"
+    },
+    {
+     "n": 10,
+     "ko": "시립미술관·벡스코",
+     "en": "Busan Museum of Art · BEXCO",
+     "lat": 35.1668,
+     "lng": 129.137,
+     "addr": "APEC로"
+    },
+    {
+     "n": 11,
+     "ko": "평화공원",
+     "en": "Peace Park",
+     "lat": 35.1268,
+     "lng": 129.1003,
+     "addr": "대연동"
+    },
+    {
+     "n": 12,
+     "ko": "광복로",
+     "en": "Gwangbok-ro",
+     "lat": 35.0993,
+     "lng": 129.0297,
+     "addr": "광복동 패션거리"
+    }
+   ]
+  },
+  "green": {
+   "ko": "그린라인",
+   "en": "Green Line · Yeongdo",
+   "color": "#1f9d55",
+   "frequency": "50분",
+   "duration": "약 2시간 10분",
+   "stops": [
+    {
+     "n": 1,
+     "ko": "부산역",
+     "en": "Busan Station",
+     "lat": 35.1156,
+     "lng": 129.0426,
+     "addr": "부산역 광장 앞 · 출발 정류장"
+    },
+    {
+     "n": 2,
+     "ko": "영도대교 (유라리광장)",
+     "en": "Yeongdo Bridge",
+     "lat": 35.096,
+     "lng": 129.037,
+     "addr": "유라리광장"
+    },
+    {
+     "n": 3,
+     "ko": "흰여울문화마을",
+     "en": "Huinnyeoul Culture Village",
+     "lat": 35.0774,
+     "lng": 129.0457,
+     "addr": "영선동 절영로"
+    },
+    {
+     "n": 4,
+     "ko": "하늘전망대",
+     "en": "Sky Observatory",
+     "lat": 35.0745,
+     "lng": 129.045,
+     "addr": "절영해안산책로"
+    },
+    {
+     "n": 5,
+     "ko": "태종대",
+     "en": "Taejongdae",
+     "lat": 35.0585,
+     "lng": 129.0877,
+     "addr": "전망로 24 입구"
+    },
+    {
+     "n": 6,
+     "ko": "국립해양박물관",
+     "en": "National Maritime Museum",
+     "lat": 35.0787,
+     "lng": 129.0803,
+     "addr": "해양로301번길 45"
+    },
+    {
+     "n": 7,
+     "ko": "아르떼뮤지엄부산",
+     "en": "Arte Museum Busan",
+     "lat": 35.0865,
+     "lng": 129.0759,
+     "addr": "해양로"
+    },
+    {
+     "n": 8,
+     "ko": "오륙도스카이워크",
+     "en": "Oryukdo Skywalk",
+     "lat": 35.1013,
+     "lng": 129.1217,
+     "addr": "오륙도로"
+    },
+    {
+     "n": 9,
+     "ko": "용호만유람선터미널",
+     "en": "Yongho Bay Cruise Terminal",
+     "lat": 35.1326,
+     "lng": 129.1155,
+     "addr": "분포로"
+    },
+    {
+     "n": 10,
+     "ko": "평화공원",
+     "en": "Peace Park",
+     "lat": 35.1268,
+     "lng": 129.1003,
+     "addr": "대연동"
+    },
+    {
+     "n": 11,
+     "ko": "송도해수욕장 (구름산책로)",
+     "en": "Songdo Beach",
+     "lat": 35.0755,
+     "lng": 129.0173,
+     "addr": "송도해변로"
+    },
+    {
+     "n": 12,
+     "ko": "자갈치·BIFF광장 (용두산공원)",
+     "en": "Jagalchi · BIFF Square",
+     "lat": 35.0975,
+     "lng": 129.028,
+     "addr": "자갈치로"
+    }
+   ]
+  },
+  "orange": {
+   "ko": "오렌지라인",
+   "en": "Orange Line · Gamcheon",
+   "color": "#f08a24",
+   "frequency": "80분",
+   "duration": "약 2시간 10분",
+   "stops": [
+    {
+     "n": 1,
+     "ko": "부산역",
+     "en": "Busan Station",
+     "lat": 35.1156,
+     "lng": 129.0426,
+     "addr": "부산역 광장 앞 · 출발 정류장"
+    },
+    {
+     "n": 2,
+     "ko": "송도해수욕장 (송도구름산책로)",
+     "en": "Songdo Beach",
+     "lat": 35.0755,
+     "lng": 129.0173,
+     "addr": "송도해변로"
+    },
+    {
+     "n": 3,
+     "ko": "암남공원 (용궁구름다리)",
+     "en": "Amnam Park",
+     "lat": 35.06,
+     "lng": 129.019,
+     "addr": "암남공원로"
+    },
+    {
+     "n": 4,
+     "ko": "감천문화마을 (감천사거리)",
+     "en": "Gamcheon Culture Village",
+     "lat": 35.0985,
+     "lng": 129.01,
+     "addr": "감천사거리"
+    },
+    {
+     "n": 5,
+     "ko": "다대포해수욕장 (몰운대)",
+     "en": "Dadaepo Beach",
+     "lat": 35.0482,
+     "lng": 128.966,
+     "addr": "다대로"
+    },
+    {
+     "n": 6,
+     "ko": "아미산전망대",
+     "en": "Amisan Observatory",
+     "lat": 35.0529,
+     "lng": 128.9608,
+     "addr": "다대낙조2길"
+    },
+    {
+     "n": 7,
+     "ko": "부네치아 장림항",
+     "en": "Jangnim Port (Bunezia)",
+     "lat": 35.0793,
+     "lng": 128.951,
+     "addr": "장림포구"
+    },
+    {
+     "n": 8,
+     "ko": "석당박물관 (임시수도기념관)",
+     "en": "Seokdang Museum",
+     "lat": 35.1048,
+     "lng": 129.0195,
+     "addr": "구덕로"
+    },
+    {
+     "n": 9,
+     "ko": "국제시장 (보수동책방골목)",
+     "en": "Gukje Market",
+     "lat": 35.102,
+     "lng": 129.026,
+     "addr": "보수동"
+    },
+    {
+     "n": 10,
+     "ko": "용두산공원 (부산근현대역사관)",
+     "en": "Yongdusan Park",
+     "lat": 35.1005,
+     "lng": 129.0327,
+     "addr": "광복동"
+    }
+   ]
+  }
+ },
+ "pois": [
+  {
+   "id": "haeundae",
+   "ko": "해운대해수욕장",
+   "en": "Haeundae Beach",
+   "lat": 35.1587,
+   "lng": 129.1604,
+   "aliases": [
+    "해운대",
+    "haeundae"
+   ]
+  },
+  {
+   "id": "gwangalli",
+   "ko": "광안리해수욕장",
+   "en": "Gwangalli Beach",
+   "lat": 35.1532,
+   "lng": 129.1187,
+   "aliases": [
+    "광안리",
+    "광안대교",
+    "gwangalli"
+   ]
+  },
+  {
+   "id": "gamcheon",
+   "ko": "감천문화마을",
+   "en": "Gamcheon Culture Village",
+   "lat": 35.0975,
+   "lng": 129.0105,
+   "aliases": [
+    "감천",
+    "gamcheon"
+   ]
+  },
+  {
+   "id": "taejongdae",
+   "ko": "태종대",
+   "en": "Taejongdae",
+   "lat": 35.053,
+   "lng": 129.087,
+   "aliases": [
+    "태종대",
+    "taejongdae"
+   ]
+  },
+  {
+   "id": "huinnyeoul",
+   "ko": "흰여울문화마을",
+   "en": "Huinnyeoul Village",
+   "lat": 35.0774,
+   "lng": 129.0457,
+   "aliases": [
+    "흰여울",
+    "huinnyeoul"
+   ]
+  },
+  {
+   "id": "jagalchi",
+   "ko": "자갈치시장",
+   "en": "Jagalchi Market",
+   "lat": 35.0968,
+   "lng": 129.0305,
+   "aliases": [
+    "자갈치",
+    "jagalchi"
+   ]
+  },
+  {
+   "id": "gukje",
+   "ko": "국제시장",
+   "en": "Gukje Market",
+   "lat": 35.1012,
+   "lng": 129.0282,
+   "aliases": [
+    "국제시장",
+    "깡통시장",
+    "gukje"
+   ]
+  },
+  {
+   "id": "yongdusan",
+   "ko": "용두산공원·부산타워",
+   "en": "Yongdusan Park · Busan Tower",
+   "lat": 35.1005,
+   "lng": 129.0327,
+   "aliases": [
+    "용두산",
+    "부산타워",
+    "busan tower"
+   ]
+  },
+  {
+   "id": "biff",
+   "ko": "BIFF광장",
+   "en": "BIFF Square",
+   "lat": 35.0983,
+   "lng": 129.0279,
+   "aliases": [
+    "biff",
+    "남포동"
+   ]
+  },
+  {
+   "id": "oryukdo",
+   "ko": "오륙도스카이워크",
+   "en": "Oryukdo Skywalk",
+   "lat": 35.1013,
+   "lng": 129.1217,
+   "aliases": [
+    "오륙도",
+    "oryukdo"
+   ]
+  },
+  {
+   "id": "dongbaek",
+   "ko": "동백섬·누리마루",
+   "en": "Dongbaek Island · Nurimaru",
+   "lat": 35.1527,
+   "lng": 129.1546,
+   "aliases": [
+    "동백섬",
+    "누리마루",
+    "nurimaru"
+   ]
+  },
+  {
+   "id": "centum",
+   "ko": "센텀시티·신세계",
+   "en": "Centum City · Shinsegae",
+   "lat": 35.1689,
+   "lng": 129.1297,
+   "aliases": [
+    "센텀",
+    "신세계",
+    "centum"
+   ]
+  },
+  {
+   "id": "bexco",
+   "ko": "벡스코",
+   "en": "BEXCO",
+   "lat": 35.169,
+   "lng": 129.136,
+   "aliases": [
+    "벡스코",
+    "bexco"
+   ]
+  },
+  {
+   "id": "cinema",
+   "ko": "영화의전당",
+   "en": "Busan Cinema Center",
+   "lat": 35.1712,
+   "lng": 129.1267,
+   "aliases": [
+    "영화의전당",
+    "cinema center"
+   ]
+  },
+  {
+   "id": "dadaepo",
+   "ko": "다대포해수욕장",
+   "en": "Dadaepo Beach",
+   "lat": 35.0482,
+   "lng": 128.966,
+   "aliases": [
+    "다대포",
+    "dadaepo"
+   ]
+  },
+  {
+   "id": "songdo",
+   "ko": "송도해수욕장·케이블카",
+   "en": "Songdo Beach · Cable Car",
+   "lat": 35.0758,
+   "lng": 129.018,
+   "aliases": [
+    "송도",
+    "케이블카",
+    "songdo"
+   ]
+  },
+  {
+   "id": "busanstation",
+   "ko": "부산역",
+   "en": "Busan Station",
+   "lat": 35.1152,
+   "lng": 129.0415,
+   "aliases": [
+    "부산역",
+    "busan station"
+   ]
+  },
+  {
+   "id": "seomyeon",
+   "ko": "서면",
+   "en": "Seomyeon",
+   "lat": 35.1577,
+   "lng": 129.0595,
+   "aliases": [
+    "서면",
+    "seomyeon"
+   ]
+  },
+  {
+   "id": "haedong",
+   "ko": "해동용궁사",
+   "en": "Haedong Yonggungsa",
+   "lat": 35.1883,
+   "lng": 129.2232,
+   "aliases": [
+    "용궁사",
+    "haedong yonggungsa"
+   ]
+  },
+  {
+   "id": "songjeong",
+   "ko": "송정해수욕장",
+   "en": "Songjeong Beach",
+   "lat": 35.1786,
+   "lng": 129.1998,
+   "aliases": [
+    "송정",
+    "songjeong"
+   ]
+  }
+ ]
+}

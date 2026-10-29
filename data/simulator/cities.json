@@ -83,5 +83,25 @@
       "red",
       1
     ]
+  },
+  "seoul": {
+    "slug": "seoul-city-tour-bus",
+    "ko": "서울",
+    "en": "Seoul",
+    "brand": "시티투어버스",
+    "startStop": [
+      "red",
+      1
+    ]
+  },
+  "busan": {
+    "slug": "busan-city-tour-bus",
+    "ko": "부산",
+    "en": "Busan",
+    "brand": "시티투어버스",
+    "startStop": [
+      "red",
+      1
+    ]
   }
 }

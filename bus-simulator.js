@@ -19,6 +19,7 @@
   const toMin=s=>{const m=String(s||'').match(/(\d{1,2}):(\d{2})/);return m?+m[1]*60+ +m[2]:null};
 
   // ---------- graph: nodes = stops, edges = bus hops (loop) + short walking transfers ----------
+  const waitFor=rk=>Math.min(C.routes[rk].headway/2,20); // tour buses run to a timetable, so riders line up with it
   const nodes=[];const adj=[];
   routeKeys.forEach(rk=>{C.routes[rk].stops.forEach((s,i)=>{nodes.push({id:nodes.length,rk,idx:i,stop:s});adj.push([])})});
   routeKeys.forEach(rk=>{
@@ -29,13 +30,13 @@
     let f=r.loopMin?r.loopMin/sum:1; f=Math.min(2.5,Math.max(.6,f));
     ns.forEach((n,i)=>{const m=ns[(i+1)%ns.length];adj[n.id].push({to:m.id,min:est[i]*f,type:'bus',rk,dist:segs[i]})});
   });
-  nodes.forEach(a=>nodes.forEach(b=>{if(a.rk===b.rk||a.id===b.id)return;const d=hav(a.stop,b.stop);if(d<=320)adj[a.id].push({to:b.id,min:walkMin(d)+C.routes[b.rk].headway/2+2,type:'transfer',dist:d})}));
+  nodes.forEach(a=>nodes.forEach(b=>{if(a.rk===b.rk||a.id===b.id)return;const d=hav(a.stop,b.stop);if(d<=320)adj[a.id].push({to:b.id,min:walkMin(d)+waitFor(b.rk)+2,type:'transfer',dist:d})}));
   // city-specific links between routes that do not touch (e.g. Hong Kong Star Ferry), both directions
   (C.links||[]).forEach(l=>{const a=nodes.find(n=>n.rk===l.from[0]&&n.stop.n===l.from[1]),b=nodes.find(n=>n.rk===l.to[0]&&n.stop.n===l.to[1]);if(!a||!b)return;
     const near=x=>nodes.filter(n=>hav(n.stop,x.stop)<=60); // every route stopping at that spot gets the link
-    near(a).forEach(x=>near(b).forEach(y=>[[x,y],[y,x]].forEach(([f,t])=>adj[f.id].push({to:t.id,min:l.min+C.routes[t.rk].headway/2,type:'link',dist:hav(f.stop,t.stop),icon:l.icon,label:l.label}))))});
-  const TRANSIT_KMH=18;
-  const transitLeg=d=>({type:'transit',dist:d,min:10+d/1000/TRANSIT_KMH*60,total:10+d/1000/TRANSIT_KMH*60,busMin:0,walkDist:0,rides:[]});
+    near(a).forEach(x=>near(b).forEach(y=>[[x,y],[y,x]].forEach(([f,t])=>adj[f.id].push({to:t.id,min:l.min+waitFor(t.rk),type:'link',dist:hav(f.stop,t.stop),icon:l.icon,label:l.label}))))});
+  const TRANSIT_KMH=18,TRANSIT_PENALTY=40; // leaving the tour bus costs extra money/hassle: planning cost only, not shown as time
+  const transitLeg=d=>({type:'transit',dist:d,min:10+d/1000/TRANSIT_KMH*60,total:10+d/1000/TRANSIT_KMH*60+TRANSIT_PENALTY,busMin:0,walkDist:0,rides:[]});
 
   function dijkstra(sources){
     const dist=new Array(nodes.length).fill(Infinity), prev=new Array(nodes.length).fill(null), done=new Array(nodes.length).fill(false);
@@ -50,7 +51,7 @@
   function legBetween(origin,target){
     const direct=hav(origin,target);
     const walkLeg={type:'walk',dist:direct,min:walkMin(direct),total:walkMin(direct),busMin:0,walkDist:direct,rides:[]};
-    const sources=origin.node!=null?[{id:origin.node,cost:C.routes[nodes[origin.node].rk].headway/2,walk:0}]:nearNodes(origin).map(x=>({id:x.n.id,cost:walkMin(x.d)+C.routes[x.n.rk].headway/2,walk:x.d}));
+    const sources=origin.node!=null?[{id:origin.node,cost:waitFor(nodes[origin.node].rk),walk:0}]:nearNodes(origin).map(x=>({id:x.n.id,cost:walkMin(x.d)+waitFor(x.n.rk),walk:x.d}));
     const noBus=direct<=1500?walkLeg:transitLeg(direct);
     if(!sources.length)return noBus;
     const {dist,prev}=dijkstra(sources);
@@ -61,7 +62,7 @@
     const edges=[];let cur=best.node;while(prev[cur]&&prev[cur].from!=null){edges.unshift({...prev[cur].edge,from:prev[cur].from});cur=prev[cur].from}
     const src=prev[cur]?.src;
     const rides=[];let walkDist=(src?.walk||0)+best.walkOff,busMin=0;
-    edges.forEach(e=>{if(e.type==='bus'){const last=rides[rides.length-1];if(last&&last.rk===e.rk&&last.to===e.from){last.to=e.to;last.path.push(e.to);last.min+=e.min}else rides.push({type:'ride',rk:e.rk,from:e.from,to:e.to,path:[e.from,e.to],min:e.min});busMin+=e.min}else if(e.type==='link'){rides.push({type:'link',from:e.from,to:e.to,dist:e.dist,min:e.min-C.routes[nodes[e.to].rk].headway/2,icon:e.icon,label:e.label})}else{rides.push({type:'transfer',from:e.from,to:e.to,dist:e.dist,min:walkMin(e.dist)});walkDist+=e.dist}});
+    edges.forEach(e=>{if(e.type==='bus'){const last=rides[rides.length-1];if(last&&last.rk===e.rk&&last.to===e.from){last.to=e.to;last.path.push(e.to);last.min+=e.min}else rides.push({type:'ride',rk:e.rk,from:e.from,to:e.to,path:[e.from,e.to],min:e.min});busMin+=e.min}else if(e.type==='link'){rides.push({type:'link',from:e.from,to:e.to,dist:e.dist,min:e.min-waitFor(nodes[e.to].rk),icon:e.icon,label:e.label})}else{rides.push({type:'transfer',from:e.from,to:e.to,dist:e.dist,min:walkMin(e.dist)});walkDist+=e.dist}});
     if(!rides.some(r=>r.type==='ride'))return noBus;
     const busLeg={type:'bus',boardNode:cur,alightNode:best.node,walkOn:src?.walk||0,walkOff:best.walkOff,rides,total:best.total,busMin,walkDist};
     if(direct<=900&&walkLeg.total<=busLeg.total)return walkLeg;
@@ -153,9 +154,9 @@
         lg.rides.forEach((r,ri)=>{
           if(r.type==='transfer'){if(r.dist<40)return;steps.push({type:'walk',t,min:r.min,dist:r.dist,title:`${stopName(r.to)} 정류장으로 환승 이동`,detail:`약 ${fmtDist(r.dist)} · ${fmtMin(r.min)}`,from:[stopOf(r.from).lat,stopOf(r.from).lng],to:[stopOf(r.to).lat,stopOf(r.to).lng]});t+=r.min;walkDist+=r.dist;transfers++;return}
           if(r.type==='link'){steps.push({type:'link',t,min:r.min,dist:r.dist,icon:r.icon,title:`${stopName(r.to)} 정류장으로 이동`,detail:`${r.label} · 약 ${fmtMin(r.min)}`,from:[stopOf(r.from).lat,stopOf(r.from).lng],to:[stopOf(r.to).lat,stopOf(r.to).lng]});t+=r.min;transfers++;return}
-          const wait=C.routes[r.rk].headway/2;const bs=stopOf(r.from);
+          const wait=waitFor(r.rk),hw=C.routes[r.rk].headway;const bs=stopOf(r.from);
           const last=toMin(bs.last);if(last!=null&&t>last)warnings.push(`${hhmm(t)} ${bs.ko} 탑승 예정인데 이 정류장 마지막 버스는 ${bs.last}입니다. 출발을 앞당기거나 장소를 줄여보세요.`);
-          steps.push({type:'board',t,rk:r.rk,node:r.from,title:`${bs.ko}에서 ${rName(r.rk)} 탑승`,detail:`배차 약 ${C.routes[r.rk].headway}분 · 평균 대기 ${fmtMin(wait)}`,lat:bs.lat,lng:bs.lng});t+=wait;
+          steps.push({type:'board',t,rk:r.rk,node:r.from,title:`${bs.ko}에서 ${rName(r.rk)} 탑승`,detail:hw>40?`배차 약 ${hw}분 · 시간표에 맞춰 가면 대기 약 ${fmtMin(wait)}`:`배차 약 ${hw}분 · 평균 대기 ${fmtMin(wait)}`,lat:bs.lat,lng:bs.lng});t+=wait;
           const n=r.path.length-1;steps.push({type:'ride',t,min:r.min,rk:r.rk,path:r.path.map(id=>[stopOf(id).lat,stopOf(id).lng]),nodes:r.path,title:`${rName(r.rk)} ${n}정거장 이동`,detail:`약 ${fmtMin(r.min)} · ${r.path.slice(1).map(id=>stopOf(id).ko).join(' → ')}`});t+=r.min;busMin+=r.min;rides++;usedRoutes.add(r.rk);
           const as=stopOf(r.to),lastRide=ri===lg.rides.length-1;steps.push({type:'alight',t,rk:r.rk,node:r.to,title:`${as.ko}에서 하차`,detail:lastRide?(lg.walkOff<40?`${tgt.ko}이(가) 정류장 바로 앞입니다`:`${tgt.ko}까지 도보 약 ${fmtDist(lg.walkOff)} (${fmtMin(walkMin(lg.walkOff))})`):'갈아타기 위해 내립니다',lat:as.lat,lng:as.lng,target:lastRide?tgt.ko:null});
         });
@@ -192,7 +193,7 @@
       ${p.warnings.map(w=>`<div class="warn">⚠ ${esc(w)}</div>`).join('')}
       <div class="actions"><button type="button" class="pri" id="playFromResult">▶ 지도에서 재생</button><button type="button" id="share">링크 복사</button></div></div>
       <ol class="timeline">${p.steps.map((s,i)=>`<li class="st ${s.type}" data-i="${i}"><span class="tm">${hhmm(s.t)}</span><span class="ic">${icon(s)}</span><span class="tx"><b>${s.rk?`<i class="dot" style="background:${rColor(s.rk)}"></i>`:''}${esc(s.title)}</b>${s.detail?`<small>${esc(s.detail)}</small>`:''}${s.type==='alight'&&s.target?`<em>여기서 내리세요 → ${esc(s.target)}</em>`:''}</span></li>`).join('')}</ol>
-      ${tk.pick?`<div class="ticket"><div class="kicker">이 코스에 맞는 티켓</div><div class="tk-main"><b>${esc(tk.pick.name)}</b><span>${esc(tk.pick.validity)} · ${esc(tk.pick.price)}</span></div><p>${esc(tk.why)}</p>${tk.others.length?`<ul>${tk.others.map(t=>`<li>${esc(t.name)} · ${esc(t.validity)} · ${esc(t.price)}</li>`).join('')}</ul>`:''}<a class="cta" href="${esc(C.page.booking.url)}" target="_blank" rel="sponsored nofollow noopener">${esc(C.page.booking.label)} →</a><a class="more" href="${esc(C.page.url)}">${esc(C.ko)} ${esc(C.brand)} 가격·노선 총정리 보기</a></div>`:''}
+      ${tk.pick?`<div class="ticket"><div class="kicker">이 코스에 맞는 티켓</div><div class="tk-main"><b>${esc(tk.pick.name)}</b><span>${esc(tk.pick.validity)} · ${esc(tk.pick.price)}</span></div><p>${esc(tk.why)}</p>${tk.others.length?`<ul>${tk.others.map(t=>`<li>${esc(t.name)} · ${esc(t.validity)} · ${esc(t.price)}</li>`).join('')}</ul>`:''}<a class="cta" href="${esc(C.page.booking.url)}" target="_blank" rel="${C.page.affiliate===false?'nofollow noopener':'sponsored nofollow noopener'}">${esc(C.page.booking.label)} →</a><a class="more" href="${esc(C.page.url)}">${esc(C.ko)} ${esc(C.brand)} 가격·노선 총정리 보기</a></div>`:''}
       <p class="note">시간은 정류장 간 거리·공식 한 바퀴 소요 시간·배차 간격으로 계산한 추정치입니다. 도보 거리는 직선거리에 1.25배를 적용했으며 실제 길은 더 길 수 있습니다.</p>`;
     $$('.st').forEach(li=>li.onclick=()=>{const s=p.steps[+li.dataset.i];focusStep(s);$$('.st').forEach(x=>x.classList.remove('on'));li.classList.add('on')});
     $('#playFromResult').onclick=()=>{$('#map').scrollIntoView({behavior:'smooth',block:'center'});play()};

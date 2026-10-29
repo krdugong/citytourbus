@@ -77,20 +77,29 @@ for (const [key, c] of Object.entries(cities)) {
   };
 }
 fs.writeFileSync('simulator-data.js', 'window.SIM_DATA=' + JSON.stringify(out) + ';\n');
+// road geometry per stop segment (scripts/simulator/fetch-geo.mjs); inlined per page so the bus follows real streets
+const geo = {};
+for (const key of Object.keys(out)) {
+  const f = `data/simulator/geo/${key}.json`;
+  if (!fs.existsSync(f)) continue;
+  const g = JSON.parse(fs.readFileSync(f, 'utf8'));
+  geo[key] = Object.fromEntries(Object.entries(g).map(([rk, segs]) => [rk, segs.map(sg => ({ d: sg.d, c: sg.c }))]));
+}
 
 // --- pages ---
 // cache-buster for the page's js/css/data: changes whenever any of them changes
-const V = crypto.createHash('md5').update(fs.readFileSync('bus-simulator.js')).update(fs.readFileSync('bus-simulator.css')).update(JSON.stringify(out)).digest('hex').slice(0, 10);
+const V = crypto.createHash('md5').update(fs.readFileSync('bus-simulator.js')).update(fs.readFileSync('bus-simulator.css')).update(JSON.stringify(out)).update(JSON.stringify(geo)).digest('hex').slice(0, 10);
 for (const [key, d] of Object.entries(out)) {
   const name = `${d.ko} ${d.brand}`;
-  const title = `${name} 시뮬레이터 | 가고 싶은 곳 입력하면 노선·하차 정류장 자동 추천`;
-  const desc = `${d.ko}에서 가고 싶은 곳을 고르면 어떤 ${d.brand} 노선을 타고 어디서 내려야 하는지 하루 코스로 짜 드립니다. 지도 위에서 버스가 움직이며 하차 정류장과 도보 거리를 보여줍니다.`;
+  const title = `${name} 3D 시뮬레이터 | 가고 싶은 곳 입력하면 노선·하차 정류장 자동 추천`;
+  const desc = `${d.ko}에서 가고 싶은 곳을 고르면 어떤 ${d.brand} 노선을 타고 어디서 내려야 하는지 하루 코스로 짜 드립니다. 3D 지도 위에서 버스가 실제 도로를 따라 달리며(버드뷰·탑뷰) 하차 정류장과 도보 거리를 보여줍니다.`;
   const url = `${SITE}/${key}-bus-simulator`;
   const routeList = Object.values(d.routes).map(r => r.ko).join(' · ');
   const poiExamples = d.pois.slice(0, 3).map(p => p.ko).join(', ');
   const faq = [
     [`${d.ko} ${d.brand} 시뮬레이터는 어떻게 쓰나요?`, `가고 싶은 관광지·맛집·호텔을 2곳 이상 고르고 ‘코스 만들기’를 누르면 탑승 정류장, 노선, 하차 정류장, 도보 거리, 예상 시각이 순서대로 나옵니다. ‘재생’을 누르면 지도 위에서 버스가 코스를 따라 움직입니다.`],
-    [`예상 시간은 얼마나 정확한가요?`, `정류장 간 직선거리와 공식 한 바퀴 소요 시간, 배차 간격을 바탕으로 계산한 추정치입니다. 실제 교통 상황과 대기 시간에 따라 달라질 수 있으니 여유 있게 잡으세요.`],
+    [`버드뷰와 탑뷰는 어떻게 다른가요?`, `버드뷰는 3D 건물 위를 나는 시점으로 카메라가 버스를 따라가며 회전하고, 탑뷰는 위에서 내려다보는 평면 지도입니다. 지도 왼쪽 위 버튼으로 언제든 바꿀 수 있고, 전체화면으로 보거나 ‘공유’ 버튼으로 재생 링크를 보낼 수 있습니다.`],
+    [`예상 시간은 얼마나 정확한가요?`, `정류장 간 도로 거리와 공식 한 바퀴 소요 시간, 배차 간격을 바탕으로 계산한 추정치입니다. 실제 교통 상황과 대기 시간에 따라 달라질 수 있으니 여유 있게 잡으세요.`],
     [`목록에 없는 장소도 넣을 수 있나요?`, `검색창에 상호명이나 호텔 이름을 입력하고 ‘지도에서 찾기’를 누르면 OpenStreetMap에서 찾아 코스에 추가합니다.`],
     [`어떤 티켓을 사야 하나요?`, `코스 결과 아래에 하루 코스에 맞는 티켓을 추천합니다. 노선이 2개 이상이거나 장소가 많으면 48시간권이 유리할 수 있습니다. 자세한 가격은 <a href="${d.page.url}">${esc(d.page.title)} 총정리</a>를 참고하세요.`],
   ];
@@ -106,15 +115,15 @@ ${TAG}<meta charset="UTF-8"><meta name="viewport" content="width=device-width,in
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"><link rel="canonical" href="${url}">
-<meta property="og:type" content="website"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="CITYTOURBUS"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${SITE}/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="CITYTOURBUS"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${SITE}/img/sim-3d-seoul.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 ${PRECONNECT}${fontLinks()}
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <link rel="stylesheet" href="/bus-simulator.css?v=${V}">
 ${ICONS}
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 </head><body data-city="${key}">
 <div class="topbar"><a class="brand" href="/"><b>CITY</b>TOURBUS.KR</a><span class="sub">${esc(d.ko)} ${esc(d.brand)} 시뮬레이터</span><a class="back" href="/bus-simulator">다른 도시</a><a class="back" href="${d.page.url}">${esc(d.ko)} ${esc(d.brand)} 총정리</a></div>
-<section class="hero"><div class="eyebrow">${esc(d.operator)} · ${esc(d.ko)}</div><h1>${esc(d.ko)} ${esc(d.brand)} 시뮬레이터<br><span>가고 싶은 곳만 고르면 하루 코스가 나옵니다</span></h1><p>관광지·맛집·호텔을 고르면 <strong>어느 노선을 타고 어디서 내릴지</strong>를 순서대로 계산하고, 지도 위에서 버스가 코스를 따라 움직이며 <strong>하차 정류장과 도보 거리</strong>를 보여줍니다. 노선: ${esc(routeList)}.</p><div class="source-note">정류장·노선: 공식 페이지 기준 ${esc(d.verified)} · <a href="${esc(d.source)}" target="_blank" rel="noopener nofollow">공식 노선 확인</a>${d.page.routeCheck ? ` · <a href="${d.page.routeCheck}">정류장만 찾기(루트체커)</a>` : ''}</div></section>
+<section class="hero"><div class="eyebrow">${esc(d.operator)} · ${esc(d.ko)}</div><h1>${esc(d.ko)} ${esc(d.brand)} 3D 시뮬레이터<br><span>가고 싶은 곳만 고르면 하루 코스가 나오고, 버스가 3D 도시를 달립니다</span></h1><p>관광지·맛집·호텔을 고르면 <strong>어느 노선을 타고 어디서 내릴지</strong>를 순서대로 계산하고, 3D 지도 위에서 버스가 <strong>실제 도로를 따라</strong> 달리며 <strong>하차 정류장과 도보 거리</strong>를 보여줍니다. 🦅 버드뷰로 건물 위를 따라가거나 🔲 탑뷰로 전체 동선을 보세요. 노선: ${esc(routeList)}.</p><div class="source-note">정류장·노선: 공식 페이지 기준 ${esc(d.verified)} · <a href="${esc(d.source)}" target="_blank" rel="noopener nofollow">공식 노선 확인</a>${d.page.routeCheck ? ` · <a href="${d.page.routeCheck}">정류장만 찾기(루트체커)</a>` : ''}</div></section>
 <main class="wrap"><div class="sim" id="sim">
 <aside class="panel">
   <div class="panel-block">
@@ -133,15 +142,17 @@ ${ICONS}
 </aside>
 <section class="stage">
   <div class="mapwrap"><div id="map"></div>
-    <div class="player" id="player" hidden><button type="button" id="play">▶ 재생</button><button type="button" id="reset">⏮ 처음</button><div class="speed"><button type="button" data-speed="1" aria-pressed="true">1x</button><button type="button" data-speed="2" aria-pressed="false">2x</button><button type="button" data-speed="4" aria-pressed="false">4x</button></div><div class="now" id="now"></div></div>
-    <div class="legend">● 정류장 · ★ 선택 장소 · <span class="legend-off">하차</span> 하차 정류장</div>
+    <div class="viewtog" role="group" aria-label="보기 방식"><button type="button" data-view="bird" aria-pressed="true">🦅 버드뷰</button><button type="button" data-view="top" aria-pressed="false">🔲 탑뷰</button><button type="button" id="fs">⛶ 전체화면</button></div>
+    <div class="player" id="player" hidden><button type="button" id="play">▶ 재생</button><button type="button" id="reset">⏮ 처음</button><div class="speed"><button type="button" data-speed="1" aria-pressed="true">1x</button><button type="button" data-speed="2" aria-pressed="false">2x</button><button type="button" data-speed="4" aria-pressed="false">4x</button></div><button type="button" id="follow" hidden>📍 버스 따라가기</button><button type="button" id="shareBtn">🔗 공유</button><div class="now" id="now"></div></div>
   </div>
+  <p class="legend">● 정류장 · ★ 선택 장소 · <span class="legend-off">하차</span> 하차 정류장 · 🚌 버스는 실제 도로를 따라 움직입니다 · 지도 드래그로 둘러보고, 버튼으로 다시 따라갈 수 있습니다</p>
   <div class="result" id="result"><div class="empty"><h2>어디 가고 싶으세요?</h2><p>왼쪽에서 장소를 고르고 ‘코스 만들기’를 누르면 여기에 탑승·하차 순서가 나옵니다.</p></div></div>
 </section>
 </div></main>
 <section class="faq"><h2>${esc(d.ko)} ${esc(d.brand)} 시뮬레이터 자주 묻는 질문</h2>${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${a}</p></details>`).join('')}
 <p class="foot">이 시뮬레이터는 CITYTOURBUS.KR가 공식 정류장 정보를 바탕으로 만든 안내 도구입니다. 운행 시간·요금은 <a href="${d.page.url}">${esc(d.page.title)} 총정리</a>와 공식 사이트에서 다시 확인하세요. 다른 도시: ${Object.entries(out).filter(([k]) => k !== key).map(([k, o]) => `<a href="/${k}-bus-simulator">${esc(o.ko)}</a>`).join(' · ')}</p></section>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script>window.SIM_GEO=${JSON.stringify(geo[key] || {})};</script>
 <script src="/simulator-data.js?v=${V}"></script>
 <script src="/bus-simulator.js?v=${V}"></script>
 </body></html>
@@ -152,14 +163,15 @@ ${ICONS}
 
 // --- hub page: /bus-simulator ---
 {
-  const title = '시티투어버스 시뮬레이터 | 가고 싶은 곳만 고르면 노선·하차 정류장·하루 코스 자동 추천';
-  const desc = '서울·부산·홍콩·뉴욕·파리·런던·로마·두바이·바르셀로나 시티투어버스(빅버스) 시뮬레이터. 가고 싶은 곳을 고르면 어느 노선을 타고 어디서 내릴지 순서대로 계산하고, 지도 위에서 버스가 코스를 따라 움직입니다.';
+  const title = '시티투어버스 3D 시뮬레이터 | 가고 싶은 곳만 고르면 노선·하차 정류장·하루 코스 자동 추천';
+  const desc = '서울·부산·홍콩·뉴욕·파리·런던·로마·두바이·바르셀로나 시티투어버스(빅버스) 시뮬레이터. 가고 싶은 곳을 고르면 어느 노선을 타고 어디서 내릴지 순서대로 계산하고, 3D 지도 위에서 버스가 실제 도로를 따라 달립니다(버드뷰·탑뷰).';
   const url = `${SITE}/bus-simulator`;
   const blurb = { seoul: '경복궁·북촌·명동·남산타워를 도심고궁남산 코스로', busan: '해운대·광안리·감천·태종대를 레드·그린·오렌지 조합으로', 'hong-kong': '피크·스탠리·구룡 야시장, 스타페리 환승 포함', 'new-york': '타임스퀘어에서 브루클린브리지까지 다운타운·업타운', paris: '루브르·에펠탑·개선문을 레드 노선 한 바퀴로', london: '빅벤·런던탑·버킹엄궁을 레드·블루 환승으로', rome: '콜로세움·바티칸·스페인 계단, 버스와 도보를 섞어', dubai: '부르즈칼리파·두바이 프레임·골드수크를 시티 레드로', barcelona: '사그라다·구엘공원·몬주익을 레드·블루 조합으로' };
   const order = ['seoul', 'busan', 'hong-kong', 'new-york', 'paris', 'london', 'rome', 'dubai', 'barcelona'].filter(k => out[k]);
   const cards = order.map(k => { const d = out[k]; const n = Object.values(d.routes).reduce((a, r) => a + r.stops.length, 0); return `<a class="hub-card" href="/${k}-bus-simulator"><div class="hub-city">${esc(d.ko)} <small>${esc(d.brand)}</small></div><p>${esc(blurb[k] || '')}</p><div class="hub-meta">${Object.values(d.routes).map(r => `<i style="background:${r.color}"></i>${esc(r.ko)}`).join(' · ')} · 정류장 ${n}곳</div><span class="hub-go">코스 만들기 →</span></a>`; }).join('');
   const faq = [
-    ['시뮬레이터는 무엇을 해 주나요?', '가고 싶은 관광지·맛집·호텔을 고르면 탑승 정류장, 노선, 하차 정류장, 도보 거리, 예상 시각을 순서대로 계산합니다. 재생을 누르면 지도 위에서 버스가 코스를 따라 움직이며 내릴 곳을 알려 줍니다.'],
+    ['시뮬레이터는 무엇을 해 주나요?', '가고 싶은 관광지·맛집·호텔을 고르면 탑승 정류장, 노선, 하차 정류장, 도보 거리, 예상 시각을 순서대로 계산합니다. 재생을 누르면 3D 지도 위에서 버스가 실제 도로를 따라 달리며 내릴 곳을 알려 줍니다.'],
+    ['3D 버드뷰와 탑뷰는 무엇인가요?', '버드뷰는 3D 건물 위를 나는 시점으로 카메라가 버스를 따라가며 회전하고, 탑뷰는 위에서 내려다보는 평면 지도입니다. 지도 왼쪽 위 버튼으로 바꾸고, 전체화면으로 크게 볼 수 있습니다.'],
     ['어떤 도시에서 쓸 수 있나요?', `지금은 ${order.map(k => out[k].ko).join('·')} ${order.length}개 도시입니다. 정류장 좌표가 확인된 도시부터 순서대로 늘리고 있습니다.`],
     ['예상 시간은 얼마나 정확한가요?', '정류장 간 거리와 공식 한 바퀴 소요 시간, 배차 간격으로 계산한 추정치입니다. 실제 교통 상황에 따라 달라질 수 있으니 여유 있게 잡으세요.'],
     ['티켓은 어디서 사나요?', '각 도시 시뮬레이터의 코스 결과 아래에 맞는 티켓과 예약 버튼이 나옵니다. 가격·노선 전체는 도시별 총정리 페이지에서 확인할 수 있습니다.'],
@@ -174,17 +186,17 @@ ${TAG}<meta charset="UTF-8"><meta name="viewport" content="width=device-width,in
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"><link rel="canonical" href="${url}">
-<meta property="og:type" content="website"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="CITYTOURBUS"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${SITE}/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="CITYTOURBUS"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${SITE}/img/sim-3d-seoul.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 ${PRECONNECT}${fontLinks()}
 <link rel="stylesheet" href="/bus-simulator.css?v=${V}">
-<style>.hub{max-width:1280px;margin:0 auto;padding:0 28px 40px}.hub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.hub-card{text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:20px;padding:20px;background:#fff;display:flex;flex-direction:column;gap:8px;transition:.16s}.hub-card:hover{transform:translateY(-2px);border-color:#bfc0c5;box-shadow:0 12px 30px rgba(0,0,0,.06)}.hub-city{font-size:20px;font-weight:900;letter-spacing:-.6px}.hub-city small{font-size:12px;color:var(--sub);font-weight:700;margin-left:4px}.hub-card p{margin:0;font-size:12px;line-height:1.7;color:var(--sub);word-break:keep-all}.hub-meta{font-size:10px;color:var(--sub);display:flex;flex-wrap:wrap;gap:4px;align-items:center}.hub-meta i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:3px}.hub-go{margin-top:auto;font-size:12px;font-weight:800;color:var(--brand)}.how{max-width:1280px;margin:0 auto;padding:0 28px 30px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.how div{background:var(--paper);border-radius:16px;padding:16px}.how b{display:block;font-size:14px;margin-bottom:5px}.how p{margin:0;font-size:12px;color:var(--sub);line-height:1.7}@media(max-width:900px){.hub-grid,.how{grid-template-columns:1fr 1fr}}@media(max-width:600px){.hub,.how{padding-left:16px;padding-right:16px}.hub-grid,.how{grid-template-columns:1fr}}</style>
+<style>.hub{max-width:1280px;margin:0 auto;padding:0 28px 40px}.hub-hero{position:relative;display:block;border-radius:22px;overflow:hidden;border:1px solid var(--line);margin-bottom:16px;aspect-ratio:40/13;background:#eef0f2}.hub-hero img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 40%}.hub-hero span{position:absolute;left:16px;bottom:16px;background:rgba(29,29,31,.9);color:#fff;border-radius:999px;padding:10px 16px;font-size:13px;font-weight:800}@media(max-width:600px){.hub-hero{aspect-ratio:16/9}}.hub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.hub-card{text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:20px;padding:20px;background:#fff;display:flex;flex-direction:column;gap:8px;transition:.16s}.hub-card:hover{transform:translateY(-2px);border-color:#bfc0c5;box-shadow:0 12px 30px rgba(0,0,0,.06)}.hub-city{font-size:20px;font-weight:900;letter-spacing:-.6px}.hub-city small{font-size:12px;color:var(--sub);font-weight:700;margin-left:4px}.hub-card p{margin:0;font-size:12px;line-height:1.7;color:var(--sub);word-break:keep-all}.hub-meta{font-size:10px;color:var(--sub);display:flex;flex-wrap:wrap;gap:4px;align-items:center}.hub-meta i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:3px}.hub-go{margin-top:auto;font-size:12px;font-weight:800;color:var(--brand)}.how{max-width:1280px;margin:0 auto;padding:0 28px 30px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.how div{background:var(--paper);border-radius:16px;padding:16px}.how b{display:block;font-size:14px;margin-bottom:5px}.how p{margin:0;font-size:12px;color:var(--sub);line-height:1.7}@media(max-width:900px){.hub-grid,.how{grid-template-columns:1fr 1fr}}@media(max-width:600px){.hub,.how{padding-left:16px;padding-right:16px}.hub-grid,.how{grid-template-columns:1fr}}</style>
 ${ICONS}
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 </head><body>
 <div class="topbar"><a class="brand" href="/"><b>CITY</b>TOURBUS.KR</a><span class="sub">시티투어버스 시뮬레이터</span><a class="back" href="/">전체 도시</a></div>
-<section class="hero"><div class="eyebrow">SIMULATOR · ${order.length}개 도시</div><h1>시티투어버스 시뮬레이터<br><span>가고 싶은 곳만 고르면 하루 코스가 나옵니다</span></h1><p>관광지·맛집·호텔을 고르면 <strong>어느 노선을 타고 어디서 내릴지</strong>를 순서대로 계산하고, 지도 위에서 버스가 코스를 따라 움직이며 <strong>하차 정류장과 도보 거리</strong>를 보여줍니다. 도시를 고르세요.</p></section>
-<main class="hub"><div class="hub-grid">${cards}</div></main>
-<section class="how"><div><b>1 · 장소 고르기</b><p>인기 관광지를 누르거나 호텔·맛집 이름을 검색해 넣습니다. 머무는 시간도 정할 수 있습니다.</p></div><div><b>2 · 코스 만들기</b><p>출발 정류장과 시각을 정하면 가장 적게 갈아타고 적게 걷는 순서로 탑승·하차 정류장을 짜 줍니다.</p></div><div><b>3 · 지도에서 재생</b><p>버스가 코스를 따라 움직이고 내릴 정류장에서 멈춥니다. 링크를 복사해 동행에게 보낼 수 있습니다.</p></div></section>
+<section class="hero"><div class="eyebrow">SIMULATOR · ${order.length}개 도시</div><h1>시티투어버스 3D 시뮬레이터<br><span>가고 싶은 곳만 고르면 하루 코스가 나오고, 버스가 3D 도시를 달립니다</span></h1><p>관광지·맛집·호텔을 고르면 <strong>어느 노선을 타고 어디서 내릴지</strong>를 순서대로 계산하고, 3D 지도 위에서 버스가 <strong>실제 도로를 따라</strong> 달리며 <strong>하차 정류장과 도보 거리</strong>를 보여줍니다. 🦅 버드뷰·🔲 탑뷰 전환, 전체화면, 재생 링크 공유까지. 도시를 고르세요.</p></section>
+<main class="hub"><a class="hub-hero" href="/seoul-bus-simulator#s=n%3A0&amp;t=09%3A30&amp;p=gyeongbok~60,bukchon~60,ntower~90&amp;play=1&amp;v=bird"><img src="/img/sim-3d-seoul.jpg" width="1200" height="630" alt="서울 시티투어버스 3D 시뮬레이터 버드뷰" loading="lazy"><span>▶ 서울 코스 3D로 바로 재생</span></a><div class="hub-grid">${cards}</div></main>
+<section class="how"><div><b>1 · 장소 고르기</b><p>인기 관광지를 누르거나 호텔·맛집 이름을 검색해 넣습니다. 머무는 시간도 정할 수 있습니다.</p></div><div><b>2 · 코스 만들기</b><p>출발 정류장과 시각을 정하면 가장 적게 갈아타고 적게 걷는 순서로 탑승·하차 정류장을 짜 줍니다.</p></div><div><b>3 · 3D로 재생·공유</b><p>버스가 실제 도로를 따라 달리고 내릴 정류장에서 멈춥니다. 버드뷰·탑뷰를 바꿔 보고, 공유 버튼으로 재생 링크를 동행에게 보내세요.</p></div></section>
 <section class="faq"><h2>시뮬레이터 자주 묻는 질문</h2>${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}
 <p class="foot">정류장·노선은 각 운영사 공식 페이지를 기준으로 정리했습니다. 운행 시간·요금은 도시별 총정리 페이지와 공식 사이트에서 다시 확인하세요.</p></section>
 </body></html>

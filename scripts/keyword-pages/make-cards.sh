@@ -7,3 +7,7 @@ node "$DIR/build.mjs"
 node "$DIR/link_home.mjs"
 swiftc -O "$DIR/cards.swift" -o "$DIR/.cache/cards"
 "$DIR/.cache/cards" "$DIR/.cache/cards.json" .
+# English/Japanese pages (data/i18n) and their localized hero/og cards
+node scripts/i18n/build_i18n.mjs
+mkdir -p img/en img/ja
+"$DIR/.cache/cards" scripts/i18n/.cache/cards.json .

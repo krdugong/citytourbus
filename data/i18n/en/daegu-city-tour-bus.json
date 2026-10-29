@@ -1,0 +1,126 @@
+{
+  "keyword": "Daegu City Tour Bus",
+  "city": "Daegu",
+  "title": "Daegu City Tour Bus 2026: City Circle Route, Timetable, Prices and 20% Foreigner Discount",
+  "description": "Daegu City Tour guide, checked October 2026: the 12-stop City Circle course from Dongdaegu Station (Seomun Market, E-World, Apsan, Suseong Lake), hourly timetable, KRW 10,000 fare, 20% discount for foreign visitors and how to pay on board.",
+  "h1Sub": "City Circle route, timetable and prices",
+  "lead": "The Daegu City Tour is a hop-on hop-off loop from Dongdaegu Station past Kim Kwang-seok Street, Dongseong-ro, the Modern Culture Alley, Seomun Market, E-World, Apsan, Suseong Lake and the Daegu Art Museum. Buy your ticket from the driver and ride all day. Foreign visitors get 20% off.",
+  "booking": {
+    "url": "https://www.daegucitytour.com/",
+    "label": "Official Daegu City Tour site"
+  },
+  "aka": [
+    "Daegu hop-on hop-off bus",
+    "Daegu bus tour"
+  ],
+  "summary": [
+    [
+      "Operator",
+      "Daegu Tourism Association"
+    ],
+    [
+      "Route",
+      "City Circle course · 12 stops · about 2 h 20 min per loop"
+    ],
+    [
+      "Hours",
+      "Tuesday to Sunday · 09:30–15:30 from Dongdaegu Station · hourly, 7 runs (closed Mondays and Lunar New Year and Chuseok days)"
+    ],
+    [
+      "Price",
+      "KRW 10,000 adult · KRW 8,000 youth · KRW 6,000 senior, child, disabled"
+    ],
+    [
+      "Discounts",
+      "20% for foreigners, same-day train, express bus or flight ticket holders and hotel guests · 30% every Wednesday"
+    ],
+    [
+      "Paying",
+      "Buy from the driver on board (cash, card or transport card)"
+    ]
+  ],
+  "routes": [
+    {
+      "name": "City Circle course",
+      "area": "Dongseong-ro · Seomun Market · Apsan · Suseong Lake",
+      "duration": "about 2 h 20 min per loop",
+      "interval": "hourly (7 a day)",
+      "hours": "09:30–15:30 from Dongdaegu Station",
+      "stops": [
+        "Dongdaegu Station (start)",
+        "Kim Kwang-seok Street",
+        "Dongseong-ro / Jungangno Station",
+        "Modern Culture Alley",
+        "Seomun Market / Cheongna Hill Station",
+        "Duryu Park / E-World",
+        "Apsan Sunset Observatory",
+        "Apsan Park / Apsan Observatory",
+        "Gosan-gol Dinosaur Park / Metasequoia Road",
+        "Suseong Lake",
+        "Daegu Art Museum / Daegu Kansong Art Museum",
+        "Dongchon Resort"
+      ],
+      "tip": "Buses come once an hour, so check the next time before you get off. Apsan Observatory is reached by cable car from the Apsan Park stop (fare extra)."
+    }
+  ],
+  "tickets": [
+    {
+      "name": "City Circle day ticket",
+      "validity": "Same day",
+      "price": "KRW 10,000 adult · KRW 8,000 youth · KRW 6,000 senior and child",
+      "includes": [
+        "Unlimited hop-on hop-off"
+      ],
+      "for": "A day in Daegu"
+    },
+    {
+      "name": "Discount fare",
+      "validity": "Same day",
+      "price": "KRW 8,000 adult · KRW 6,400 youth · KRW 4,800 senior and child",
+      "includes": [
+        "Foreigners; same-day train, express bus or flight ticket holders; hotel guests; groups of 10+"
+      ],
+      "for": "Visitors from abroad"
+    }
+  ],
+  "priceNote": "Fares from the official Daegu City Tour site on 29 October 2026. Show your passport or ticket when you pay to get the discount. One infant under 48 months rides free per adult; admission fees are extra.",
+  "howToBook": [
+    "No booking needed: pay the driver on board by cash, card or transport card.",
+    "Show your passport for the 20% foreigner discount; every Wednesday there is a 30% discount event.",
+    "Seats are first come, first served and standing is not allowed; if the bus is full, take the next one an hour later."
+  ],
+  "howToRide": [
+    "Board at the stop in front of Dongdaegu Station plaza, or at any other stop.",
+    "Pay as you board and keep your ticket; a lost ticket cannot be replaced.",
+    "Get off anywhere and catch the next bus an hour later.",
+    "The last bus leaves Dongdaegu Station at 15:30 and returns around 17:50."
+  ],
+  "faq": [
+    {
+      "q": "Does the Daegu City Tour run every day?",
+      "a": "Tuesday to Sunday. It is closed every Monday and on Lunar New Year and Chuseok days."
+    },
+    {
+      "q": "How much is the Daegu City Tour?",
+      "a": "KRW 10,000 for adults, or KRW 8,000 with the 20% discount for foreign visitors."
+    },
+    {
+      "q": "Do I need to book?",
+      "a": "No. Buy your ticket from the driver when you board."
+    },
+    {
+      "q": "Where does it start?",
+      "a": "At Dongdaegu Station, where KTX and SRT trains arrive; you can also board at any other stop."
+    }
+  ],
+  "images": {
+    "main": {
+      "alt": "Daegu City Tour Bus: routes, prices and how to ride",
+      "eyebrow": "UPDATED OCT 2026",
+      "title": "Daegu\nCity Tour Bus",
+      "sub": "City Circle · timetable · 20% off for visitors",
+      "bg": "#e22b37"
+    }
+  },
+  "asideNote": "KRW 10,000 · 20% off for foreigners · Tue–Sun"
+}

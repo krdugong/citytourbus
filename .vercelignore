@@ -2,6 +2,7 @@
 # Keep data/price-sources.json deployed: /live-prices.js fetches it on /compare.
 data/keyword-pages/
 data/route-maps/
+data/i18n/
 scripts/
 astro-site/
 *.md

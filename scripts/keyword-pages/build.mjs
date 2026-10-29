@@ -44,6 +44,11 @@ const BIGBUS_DEFAULTS = {
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const imgPath = (p, key) => `/img/${p.slug}/${p.slug}-${key}.jpg`;
 
+// The two shared stylesheets (~5KB) are inlined into each city page so the first paint needs no extra round trip.
+// When that round trip ran late, the first paint got caught behind the web-font download and slipped by 1-2s.
+// The files stay as they are for the 404 page and the older guide pages.
+const INLINE_CSS = ['city-guide.css', 'keyword-page.css'].map(f => fs.readFileSync(path.join(ROOT, f), 'utf8').trim()).join('\n');
+
 function figure(p, key) {
   const im = p.images[key];
   if (!im) return '';
@@ -167,7 +172,7 @@ ${TAG}
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(p.title)}"><meta name="twitter:image" content="${ogImg}">
 ${ICONS}
 ${PRECONNECT}${fontLinks()}
-<link rel="stylesheet" href="/city-guide.css"><link rel="stylesheet" href="/keyword-page.css">
+<style>${INLINE_CSS}</style>
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 </head><body>
 <header class="site-header"><div class="header-inner"><a class="logo" href="/"><span>CITY</span>TOURBUS<small>.KR</small></a><nav aria-label="주요 메뉴"><a href="/">전체 도시</a><a href="/compare">한눈에 비교</a></nav></div></header>

@@ -1,0 +1,135 @@
+{
+  "keyword": "Jeju City Tour Bus",
+  "city": "Jeju",
+  "title": "Jeju City Tour Bus 2026: 21-Stop Loop, Prices, Timetable and Where to Board (Airport Stop 3)",
+  "description": "Jeju City Tour Bus guide, checked October 2026: the 21-stop hop-on hop-off loop past Jeju Airport, Dongmun Market and the coastal road, the KRW 12,000 day pass, hourly timetable, Monday closures and the route change from 3 November 2026.",
+  "h1Sub": "Loop route, prices and timetable",
+  "lead": "The Jeju City Tour Bus loops around Jeju City: the ferry terminals, Dongmun Market, Yongduam Rock, Jeju International Airport, the rainbow coastal road at Dodubong, Iho Tewoo Beach, the five-day market, Halla Arboretum and the bus terminal. A day pass lets you hop on and off at 21 stops, and you pay when you board. From 3 November 2026 the route and timetable change.",
+  "booking": {
+    "url": "https://jejucitybus.com/en",
+    "label": "Official Jeju City Tour site"
+  },
+  "aka": [
+    "Jeju hop-on hop-off bus",
+    "Jeju bus tour"
+  ],
+  "summary": [
+    [
+      "Route",
+      "Loop · 21 stops · about 2 hours per loop"
+    ],
+    [
+      "Hours",
+      "09:00–19:30 · hourly, 9 runs a day · last departure 17:00 · closed Mondays"
+    ],
+    [
+      "Price",
+      "Day pass KRW 12,000 adult / KRW 8,000 child and youth · single ride KRW 5,000 · preschoolers free"
+    ],
+    [
+      "Paying",
+      "Pay when you board (credit card or transport card)"
+    ],
+    [
+      "Airport stop",
+      "Jeju International Airport bus stop 3"
+    ],
+    [
+      "Route change",
+      "New route and timetable from Tuesday 3 November 2026"
+    ]
+  ],
+  "routes": [
+    {
+      "name": "Loop route (October 2026)",
+      "area": "Ferry terminals · airport · coast · market",
+      "duration": "about 2 hours per loop",
+      "interval": "hourly (9 a day)",
+      "hours": "09:00–17:00 from Jeju Port International Terminal",
+      "stops": [
+        "Jeju Port International Passenger Terminal (start)",
+        "Jeju Port Coastal Passenger Terminal",
+        "Kim Man-deok Memorial Hall",
+        "Dongmun Market",
+        "Gwandeokjeong (Jeju Mokgwana)",
+        "Yongyeon Cloud Bridge (Yongduam)",
+        "Jeju International Airport (stop 3)",
+        "Yongdam Leisure Park",
+        "Eoyeong Park",
+        "Dodubong (Rainbow Coastal Road)",
+        "Iho Tewoo Lighthouses (Iho Tewoo Beach)",
+        "Jeju Five-Day Market",
+        "Yeon-dong (Lotte City Hotel)",
+        "Wollang Village (Best Western)",
+        "Halla Arboretum",
+        "Nohyeong Junction (Dream Tower)",
+        "Maison Glad Hotel (Shilla Duty Free)",
+        "Samu Park (Air City Hotel)",
+        "Jeju Intercity Bus Terminal",
+        "Jeju Folklore & Natural History Museum",
+        "Sarabong"
+      ],
+      "tip": "This is the route until 2 November 2026. The route and times change from 3 November, so check the new timetable on the official site. At the airport the bus stops at stop 3."
+    }
+  ],
+  "tickets": [
+    {
+      "name": "Day pass",
+      "validity": "Same day",
+      "price": "KRW 12,000 adult · KRW 8,000 child and youth · KRW 6,000 disabled and veterans · preschoolers free",
+      "includes": [
+        "Unlimited hop-on hop-off at 21 stops"
+      ],
+      "for": "A day in Jeju City"
+    },
+    {
+      "name": "Single ride",
+      "validity": "One ride",
+      "price": "KRW 5,000 (preschoolers free)",
+      "includes": [
+        "One boarding"
+      ],
+      "for": "One trip"
+    }
+  ],
+  "priceNote": "Prices from the official Jeju City Tour site on 29 October 2026.",
+  "howToBook": [
+    "No booking needed: pay when you board at any stop (credit card or transport card).",
+    "Choose the day pass (KRW 12,000) for several stops or the single ride (KRW 5,000) for one trip.",
+    "Service may stop in typhoons or heavy rain or snow; call 064-741-8784 to check."
+  ],
+  "howToRide": [
+    "At Jeju Airport, board at bus stop 3; you can also board at any of the 21 stops.",
+    "Pay as you board and keep your ticket; show the day pass when you reboard.",
+    "Get off anywhere and catch the next bus an hour later. The last bus leaves at 17:00.",
+    "Pets can ride only in a bag or carrier."
+  ],
+  "faq": [
+    {
+      "q": "Do I need to book the Jeju City Tour Bus?",
+      "a": "No. Pay when you board at any stop."
+    },
+    {
+      "q": "Can I board at Jeju Airport?",
+      "a": "Yes, at bus stop 3 outside the airport; the bus passes about every hour."
+    },
+    {
+      "q": "Does it run on Mondays?",
+      "a": "No, it is closed every Monday."
+    },
+    {
+      "q": "How often does it come?",
+      "a": "Hourly, with the last departure at 17:00. Times change from 3 November 2026, so check the official timetable."
+    }
+  ],
+  "images": {
+    "main": {
+      "alt": "Jeju City Tour Bus: routes, prices and how to ride",
+      "eyebrow": "UPDATED OCT 2026",
+      "title": "Jeju\nCity Tour Bus",
+      "sub": "Loop route · prices · timetable",
+      "bg": "#e22b37"
+    }
+  },
+  "asideNote": "Day pass KRW 12,000 · closed Mondays · new route from 3 Nov"
+}

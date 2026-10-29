@@ -16,6 +16,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { TAG, ICONS, PRECONNECT, fontLinks } from '../head-bits.mjs';
+import { alternates, langLinks } from '../i18n/links.mjs';
 
 const ROOT = process.cwd();
 const SITE = 'https://www.citytourbus.kr';
@@ -164,7 +165,7 @@ ${TAG}
 <title>${esc(p.title)}</title>
 <meta name="description" content="${esc(p.description)}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-<link rel="canonical" href="${url}">
+<link rel="canonical" href="${url}">${alternates(p.slug)}
 <meta property="og:type" content="article"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="CITYTOURBUS">
 <meta property="og:title" content="${esc(p.title)}"><meta property="og:description" content="${esc(p.description)}"><meta property="og:url" content="${url}">
 <meta property="og:image" content="${ogImg}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(p.images.main.alt)}">
@@ -175,7 +176,7 @@ ${PRECONNECT}${fontLinks()}
 <style>${INLINE_CSS}</style>
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 </head><body>
-<header class="site-header"><div class="header-inner"><a class="logo" href="/"><span>CITY</span>TOURBUS<small>.KR</small></a><nav aria-label="주요 메뉴"><a href="/">전체 도시</a><a href="/compare">한눈에 비교</a></nav></div></header>
+<header class="site-header"><div class="header-inner"><a class="logo" href="/"><span>CITY</span>TOURBUS<small>.KR</small></a><nav aria-label="주요 메뉴"><a href="/">전체 도시</a><a href="/compare">한눈에 비교</a>${langLinks(p.slug, 'ko')}</nav></div></header>
 <main><div class="wrap">
 <nav class="breadcrumbs" aria-label="이동 경로"><a href="/">홈</a><span>›</span><span>${esc(k)}</span></nav>
 <section class="hero kw-hero"><div><p class="eyebrow">${p.flag} ${esc(p.city)} · ${y}년 ${Number(m)}월 업데이트</p><h1>${esc(k)}<br><span>${esc(p.h1Sub)}</span></h1><p class="lead">${esc(p.lead)}</p><div class="hero-actions">${cta(p)}<a class="text-link" href="#price">가격 먼저 보기 ↓</a></div><p class="small kw-verified">공식 정보 확인일 ${esc(p.verified)} · ${p.affiliate === false ? '예약 버튼은 운영사 공식 사이트로 연결되고, 아래 GetYourGuide 링크는 제휴 링크입니다.' : '예약 링크는 제휴 링크이며 이용자 추가 비용은 없습니다.'}</p></div>${figure(p, 'main')}</section>

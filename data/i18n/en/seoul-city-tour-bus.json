@@ -1,0 +1,144 @@
+{
+  "keyword": "Seoul City Tour Bus",
+  "city": "Seoul",
+  "title": "Seoul City Tour Bus (Tiger Bus) 2026: Routes, Stops, Prices, Night Tour and Tickets",
+  "description": "Seoul City Tour Bus guide, checked October 2026: the 15-stop Downtown, Palaces & Namsan hop-on hop-off course, the Han River night tour, prices from KRW 27,000, Monday closures and where to board at Gwanghwamun.",
+  "h1Sub": "Routes, prices, night tour and where to board",
+  "lead": "The Seoul City Tour Bus (run by Tiger Bus) has left from Gwanghwamun since 2000. By day it loops past Gyeongbokgung Palace, Myeong-dong and N Seoul Tower on a hop-on hop-off course; at night a 90-minute tour crosses the Han River bridges and stops at Namsan.",
+  "booking": {
+    "url": "https://www.seoulcitybus.com/en/tours/1",
+    "label": "Book on the official Seoul City Tour Bus site"
+  },
+  "aka": [
+    "Tiger Bus",
+    "Seoul hop-on hop-off bus",
+    "Seoul double-decker bus tour"
+  ],
+  "summary": [
+    [
+      "Operator",
+      "Seoul City Tour Bus (Tiger Bus)"
+    ],
+    [
+      "Where to board",
+      "Gwanghwamun ticket office, 100 m from Gwanghwamun Station (Line 5) exit 6"
+    ],
+    [
+      "Day course",
+      "Downtown, Palaces & Namsan · 15 stops · departures 09:20–16:50 every 25 min · about 1 h 30 min per loop"
+    ],
+    [
+      "Night course",
+      "Han River & Namsan · 19:00 (19:30 May–Aug) · about 90 min"
+    ],
+    [
+      "Price",
+      "Day from KRW 27,000 (adult) / KRW 19,000 (child) · Night from KRW 25,000 / KRW 16,000"
+    ],
+    [
+      "Closed",
+      "Every Monday (if Monday is a public holiday it runs and closes Tuesday)"
+    ]
+  ],
+  "routes": [
+    {
+      "name": "Downtown, Palaces & Namsan course",
+      "area": "15 stops",
+      "duration": "about 1 h 30 min per loop",
+      "interval": "every 25 min",
+      "hours": "09:20–16:50 from Gwanghwamun",
+      "stops": [
+        "Gwanghwamun Station (start)",
+        "Myeong-dong",
+        "Namsangol Hanok Village",
+        "Ambassador Seoul Pullman Hotel",
+        "The Shilla Hotel / Jangchungdan Park",
+        "N Seoul Tower",
+        "Grand Hyatt Seoul",
+        "DDP / Dongdaemun Market",
+        "Daehak-ro",
+        "Changgyeonggung Palace",
+        "Changdeokgung Palace",
+        "Insadong / Bukchon",
+        "Cheong Wa Dae",
+        "Gyeongbokgung Palace / National Folk Museum / MMCA",
+        "Sejong Center / Gwanghwamun Square"
+      ],
+      "tip": "The ticket is valid for that day only, and you can get on and off at the 15 stops as often as you like. The last bus leaves Gwanghwamun at 16:50 and returns at 18:20, so check the time before getting off at N Seoul Tower or Dongdaemun."
+    }
+  ],
+  "night": {
+    "time": "19:00 once a day (19:30 from 1 May to 31 Aug)",
+    "start": "Gwanghwamun ticket office (boarding from 40 min before)",
+    "duration": "about 90 min (about 25 min stop at N Seoul Tower)",
+    "price": "Adult from KRW 25,000 · child from KRW 16,000",
+    "text": "The night course leaves Gwanghwamun, crosses Mapo, Hangang, Dongjak, Banpo, Seongsu and Hannam bridges, stops at N Seoul Tower for about 25 minutes and ends at Cheonggye Plaza via Sungnyemun. N Seoul Tower is its only stop."
+  },
+  "tickets": [
+    {
+      "name": "Day course (Downtown, Palaces & Namsan)",
+      "validity": "Same day",
+      "price": "Adult from KRW 27,000 (KRW 36,000 list) · child from KRW 19,000",
+      "includes": [
+        "Unlimited hop-on hop-off at 15 stops",
+        "Audio guide in 12 languages"
+      ],
+      "for": "Palaces, Myeong-dong and Namsan in a day"
+    },
+    {
+      "name": "Night course (Han River & Namsan)",
+      "validity": "One ride (about 90 min)",
+      "price": "Adult from KRW 25,000 (KRW 29,000 list) · child from KRW 16,000",
+      "includes": [
+        "Han River bridges at night",
+        "About 25 min at N Seoul Tower"
+      ],
+      "for": "Seoul at night"
+    }
+  ],
+  "priceNote": "Prices are the discounted (from) and list prices shown on the official site on 28 October 2026. Children are 48 months to high-school age. Prices change by date, so check the final amount when booking.",
+  "howToBook": [
+    "Open the official site with the button below and choose a course.",
+    "Pick the date and number of people and pay. Online booking closes the day before you ride.",
+    "To ride the same day, buy a ticket at the Gwanghwamun ticket office without booking."
+  ],
+  "howToRide": [
+    "Walk 100 m from Gwanghwamun Station (Line 5) exit 6, or about 300 m from City Hall Station (Lines 1 and 2) exit 3, to the Gwanghwamun ticket office.",
+    "Give the name on your booking at the ticket office and collect your boarding pass.",
+    "Show the pass to the driver when you board. Seats are first come, first served.",
+    "The audio guide is available in 12 languages; ask at the ticket office if you need earphones.",
+    "Get off at any of the 15 stops and catch the next bus, which comes every 25 minutes."
+  ],
+  "faq": [
+    {
+      "q": "Can I ride the Seoul City Tour Bus without booking?",
+      "a": "Yes. Same-day tickets cannot be bought online; buy them at the Gwanghwamun ticket office. For the night course it is worth calling 02-777-6090 to check seats first."
+    },
+    {
+      "q": "Where do I board the Seoul City Tour Bus?",
+      "a": "At the Gwanghwamun ticket office, 100 m from Gwanghwamun Station (Line 5) exit 6 and about 300 m from City Hall Station exit 3."
+    },
+    {
+      "q": "Does it run on Mondays?",
+      "a": "No, it is closed every Monday. If Monday is a public holiday it runs and closes on Tuesday instead."
+    },
+    {
+      "q": "Is there an English audio guide?",
+      "a": "Yes. The day course has an audio guide in 12 languages, including English."
+    },
+    {
+      "q": "Can I choose an open-top double-decker?",
+      "a": "No. The bus type (open-top double-decker, glass-top double-decker or single-deck) is assigned on the day."
+    }
+  ],
+  "images": {
+    "main": {
+      "alt": "Seoul City Tour Bus: routes, prices and how to ride",
+      "eyebrow": "UPDATED OCT 2026",
+      "title": "Seoul\nCity Tour Bus",
+      "sub": "Routes · prices · night tour · where to board",
+      "bg": "#e22b37"
+    }
+  },
+  "asideNote": "Day from KRW 27,000 · night from KRW 25,000 · closed Mondays"
+}

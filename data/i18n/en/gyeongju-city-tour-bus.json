@@ -1,0 +1,155 @@
+{
+  "keyword": "Gyeongju City Tour",
+  "city": "Gyeongju",
+  "title": "Gyeongju City Tour Bus 2026: World Heritage, East Coast and Night Tours, Prices and Pickup Times",
+  "description": "Gyeongju City Tour guide, checked October 2026: the guided World Heritage Tour (Bulguksa, Seokguram, Cheonmachong), East Coast Tour and night tour, prices from KRW 20,000, pickup times at Gyeongju Station and Bomun hotels, and booking.",
+  "h1Sub": "Tours, prices, night tour and pickup points",
+  "lead": "The Gyeongju City Tour is a guided bus tour run by Gyeongju City Tour (Cheonma Tourism). It is not hop-on hop-off: each tour visits the sights in a fixed order once a day, with pickups at Gyeongju Station, the bus terminal, Hwangnidan-gil and Bomun Lake hotels. Commentary is in Korean only.",
+  "booking": {
+    "url": "https://cmtour.co.kr/booking3",
+    "label": "Book on the official Gyeongju City Tour site"
+  },
+  "aka": [
+    "Gyeongju bus tour",
+    "Gyeongju night tour",
+    "Gyeongju UNESCO tour"
+  ],
+  "summary": [
+    [
+      "Operator",
+      "Gyeongju City Tour (Cheonma Tourism Co.)"
+    ],
+    [
+      "Type",
+      "Guided package tour, not hop-on hop-off · commentary in Korean only"
+    ],
+    [
+      "Day tours",
+      "World Heritage Tour (daily) · East Coast Tour (Tue, Thu, Sat, Sun) · 7–8 hours each"
+    ],
+    [
+      "Night tour",
+      "Daily 18:30–22:00 · admission included"
+    ],
+    [
+      "Price",
+      "Day tours KRW 25,000 adult (admission extra) · night tour KRW 20,000 adult"
+    ],
+    [
+      "Minimum",
+      "15 people; you are told the day before if it is cancelled, with a full refund"
+    ]
+  ],
+  "routes": [
+    {
+      "name": "World Heritage Tour",
+      "area": "Bulguksa · Seokguram · Cheonmachong",
+      "duration": "7–8 hours",
+      "interval": "daily, once a day",
+      "hours": "pickup Gyeongju Station 10:30 · bus terminal 10:10 · Hwangnidan-gil 10:05",
+      "stops": [
+        "Tomb of King Muyeol",
+        "Cheonmachong Tomb",
+        "Bunhwangsa Temple",
+        "Seokguram Grotto",
+        "Bulguksa Temple"
+      ],
+      "tip": "Admission (KRW 5,000 adult, 3,000 secondary students, 1,500 elementary) is paid separately and lunch is on your own. At the end you can get off at any of the pickup points."
+    },
+    {
+      "name": "East Coast Tour",
+      "area": "Tomb of King Munmu · Golgulsa",
+      "duration": "7–8 hours",
+      "interval": "Tue, Thu, Sat, Sun",
+      "hours": "pickup Gyeongju Station 09:10 · bus terminal 09:20",
+      "stops": [
+        "Gyeongju Traditional Silk Exhibition Hall",
+        "Underwater Tomb of King Munmu",
+        "Golgulsa Temple"
+      ],
+      "tip": "Main stops as listed on the official course page. No admission fees; lunch is on your own."
+    }
+  ],
+  "night": {
+    "time": "Daily 18:30–22:00",
+    "start": "The pickup point you booked",
+    "duration": "about 3 h 30 min",
+    "price": "KRW 20,000 adult · KRW 18,000 youth and child (admission included)",
+    "text": "The night tour visits Gyeongju's lit-up heritage sites with a guide, walking from Cheomseongdae Observatory to Woljeonggyo Bridge. Dinner is not included, so eat before you board."
+  },
+  "tickets": [
+    {
+      "name": "World Heritage Tour",
+      "validity": "Once a day (7–8 h)",
+      "price": "KRW 25,000 adult · KRW 23,000 youth and child (admission extra)",
+      "includes": [
+        "Guided bus tour",
+        "Muyeol Tomb, Cheonmachong, Bunhwangsa, Seokguram, Bulguksa"
+      ],
+      "for": "First visit to Gyeongju"
+    },
+    {
+      "name": "East Coast Tour",
+      "validity": "Tue, Thu, Sat, Sun (7–8 h)",
+      "price": "KRW 25,000 adult · KRW 23,000 youth and child",
+      "includes": [
+        "King Munmu's tomb, Golgulsa and more",
+        "No admission fees"
+      ],
+      "for": "Sea and heritage"
+    },
+    {
+      "name": "Gyeongju Night Tour",
+      "validity": "Daily 18:30–22:00",
+      "price": "KRW 20,000 adult · KRW 18,000 youth and child (admission included)",
+      "includes": [
+        "Guided night tour"
+      ],
+      "for": "Gyeongju by night"
+    }
+  ],
+  "priceNote": "Prices from the official Gyeongju City Tour site on 29 October 2026. Children are 5–12, youth 13–18. If fewer than 15 people book, the tour is cancelled with a full refund.",
+  "howToBook": [
+    "Open the official booking page with the button below and choose the tour, date and pickup point. The new booking system accepts foreign cards.",
+    "You pay the tour fee when booking; admission is paid on site.",
+    "Cancellation: full refund up to 3 days before, 90% two days before, 80% one day before, none on the day."
+  ],
+  "howToRide": [
+    "Be at your pickup point on time: for the World Heritage Tour, Gyeongju Station 10:30, the bus terminal 10:10, Hwangnidan-gil (Bonghwangdae parking lot) 10:05.",
+    "Give your booking name to the guide. Seats are unreserved.",
+    "Commentary is in Korean only.",
+    "At the end you can get off at any pickup point; book your train or bus home for after 18:00."
+  ],
+  "faq": [
+    {
+      "q": "Is the Gyeongju City Tour hop-on hop-off?",
+      "a": "No. It is a once-a-day guided tour that visits the sights in a fixed order."
+    },
+    {
+      "q": "Is there English commentary?",
+      "a": "No. Commentary is in Korean only, although the booking system has an English option and accepts foreign cards."
+    },
+    {
+      "q": "How much is the Gyeongju City Tour?",
+      "a": "The World Heritage and East Coast tours are KRW 25,000 for adults; the night tour is KRW 20,000 including admission."
+    },
+    {
+      "q": "Can I join from Gyeongju Station?",
+      "a": "Yes. Pickups include Gyeongju Station, the bus terminal, Hwangnidan-gil and the main Bomun Lake hotels; times differ by tour."
+    },
+    {
+      "q": "I want an English-guided tour. What are the options?",
+      "a": "English-guided Gyeongju day tours, including trips from Busan, are listed on GetYourGuide (link below)."
+    }
+  ],
+  "images": {
+    "main": {
+      "alt": "Gyeongju City Tour: routes, prices and how to ride",
+      "eyebrow": "UPDATED OCT 2026",
+      "title": "Gyeongju\nCity Tour Bus",
+      "sub": "World Heritage · East Coast · night tour",
+      "bg": "#e22b37"
+    }
+  },
+  "asideNote": "Day tours KRW 25,000 · night KRW 20,000 · Korean commentary"
+}

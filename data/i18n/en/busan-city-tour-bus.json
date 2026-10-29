@@ -1,0 +1,181 @@
+{
+  "keyword": "Busan City Tour Bus",
+  "city": "Busan",
+  "title": "Busan City Tour Bus 2026: Red, Green and Orange Lines, Prices, Night Tour and Where to Board",
+  "description": "Busan City Tour Bus guide, checked October 2026: Red Line (Haeundae), Green Line (Taejongdae) and Orange Line (Dadaepo) stops and timetables, the KRW 20,000 day pass, the night bridge tour and boarding at Busan Station.",
+  "h1Sub": "Lines, prices, night tour and where to board",
+  "lead": "The Busan City Tour Bus is a loop bus from Busan Station. One day pass covers three lines: the Red Line to Gwangalli and Haeundae, the Green Line to Huinnyeoul Culture Village and Taejongdae, and the Orange Line to Gamcheon Culture Village and Dadaepo. In the evening a double-decker night tour crosses Gwangan Bridge. It runs Wednesday to Sunday.",
+  "booking": {
+    "url": "https://www.citytourbusan.com/en2/00main/main.php",
+    "label": "Official Busan City Tour site"
+  },
+  "aka": [
+    "Busan hop-on hop-off bus",
+    "Busan double-decker bus",
+    "Busan night bus tour"
+  ],
+  "summary": [
+    [
+      "Lines",
+      "Red (Haeundae) · Green (Taejongdae) · Orange (Dadaepo)"
+    ],
+    [
+      "Days",
+      "Wednesday to Sunday (closed Monday and Tuesday)"
+    ],
+    [
+      "Frequency",
+      "Red and Green every 50 min, 9 a day · Orange every 80 min, 6 a day"
+    ],
+    [
+      "Price",
+      "Day pass KRW 20,000 adult / KRW 10,000 child (5% off when bought online in advance)"
+    ],
+    [
+      "Night tour",
+      "19:30 (19:00 Nov–Mar) · KRW 25,000 adult · advance booking only"
+    ],
+    [
+      "Where to board",
+      "Busan Station, opposite Starbucks on the ground floor of Ramada Encore (KTX Busan Station exit 1)"
+    ]
+  ],
+  "routes": [
+    {
+      "name": "Red Line (Busan Station ↔ Haeundae)",
+      "area": "Haeundae · Gwangalli · Marine City",
+      "duration": "about 2 h 10 min per loop",
+      "interval": "every 50 min (9 a day)",
+      "hours": "09:45–16:35 from Busan Station",
+      "stops": [
+        "Busan Station (start)",
+        "UN Memorial Cemetery",
+        "Busan Museum",
+        "Yonghoman Cruise Terminal",
+        "Gwangalli Beach",
+        "Marine City (Suyeong Bay Yacht Stadium)",
+        "Dongbaekseom Island",
+        "Haeundae Beach",
+        "Centum City (Busan Cinema Center)",
+        "Busan Museum of Art / BEXCO",
+        "Peace Park",
+        "Gwangbok-ro"
+      ],
+      "tip": "Crosses Busan Harbor Bridge and Gwangan Bridge. The 16:35 run skips the UN Memorial Cemetery and Busan Museum, and transfers are hard on the last three runs. Single- or double-deck buses are assigned on the day."
+    },
+    {
+      "name": "Green Line (Busan Station ↔ Taejongdae)",
+      "area": "Yeongdo · Taejongdae · Oryukdo",
+      "duration": "about 2 h 10 min per loop",
+      "interval": "every 50 min (9 a day)",
+      "hours": "09:30–16:20 from Busan Station",
+      "stops": [
+        "Busan Station (start)",
+        "Yeongdo Bridge (Yurari Plaza)",
+        "Huinnyeoul Culture Village",
+        "Sky Observatory",
+        "Taejongdae",
+        "National Maritime Museum",
+        "ARTE Museum Busan",
+        "Oryukdo Skywalk",
+        "Yonghoman Cruise Terminal",
+        "Peace Park",
+        "Songdo Beach (Cloud Trail)",
+        "Jagalchi / BIFF Square (Yongdusan Park)"
+      ],
+      "tip": "Change to the Red Line at Yonghoman Cruise Terminal or Peace Park. On Saturdays the sixth run skips Yeongdo Bridge during the bridge-lifting show."
+    },
+    {
+      "name": "Orange Line (Busan Station ↔ Dadaepo)",
+      "area": "Gamcheon Culture Village · Dadaepo",
+      "duration": "about 2 h 10 min per loop",
+      "interval": "every 80 min (6 a day)",
+      "hours": "09:20–16:00 from Busan Station",
+      "stops": [
+        "Busan Station (start)",
+        "Songdo Beach (Songdo Cloud Trail)",
+        "Amnam Park (Yonggung Cloud Bridge)",
+        "Gamcheon Culture Village",
+        "Dadaepo Beach (Molundae)",
+        "Amisan Observatory",
+        "Bunecia Jangnim Port",
+        "Seokdang Museum",
+        "Gukje Market (Bosu-dong Book Street)",
+        "Yongdusan Park"
+      ],
+      "tip": "Runs single-deck buses only because of steep hill roads. Change to the Green Line at the Green Line stop across from Songdo Beach."
+    }
+  ],
+  "night": {
+    "time": "19:30 (19:00 November–March)",
+    "start": "Busan Station, opposite Starbucks at Ramada Encore",
+    "duration": "about 2 h 10 min (10-min photo stops at Gwangalli and Songdo Cloud Trail)",
+    "price": "KRW 25,000 adult · KRW 15,000 child",
+    "text": "The night bridge tour crosses Busan Bridge and Busan Harbor Bridge, stops 10 minutes at Gwangalli Beach, passes Haeundae and Marine City, crosses Gwangan Bridge and stops again at Songdo Cloud Trail before returning to Busan Station. It is a double-decker, booked online in advance, and may be cancelled if too few people book."
+  },
+  "tickets": [
+    {
+      "name": "Loop day pass (Red, Green, Orange)",
+      "validity": "Same day",
+      "price": "KRW 20,000 adult · KRW 10,000 child (KRW 19,000 / 9,500 online)",
+      "includes": [
+        "Unlimited rides on all three lines"
+      ],
+      "for": "A day around Busan"
+    },
+    {
+      "name": "Night bridge tour",
+      "validity": "One tour (about 2 h 10 min)",
+      "price": "KRW 25,000 adult · KRW 15,000 child",
+      "includes": [
+        "Gwangan Bridge and Harbor Bridge at night",
+        "Two photo stops"
+      ],
+      "for": "Busan at night"
+    }
+  ],
+  "priceNote": "Prices from the official Busan City Tour fare page on 29 October 2026. Children are 48 months to elementary school age. Day passes are 5% off when bought online in advance; the night tour has no discounts.",
+  "howToBook": [
+    "Open the official Busan City Tour site with the button below.",
+    "Day passes are not seat reservations: you board at the stop on a first-come basis, and you can also buy on the spot.",
+    "The night tour must be booked online in advance; cancellation is free up to three days before."
+  ],
+  "howToRide": [
+    "Leave KTX Busan Station by exit 1 (or subway Busan Station exit 6) and go to the stop opposite Starbucks on the ground floor of Ramada Encore.",
+    "Show your ticket and board in arrival order.",
+    "One day pass covers the Red, Green and Orange Lines; change lines at the transfer stops (Yonghoman Cruise Terminal, Peace Park, Songdo Beach).",
+    "Late runs make transfers hard, so start in the morning if you want to ride several lines."
+  ],
+  "faq": [
+    {
+      "q": "Does the Busan City Tour Bus run every day?",
+      "a": "No. It runs Wednesday to Sunday and is closed Monday and Tuesday."
+    },
+    {
+      "q": "Do I need to book the Busan City Tour Bus?",
+      "a": "Not for the loop lines: board at the stop on a first-come basis. Only the night tour needs advance booking."
+    },
+    {
+      "q": "Does one ticket cover all lines?",
+      "a": "Yes. One day pass covers the Red, Green and Orange loop lines. The night tour and themed routes are sold separately."
+    },
+    {
+      "q": "Where does the Busan City Tour Bus leave from?",
+      "a": "Busan Station, opposite Starbucks on the ground floor of the Ramada Encore hotel (KTX Busan Station exit 1)."
+    },
+    {
+      "q": "Is it a double-decker?",
+      "a": "The Red and Green Lines use single- or double-deck buses assigned on the day; the Orange Line is single-deck only; the night tour is a double-decker."
+    }
+  ],
+  "images": {
+    "main": {
+      "alt": "Busan City Tour Bus: routes, prices and how to ride",
+      "eyebrow": "UPDATED OCT 2026",
+      "title": "Busan\nCity Tour Bus",
+      "sub": "Red · Green · Orange · night tour",
+      "bg": "#e22b37"
+    }
+  },
+  "asideNote": "Day pass KRW 20,000 (KRW 19,000 online) · Wed–Sun"
+}

@@ -1,0 +1,150 @@
+{
+  "keyword": "Incheon City Tour Bus",
+  "city": "Incheon",
+  "title": "Incheon City Tour Bus 2026: Retro and Sea Lines, Timetables, Prices and Booking",
+  "description": "Incheon City Tour guide, checked October 2026: the Retro Line (Chinatown, Sinpo Market) and the double-decker Sea Line (Incheon Airport T2, Eurwangni Beach, Paradise City), prices from KRW 9,000, Wednesday–Sunday timetables and where to board in Songdo.",
+  "h1Sub": "Retro and Sea Line timetables and prices",
+  "lead": "The Incheon City Tour starts at the Incheon Tourist Information Center in Songdo Central Park. The Retro Line loops through Chinatown, Sinpo International Market and Incheon Art Platform; the double-decker Sea Line visits Incheon Airport Terminal 2, Eurwangni Beach and Paradise City. A combined ticket covers both. It runs Wednesday to Sunday.",
+  "booking": {
+    "url": "https://mirihae.com/itoct/citytour/retro",
+    "label": "Official Incheon City Tour booking (Korean)"
+  },
+  "aka": [
+    "Incheon hop-on hop-off bus",
+    "Incheon Sea Line",
+    "Incheon Retro Line"
+  ],
+  "summary": [
+    [
+      "Operator",
+      "Incheon Tourism Organization"
+    ],
+    [
+      "Lines",
+      "Retro Line (minibus, about 1 h 30 min) · Sea Line (double-decker, about 2 h 35 min)"
+    ],
+    [
+      "Days",
+      "Wednesday to Sunday (closed Mon, Tue and Lunar New Year and Chuseok days) · hourly"
+    ],
+    [
+      "Price",
+      "Retro KRW 9,000 · Sea KRW 14,000 · combined KRW 16,000 (adult)"
+    ],
+    [
+      "Start",
+      "Incheon Tourist Information Center (Central Park Station, Incheon Line 1, exit 3)"
+    ],
+    [
+      "Booking",
+      "Online until the day before · on-site tickets on the day · first come, first served"
+    ]
+  ],
+  "routes": [
+    {
+      "name": "Retro Line",
+      "area": "Chinatown · Sinpo Market · open-port area",
+      "duration": "about 1 h 30 min per loop",
+      "interval": "hourly (no 12:30 run)",
+      "hours": "10:30–16:30 from Songdo (6 a day)",
+      "stops": [
+        "Incheon Tourist Information Center (Songdo Central Park)",
+        "Sinpo International Market (Dapdong Cathedral)",
+        "Hwapyeong-dong Naengmyeon Street (Jayu Park)",
+        "Incheon Station (Chinatown)",
+        "Sangsang Platform",
+        "Incheon Art Platform (Harbor Park Hotel)",
+        "Songdo Convensia",
+        "Hyundai Premium Outlet Songdo"
+      ],
+      "tip": "Chinatown, Jayu Park and the open-port streets are an easy walk from the Incheon Station stop. Runs as a minibus."
+    },
+    {
+      "name": "Sea Line",
+      "area": "Incheon Airport · Eurwangni · Paradise City",
+      "duration": "about 2 h 35 min per loop",
+      "interval": "hourly (7 a day)",
+      "hours": "10:00–16:00 from Songdo",
+      "stops": [
+        "Incheon Tourist Information Center (Songdo Central Park)",
+        "Songdo Convensia",
+        "Incheon Airport Terminal 2",
+        "INSPIRE Entertainment Resort",
+        "Eurwangni Beach",
+        "Muuido entrance",
+        "Paradise City (art docent tour)",
+        "G-Tower (IFEZ Promotion Center)"
+      ],
+      "tip": "There is a stop at Incheon Airport Terminal 2 (near exit 6, ground floor). Double-decker; Eurwangni Beach and the Muuido entrance have the best sea views."
+    }
+  ],
+  "tickets": [
+    {
+      "name": "Retro Line",
+      "validity": "Same day",
+      "price": "KRW 9,000 adult · KRW 7,000 child, senior, group",
+      "includes": [
+        "Hop-on hop-off on the Retro Line"
+      ],
+      "for": "Chinatown and old Incheon"
+    },
+    {
+      "name": "Sea Line",
+      "validity": "Same day",
+      "price": "KRW 14,000 adult · KRW 12,000 child, senior, group",
+      "includes": [
+        "Hop-on hop-off on the Sea Line"
+      ],
+      "for": "Airport and beaches"
+    },
+    {
+      "name": "Combined (Retro + Sea)",
+      "validity": "Same day",
+      "price": "KRW 16,000 adult · KRW 14,000 child, senior, group",
+      "includes": [
+        "Both lines"
+      ],
+      "for": "A day in Incheon"
+    }
+  ],
+  "priceNote": "Prices from the official Incheon City Tour booking site on 29 October 2026. Children are 36 months to under 19; seniors 65+; under 36 months ride free. Short-term discounts are common, so check the booking page.",
+  "howToBook": [
+    "Open the official booking page (Korean only) with the button below and choose a line.",
+    "Online booking is possible until the day before; on the day, buy tickets on site. Bookings must be paid by midnight on the booking day.",
+    "Refunds: 100% up to 3 days before, 70% 1–2 days before, 50% on the day."
+  ],
+  "howToRide": [
+    "Board at the Incheon Tourist Information Center outside exit 3 of Central Park Station (Incheon Line 1).",
+    "If you booked, show ID (a passport for visitors) at the center before boarding.",
+    "Scan the QR code of your ticket or mobile voucher when boarding; you can hop on and off that line all day.",
+    "Seats are first come, first served and standing is not allowed."
+  ],
+  "faq": [
+    {
+      "q": "Which days does the Incheon City Tour run?",
+      "a": "Wednesday to Sunday. It is closed every Monday and Tuesday and on Lunar New Year and Chuseok days."
+    },
+    {
+      "q": "What is the difference between the Sea Line and the Retro Line?",
+      "a": "The Retro Line is a 1 h 30 min minibus loop through Chinatown and old Incheon; the Sea Line is a 2 h 35 min double-decker loop to Incheon Airport T2, Eurwangni Beach and Paradise City."
+    },
+    {
+      "q": "Can I board at Incheon Airport?",
+      "a": "Yes, the Sea Line stops at Terminal 2, near exit 6 on the ground floor."
+    },
+    {
+      "q": "Is the combined ticket worth it?",
+      "a": "If you ride both lines, yes: KRW 16,000 instead of KRW 23,000 for two separate adult tickets."
+    }
+  ],
+  "images": {
+    "main": {
+      "alt": "Incheon City Tour Bus: routes, prices and how to ride",
+      "eyebrow": "UPDATED OCT 2026",
+      "title": "Incheon\nCity Tour Bus",
+      "sub": "Retro Line · Sea Line · prices",
+      "bg": "#e22b37"
+    }
+  },
+  "asideNote": "Retro KRW 9,000 · Sea KRW 14,000 · combined KRW 16,000 · Wed–Sun"
+}

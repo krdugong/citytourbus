@@ -851,6 +851,18 @@
       ],
       "destination": "/abu-dhabi-city-tour-bus",
       "statusCode": 301
+    },
+    {
+      "source": "/compare",
+      "has": [
+        {
+          "type": "query",
+          "key": "city",
+          "value": "johannesburg"
+        }
+      ],
+      "destination": "/johannesburg-city-tour-bus",
+      "statusCode": 301
     }
   ]
 }

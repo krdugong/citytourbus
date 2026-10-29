@@ -1,5 +1,25 @@
 [
  {
+  "out": "img/en/andong-city-tour-bus-main.jpg",
+  "w": 1080,
+  "h": 1080,
+  "alt": "Andong City Tour: routes, prices and how to ride",
+  "eyebrow": "UPDATED OCT 2026",
+  "title": "Andong\nCity Tour",
+  "sub": "Hahoe Village · mask dance · Byeongsan",
+  "bg": "#e22b37"
+ },
+ {
+  "out": "img/en/andong-city-tour-bus-og.jpg",
+  "w": 1200,
+  "h": 630,
+  "alt": "Andong City Tour: routes, prices and how to ride",
+  "eyebrow": "UPDATED OCT 2026",
+  "title": "Andong City Tour",
+  "sub": "Hahoe Village · mask dance · Byeongsan",
+  "bg": "#e22b37"
+ },
+ {
   "out": "img/en/busan-city-tour-bus-main.jpg",
   "w": 1080,
   "h": 1080,
@@ -100,6 +120,26 @@
   "bg": "#e22b37"
  },
  {
+  "out": "img/en/paju-city-tour-bus-main.jpg",
+  "w": 1080,
+  "h": 1080,
+  "alt": "Paju City Tour: routes, prices and how to ride",
+  "eyebrow": "UPDATED OCT 2026",
+  "title": "Paju\nCity Tour",
+  "sub": "DMZ · courses by weekday · from Hongdae",
+  "bg": "#e22b37"
+ },
+ {
+  "out": "img/en/paju-city-tour-bus-og.jpg",
+  "w": 1200,
+  "h": 630,
+  "alt": "Paju City Tour: routes, prices and how to ride",
+  "eyebrow": "UPDATED OCT 2026",
+  "title": "Paju City Tour",
+  "sub": "DMZ · courses by weekday · from Hongdae",
+  "bg": "#e22b37"
+ },
+ {
   "out": "img/en/seoul-city-tour-bus-main.jpg",
   "w": 1080,
   "h": 1080,
@@ -117,6 +157,46 @@
   "eyebrow": "UPDATED OCT 2026",
   "title": "Seoul City Tour Bus",
   "sub": "Routes · prices · night tour · where to board",
+  "bg": "#e22b37"
+ },
+ {
+  "out": "img/en/yeosu-city-tour-bus-main.jpg",
+  "w": 1080,
+  "h": 1080,
+  "alt": "Yeosu City Tour Bus: routes, prices and how to ride",
+  "eyebrow": "UPDATED OCT 2026",
+  "title": "Yeosu\nCity Tour",
+  "sub": "Double-decker · night sea · Hyangiram",
+  "bg": "#e22b37"
+ },
+ {
+  "out": "img/en/yeosu-city-tour-bus-og.jpg",
+  "w": 1200,
+  "h": 630,
+  "alt": "Yeosu City Tour Bus: routes, prices and how to ride",
+  "eyebrow": "UPDATED OCT 2026",
+  "title": "Yeosu City Tour",
+  "sub": "Double-decker · night sea · Hyangiram",
+  "bg": "#e22b37"
+ },
+ {
+  "out": "img/ja/andong-city-tour-bus-main.jpg",
+  "w": 1080,
+  "h": 1080,
+  "alt": "安東 シティツアー コース・料金・乗り方まとめ",
+  "eyebrow": "2026年10月更新",
+  "title": "安東\nシティツアー",
+  "sub": "河回村 · 仮面劇 · 屏山書院",
+  "bg": "#e22b37"
+ },
+ {
+  "out": "img/ja/andong-city-tour-bus-og.jpg",
+  "w": 1200,
+  "h": 630,
+  "alt": "安東 シティツアー コース・料金・乗り方まとめ",
+  "eyebrow": "2026年10月更新",
+  "title": "安東 シティツアー",
+  "sub": "河回村 · 仮面劇 · 屏山書院",
   "bg": "#e22b37"
  },
  {
@@ -220,6 +300,26 @@
   "bg": "#e22b37"
  },
  {
+  "out": "img/ja/paju-city-tour-bus-main.jpg",
+  "w": 1080,
+  "h": 1080,
+  "alt": "坡州 シティツアー コース・料金・乗り方まとめ",
+  "eyebrow": "2026年10月更新",
+  "title": "坡州\nシティツアー",
+  "sub": "DMZ · 曜日別コース · 弘大発",
+  "bg": "#e22b37"
+ },
+ {
+  "out": "img/ja/paju-city-tour-bus-og.jpg",
+  "w": 1200,
+  "h": 630,
+  "alt": "坡州 シティツアー コース・料金・乗り方まとめ",
+  "eyebrow": "2026年10月更新",
+  "title": "坡州 シティツアー",
+  "sub": "DMZ · 曜日別コース · 弘大発",
+  "bg": "#e22b37"
+ },
+ {
   "out": "img/ja/seoul-city-tour-bus-main.jpg",
   "w": 1080,
   "h": 1080,
@@ -237,6 +337,26 @@
   "eyebrow": "2026年10月更新",
   "title": "ソウル シティツアーバス",
   "sub": "ルート · 料金 · 夜景コース · 乗り場",
+  "bg": "#e22b37"
+ },
+ {
+  "out": "img/ja/yeosu-city-tour-bus-main.jpg",
+  "w": 1080,
+  "h": 1080,
+  "alt": "麗水 シティツアーバス コース・料金・乗り方まとめ",
+  "eyebrow": "2026年10月更新",
+  "title": "麗水\nシティツアー",
+  "sub": "2階建て · 夜の海 · 向日庵",
+  "bg": "#e22b37"
+ },
+ {
+  "out": "img/ja/yeosu-city-tour-bus-og.jpg",
+  "w": 1200,
+  "h": 630,
+  "alt": "麗水 シティツアーバス コース・料金・乗り方まとめ",
+  "eyebrow": "2026年10月更新",
+  "title": "麗水 シティツアー",
+  "sub": "2階建て · 夜の海 · 向日庵",
   "bg": "#e22b37"
  }
 ]

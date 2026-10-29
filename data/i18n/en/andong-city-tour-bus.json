@@ -1,0 +1,115 @@
+{
+  "keyword": "Andong City Tour",
+  "city": "Andong",
+  "title": "Andong City Tour 2026: Hahoe Village Bus Tour, Price, Pickup Times and Booking",
+  "description": "Andong City Tour guide, checked October 2026: the guided Hahoe Village day course from KTX Andong Station (Buyongdae, Hahoe mask dance, Hahoe Village, Byeongsan Seowon), KRW 25,000 including admission, Tuesday–Sunday, and how to book.",
+  "h1Sub": "Hahoe Village course, price and pickup times",
+  "lead": "The Andong City Tour is a guided bus tour run by a company designated by Andong City. Once a day from Tuesday to Sunday it leaves KTX Andong Station for Buyongdae Cliff, Hahoe market, the Hahoe Byeolsingut mask dance, Hahoe Folk Village and Byeongsan Seowon, returning in the evening. Admission and commentary are included.",
+  "booking": {
+    "url": "https://www.gbtour.kr/english/main.asp",
+    "label": "Official Andong City Tour site (English)"
+  },
+  "aka": [
+    "Andong bus tour",
+    "Hahoe Village tour from Andong Station"
+  ],
+  "summary": [
+    [
+      "Operator",
+      "Andong City Tour (designated by Andong City)"
+    ],
+    [
+      "Type",
+      "Guided day tour, not hop-on hop-off"
+    ],
+    [
+      "Days",
+      "Tuesday to Sunday, once a day · runs with 5 or more people"
+    ],
+    [
+      "Pickup",
+      "Old Andong Station (in front of Iljik Restaurant) 10:50 · KTX Andong Station 11:25"
+    ],
+    [
+      "Return",
+      "KTX Andong Station / bus terminal around 17:50"
+    ],
+    [
+      "Price",
+      "KRW 25,000 (19+) · KRW 23,000 (under 19) · KRW 22,000 seniors, disabled, preschoolers · admission and guide included, meals extra"
+    ]
+  ],
+  "routes": [
+    {
+      "name": "Hahoe Village course",
+      "area": "Buyongdae · Hahoe Village · Byeongsan Seowon",
+      "duration": "about 7 hours",
+      "interval": "Tue–Sun, once a day",
+      "hours": "10:50 Old Andong Station · 11:25 KTX Andong Station → back 17:50",
+      "stops": [
+        "Old Andong Station (Iljik Restaurant)",
+        "KTX Andong Station",
+        "Buyongdae Cliff",
+        "Hahoe market (lunch on your own)",
+        "Hahoe Byeolsingut mask dance (13:50)",
+        "Hahoe Folk Village",
+        "Byeongsan Seowon",
+        "KTX Andong Station / bus terminal"
+      ],
+      "tip": "From Buyongdae Cliff you see the whole of Hahoe Village inside the bend of the Nakdong River. The mask dance runs at 14:00 Tue–Sun from March to December and on weekends in January and February; on other days the tour visits a soju distillery, hanji paper workshop or the provincial government complex instead."
+    }
+  ],
+  "tickets": [
+    {
+      "name": "Hahoe Village day tour",
+      "validity": "Once a day (about 7 h)",
+      "price": "KRW 25,000 (19+) · KRW 23,000 (under 19) · KRW 22,000 concessions",
+      "includes": [
+        "Admission fees",
+        "Guide and commentary",
+        "Meals not included"
+      ],
+      "for": "Hahoe and Byeongsan in a day"
+    }
+  ],
+  "priceNote": "Prices from the official Andong City Tour site on 29 October 2026. Foreign visitors can pay on site on the day. Some dates close early, so check the notices.",
+  "howToBook": [
+    "Open the official site with the button below and book the Hahoe Village course.",
+    "The tour runs with at least 5 people, so book ahead once you know your date.",
+    "Foreign visitors can pay on the day; for help in English or other languages call the Gyeongbuk Tourist Information Center (054-852-6800)."
+  ],
+  "howToRide": [
+    "Board at Old Andong Station (in front of Iljik Restaurant) at 10:50 or in front of KTX Andong Station at 11:25.",
+    "Give your name to the guide.",
+    "Have lunch at Hahoe market, watch the 13:50 mask dance, then visit Hahoe Village and Byeongsan Seowon.",
+    "You are back at KTX Andong Station around 17:50."
+  ],
+  "faq": [
+    {
+      "q": "Where does the Andong City Tour start?",
+      "a": "At Old Andong Station at 10:50 and in front of KTX Andong Station at 11:25."
+    },
+    {
+      "q": "What does the price include?",
+      "a": "Admission fees and the guide. Meals and personal expenses are extra."
+    },
+    {
+      "q": "Will I see the Hahoe mask dance?",
+      "a": "Yes, the 14:00 performance (Tue–Sun March–December, weekends in January–February). On days without a show another stop replaces it."
+    },
+    {
+      "q": "Can foreign visitors join?",
+      "a": "Yes. Foreign visitors can pay on the day, and the Gyeongbuk Tourist Information Center (054-852-6800) helps in other languages."
+    }
+  ],
+  "images": {
+    "main": {
+      "alt": "Andong City Tour: routes, prices and how to ride",
+      "eyebrow": "UPDATED OCT 2026",
+      "title": "Andong\nCity Tour",
+      "sub": "Hahoe Village · mask dance · Byeongsan",
+      "bg": "#e22b37"
+    }
+  },
+  "asideNote": "KRW 25,000 incl. admission · Tue–Sun · KTX Andong 11:25"
+}

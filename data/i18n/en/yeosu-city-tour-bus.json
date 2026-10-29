@@ -1,0 +1,204 @@
+{
+  "keyword": "Yeosu City Tour Bus",
+  "city": "Yeosu",
+  "title": "Yeosu City Tour Bus 2026: Romantic Bus Double-Decker, Night View and Hyangiram Courses, Prices and Times",
+  "description": "Yeosu City Tour guide, checked October 2026: the hop-on hop-off double-decker day loop (Odongdo, Yi Sun-sin Square, KRW 5,000), the double-decker night course, the night view course, and the Hyangiram and island-bridge day courses, all from Yeosu Expo Station.",
+  "h1Sub": "Double-decker, night and Hyangiram courses",
+  "lead": "Yeosu's \"Romantic Bus\" city tours, run by Yeosu City, all leave from Yeosu Expo Station. The double-decker day loop circles Odongdo, Yi Sun-sin Square and Dolsan Park entrance in 35 minutes and you pay as you board; in the evening a double-decker night course and a night view course show the famous Yeosu night sea. Course 1 (Hyangiram) and Course 2 (island bridges) are full-day guided tours.",
+  "booking": {
+    "url": "https://www.yeosu.go.kr/tour/leisure/city_tour/reservation_go",
+    "label": "Official Yeosu Romantic Bus booking (Korean)"
+  },
+  "aka": [
+    "Yeosu Romantic Bus",
+    "Yeosu double-decker bus",
+    "Yeosu night bus tour"
+  ],
+  "summary": [
+    [
+      "Operator",
+      "Yeosu City (run by Dongseo Tour and Boram Express Tour)"
+    ],
+    [
+      "Start",
+      "All courses leave Yeosu Expo Station"
+    ],
+    [
+      "Double-decker day loop",
+      "10:30–16:30 hourly, 6 a day · 35 min loop · hop-on hop-off · KRW 5,000"
+    ],
+    [
+      "Double-decker night",
+      "19:30 (19:00 Nov–Feb) · 2 h 30 min · KRW 10,000"
+    ],
+    [
+      "Night view course",
+      "Daily 19:30 (19:00 Nov–Feb) · 2 h · KRW 10,000"
+    ],
+    [
+      "Day courses",
+      "Hyangiram and island bridges · 10:30 · KRW 10,000 each (meals and admission extra)"
+    ]
+  ],
+  "routes": [
+    {
+      "name": "Double-decker day loop",
+      "area": "Odongdo · Yi Sun-sin Square · Dolsan Park",
+      "duration": "35 min per loop",
+      "interval": "hourly (6 a day, no 13:30 run)",
+      "hours": "10:30–16:30 from Yeosu Expo Station",
+      "stops": [
+        "Yeosu Expo Station (start)",
+        "Aqua Planet",
+        "Cable car parking tower",
+        "Odongdo Island (music fountain)",
+        "Sono Calm Yeosu",
+        "Hamel Exhibition Hall",
+        "Yi Sun-sin Square",
+        "Seafood market",
+        "Dolsan Park entrance"
+      ],
+      "tip": "Pay by cash or card when you board; one ticket covers up to six rides. Closed the first and third Monday of each month. The wristband ticket gives discounts at Aqua Planet, the sea cable car and more."
+    },
+    {
+      "name": "Course 1 (Hyangiram)",
+      "area": "Odongdo · Jinnamgwan · Hyangiram",
+      "duration": "6 h 50 min",
+      "interval": "daily (closed 2nd Monday)",
+      "hours": "10:30 from Yeosu Expo Station → back 17:20",
+      "stops": [
+        "Odongdo Island",
+        "Jinnamgwan Hall (lunch)",
+        "Marine Science Museum",
+        "Hyangiram Hermitage",
+        "Fish market"
+      ],
+      "tip": "The Marine Science Museum (KRW 3,000) is closed on Mondays and skipped that day."
+    },
+    {
+      "name": "Course 2 (island bridges)",
+      "area": "Jangdo · Soho Dongdong Bridge · Nangdo",
+      "duration": "about 7 h",
+      "interval": "closed Sundays and 4th Monday",
+      "hours": "10:30 from Yeosu Expo Station → back 17:30",
+      "stops": [
+        "Jangdo Island (Ungcheon)",
+        "Soho Dongdong Bridge (walk and lunch)",
+        "Jobaldo Observation Park",
+        "Nangdo Yeosan Village",
+        "Palyeong Bridge / Jeokgeum Park"
+      ],
+      "tip": "Crosses the island bridges between Yeosu and Goheung; the current route started on 1 September 2026."
+    },
+    {
+      "name": "Night view course",
+      "area": "Odongdo · industrial complex · Namsan Park",
+      "duration": "2 h",
+      "interval": "daily",
+      "hours": "19:30 from Yeosu Expo Station (19:00 Nov–Feb)",
+      "stops": [
+        "Odongdo Island (music fountain)",
+        "Yeosu National Industrial Complex night view",
+        "Namsan Park"
+      ],
+      "tip": "New route from 1 September 2026. The Odongdo fountain runs March–October; when it is off, the tour goes to Hamel Lighthouse instead."
+    }
+  ],
+  "night": {
+    "time": "19:30 (19:00 November–February), once a day",
+    "start": "Yeosu Expo Station",
+    "duration": "2 h 30 min (50 min at Dolsan Park, 30 min at Soho Dongdong Bridge)",
+    "price": "KRW 10,000 (KRW 5,000 concession)",
+    "text": "The double-decker night course stops for 50 minutes at Dolsan Park overlooking Yeosu's night sea, walks Soho Dongdong Bridge for 30 minutes, then passes Hidden Bay and Yi Sun-sin Square to Jongpo Ocean Park (you can get off) and returns around 22:00. It does not run on the first and third Mondays, or on Fridays and Saturdays when the \"Busker\" bus runs."
+  },
+  "tickets": [
+    {
+      "name": "Double-decker day loop",
+      "validity": "Up to 6 rides that day",
+      "price": "KRW 5,000 · KRW 2,500 concession",
+      "includes": [
+        "Hop-on hop-off",
+        "Attraction discount wristband"
+      ],
+      "for": "Odongdo and the old town"
+    },
+    {
+      "name": "Double-decker night course",
+      "validity": "One tour (2 h 30 min)",
+      "price": "KRW 10,000 · KRW 5,000 concession",
+      "includes": [
+        "Dolsan Park and Soho Dongdong Bridge"
+      ],
+      "for": "Yeosu night sea"
+    },
+    {
+      "name": "Night view course",
+      "validity": "One tour (2 h)",
+      "price": "KRW 10,000 · KRW 5,000 concession",
+      "includes": [
+        "Odongdo, industrial complex, Namsan Park"
+      ],
+      "for": "Night views"
+    },
+    {
+      "name": "Course 1 (Hyangiram)",
+      "validity": "Day (6 h 50 min)",
+      "price": "KRW 10,000 · KRW 5,000 concession",
+      "includes": [
+        "Guided tour",
+        "Meals and admission extra"
+      ],
+      "for": "Hyangiram"
+    },
+    {
+      "name": "Course 2 (island bridges)",
+      "validity": "Day (about 7 h)",
+      "price": "KRW 10,000 · KRW 5,000 concession",
+      "includes": [
+        "Guided tour",
+        "Meals and admission extra"
+      ],
+      "for": "Island bridge drive"
+    }
+  ],
+  "priceNote": "Prices from the Yeosu City tourism site on 29 October 2026. Concessions are for Yeosu residents, students, seniors 65+, veterans, soldiers and disabled people with ID; preschoolers ride free.",
+  "howToBook": [
+    "The double-decker day loop needs no booking: pay by cash or card as you board.",
+    "Book the night, night view and day courses online first (Korean site, button below); spare seats are sold on site.",
+    "Questions: Dongseo Tour 061-692-0900 (double-decker), Boram Express Tour 061-902-0212 (Courses 1 and 2, night view)."
+  ],
+  "howToRide": [
+    "All courses leave from Yeosu Expo Station.",
+    "The double-decker day loop comes hourly from 10:30 (no 13:30 run) and you can board at any stop.",
+    "Evening courses leave at 19:30 (19:00 November–February); arrive 10 minutes early.",
+    "Arrange your own travel insurance."
+  ],
+  "faq": [
+    {
+      "q": "Where do I board the Yeosu city tour bus?",
+      "a": "All courses leave from Yeosu Expo Station; the double-decker day loop can also be boarded at Odongdo, Yi Sun-sin Square and its other stops."
+    },
+    {
+      "q": "How much is the Yeosu double-decker bus?",
+      "a": "The day loop is KRW 5,000 for up to six rides; the night course is KRW 10,000."
+    },
+    {
+      "q": "Do I need to book?",
+      "a": "Not for the day loop. The night and day courses are booked online first, with spare seats sold on site."
+    },
+    {
+      "q": "Is there a tour to Hyangiram?",
+      "a": "Yes, Course 1 leaves Yeosu Expo Station at 10:30 and visits Odongdo, Jinnamgwan and Hyangiram, returning at 17:20."
+    }
+  ],
+  "images": {
+    "main": {
+      "alt": "Yeosu City Tour Bus: routes, prices and how to ride",
+      "eyebrow": "UPDATED OCT 2026",
+      "title": "Yeosu\nCity Tour",
+      "sub": "Double-decker · night sea · Hyangiram",
+      "bg": "#e22b37"
+    }
+  },
+  "asideNote": "Double-decker KRW 5,000 · night KRW 10,000 · from Yeosu Expo Stn"
+}

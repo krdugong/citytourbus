@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-29T20:21:11Z",
+  "generatedAt": "2026-10-30T10:06:19Z",
   "note": "Prices are collected only from operators' official pages. Affiliate URLs are never called by the price collector. Operator refreshes are merged so a failed or separate run never erases the other operator's data.",
   "cities": {
     "paris": {
@@ -24,8 +24,8 @@
       },
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:11Z",
-        "lastSuccessAt": "2026-10-29T20:21:11Z",
+        "checkedAt": "2026-10-30T10:06:19Z",
+        "lastSuccessAt": "2026-10-30T10:06:19Z",
         "sourceUrl": "https://city-sightseeing.com/en/95/london",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=LON-W-citycompare&url=https://city-sightseeing.com/en/95/london",
         "currency": "£",
@@ -63,8 +63,8 @@
       },
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:11Z",
-        "lastSuccessAt": "2026-10-29T20:21:11Z",
+        "checkedAt": "2026-10-30T10:06:19Z",
+        "lastSuccessAt": "2026-10-30T10:06:19Z",
         "sourceUrl": "https://city-sightseeing.com/en/3/berlin",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=BER-W-citycompare&url=https://city-sightseeing.com/en/3/berlin",
         "currency": "£",
@@ -92,13 +92,13 @@
       },
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:17Z",
-        "lastSuccessAt": "2026-10-29T20:21:17Z",
+        "checkedAt": "2026-10-30T10:06:25Z",
+        "lastSuccessAt": "2026-10-30T10:06:25Z",
         "sourceUrl": "https://city-sightseeing.com/en/114/madrid",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=MAD-W-citycompare&url=https://city-sightseeing.com/en/114/madrid",
         "currency": "£",
-        "salePrice": 22.06,
-        "regularPrice": 27.57,
+        "salePrice": 22.05,
+        "regularPrice": 27.56,
         "onsiteDiscountPercent": 20,
         "label": "Bus",
         "promoCode": "CJTRAVEL10",
@@ -121,13 +121,13 @@
       },
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:17Z",
-        "lastSuccessAt": "2026-10-29T20:21:17Z",
+        "checkedAt": "2026-10-30T10:06:25Z",
+        "lastSuccessAt": "2026-10-30T10:06:25Z",
         "sourceUrl": "https://city-sightseeing.com/en/112/dubai",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=DXB-W-citycompare&url=https://city-sightseeing.com/en/112/dubai",
         "currency": "£",
-        "salePrice": 35.91,
-        "regularPrice": 44.89,
+        "salePrice": 35.85,
+        "regularPrice": 44.81,
         "onsiteDiscountPercent": 20,
         "label": "Bus",
         "promoCode": "CJTRAVEL10",
@@ -150,7 +150,7 @@
       },
       "cs": {
         "status": "error",
-        "checkedAt": "2026-10-29T20:21:17Z",
+        "checkedAt": "2026-10-30T10:06:25Z",
         "lastSuccessAt": null,
         "sourceUrl": "https://city-sightseeing.com/en/34/new-york",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=NYC-W-citycompare&url=https://city-sightseeing.com/en/34/new-york",
@@ -223,13 +223,13 @@
       },
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:55Z",
-        "lastSuccessAt": "2026-10-29T20:21:55Z",
+        "checkedAt": "2026-10-30T10:07:02Z",
+        "lastSuccessAt": "2026-10-30T10:07:02Z",
         "sourceUrl": "https://city-sightseeing.com/en/37/san-francisco",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=SFO-CS-W-citycompare&url=https://city-sightseeing.com/en/37/san-francisco",
         "currency": "£",
-        "salePrice": 34.97,
-        "regularPrice": 41.14,
+        "salePrice": 34.92,
+        "regularPrice": 41.08,
         "onsiteDiscountPercent": 15,
         "label": "Bus",
         "promoCode": "CJTRAVEL10",
@@ -257,13 +257,13 @@
       },
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:40Z",
-        "lastSuccessAt": "2026-10-29T20:21:40Z",
+        "checkedAt": "2026-10-30T10:06:47Z",
+        "lastSuccessAt": "2026-10-30T10:06:47Z",
         "sourceUrl": "https://city-sightseeing.com/en/48/budapest",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=BUD-CS-W-citycompare&url=https://city-sightseeing.com/en/48/budapest",
         "currency": "£",
-        "salePrice": 41.88,
-        "regularPrice": 46.53,
+        "salePrice": 41.87,
+        "regularPrice": 46.52,
         "onsiteDiscountPercent": 10,
         "label": "24-hour hop-on hop-off bus tour",
         "promoCode": "CJTRAVEL10",
@@ -278,13 +278,13 @@
     "barcelona": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:11Z",
-        "lastSuccessAt": "2026-10-29T20:21:11Z",
+        "checkedAt": "2026-10-30T10:06:19Z",
+        "lastSuccessAt": "2026-10-30T10:06:19Z",
         "sourceUrl": "https://city-sightseeing.com/en/17/barcelona",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=BCN-W-citycompare&url=https://city-sightseeing.com/en/17/barcelona",
         "currency": "£",
-        "salePrice": 24.81,
-        "regularPrice": 27.57,
+        "salePrice": 24.8,
+        "regularPrice": 27.56,
         "onsiteDiscountPercent": 10,
         "label": "Bus",
         "promoCode": "CJTRAVEL10",
@@ -294,19 +294,19 @@
           "verifiedAt": "2026-10-12",
           "evidence": "Checkout verification: CJTravel10 applied an extra 10% to subtotal EUR 29.70, discount EUR 2.97, total EUR 26.73."
         },
-        "codeAppliedPriceEstimate": 22.33,
+        "codeAppliedPriceEstimate": 22.32,
         "effectiveDiscountPercent": 19.0
       }
     },
     "copenhagen": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:21Z",
-        "lastSuccessAt": "2026-10-29T20:21:21Z",
+        "checkedAt": "2026-10-30T10:06:28Z",
+        "lastSuccessAt": "2026-10-30T10:06:28Z",
         "sourceUrl": "https://city-sightseeing.com/en/16/copenhagen",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=CPH-W-citycompare&url=https://city-sightseeing.com/en/16/copenhagen",
         "currency": "£",
-        "salePrice": 31.19,
+        "salePrice": 31.18,
         "regularPrice": null,
         "onsiteDiscountPercent": null,
         "label": "Bus",
@@ -322,8 +322,8 @@
     "prague": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:22Z",
-        "lastSuccessAt": "2026-10-29T20:21:22Z",
+        "checkedAt": "2026-10-30T10:06:29Z",
+        "lastSuccessAt": "2026-10-30T10:06:29Z",
         "sourceUrl": "https://city-sightseeing.com/en/102/prague",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=PRG-W-citycompare&url=https://city-sightseeing.com/en/102/prague",
         "currency": "£",
@@ -343,12 +343,12 @@
     "helsinki": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:22Z",
-        "lastSuccessAt": "2026-10-29T20:21:22Z",
+        "checkedAt": "2026-10-30T10:06:30Z",
+        "lastSuccessAt": "2026-10-30T10:06:30Z",
         "sourceUrl": "https://city-sightseeing.com/en/40/helsinki",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=HEL-W-citycompare&url=https://city-sightseeing.com/en/40/helsinki",
         "currency": "£",
-        "salePrice": 30.08,
+        "salePrice": 30.07,
         "regularPrice": null,
         "onsiteDiscountPercent": null,
         "label": "Bus",
@@ -364,12 +364,12 @@
     "reykjavik": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:25Z",
-        "lastSuccessAt": "2026-10-29T20:21:25Z",
+        "checkedAt": "2026-10-30T10:06:33Z",
+        "lastSuccessAt": "2026-10-30T10:06:33Z",
         "sourceUrl": "https://city-sightseeing.com/en/49/reykjavik",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=REK-W-citycompare&url=https://city-sightseeing.com/en/49/reykjavik",
         "currency": "£",
-        "salePrice": 33.42,
+        "salePrice": 33.41,
         "regularPrice": null,
         "onsiteDiscountPercent": null,
         "label": "Bus",
@@ -385,8 +385,8 @@
     "dublin": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:26Z",
-        "lastSuccessAt": "2026-10-29T20:21:26Z",
+        "checkedAt": "2026-10-30T10:06:33Z",
+        "lastSuccessAt": "2026-10-30T10:06:33Z",
         "sourceUrl": "https://city-sightseeing.com/en/50/dublin",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=DUB-W-citycompare&url=https://city-sightseeing.com/en/50/dublin",
         "currency": "£",
@@ -406,13 +406,13 @@
     "oslo": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:26Z",
-        "lastSuccessAt": "2026-10-29T20:21:26Z",
+        "checkedAt": "2026-10-30T10:06:34Z",
+        "lastSuccessAt": "2026-10-30T10:06:34Z",
         "sourceUrl": "https://city-sightseeing.com/en/69/oslo",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=OSL-W-citycompare&url=https://city-sightseeing.com/en/69/oslo",
         "currency": "£",
-        "salePrice": 31.99,
-        "regularPrice": 39.99,
+        "salePrice": 32.05,
+        "regularPrice": 40.06,
         "onsiteDiscountPercent": 20,
         "label": "Bus",
         "promoCode": "CJTRAVEL10",
@@ -427,8 +427,8 @@
     "amsterdam": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:29Z",
-        "lastSuccessAt": "2026-10-29T20:21:29Z",
+        "checkedAt": "2026-10-30T10:06:37Z",
+        "lastSuccessAt": "2026-10-30T10:06:37Z",
         "sourceUrl": "https://city-sightseeing.com/en/45/amsterdam",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=AMS-W-citycompare&url=https://city-sightseeing.com/en/45/amsterdam",
         "currency": "£",
@@ -448,12 +448,12 @@
     "warsaw": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:31Z",
-        "lastSuccessAt": "2026-10-29T20:21:31Z",
+        "checkedAt": "2026-10-30T10:06:38Z",
+        "lastSuccessAt": "2026-10-30T10:06:38Z",
         "sourceUrl": "https://city-sightseeing.com/en/74/warsaw",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=WAW-W-citycompare&url=https://city-sightseeing.com/en/74/warsaw",
         "currency": "£",
-        "salePrice": 30.08,
+        "salePrice": 30.07,
         "regularPrice": null,
         "onsiteDiscountPercent": null,
         "label": "24hr/48hr/72hr hop-on hop-off bus tour",
@@ -469,8 +469,8 @@
     "porto": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:31Z",
-        "lastSuccessAt": "2026-10-29T20:21:31Z",
+        "checkedAt": "2026-10-30T10:06:38Z",
+        "lastSuccessAt": "2026-10-30T10:06:38Z",
         "sourceUrl": "https://city-sightseeing.com/en/79/porto",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=OPO-W-citycompare&url=https://city-sightseeing.com/en/79/porto",
         "currency": "£",
@@ -490,12 +490,12 @@
     "lisbon": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:33Z",
-        "lastSuccessAt": "2026-10-29T20:21:33Z",
+        "checkedAt": "2026-10-30T10:06:41Z",
+        "lastSuccessAt": "2026-10-30T10:06:41Z",
         "sourceUrl": "https://city-sightseeing.com/en/80/lisbon",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=LIS-W-citycompare&url=https://city-sightseeing.com/en/80/lisbon",
         "currency": "£",
-        "salePrice": 27.57,
+        "salePrice": 27.56,
         "regularPrice": null,
         "onsiteDiscountPercent": null,
         "label": "24-hour hop-on hop-off bus tour to enjoy amazing views",
@@ -511,12 +511,12 @@
     "stockholm": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:35Z",
-        "lastSuccessAt": "2026-10-29T20:21:35Z",
+        "checkedAt": "2026-10-30T10:06:42Z",
+        "lastSuccessAt": "2026-10-30T10:06:42Z",
         "sourceUrl": "https://city-sightseeing.com/en/109/stockholm",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=STO-W-citycompare&url=https://city-sightseeing.com/en/109/stockholm",
         "currency": "£",
-        "salePrice": 27.71,
+        "salePrice": 27.74,
         "regularPrice": null,
         "onsiteDiscountPercent": null,
         "label": "Bus",
@@ -532,8 +532,8 @@
     "seville": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:35Z",
-        "lastSuccessAt": "2026-10-29T20:21:35Z",
+        "checkedAt": "2026-10-30T10:06:43Z",
+        "lastSuccessAt": "2026-10-30T10:06:43Z",
         "sourceUrl": "https://city-sightseeing.com/en/1/seville",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=SVQ-W-citycompare&url=https://city-sightseeing.com/en/1/seville",
         "currency": "£",
@@ -553,8 +553,8 @@
     "malaga": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:37Z",
-        "lastSuccessAt": "2026-10-29T20:21:37Z",
+        "checkedAt": "2026-10-30T10:06:45Z",
+        "lastSuccessAt": "2026-10-30T10:06:45Z",
         "sourceUrl": "https://city-sightseeing.com/en/24/malaga",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=AGP-W-citycompare&url=https://city-sightseeing.com/en/24/malaga",
         "currency": "£",
@@ -574,8 +574,8 @@
     "athens": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:39Z",
-        "lastSuccessAt": "2026-10-29T20:21:39Z",
+        "checkedAt": "2026-10-30T10:06:46Z",
+        "lastSuccessAt": "2026-10-30T10:06:46Z",
         "sourceUrl": "https://city-sightseeing.com/en/43/athens",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=ATH-W-citycompare&url=https://city-sightseeing.com/en/43/athens",
         "currency": "£",
@@ -595,8 +595,8 @@
     "edinburgh": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:41Z",
-        "lastSuccessAt": "2026-10-29T20:21:41Z",
+        "checkedAt": "2026-10-30T10:06:50Z",
+        "lastSuccessAt": "2026-10-30T10:06:50Z",
         "sourceUrl": "https://city-sightseeing.com/en/91/edinburgh",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=EDI-W-citycompare&url=https://city-sightseeing.com/en/91/edinburgh",
         "currency": "£",
@@ -616,8 +616,8 @@
     "tallinn": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:44Z",
-        "lastSuccessAt": "2026-10-29T20:21:44Z",
+        "checkedAt": "2026-10-30T10:06:52Z",
+        "lastSuccessAt": "2026-10-30T10:06:52Z",
         "sourceUrl": "https://city-sightseeing.com/en/39/tallinn",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=TLL-W-citycompare&url=https://city-sightseeing.com/en/39/tallinn",
         "currency": "£",
@@ -637,8 +637,8 @@
     "galway": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:44Z",
-        "lastSuccessAt": "2026-10-29T20:21:44Z",
+        "checkedAt": "2026-10-30T10:06:52Z",
+        "lastSuccessAt": "2026-10-30T10:06:52Z",
         "sourceUrl": "https://city-sightseeing.com/en/127/galway",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=GWY-W-citycompare&url=https://city-sightseeing.com/en/127/galway",
         "currency": "£",
@@ -658,13 +658,13 @@
     "split": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:46Z",
-        "lastSuccessAt": "2026-10-29T20:21:46Z",
+        "checkedAt": "2026-10-30T10:06:54Z",
+        "lastSuccessAt": "2026-10-30T10:06:54Z",
         "sourceUrl": "https://city-sightseeing.com/en/171/split",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=SPU-W-citycompare&url=https://city-sightseeing.com/en/171/split",
         "currency": "£",
-        "salePrice": 19.22,
-        "regularPrice": 22.61,
+        "salePrice": 19.21,
+        "regularPrice": 22.6,
         "onsiteDiscountPercent": 15,
         "label": "Bus (All Lines)",
         "promoCode": "CJTRAVEL10",
@@ -679,7 +679,7 @@
     "abu-dhabi": {
       "cs": {
         "status": "error",
-        "checkedAt": "2026-10-29T20:21:47Z",
+        "checkedAt": "2026-10-30T10:06:55Z",
         "lastSuccessAt": null,
         "sourceUrl": "https://city-sightseeing.com/en/170/abu-dhabi",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=AUH-W-citycompare&url=https://city-sightseeing.com/en/170/abu-dhabi",
@@ -689,12 +689,12 @@
     "sharjah": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:48Z",
-        "lastSuccessAt": "2026-10-29T20:21:48Z",
+        "checkedAt": "2026-10-30T10:06:56Z",
+        "lastSuccessAt": "2026-10-30T10:06:56Z",
         "sourceUrl": "https://city-sightseeing.com/en/113/sharjah",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=SHJ-W-citycompare&url=https://city-sightseeing.com/en/113/sharjah",
         "currency": "£",
-        "salePrice": 20.37,
+        "salePrice": 20.34,
         "regularPrice": null,
         "onsiteDiscountPercent": null,
         "label": "Bus",
@@ -710,7 +710,7 @@
     "cape-town": {
       "cs": {
         "status": "error",
-        "checkedAt": "2026-10-29T20:21:50Z",
+        "checkedAt": "2026-10-30T10:06:58Z",
         "lastSuccessAt": null,
         "sourceUrl": "https://city-sightseeing.com/en/107/cape-town",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=CPT-W-citycompare&url=https://city-sightseeing.com/en/107/cape-town",
@@ -720,7 +720,7 @@
     "johannesburg": {
       "cs": {
         "status": "error",
-        "checkedAt": "2026-10-29T20:21:51Z",
+        "checkedAt": "2026-10-30T10:06:59Z",
         "lastSuccessAt": null,
         "sourceUrl": "https://city-sightseeing.com/en/108/johannesburg",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=JNB-W-citycompare&url=https://city-sightseeing.com/en/108/johannesburg",
@@ -730,8 +730,8 @@
     "bangkok": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:52Z",
-        "lastSuccessAt": "2026-10-29T20:21:52Z",
+        "checkedAt": "2026-10-30T10:07:00Z",
+        "lastSuccessAt": "2026-10-30T10:07:00Z",
         "sourceUrl": "https://city-sightseeing.com/en/163/bangkok",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=BKK-W-citycompare&url=https://city-sightseeing.com/en/163/bangkok",
         "currency": "£",
@@ -751,12 +751,12 @@
     "hanoi": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:53Z",
-        "lastSuccessAt": "2026-10-29T20:21:53Z",
+        "checkedAt": "2026-10-30T10:07:01Z",
+        "lastSuccessAt": "2026-10-30T10:07:01Z",
         "sourceUrl": "https://city-sightseeing.com/en/155/hanoi",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=HAN-W-citycompare&url=https://city-sightseeing.com/en/155/hanoi",
         "currency": "£",
-        "salePrice": 14.21,
+        "salePrice": 14.19,
         "regularPrice": null,
         "onsiteDiscountPercent": null,
         "label": "Bus",
@@ -772,12 +772,12 @@
     "toronto": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:57Z",
-        "lastSuccessAt": "2026-10-29T20:21:57Z",
+        "checkedAt": "2026-10-30T10:07:04Z",
+        "lastSuccessAt": "2026-10-30T10:07:04Z",
         "sourceUrl": "https://city-sightseeing.com/en/13/toronto",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=YYZ-W-citycompare&url=https://city-sightseeing.com/en/13/toronto",
         "currency": "£",
-        "salePrice": 36.93,
+        "salePrice": 36.88,
         "regularPrice": null,
         "onsiteDiscountPercent": null,
         "label": "Bus",
@@ -793,13 +793,13 @@
     "philadelphia": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:57Z",
-        "lastSuccessAt": "2026-10-29T20:21:57Z",
+        "checkedAt": "2026-10-30T10:07:05Z",
+        "lastSuccessAt": "2026-10-30T10:07:05Z",
         "sourceUrl": "https://city-sightseeing.com/en/35/philadelphia",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=PHL-W-citycompare&url=https://city-sightseeing.com/en/35/philadelphia",
         "currency": "£",
-        "salePrice": 36.75,
-        "regularPrice": 40.39,
+        "salePrice": 36.7,
+        "regularPrice": 40.33,
         "onsiteDiscountPercent": 9,
         "label": "Bus",
         "promoCode": "CJTRAVEL10",
@@ -814,12 +814,12 @@
     "new-orleans": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:21:59Z",
-        "lastSuccessAt": "2026-10-29T20:21:59Z",
+        "checkedAt": "2026-10-30T10:07:06Z",
+        "lastSuccessAt": "2026-10-30T10:07:06Z",
         "sourceUrl": "https://city-sightseeing.com/en/33/new-orleans",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=MSY-W-citycompare&url=https://city-sightseeing.com/en/33/new-orleans",
         "currency": "£",
-        "salePrice": 38.15,
+        "salePrice": 38.09,
         "regularPrice": null,
         "onsiteDiscountPercent": null,
         "label": "Bus",
@@ -835,12 +835,12 @@
     "los-angeles": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:22:01Z",
-        "lastSuccessAt": "2026-10-29T20:22:01Z",
+        "checkedAt": "2026-10-30T10:07:08Z",
+        "lastSuccessAt": "2026-10-30T10:07:08Z",
         "sourceUrl": "https://city-sightseeing.com/en/30/hollywood-los-angeles",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=LAX-W-citycompare&url=https://city-sightseeing.com/en/30/hollywood-los-angeles",
         "currency": "£",
-        "salePrice": 42.64,
+        "salePrice": 42.57,
         "regularPrice": null,
         "onsiteDiscountPercent": null,
         "label": "Bus",
@@ -856,12 +856,12 @@
     "seattle": {
       "cs": {
         "status": "ok",
-        "checkedAt": "2026-10-29T20:22:01Z",
-        "lastSuccessAt": "2026-10-29T20:22:01Z",
+        "checkedAt": "2026-10-30T10:07:10Z",
+        "lastSuccessAt": "2026-10-30T10:07:10Z",
         "sourceUrl": "https://city-sightseeing.com/en/142/seattle",
         "affiliateUrl": "https://www.jdoqocy.com/click-8754229-15734727?sid=SEA-W-citycompare&url=https://city-sightseeing.com/en/142/seattle",
         "currency": "£",
-        "salePrice": 48.62,
+        "salePrice": 48.55,
         "regularPrice": null,
         "onsiteDiscountPercent": null,
         "label": "Bus",

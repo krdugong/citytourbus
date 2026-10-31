@@ -1,5 +1,5 @@
-// Renders keyword card images (JPEG) from a JSON spec. macOS only.
-// Usage: cards <spec.json> <repoRoot>
+// Renders keyword card images (JPEG) from a JSON spec. macOS only. Compiled together with landmarks.swift
+// (see make-cards.sh). Usage: cards <spec.json> <repoRoot>
 // Layout: light background, big open-top bus illustration and the title all inside the CENTRE SQUARE of the
 // canvas, because Naver/Google/Kakao crop og:image (1200×630) to a 1:1 thumbnail around the centre.
 import AppKit
@@ -82,9 +82,12 @@ for c in cards {
   // everything that matters stays inside the centre square (x from (W-H)/2 to (W+H)/2)
   let cx = W / 2, safeW = min(W, H) - 120 * s
   var busW: CGFloat, busY: CGFloat, titleTop: CGFloat, titleH: CGFloat, titleSize: CGFloat, pillY: CGFloat, subY: CGFloat, domY: CGFloat
-  if wide { busW = 560; busY = 140; titleTop = 80; titleH = 80; titleSize = 64; pillY = 26; subY = 66; domY = 22 }
-  else { busW = 800; busY = 170; titleTop = 170; titleH = 280; titleSize = 112; pillY = 86; subY = 98; domY = 36 }
-  // road
+  if wide { busW = 500; busY = 120; titleTop = 78; titleH = 80; titleSize = 62; pillY = 24; subY = 56; domY = 16 }
+  else { busW = 720; busY = 170; titleTop = 150; titleH = 280; titleSize = 112; pillY = 86; subY = 98; domY = 36 }
+  // landmarks on a horizon behind the bus (inside the centre square), then the road
+  let busH = busW * 0.56, ground = busY + busH * (452.0 / 560) - 6, bandH: CGFloat = wide ? 132 : 200
+  let safeL = cx - (min(W, H) / 2 - 50 * s), safeR = cx + (min(W, H) / 2 - 50 * s)
+  drawLandmarks(CITY_LANDMARKS[cityKey(c.out)] ?? ["skyline", "mountains"], left: safeL, right: safeR, ground: ground, bandH: bandH, fill: accent.blended(withFraction: 0.68, of: .white)!, hole: bg)
   rr(NSRect(x: 0, y: busY + 36 * busW / 1000, width: W, height: 8 * s), 4 * s, accent.withAlphaComponent(0.14))
   drawBus(NSRect(x: cx - busW / 2, y: busY, width: busW, height: busW * 0.56), accent: accent)
   // eyebrow pill

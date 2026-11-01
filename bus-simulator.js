@@ -96,10 +96,12 @@
   map.once('style.load',()=>{ // style is enough to add our layers; don't wait for every tile
     // Korean labels wherever OpenStreetMap has them
     map.getStyle().layers.forEach(l=>{if(l.type==='symbol'&&l.layout&&l.layout['text-field'])map.setLayoutProperty(l.id,'text-field',['coalesce',['get','name:ko'],['get','name:latin'],['get','name']])});
+    map.getStyle().layers.forEach(l=>{if(/poi|place[-_]?(city|town|capital)/i.test(l.id))map.setLayoutProperty(l.id,'visibility','none')}); // fewer shop/POI labels and no giant city name: calmer map
+    const zc=()=>document.getElementById('map').classList.toggle('z-low',map.getZoom()<13.5);map.on('zoom',zc);zc();
     if(map.getLayer('building-3d')){map.setPaintProperty('building-3d','fill-extrusion-color','#e6e4df');map.setPaintProperty('building-3d','fill-extrusion-opacity',.92)}
     if(map.setSky)try{map.setSky({'sky-color':'#9ec9f5','horizon-color':'#e8f0fa','fog-color':'#f2f4f7','sky-horizon-blend':.7,'horizon-fog-blend':.5,'fog-ground-blend':.85})}catch(e){}
     map.addSource('base',{type:'geojson',data:{type:'FeatureCollection',features:routeKeys.map(rk=>{const ids=nodes.filter(n=>n.rk===rk).map(n=>n.id);return lineF(ids.length>1?rideLine(rk,[...ids,ids[0]]):[],{color:rColor(rk)})})}});
-    map.addLayer({id:'base-line',type:'line',source:'base',layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':['get','color'],'line-width':['interpolate',['linear'],['zoom'],11,2,16,5],'line-opacity':.35}});
+    map.addLayer({id:'base-line',type:'line',source:'base',layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':['get','color'],'line-width':['interpolate',['linear'],['zoom'],11,2,16,5],'line-opacity':.5}});
     map.addSource('plan',{type:'geojson',data:emptyFC()});
     map.addLayer({id:'plan-ride-casing',type:'line',source:'plan',filter:['==',['get','kind'],'ride'],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#fff','line-width':['interpolate',['linear'],['zoom'],11,5,16,12],'line-opacity':.9}});
     map.addLayer({id:'plan-ride',type:'line',source:'plan',filter:['==',['get','kind'],'ride'],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':['get','color'],'line-width':['interpolate',['linear'],['zoom'],11,3.5,16,8]}});
@@ -129,10 +131,11 @@
   const fsBtn=$('#fs'),wrap=$('.mapwrap');
   if(!(wrap.requestFullscreen||wrap.webkitRequestFullscreen))fsBtn.hidden=true;
   fsBtn.onclick=()=>{if(document.fullscreenElement||document.webkitFullscreenElement)(document.exitFullscreen||document.webkitExitFullscreen).call(document);else (wrap.requestFullscreen||wrap.webkitRequestFullscreen).call(wrap)};
-  ['fullscreenchange','webkitfullscreenchange'].forEach(ev=>document.addEventListener(ev,()=>{setTimeout(()=>map.resize(),60);fsBtn.textContent=(document.fullscreenElement||document.webkitFullscreenElement)?'✕ 닫기':'⛶ 전체화면'}));
+  ['fullscreenchange','webkitfullscreenchange'].forEach(ev=>document.addEventListener(ev,()=>{setTimeout(()=>map.resize(),60);fsBtn.textContent=(document.fullscreenElement||document.webkitFullscreenElement)?'✕':'⤢'}));
 
   // ---------- inputs ----------
-  function renderQuick(){$('#quick').innerHTML=C.pois.map(p=>`<button type="button" class="pick ${chosen.some(c=>c.id===p.id)?'on':''}" data-id="${esc(p.id)}">${esc(p.ko)}</button>`).join('');$$('.pick').forEach(b=>b.onclick=()=>togglePoi(b.dataset.id))}
+  let quickAll=false;const QUICK_N=9;
+  function renderQuick(){const list=quickAll?C.pois:C.pois.filter((p,i)=>i<QUICK_N||chosen.some(c=>c.id===p.id));const rest=C.pois.length-list.length;$('#quick').innerHTML=list.map(p=>`<button type="button" class="pick ${chosen.some(c=>c.id===p.id)?'on':''}" data-id="${esc(p.id)}">${esc(p.ko)}</button>`).join('')+(rest>0?`<button type="button" class="pick more" id="quickMore">+${rest} 더 보기</button>`:quickAll&&C.pois.length>QUICK_N?'<button type="button" class="pick more" id="quickMore">접기</button>':'');$$('.pick[data-id]').forEach(b=>b.onclick=()=>togglePoi(b.dataset.id));const m=$('#quickMore');if(m)m.onclick=()=>{quickAll=!quickAll;renderQuick()}}
   function togglePoi(id){const i=chosen.findIndex(c=>c.id===id);if(i>=0)chosen.splice(i,1);else{const p=findPoi(id);if(p)chosen.push({id:p.id,ko:p.ko,en:p.en,lat:p.lat,lng:p.lng,stay:60})}afterChange()}
   function addCustom(p){const id='c'+Math.round(p.lat*1e4)+'_'+Math.round(p.lng*1e4);if(!chosen.some(c=>c.id===id))chosen.push({id,ko:p.name,en:p.address||'',lat:p.lat,lng:p.lng,stay:60,custom:true});afterChange()}
   function afterChange(){plan=null;renderQuick();renderChosen();renderStart();drawPlaces();clearPlan()}
@@ -301,7 +304,7 @@
   }
   function tick(now){
     if(!playing)return;
-    const fr=frames[fi];if(!fr){playing=false;$('#play').textContent='▶ 다시 재생';$('#now').textContent='🏁 코스 재생이 끝났습니다. 공유 버튼으로 이 코스를 보내보세요.';return}
+    const fr=frames[fi];if(!fr){playing=false;$('#play').textContent='▶ 다시 재생';$('#now').textContent='코스 재생이 끝났습니다. 공유 버튼으로 이 코스를 보내보세요.';return}
     if(!ft){ft=now;prep(fr);$('#now').textContent=fr.label;$$('.st').forEach(x=>x.classList.toggle('on',+x.dataset.i===fr.i))}
     const prog=Math.min(1,(now-ft)/(fr.dur/speed));const pos=along(fr,prog);
     if(lastPos&&hav({lat:lastPos[0],lng:lastPos[1]},{lat:pos[0],lng:pos[1]})>.3)heading=turn(heading,bearingTo(lastPos,pos),.25);
@@ -332,7 +335,7 @@
   $('#shareBtn').onclick=async()=>{if(!plan)return;const url=shareUrl(`&play=1&v=${view}`);const data={title:`${C.ko} ${C.brand} 하루 코스 3D 시뮬레이션`,text:`${chosen.map(c=>c.ko).join(' → ')} 코스, 3D 지도에서 버스가 달리는 걸 보세요`,url};if(navigator.share&&navigator.canShare?.(data)){try{await navigator.share(data);return}catch(e){if(e?.name==='AbortError')return}}copyText(url)};
 
   // ---------- go / share ----------
-  $('#go').onclick=()=>{if(!chosen.length){$('#placeStatus').textContent='먼저 가고 싶은 곳을 골라주세요.';inp.focus();return}stopAnim();plan=buildPlan();renderPlan(plan);if(plan){drawPlan(plan);$('#player').hidden=false;$('#now').textContent='▶ 재생을 누르면 버스가 실제 도로를 따라 코스를 달립니다.';if(window.innerWidth<=900)$('#result').scrollIntoView({behavior:'smooth',block:'start'})}};
+  $('#go').onclick=()=>{if(!chosen.length){$('#placeStatus').textContent='먼저 가고 싶은 곳을 골라주세요.';inp.focus();return}stopAnim();plan=buildPlan();renderPlan(plan);if(plan){drawPlan(plan);$('#player').hidden=false;$('#now').textContent='재생을 누르면 버스가 실제 도로를 따라 코스를 달립니다.';if(window.innerWidth<=900)$('#result').scrollIntoView({behavior:'smooth',block:'start'})}};
   function encodeState(){return 's='+encodeURIComponent($('#startSel').value)+'&t='+$('#startTime').value+'&p='+chosen.map(c=>c.custom?`c~${c.lat.toFixed(5)}~${c.lng.toFixed(5)}~${c.stay}~${encodeURIComponent(c.ko)}`:`${c.id}~${c.stay}`).join(',')}
   let autoplay=false;
   function decodeState(){const h=location.hash.slice(1);if(!h)return false;const q=new URLSearchParams(h);const p=q.get('p');if(!p)return false;p.split(',').forEach(x=>{const a=x.split('~');if(a[0]==='c'){chosen.push({id:'c'+Math.round(+a[1]*1e4)+'_'+Math.round(+a[2]*1e4),ko:decodeURIComponent(a[4]||'내 장소'),en:'',lat:+a[1],lng:+a[2],stay:+a[3]||60,custom:true})}else{const poi=findPoi(a[0]);if(poi)chosen.push({id:poi.id,ko:poi.ko,en:poi.en,lat:poi.lat,lng:poi.lng,stay:+a[1]||60})}});if(q.get('t'))$('#startTime').value=q.get('t');if(q.get('v')==='top')applyView('top',false);autoplay=q.get('play')==='1';renderQuick();renderChosen();renderStart();if(q.get('s'))$('#startSel').value=q.get('s');drawPlaces();return chosen.length>0}

@@ -73,7 +73,10 @@ function routeMap(p) {
   return out;
 }
 const mapFigure = (src, alt, note = '') => `<figure class="kw-figure kw-map"><img src="${src}" alt="${esc(alt)}" width="1080" height="1080" loading="lazy" decoding="async"><figcaption>${esc(alt)} · 정류장 순서 기준 참고용${note ? ` · ${esc(note)}` : ''} · © OpenStreetMap contributors</figcaption></figure>`;
-const cta = (p) => `<a class="button kw-cta" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${esc(p.booking.label)} →</a>`;
+const BRAND = { bigbus: '빅버스', 'city-sightseeing': '시티 사이트싱' };
+// the booking button says which operator it opens (빅버스 / 시티 사이트싱); other operators keep their own label
+const bookLabel = (p) => BRAND[p.operator] ? `${BRAND[p.operator]} 공식 예약하기` : p.booking.label;
+const cta = (p) => `<a class="button kw-cta" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${esc(bookLabel(p))} →</a>`;
 // Stop-order diagram per route (metro-map style list; transfers = stops shared by 2+ routes)
 function routeDiagram(p) {
   const norm = s => s.replace(/\s*\((환승|transfer)\)/i, '').trim();
@@ -154,6 +157,10 @@ function render(p, all) {
   sec('booking', 'BOOKING', h2.booking, '예약 방법',
     `<ol class="kw-steps">${howToBook.map(s => `<li>${esc(s)}</li>`).join('')}</ol>${cta(p)}`);
 
+  const gyg = gygUrl(p);
+  if (gyg) sec('more', 'MORE', `${p.city}를 더 풍요롭게 체험하기`, '투어 더 보기',
+    `<p>시티투어버스 티켓 말고도 ${esc(p.city)}의 입장권, 가이드 투어, 근교 당일치기, 야경·크루즈 상품을 GetYourGuide에서 한 번에 비교할 수 있습니다. 24시간 전 무료 취소가 되는 상품이 많아 일정이 바뀌어도 부담이 적습니다.</p><a class="button kw-cta" href="${esc(gyg)}" target="_blank" rel="sponsored nofollow noopener">GetYourGuide에서 ${esc(p.city)} 투어·입장권 보기 →</a><p class="small">제휴 링크이며 이용자 추가 비용은 없습니다.</p>`);
+
   if (p.onsite) sec('onsite', 'ON-SITE', h2.onsite, '현장구매',
     `<p>${esc(p.onsite.text)}</p>${kvTable(p.onsite.compare)}`);
 
@@ -166,8 +173,6 @@ function render(p, all) {
 
   sec('faq', 'FAQ', h2.faq, 'FAQ', p.faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join(''));
 
-  const gyg = gygUrl(p);
-  if (gyg) sections.push(`<section class="card kw-more"><p class="section-no">MORE TOURS</p><h2>${esc(p.city)} 투어·입장권 더 보기</h2><p>${esc(p.city)}에서 시티투어버스 말고도 투어, 입장권, 근교 당일치기 같은 다른 상품을 찾아볼 수 있습니다.</p><a class="button kw-cta" href="${esc(gyg)}" target="_blank" rel="sponsored nofollow noopener">더 많은 투어 알아보기 →</a><p class="small">GetYourGuide 제휴 링크이며 이용자 추가 비용은 없습니다.</p></section>`);
 
   const related = [
     ...(p.cityGuide ? [[p.cityGuide.url, p.cityGuide.label]] : []),
@@ -222,9 +227,9 @@ ${PRECONNECT}${fontLinks()}
 <nav class="kw-toc" aria-label="목차">${toc.join('')}</nav>
 <div class="grid"><article class="main-content">
 ${sections.join('\n')}
-</article><aside><div class="aside-card"><strong>${esc(k)} 예약</strong><p>${esc(p.asideNote)}</p><a class="aside-link kw-aside-book" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${esc(p.booking.label)} →</a>${p.routeCheck ? `<a class="aside-link" href="${esc(p.routeCheck.url)}">정류장 지도 보기 →</a>` : `<a class="aside-link" href="#route">노선·정류장 보기 →</a>`}${SIM[p.slug] ? `<a class="aside-link" href="${SIM[p.slug].url}">하루 코스 시뮬레이터 →</a>` : ''}</div></aside></div>
+</article><aside><div class="aside-card"><strong>${esc(k)} 예약</strong><p>${esc(p.asideNote)}</p><a class="aside-link kw-aside-book" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${esc(bookLabel(p))} →</a>${gygUrl(p) ? `<a class="aside-link" href="${esc(gygUrl(p))}" target="_blank" rel="sponsored nofollow noopener">GetYourGuide에서 ${esc(p.city)} 투어 보기 →</a>` : ''}${p.routeCheck ? `<a class="aside-link" href="${esc(p.routeCheck.url)}">정류장 지도 보기 →</a>` : `<a class="aside-link" href="#route">노선·정류장 보기 →</a>`}${SIM[p.slug] ? `<a class="aside-link" href="${SIM[p.slug].url}">하루 코스 시뮬레이터 →</a>` : ''}</div></aside></div>
 </div></main><footer><div class="wrap"><a href="/">CITYTOURBUS.KR</a><p>전 세계 시티투어버스를 비교합니다. 일부 예약 링크를 통해 수수료를 받을 수 있으며 이용자 추가 비용은 없습니다.</p><a href="/terms">이용약관</a> · <a href="/privacy">개인정보처리방침</a></div></footer>
-<div class="kw-sticky" id="kw-sticky" hidden><div class="kw-sticky-txt"><b>${esc(k)}</b><small>${esc(p.tickets[0].price)}</small></div><a class="button kw-cta" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">예약하기 →</a></div>
+<div class="kw-sticky" id="kw-sticky" hidden><div class="kw-sticky-txt"><b>${esc(k)}</b><small>${esc(p.tickets[0].price)}</small></div><a class="button kw-cta" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${BRAND[p.operator] ? esc(BRAND[p.operator]) + ' 예약' : '예약하기'} →</a></div>
 <script>(function(){var s=document.getElementById('kw-sticky'),h=document.querySelector('.hero-actions');if(!s||!h||!('IntersectionObserver' in window))return;new IntersectionObserver(function(e){var r=e[0],show=!r.isIntersecting&&r.boundingClientRect.top<0;s.hidden=!show;document.body.classList.toggle('has-sticky',show)}).observe(h)})();</script>
 </body></html>
 `;

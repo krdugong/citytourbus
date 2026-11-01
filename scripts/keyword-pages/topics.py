@@ -80,11 +80,14 @@ def facts(p):
   dur = re.sub(r'^한 바퀴\s*', '', f['dur'])
   f['loop'] = f"한 바퀴 {dur}" if re.search(r'분|시간', dur) else None
   f['loopp'] = f"({dur})" if f['loop'] else ''
-  def tk(x): return (x['name'] if x['validity'] in x['name'] else f"{x['name']}({x['validity']})") + ' ' + x['price']
+  def tk(x):
+    base = x['name'] if x['validity'] in x['name'] else f"{x['name']}({x['validity']})"
+    return base + (' ' + x['price'] if re.search(r'\d', x['price']) else ' (가격은 날짜 선택 후 표시)')
   t = p['tickets']; t0 = t[0]
   f['t0'] = tk(t0)
-  f['t0b'] = f['t0'] if f['t0'].endswith('부터') else f['t0'] + '부터'
+  f['t0b'] = f['t0'] if (f['t0'].endswith('부터') or f['t0'].endswith(')')) else f['t0'] + '부터'
   f['tlist'] = ', '.join(f"{x['name']} {x['validity']}" for x in t[:4]); f['tn'] = len(t)
+  f['tdesc'] = f"{f['tlist']} 등 {f['tn']}종" if f['tn'] > 1 else f"{f['tlist']} 한 종류"
   long = [x for x in t if re.search(r'48|72|2일|3일', x.get('validity', ''))]
   f['tlong'] = tk(long[0]) if long else None
   f['cancel'] = sentence_with(p, '취소')
@@ -147,7 +150,7 @@ def answer(kind, f, i, term=None):
   if kind == 'compare':
     return T([
       f"이 페이지는 {k} 기준입니다. 다른 회사 버스와 비교할 때는 노선 수({f['n']}개), 티켓 유효시간, 야간투어 포함 여부, 취소 조건 네 가지를 같은 날짜·같은 인원으로 맞춰 보세요. 가장 저렴한 티켓은 {f['t0']}입니다.",
-      f"브랜드보다 먼저 볼 것은 내 일정에 맞는 정류장이 있는지입니다. {k}는 {f['rnames']}으로 정류장 {f['nstops']}곳을 돌고, 티켓은 {f['tlist']} 등 {f['tn']}종입니다. 같은 조건으로 가격을 나란히 놓고 고르세요.",
+      f"브랜드보다 먼저 볼 것은 내 일정에 맞는 정류장이 있는지입니다. {k}는 {f['rnames']}으로 정류장 {f['nstops']}곳을 돌고, 티켓은 {f['tdesc']}입니다. 같은 조건으로 가격을 나란히 놓고 고르세요.",
     ], i), 'price'
   if kind == 'mobile':
     steps = f['ride'][:3]
@@ -159,7 +162,7 @@ def answer(kind, f, i, term=None):
   if kind == 'pass':
     lng = f" 이틀에 나눠 보려면 {f['tlong']} 티켓을 고르세요." if f['tlong'] else ''
     return T([
-      f"{k} 티켓은 {f['tlist']} 등 {f['tn']}종이고 가장 저렴한 것은 {f['t0']}입니다.{lng} 하루에 내릴 곳이 3곳 이하라면 가장 짧은 티켓으로 충분하고, 그 이상이면 유효시간이 긴 티켓이 낫습니다.",
+      f"{k} 티켓은 {f['tdesc']}이고 가장 저렴한 것은 {f['t0']}입니다.{lng} 하루에 내릴 곳이 3곳 이하라면 가장 짧은 티켓으로 충분하고, 그 이상이면 유효시간이 긴 티켓이 낫습니다.",
       f"하루권이 맞는지는 탑승 횟수보다 내릴 정류장 수로 정하세요. {(loop + '이므로 ') if loop else ''}3~4곳에서 내리면 하루가 꽉 찹니다. 티켓은 {f['t0b']} 시작합니다.{lng}",
     ], i), 'price'
   if kind == 'booking':
@@ -187,7 +190,7 @@ def answer(kind, f, i, term=None):
     ], i), 'route'
   return T([
     f"{routeline} 티켓은 {f['t0b']}이고, 정류장 {f['nstops']}곳 중 내가 갈 명소와 가까운 곳만 골라 타고 내리면 됩니다.",
-    f"처음이라면 첫 정류장 {f['stop0']}에서 시작해 한 바퀴{f['loopp']} 돌아보세요. 티켓은 {f['tlist']} 등 {f['tn']}종이고 유효시간은 첫 탑승부터 계산됩니다.",
+    f"처음이라면 첫 정류장 {f['stop0']}에서 시작해 한 바퀴{f['loopp']} 돌아보세요. 티켓은 {f['tdesc']}이고 유효시간은 첫 탑승부터 계산됩니다.",
   ], i), 'summary'
 
 ANCHOR_LABEL = {'route': '노선·정류장 보기', 'price': '가격·티켓 보기', 'booking': '예약 방법 보기', 'night': '나이트 투어 보기', 'ride': '타는법 보기', 'summary': '한눈에 보기', 'onsite': '현장구매 보기', 'time': '시간표 보기'}

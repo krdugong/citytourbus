@@ -73,6 +73,38 @@ function routeMap(p) {
 }
 const mapFigure = (src, alt) => `<figure class="kw-figure kw-map"><img src="${src}" alt="${esc(alt)}" width="1080" height="1080" loading="lazy" decoding="async"><figcaption>${esc(alt)} · 정류장 순서 기준 참고용 · © OpenStreetMap contributors</figcaption></figure>`;
 const cta = (p) => `<a class="button kw-cta" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${esc(p.booking.label)} →</a>`;
+// Stop-order diagram per route (metro-map style list; transfers = stops shared by 2+ routes)
+function routeDiagram(p) {
+  const norm = s => s.replace(/\s*\((환승|transfer)\)/i, '').trim();
+  const inRoutes = {};
+  p.routes.forEach(r => new Set((r.stops || []).map(norm)).forEach(st => (inRoutes[st] = inRoutes[st] || []).push(r.name.replace(/ \(.*\)/, ''))));
+  return p.routes.map(r => {
+    const stops = r.stops || [];
+    if (!stops.length) return '';
+    const items = stops.map((st, i) => {
+      const others = (inRoutes[norm(st)] || []).filter(n => n !== r.name.replace(/ \(.*\)/, ''));
+      return `<li${others.length ? ' class="tr"' : ''}><span class="n">${i + 1}</span>${esc(norm(st))}${others.length ? `<small>환승 · ${esc(others.join(', '))}</small>` : ''}</li>`;
+    }).join('');
+    return `<ol class="kw-line" style="--rc:${r.color}" aria-label="${esc(r.name)} 정류장 순서">${items}</ol><p class="small kw-loop">↻ 순환 노선 · ${stops.length}번 다음은 다시 1번 정류장</p>`;
+  });
+}
+// Ticket price bars: lowest number in each price string, only when 2+ tickets share one currency
+function priceBars(p) {
+  const rx = /(US\$|AU\$|HK\$|CA\$|NZ\$|S\$|R\$|C\$|[€£¥₩$฿₫]|AED|CHF|kr|zł|Kč|Ft|SEK|NOK|DKK|R)\s?([\d,]+(?:\.\d+)?)|([\d,]+(?:\.\d+)?)\s?(원|엔|유로|달러|바트|동|루피)/g;
+  const rows = [];
+  for (const t of p.tickets) {
+    let best = null;
+    for (const m of String(t.price).matchAll(rx)) {
+      const num = parseFloat((m[2] || m[3]).replace(/,/g, ''));
+      const cur = m[1] || m[4];
+      if (!isNaN(num) && (!best || num < best.num)) best = { num, cur, label: m[1] ? `${m[1]}${m[2]}` : `${m[3]}${m[4]}` };
+    }
+    if (best) rows.push({ name: t.name, validity: t.validity, ...best });
+  }
+  if (rows.length < 2 || new Set(rows.map(r => r.cur)).size !== 1) return '';
+  const max = Math.max(...rows.map(r => r.num));
+  return `<div class="kw-bars" role="img" aria-label="${esc(p.keyword)} 티켓별 가격 비교">${rows.map(r => `<div class="kw-bar"><span class="kw-bar-l">${esc(r.name)}<small>${esc(r.validity)}</small></span><span class="kw-bar-t"><i style="width:${Math.max(4, Math.round(r.num / max * 100))}%"></i></span><span class="kw-bar-v">${esc(r.label)}</span></div>`).join('')}<p class="small">티켓별 성인 최저가 기준 · 자세한 조건은 아래 표</p></div>`;
+}
 const kvTable = (rows, cls = '') => `<div class="table-scroll"><table${cls ? ` class="${cls}"` : ''}><tbody>${rows.map(([a, b]) => `<tr><th scope="row">${esc(a)}</th><td>${esc(b)}</td></tr>`).join('')}</tbody></table></div>`;
 
 function render(p, all) {
@@ -100,31 +132,32 @@ function render(p, all) {
 
   const routeNames = p.routes.map(r => `${r.name.replace(/ \(.*\)/, '')}${r.area ? `(${r.area})` : ''}`).join(', ');
   const map = routeMap(p);
+  const diagram = routeDiagram(p);
   sec('route', 'ROUTE', h2.route, '노선',
-    (map.overview ? mapFigure(map.overview, `${k} 노선도`) : figure(p, 'routes')) +
+    (map.overview ? mapFigure(map.overview, `${k} 노선도`) : '') +
     `<p>${esc(k)}는 ${esc(routeNames)} ${p.routes.length > 1 ? `${p.routes.length}개 노선으로` : '노선 하나로'} 운행합니다.${p.routeCheck ? ` 정류장 위치는 <a href="${esc(p.routeCheck.url)}">${esc(p.routeCheck.label)}</a>에서 지도로 볼 수 있습니다.` : ''}${SIM[p.slug] ? ` 가고 싶은 곳을 넣으면 탈 노선과 내릴 정류장을 순서대로 짜 주는 <a href="${SIM[p.slug].url}">${esc(SIM[p.slug].label)}</a>도 있습니다.` : ''}</p>` +
-    p.routes.map((r, i) => `<div class="kw-route" style="--rc:${r.color}"><h3>${esc(k)} ${esc(r.name)}${r.area ? ` · ${esc(r.area)}` : ''}</h3><p class="small">${esc(r.en)} · ${esc(r.duration)} · ${esc(r.interval)} · ${esc(r.hours)}</p>${r.stops && r.stops.length ? `<ol class="kw-stops">${r.stops.map(s => `<li>${esc(s)}</li>`).join('')}</ol>` : ''}<p>${esc(r.tip)}</p>${map.perRoute[i] ? mapFigure(map.perRoute[i].src, `${k} ${map.perRoute[i].title} 노선도`) : ''}</div>`).join(''));
+    `<div class="kw-route-grid">` + p.routes.map((r, i) => `<div class="kw-route" style="--rc:${r.color}"><h3>${esc(k)} ${esc(r.name)}${r.area ? ` · ${esc(r.area)}` : ''}</h3><p class="small">${esc(r.en)} · ${esc(r.duration)} · ${esc(r.interval)} · ${esc(r.hours)}</p>${diagram[i] || ''}<p>${esc(r.tip)}</p>${map.perRoute[i] ? mapFigure(map.perRoute[i].src, `${k} ${map.perRoute[i].title} 노선도`) : ''}</div>`).join('') + `</div>`);
 
   if (p.night) sec('night', 'NIGHT TOUR', h2.night, '나이트 투어',
-    figure(p, 'night') + `<p>${esc(p.night.text)}</p><ul><li><b>출발</b> ${esc(p.night.time)}</li><li><b>출발 장소</b> ${esc(p.night.start)}</li><li><b>소요 시간</b> ${esc(p.night.duration)}</li><li><b>가격</b> ${esc(p.night.price)}</li></ul>`);
+    `<p>${esc(p.night.text)}</p><ul><li><b>출발</b> ${esc(p.night.time)}</li><li><b>출발 장소</b> ${esc(p.night.start)}</li><li><b>소요 시간</b> ${esc(p.night.duration)}</li><li><b>가격</b> ${esc(p.night.price)}</li></ul>`);
 
   sec('price', 'PRICE', h2.price, '가격',
-    figure(p, 'price') +
-    `<div class="table-scroll"><table><thead><tr><th>티켓</th><th>유효</th><th>성인 가격</th><th>포함 내용</th><th>추천</th></tr></thead><tbody>${p.tickets.map(t => `<tr><th scope="row">${esc(t.name)}</th><td>${esc(t.validity)}</td><td>${esc(t.price)}</td><td>${t.includes.map(esc).join('<br>')}</td><td>${esc(t.for)}</td></tr>`).join('')}</tbody></table></div><p class="small">${esc(p.priceNote)}</p>${cta(p)}`);
+    priceBars(p) +
+    `<div class="table-scroll"><table><thead><tr><th>티켓</th><th>유효</th><th>성인 가격</th><th>포함 내용</th><th>추천</th></tr></thead><tbody>${p.tickets.map(t => `<tr><th scope="row">${esc(t.name)}</th><td>${esc(t.validity)}</td><td>${esc(t.price)}</td><td>${t.includes.map(esc).join('<br>')}</td><td>${esc(t.for)}</td></tr>`).join('')}</tbody></table></div><p class="small">${esc(p.priceNote)}</p>`);
 
   for (const x of p.extra || []) {
     sec(x.id, x.label, x.h2, x.toc || null,
-      (x.image ? figure(p, x.image) : '') + (x.paras || []).map(t => `<p>${esc(t)}</p>`).join('') + (x.table ? kvTable(x.table) : ''));
+      (x.paras || []).map(t => `<p>${esc(t)}</p>`).join('') + (x.table ? kvTable(x.table) : ''));
   }
 
   sec('booking', 'BOOKING', h2.booking, '예약 방법',
-    figure(p, 'booking') + `<ol class="kw-steps">${howToBook.map(s => `<li>${esc(s)}</li>`).join('')}</ol>${cta(p)}`);
+    `<ol class="kw-steps">${howToBook.map(s => `<li>${esc(s)}</li>`).join('')}</ol>${cta(p)}`);
 
   if (p.onsite) sec('onsite', 'ON-SITE', h2.onsite, '현장구매',
-    figure(p, 'onsite') + `<p>${esc(p.onsite.text)}</p>${kvTable(p.onsite.compare)}`);
+    `<p>${esc(p.onsite.text)}</p>${kvTable(p.onsite.compare)}`);
 
   sec('ride', 'HOW TO RIDE', h2.ride, '타는법',
-    figure(p, 'ride') + `<ol class="kw-steps">${howToRide.map(s => `<li>${esc(s)}</li>`).join('')}</ol>`);
+    `<ol class="kw-steps">${howToRide.map(s => `<li>${esc(s)}</li>`).join('')}</ol>`);
 
   if (p.topics && p.topics.length) sec('topics', 'TOPICS', h2.topics || `${k} 궁금한 점별 정리`, '궁금한 점',
     `<p class="small">네이버에서 많이 찾는 질문 순서대로, 이 페이지의 공식 정보 기준으로 짧게 답했습니다.</p>` +
@@ -150,7 +183,7 @@ function render(p, all) {
       {
         '@type': 'Article', '@id': `${url}#article`, headline: p.title, description: p.description,
         inLanguage: 'ko-KR', datePublished: published, dateModified: p.updated, mainEntityOfPage: url,
-        image: [ogImg, ...Object.keys(p.images).map(key => `${SITE}${imgPath(p, key)}`), ...[map.overview, ...map.perRoute.map(x => x && x.src)].filter(Boolean).map(src => `${SITE}${src}`)],
+        image: [ogImg, `${SITE}${imgPath(p, 'main')}`, ...[map.overview, ...map.perRoute.map(x => x && x.src)].filter(Boolean).map(src => `${SITE}${src}`)],
         author: { '@type': 'Organization', name: 'CITYTOURBUS', url: `${SITE}/` },
         publisher: { '@type': 'Organization', name: 'CITYTOURBUS', logo: { '@type': 'ImageObject', url: `${SITE}/apple-touch-icon.png` } }
       },
@@ -188,7 +221,7 @@ ${PRECONNECT}${fontLinks()}
 <nav class="kw-toc" aria-label="목차">${toc.join('')}</nav>
 <div class="grid"><article class="main-content">
 ${sections.join('\n')}
-</article><aside><div class="aside-card"><strong>${esc(k)} 예약</strong><p>${esc(p.asideNote)}</p>${cta(p)}${p.routeCheck ? `<a class="aside-link" href="${esc(p.routeCheck.url)}">정류장 지도 보기 →</a>` : `<a class="aside-link" href="#route">노선·정류장 보기 →</a>`}${SIM[p.slug] ? `<a class="aside-link" href="${SIM[p.slug].url}">하루 코스 시뮬레이터 →</a>` : ''}</div></aside></div>
+</article><aside><div class="aside-card"><strong>${esc(k)} 예약</strong><p>${esc(p.asideNote)}</p><a class="aside-link kw-aside-book" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${esc(p.booking.label)} →</a>${p.routeCheck ? `<a class="aside-link" href="${esc(p.routeCheck.url)}">정류장 지도 보기 →</a>` : `<a class="aside-link" href="#route">노선·정류장 보기 →</a>`}${SIM[p.slug] ? `<a class="aside-link" href="${SIM[p.slug].url}">하루 코스 시뮬레이터 →</a>` : ''}</div></aside></div>
 </div></main><footer><div class="wrap"><a href="/">CITYTOURBUS.KR</a><p>전 세계 시티투어버스를 비교합니다. 일부 예약 링크를 통해 수수료를 받을 수 있으며 이용자 추가 비용은 없습니다.</p><a href="/terms">이용약관</a> · <a href="/privacy">개인정보처리방침</a></div></footer>
 <div class="kw-sticky" id="kw-sticky" hidden><div class="kw-sticky-txt"><b>${esc(k)}</b><small>${esc(p.tickets[0].price)}</small></div><a class="button kw-cta" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">예약하기 →</a></div>
 <script>(function(){var s=document.getElementById('kw-sticky'),h=document.querySelector('.hero-actions');if(!s||!h||!('IntersectionObserver' in window))return;new IntersectionObserver(function(e){var r=e[0],show=!r.isIntersecting&&r.boundingClientRect.top<0;s.hidden=!show;document.body.classList.toggle('has-sticky',show)}).observe(h)})();</script>

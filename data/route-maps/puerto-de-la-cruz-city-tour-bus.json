@@ -1,0 +1,60 @@
+{
+ "city": "푸에르토데라크루스",
+ "slug": "puerto-de-la-cruz-city-tour-bus",
+ "title": "푸에르토데라크루스 시티투어버스 노선도",
+ "sub": "레드 노선 7곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 해변 · 식물원 · 로로 파르케",
+   "title": "레드 노선",
+   "sub": "해변 · 식물원 · 로로 파르케",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "마르티아네스",
+     "lat": 28.41743,
+     "lng": -16.54175,
+     "en": "Martiánez"
+    },
+    {
+     "name": "식물원 (하르딘 보타니코)",
+     "lat": 28.41181,
+     "lng": -16.53581,
+     "en": "Jardín Botánico"
+    },
+    {
+     "name": "라파스 전망대",
+     "lat": 28.4143,
+     "lng": -16.5389,
+     "en": "Mirador La Paz"
+    },
+    {
+     "name": "시립 시장",
+     "lat": 28.41036,
+     "lng": -16.55335,
+     "en": "Mercado Municipal"
+    },
+    {
+     "name": "로로 파르케",
+     "lat": 28.40839,
+     "lng": -16.56605,
+     "en": "Loro Parque"
+    },
+    {
+     "name": "하르딘 해변",
+     "lat": 28.41225,
+     "lng": -16.5588,
+     "en": "Playa Jardín"
+    },
+    {
+     "name": "교통 환승센터",
+     "lat": 28.41225,
+     "lng": -16.5558,
+     "en": "Intercambiador de Transportes"
+    }
+   ]
+  }
+ ]
+}

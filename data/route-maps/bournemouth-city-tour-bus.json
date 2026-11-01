@@ -1,0 +1,174 @@
+{
+ "city": "본머스",
+ "slug": "bournemouth-city-tour-bus",
+ "title": "본머스 시티투어버스 노선도",
+ "sub": "본머스 투어 26곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "본머스 투어 · 본머스 · 샌드뱅크스 · 풀",
+   "title": "본머스 투어",
+   "sub": "본머스 · 샌드뱅크스 · 풀",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "이스트 오버클리프 드라이브 A",
+     "lat": 50.71892,
+     "lng": -1.86052,
+     "en": "A East Overcliff Drive"
+    },
+    {
+     "name": "이스트 오버클리프 드라이브 (2)",
+     "lat": 50.71825,
+     "lng": -1.86544,
+     "en": "A East Overcliff Drive"
+    },
+    {
+     "name": "본머스 피어 (핫 록스 뒤)",
+     "lat": 50.71656,
+     "lng": -1.87707,
+     "en": "Bournemouth Pier (behind Hot Rocks)"
+    },
+    {
+     "name": "본머스 스퀘어 (거비스 플레이스)",
+     "lat": 50.71987,
+     "lng": -1.8787,
+     "en": "Bournemouth Square (Gervis Place Stand X)"
+    },
+    {
+     "name": "웨스트 클리프 · 니치 호텔",
+     "lat": 50.71645,
+     "lng": -1.8847,
+     "en": "West Cliff, Nici Hotel (Main Road)"
+    },
+    {
+     "name": "웨스트 오버클리프 드라이브",
+     "lat": 50.71331,
+     "lng": -1.89263,
+     "en": "West Overcliff Drive"
+    },
+    {
+     "name": "웨스트본 · 캠든 바",
+     "lat": 50.72219,
+     "lng": -1.90391,
+     "en": "Westbourne - Camden Bar"
+    },
+    {
+     "name": "브랭크섬 차인",
+     "lat": 50.70705,
+     "lng": -1.90944,
+     "en": "Branksome Chine"
+    },
+    {
+     "name": "캔퍼드 클리프스",
+     "lat": 50.70549,
+     "lng": -1.92085,
+     "en": "Canford Cliffs - Anchorage Restaurant"
+    },
+    {
+     "name": "플래그헤드 차인",
+     "lat": 50.69632,
+     "lng": -1.93169,
+     "en": "Flaghead Chine"
+    },
+    {
+     "name": "샌드뱅크스 해변 (쇼어 로드)",
+     "lat": 50.69634,
+     "lng": -1.93167,
+     "en": "Sandbanks Beach: Shore Road"
+    },
+    {
+     "name": "샌드뱅크스 해변 (메인 주차장)",
+     "lat": 50.68744,
+     "lng": -1.94113,
+     "en": "Sanbanks Beach, Main Car Park"
+    },
+    {
+     "name": "샌드뱅크스 반도 (파노라마 로드)",
+     "lat": 50.68456,
+     "lng": -1.94863,
+     "en": "Sandbanks Peninsular Panorama Road"
+    },
+    {
+     "name": "샌드뱅크스 하버 사이드",
+     "lat": 50.68905,
+     "lng": -1.9399,
+     "en": "Sandbanks Beach Harbour Side"
+    },
+    {
+     "name": "샌드뱅크스 하버 사이드 (2)",
+     "lat": 50.69684,
+     "lng": -1.9319,
+     "en": "Sandbanks Beach Harbour Side"
+    },
+    {
+     "name": "릴리풋 빌리지",
+     "lat": 50.70866,
+     "lng": -1.94588,
+     "en": "Lilliput Village: Tesco Express"
+    },
+    {
+     "name": "화이트클리프 레크리에이션 그라운드",
+     "lat": 50.71526,
+     "lng": -1.95396,
+     "en": "Whitecliff Recreation Ground"
+    },
+    {
+     "name": "풀 파크 (아크 카페)",
+     "lat": 50.72088,
+     "lng": -1.96671,
+     "en": "Poole Park, Ark Café"
+    },
+    {
+     "name": "풀 파크 (더 키친)",
+     "lat": 50.71951,
+     "lng": -1.97054,
+     "en": "Poole Park, The Kitchen"
+    },
+    {
+     "name": "풀 키 · 올드 타운",
+     "lat": 50.71193,
+     "lng": -1.98302,
+     "en": "Poole Quay & Old Town"
+    },
+    {
+     "name": "베이터 파크",
+     "lat": 50.71251,
+     "lng": -1.97343,
+     "en": "Baiter Park"
+    },
+    {
+     "name": "풀 파크 (파크스톤 로드)",
+     "lat": 50.72265,
+     "lng": -1.9642,
+     "en": "Poole Park Parkstone Road"
+    },
+    {
+     "name": "애슐리 크로스 · 파크스톤 기차역",
+     "lat": 50.72328,
+     "lng": -1.94867,
+     "en": "Ashley Cross: Parkstone Railway Station"
+    },
+    {
+     "name": "웨스트본 (포터하우스 맞은편)",
+     "lat": 50.72358,
+     "lng": -1.90518,
+     "en": "Westbourne - opposite The Porterhouse"
+    },
+    {
+     "name": "풀 로드 (웨스트클리프 방면)",
+     "lat": 50.72436,
+     "lng": -1.90741,
+     "en": "Poole Road, for Westcliff"
+    },
+    {
+     "name": "본머스 스퀘어 (종점)",
+     "lat": 50.71917,
+     "lng": -1.88026,
+     "en": "Bournemouth Square (Stand LL)"
+    }
+   ]
+  }
+ ]
+}

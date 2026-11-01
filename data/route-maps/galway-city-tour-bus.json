@@ -1,0 +1,96 @@
+{
+ "city": "골웨이",
+ "slug": "galway-city-tour-bus",
+ "title": "골웨이 시티투어버스 노선도",
+ "sub": "골웨이 시티투어 노선 13곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "골웨이 시티투어 노선 · 명소 8곳",
+   "title": "골웨이 시티투어 노선",
+   "sub": "명소 8곳",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "에어 스퀘어",
+     "lat": 53.27471,
+     "lng": -9.05088,
+     "en": "Eyre Square"
+    },
+    {
+     "name": "포스터 스트리트",
+     "lat": 53.27516,
+     "lng": -9.04664,
+     "en": "Forster Street"
+    },
+    {
+     "name": "스패니시 아치",
+     "lat": 53.27042,
+     "lng": -9.05482,
+     "en": "Spanish Arch"
+    },
+    {
+     "name": "와일드 애틀랜틱 웨이 중간 지점",
+     "lat": 53.25835,
+     "lng": -9.07873,
+     "en": "Wild Atlantic Way Midway Point"
+    },
+    {
+     "name": "블랙록 다이빙 타워",
+     "lat": 53.25735,
+     "lng": -9.09009,
+     "en": "Blackrock Diving Tower"
+    },
+    {
+     "name": "카셀마라",
+     "lat": 53.2609,
+     "lng": -9.10871,
+     "en": "Cashelmara"
+    },
+    {
+     "name": "솔트힐 캠핑장",
+     "lat": 53.25813,
+     "lng": -9.10468,
+     "en": "Salthill Camping"
+    },
+    {
+     "name": "서클 오브 라이프 가든",
+     "lat": 53.25775,
+     "lng": -9.08651,
+     "en": "Circle of Life Garden"
+    },
+    {
+     "name": "골웨이 베이 시뷰 아파트",
+     "lat": 53.25854,
+     "lng": -9.07923,
+     "en": "Galway Bay Sea View Apartments"
+    },
+    {
+     "name": "오코너스 바",
+     "lat": 53.2615,
+     "lng": -9.07537,
+     "en": "O'Connors Bar"
+    },
+    {
+     "name": "테일러스 힐",
+     "lat": 53.26836,
+     "lng": -9.06622,
+     "en": "Taylor's Hill"
+    },
+    {
+     "name": "골웨이 대학교 (NUI)",
+     "lat": 53.27686,
+     "lng": -9.06242,
+     "en": "NUI Galway"
+    },
+    {
+     "name": "골웨이 대성당",
+     "lat": 53.27536,
+     "lng": -9.05891,
+     "en": "Galway Cathedral"
+    }
+   ]
+  }
+ ]
+}

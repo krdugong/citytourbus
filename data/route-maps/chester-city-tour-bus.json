@@ -1,0 +1,96 @@
+{
+ "city": "체스터",
+ "slug": "chester-city-tour-bus",
+ "title": "체스터 시티투어버스 노선도",
+ "sub": "레드 라인 13곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 라인 · 성벽 · 디강 · 경마장 · 대성당",
+   "title": "레드 라인",
+   "sub": "성벽 · 디강 · 경마장 · 대성당",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "체스터 버스 환승센터",
+     "lat": 53.1942,
+     "lng": -2.88919,
+     "en": "Chester Bus Interchange"
+    },
+    {
+     "name": "포게이트 스트리트",
+     "lat": 53.19152,
+     "lng": -2.88471,
+     "en": "Foregate Street"
+    },
+    {
+     "name": "시티 로드",
+     "lat": 53.19308,
+     "lng": -2.88174,
+     "en": "City Road"
+    },
+    {
+     "name": "체스터역",
+     "lat": 53.19655,
+     "lng": -2.88083,
+     "en": "Chester Railway Station"
+    },
+    {
+     "name": "성 요한 교회 (비카스 레인)",
+     "lat": 53.18946,
+     "lng": -2.88576,
+     "en": "St John's Church, Vicar's Lane"
+    },
+    {
+     "name": "더 그로브스 (디강 산책로)",
+     "lat": 53.1877,
+     "lng": -2.88643,
+     "en": "The Groves"
+    },
+    {
+     "name": "페퍼 스트리트",
+     "lat": 53.18868,
+     "lng": -2.88984,
+     "en": "Pepper Street"
+    },
+    {
+     "name": "그로브너 스트리트",
+     "lat": 53.18761,
+     "lng": -2.89224,
+     "en": "Grosvenor Street"
+    },
+    {
+     "name": "핸드브리지",
+     "lat": 53.18266,
+     "lng": -2.88882,
+     "en": "Handbridge"
+    },
+    {
+     "name": "로어 브리지 스트리트",
+     "lat": 53.18748,
+     "lng": -2.8904,
+     "en": "Lower Bridge Street"
+    },
+    {
+     "name": "니콜라스 스트리트",
+     "lat": 53.18755,
+     "lng": -2.89433,
+     "en": "Nicholas Street"
+    },
+    {
+     "name": "체스터 경마장 · 올드 포트",
+     "lat": 53.18982,
+     "lng": -2.8991,
+     "en": "Chester Racecourse, The Old Port"
+    },
+    {
+     "name": "헌터 스트리트 (시청 · 대성당 · 뉴 마켓)",
+     "lat": 53.19205,
+     "lng": -2.89521,
+     "en": "Hunter Street Town Hall, Cathedral and New Market"
+    }
+   ]
+  }
+ ]
+}

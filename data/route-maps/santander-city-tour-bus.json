@@ -1,0 +1,78 @@
+{
+ "city": "산탄데르",
+ "slug": "santander-city-tour-bus",
+ "title": "산탄데르 시티투어버스 노선도",
+ "sub": "레드 라인 10곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 라인 · 보틴 센터 · 사르디네로 · 등대",
+   "title": "레드 라인",
+   "sub": "보틴 센터 · 사르디네로 · 등대",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "페레다 거리 · 보틴 센터",
+     "lat": 43.46174,
+     "lng": -3.80361,
+     "en": "(B) Paseo Pereda / Centro Botín"
+    },
+    {
+     "name": "푸에르토 치코",
+     "lat": 43.46218,
+     "lng": -3.79752,
+     "en": "Puerto Chico"
+    },
+    {
+     "name": "해양박물관 · 만 해변",
+     "lat": 43.46389,
+     "lng": -3.78237,
+     "en": "Museo Marítimo / Playas Bahía"
+    },
+    {
+     "name": "페스티벌 궁전 · 플라네타륨",
+     "lat": 43.46345,
+     "lng": -3.78838,
+     "en": "Palacio de Festivales / Planetario"
+    },
+    {
+     "name": "막달레나 궁전",
+     "lat": 43.46874,
+     "lng": -3.77656,
+     "en": "Palacio de la Magdalena"
+    },
+    {
+     "name": "사르디네로 해변 · 카지노",
+     "lat": 43.47198,
+     "lng": -3.78187,
+     "en": "Playa del Sardinero / Casino"
+    },
+    {
+     "name": "마탈레냐스 공원 · 마요르 곶 등대",
+     "lat": 43.48744,
+     "lng": -3.79128,
+     "en": "Parque de Mataleñas / Faro de Cabo Mayor"
+    },
+    {
+     "name": "야마스 공원",
+     "lat": 43.47582,
+     "lng": -3.79152,
+     "en": "Parque de las Llamas"
+    },
+    {
+     "name": "해운 터미널",
+     "lat": 43.45916,
+     "lng": -3.80713,
+     "en": "Estación Marítima"
+    },
+    {
+     "name": "대성당",
+     "lat": 43.46142,
+     "lng": -3.80733,
+     "en": "Catedral"
+    }
+   ]
+  }
+ ]
+}

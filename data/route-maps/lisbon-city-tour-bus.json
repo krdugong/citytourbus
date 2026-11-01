@@ -1,0 +1,171 @@
+{
+ "city": "리스본",
+ "slug": "lisbon-city-tour-bus",
+ "title": "리스본 시티투어버스 노선도",
+ "sub": "레드 노선 14곳 · 블루 노선 10곳 · 번호는 노선별 순서",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 벨렝 · 바이후 알투",
+   "title": "레드 노선",
+   "sub": "벨렝 · 바이후 알투",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "마르케스 드 폼발",
+     "lat": 38.72611,
+     "lng": -9.15086,
+     "en": "Marquês de Pombal"
+    },
+    {
+     "name": "프린시페 헤알",
+     "lat": 38.71697,
+     "lng": -9.14889,
+     "en": "Príncipe Real"
+    },
+    {
+     "name": "카이스 두 소드레",
+     "lat": 38.70706,
+     "lng": -9.14208,
+     "en": "Cais do Sodré"
+    },
+    {
+     "name": "히베이라 시장",
+     "lat": 38.70625,
+     "lng": -9.14536,
+     "en": "A Mercado da Ribeira"
+    },
+    {
+     "name": "필라르 7 (4월 25일 다리 전망대)",
+     "lat": 38.70048,
+     "lng": -9.1787,
+     "en": "Pilar 7"
+    },
+    {
+     "name": "마차 박물관",
+     "lat": 38.69668,
+     "lng": -9.19914,
+     "en": "Museu dos Coches"
+    },
+    {
+     "name": "제로니무스 수도원",
+     "lat": 38.69727,
+     "lng": -9.20812,
+     "en": "Mosteiro dos Jerónimos"
+    },
+    {
+     "name": "벨렝 탑",
+     "lat": 38.69351,
+     "lng": -9.21339,
+     "en": "Torre de Belém"
+    },
+    {
+     "name": "발견기념비",
+     "lat": 38.69473,
+     "lng": -9.20545,
+     "en": "Padrão dos Descobrimentos"
+    },
+    {
+     "name": "MAAT · 전기 박물관",
+     "lat": 38.69509,
+     "lng": -9.19843,
+     "en": "Maat / M. Eletricidade"
+    },
+    {
+     "name": "도카스",
+     "lat": 38.69994,
+     "lng": -9.17462,
+     "en": "Docas"
+    },
+    {
+     "name": "에스트렐라 대성당",
+     "lat": 38.71369,
+     "lng": -9.16163,
+     "en": "Basílica da Estrela"
+    },
+    {
+     "name": "헤스타우라도레스 1",
+     "lat": 38.71577,
+     "lng": -9.1422,
+     "en": "Restauradores 1"
+    },
+    {
+     "name": "헤스타우라도레스 2",
+     "lat": 38.71604,
+     "lng": -9.14148,
+     "en": "Restauradores 2"
+    }
+   ]
+  },
+  {
+   "key": "blue",
+   "name": "블루 노선 · 굴벤키안 · 오세아나리우",
+   "title": "블루 노선",
+   "sub": "굴벤키안 · 오세아나리우",
+   "color": "#1f6fd1",
+   "stops": [
+    {
+     "name": "마르케스 드 폼발",
+     "lat": 38.72611,
+     "lng": -9.15086,
+     "en": "Marquês de Pombal"
+    },
+    {
+     "name": "캄푸 페케누",
+     "lat": 38.74342,
+     "lng": -9.14641,
+     "en": "Campo Pequeno"
+    },
+    {
+     "name": "알파마 (파두 박물관 · 크루즈 터미널)",
+     "lat": 38.71114,
+     "lng": -9.12656,
+     "en": "Alfama (Museu do Fado / Terminal de Cruzeiros)"
+    },
+    {
+     "name": "리스본 해양수족관",
+     "lat": 38.76126,
+     "lng": -9.09614,
+     "en": "Oceanário de Lisboa"
+    },
+    {
+     "name": "오리엔트역",
+     "lat": 38.76637,
+     "lng": -9.09808,
+     "en": "Gare do Oriente"
+    },
+    {
+     "name": "리스본 동물원",
+     "lat": 38.74276,
+     "lng": -9.16708,
+     "en": "Jardim Zoológico"
+    },
+    {
+     "name": "조제 말료아 거리 1",
+     "lat": 38.73807,
+     "lng": -9.16648,
+     "en": "Av. José Malhoa 1"
+    },
+    {
+     "name": "조제 말료아 거리 2",
+     "lat": 38.73646,
+     "lng": -9.16156,
+     "en": "Av. José Malhoa 2"
+    },
+    {
+     "name": "엘 코르테 잉글레스",
+     "lat": 38.73348,
+     "lng": -9.1532,
+     "en": "El Corte Inglés"
+    },
+    {
+     "name": "에두아르두 7세 공원",
+     "lat": 38.7305,
+     "lng": -9.1548,
+     "en": "Parque Eduardo VII"
+    }
+   ]
+  }
+ ]
+}

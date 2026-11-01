@@ -1,0 +1,180 @@
+{
+ "city": "코펜하겐",
+ "slug": "copenhagen-city-tour-bus",
+ "title": "코펜하겐 시티투어버스 노선도",
+ "sub": "3개 노선 · 번호는 노선별 순서",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "클래식 코펜하겐 노선 · 연중 매일",
+   "title": "클래식 코펜하겐 노선",
+   "sub": "연중 매일",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "베드 스트란덴 · 스트뢰에",
+     "lat": 55.67769,
+     "lng": 12.58054,
+     "en": "Ved Stranden / Strøget"
+    },
+    {
+     "name": "뉘하운",
+     "lat": 55.68125,
+     "lng": 12.58549,
+     "en": "Nyhavn"
+    },
+    {
+     "name": "게피온 분수",
+     "lat": 55.68903,
+     "lng": 12.59789,
+     "en": "Gefion Fountain"
+    },
+    {
+     "name": "인어공주 동상",
+     "lat": 55.69331,
+     "lng": 12.59884,
+     "en": "The Little Mermaid"
+    },
+    {
+     "name": "랑엘리니 북쪽 (5~9월 크루즈 입항일만)",
+     "lat": 55.70225,
+     "lng": 12.60057,
+     "en": "Langelinie N (May-Sept, cruise days only)"
+    },
+    {
+     "name": "랑엘리니 중앙 (5~9월 크루즈 입항일만)",
+     "lat": 55.69868,
+     "lng": 12.60033,
+     "en": "Langelinie M (May-Sept, cruise days only)"
+    },
+    {
+     "name": "랑엘리니 남쪽 (5~9월 크루즈 입항일만)",
+     "lat": 55.6965,
+     "lng": 12.59998,
+     "en": "Langelinie S (May-Sept, cruise days only)"
+    },
+    {
+     "name": "로센보르 성 · 국립미술관(SMK)",
+     "lat": 55.68793,
+     "lng": 12.57943,
+     "en": "Rosenborg Castle / SMK"
+    },
+    {
+     "name": "외르스테드 공원 · 시청 광장",
+     "lat": 55.67845,
+     "lng": 12.56618,
+     "en": "Ørstedsparken/City Hall Square"
+    },
+    {
+     "name": "티볼리 · 래디슨 컬렉션 로열 호텔",
+     "lat": 55.6741,
+     "lng": 12.56366,
+     "en": "Tivoli / Radisson Collection Royal Hotel"
+    },
+    {
+     "name": "피스케토르베트 쇼핑몰 · 티볼리 호텔",
+     "lat": 55.66551,
+     "lng": 12.56592,
+     "en": "Fisketorvet - Shopping Mall / Tivoli Hotel"
+    },
+    {
+     "name": "칼베보드 파도 · 메리어트 호텔",
+     "lat": 55.66842,
+     "lng": 12.57269,
+     "en": "Kalvebod Waves / Marriott Hotel"
+    }
+   ]
+  },
+  {
+   "key": "r2",
+   "name": "컬러풀 코펜하겐 노선 · 추가 노선",
+   "title": "컬러풀 코펜하겐 노선",
+   "sub": "추가 노선",
+   "color": "#1f6fd1",
+   "stops": [
+    {
+     "name": "베드 스트란덴 · 스트뢰에",
+     "lat": 55.67769,
+     "lng": 12.58054,
+     "en": "Ved Stranden / Strøget"
+    },
+    {
+     "name": "크리스티아니아 자유도시",
+     "lat": 55.67501,
+     "lng": 12.59936,
+     "en": "Christiania Freetown"
+    },
+    {
+     "name": "오페라하우스",
+     "lat": 55.68311,
+     "lng": 12.60082,
+     "en": "The Opera"
+    },
+    {
+     "name": "스트리트 푸드 · 레펜",
+     "lat": 55.68985,
+     "lng": 12.61204,
+     "en": "Street Food / Reffen"
+    },
+    {
+     "name": "코펜힐",
+     "lat": 55.68464,
+     "lng": 12.61884,
+     "en": "Copenhill"
+    },
+    {
+     "name": "이슬란스 브뤼게 · 카지노 코펜하겐",
+     "lat": 55.66791,
+     "lng": 12.58683,
+     "en": "Islands Brygge / Casino Copenhagen"
+    },
+    {
+     "name": "티볼리 · 래디슨 컬렉션 로열 호텔",
+     "lat": 55.6741,
+     "lng": 12.56366,
+     "en": "Tivoli / Radisson Collection Royal Hotel"
+    }
+   ]
+  },
+  {
+   "key": "r3",
+   "name": "홈 오브 칼스버그 노선 · 추가 노선",
+   "title": "홈 오브 칼스버그 노선",
+   "sub": "추가 노선",
+   "color": "#1f9d55",
+   "stops": [
+    {
+     "name": "티볼리 · 래디슨 컬렉션 로열 호텔",
+     "lat": 55.6741,
+     "lng": 12.56366,
+     "en": "Tivoli / Radisson Collection Royal Hotel"
+    },
+    {
+     "name": "베르네담스바이",
+     "lat": 55.67359,
+     "lng": 12.54638,
+     "en": "Værnedamsvej"
+    },
+    {
+     "name": "코펜하겐 동물원 · 시스테르네르네",
+     "lat": 55.67137,
+     "lng": 12.52369,
+     "en": "Copenhagen Zoo / Cisternerne"
+    },
+    {
+     "name": "홈 오브 칼스버그",
+     "lat": 55.66464,
+     "lng": 12.52973,
+     "en": "Home of Carlsberg"
+    },
+    {
+     "name": "미트패킹 디스트릭트 · 스칸딕 쾨드뷔엔",
+     "lat": 55.66829,
+     "lng": 12.5566,
+     "en": "Meatpacking District / Scandic Kødbyen"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,177 @@
+{
+ "city": "코르도바",
+ "slug": "cordoba-city-tour-bus",
+ "title": "코르도바 시티투어버스 노선도",
+ "sub": "코르도바 인티마 10곳 · 코르도바 파노라미카 15곳 · 번호는 노선별 순서",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "코르도바 인티마 · 알카사르 · 메스키타 · 구시가지",
+   "title": "코르도바 인티마",
+   "sub": "알카사르 · 메스키타 · 구시가지",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "알카사르 (1번)",
+     "lat": 37.87725,
+     "lng": -4.78147,
+     "en": "Alcázar de los Reyes Cristianos"
+    },
+    {
+     "name": "메스키타 대성당",
+     "lat": 37.87804,
+     "lng": -4.77937,
+     "en": "Mezquita - Catedral"
+    },
+    {
+     "name": "산페드로",
+     "lat": 37.88244,
+     "lng": -4.77153,
+     "en": "San Pedro"
+    },
+    {
+     "name": "레알레호 · 산안드레스",
+     "lat": 37.88637,
+     "lng": -4.77246,
+     "en": "Realejo - San Andrés"
+    },
+    {
+     "name": "비아나 궁전",
+     "lat": 37.88867,
+     "lng": -4.77432,
+     "en": "Palacio de Viana"
+    },
+    {
+     "name": "메르세드 궁전",
+     "lat": 37.89004,
+     "lng": -4.77942,
+     "en": "Palacio de la Merced - Diputación"
+    },
+    {
+     "name": "시청 · 로마 신전",
+     "lat": 37.88473,
+     "lng": -4.77598,
+     "en": "Ayuntamiento - Templo Romano"
+    },
+    {
+     "name": "텐디야스 광장",
+     "lat": 37.88454,
+     "lng": -4.77871,
+     "en": "Plaza de las Tendillas"
+    },
+    {
+     "name": "포르티요 아치",
+     "lat": 37.88134,
+     "lng": -4.7761,
+     "en": "Arco del Portillo"
+    },
+    {
+     "name": "강변 전망",
+     "lat": 37.8745,
+     "lng": -4.7774,
+     "en": "Panorámica del Río"
+    }
+   ]
+  },
+  {
+   "key": "r2",
+   "name": "코르도바 파노라미카 · 로마 다리 · 신시가지 · 기차역",
+   "title": "코르도바 파노라미카",
+   "sub": "로마 다리 · 신시가지 · 기차역",
+   "color": "#1f6fd1",
+   "stops": [
+    {
+     "name": "로마 다리 (16번)",
+     "lat": 37.8745,
+     "lng": -4.7774,
+     "en": "Panorámica del Río"
+    },
+    {
+     "name": "강변 전망",
+     "lat": 37.87607,
+     "lng": -4.78614,
+     "en": "San Basilio"
+    },
+    {
+     "name": "산바실리오",
+     "lat": 37.8806,
+     "lng": -4.78528,
+     "en": "Puerta de Almodóvar"
+    },
+    {
+     "name": "알모도바르 문",
+     "lat": 37.88365,
+     "lng": -4.78486,
+     "en": "Mercado de la Victoria"
+    },
+    {
+     "name": "빅토리아 시장",
+     "lat": 37.88727,
+     "lng": -4.78293,
+     "en": "Gran Capitán"
+    },
+    {
+     "name": "그란 카피탄",
+     "lat": 37.88894,
+     "lng": -4.78975,
+     "en": "Estación de trenes/autobuses"
+    },
+    {
+     "name": "기차·버스 터미널",
+     "lat": 37.89004,
+     "lng": -4.77942,
+     "en": "Palacio de la Merced - Diputación"
+    },
+    {
+     "name": "메르세드 궁전",
+     "lat": 37.89185,
+     "lng": -4.77612,
+     "en": "Malmuerta - Santa Marina"
+    },
+    {
+     "name": "말무에르타 · 산타마리나",
+     "lat": 37.89119,
+     "lng": -4.76541,
+     "en": "Plaza Corazón de María"
+    },
+    {
+     "name": "코라손 데 마리아 광장",
+     "lat": 37.88855,
+     "lng": -4.76857,
+     "en": "San Lorenzo"
+    },
+    {
+     "name": "산로렌소",
+     "lat": 37.88637,
+     "lng": -4.77246,
+     "en": "Realejo - San Andrés"
+    },
+    {
+     "name": "레알레호 · 산안드레스",
+     "lat": 37.88473,
+     "lng": -4.77598,
+     "en": "Ayuntamiento - Templo Romano"
+    },
+    {
+     "name": "시청 · 로마 신전",
+     "lat": 37.88134,
+     "lng": -4.7761,
+     "en": "Arco del Portillo"
+    },
+    {
+     "name": "포르티요 아치",
+     "lat": 37.87798,
+     "lng": -4.77845,
+     "en": "Puente Romano"
+    },
+    {
+     "name": "칼리프 목욕탕 · 알카사르",
+     "lat": 37.87679,
+     "lng": -4.78036,
+     "en": "Baños Califales - Alcázar"
+    }
+   ]
+  }
+ ]
+}

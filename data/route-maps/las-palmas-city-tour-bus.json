@@ -1,0 +1,84 @@
+{
+ "city": "라스팔마스",
+ "slug": "las-palmas-city-tour-bus",
+ "title": "라스팔마스 시티투어버스 노선도",
+ "sub": "레드 노선 11곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 시내 · 해안 · 베게타",
+   "title": "레드 노선",
+   "sub": "시내 · 해안 · 베게타",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "산타카탈리나 공원",
+     "lat": 28.14033,
+     "lng": -15.43075,
+     "en": "Parque Santa Catalina"
+    },
+    {
+     "name": "엘 코르테 잉글레스",
+     "lat": 28.13551,
+     "lng": -15.43177,
+     "en": "El Corte Inglés"
+    },
+    {
+     "name": "알프레도 크라우스 오디토리움",
+     "lat": 28.12919,
+     "lng": -15.44979,
+     "en": "Auditorio Alfredo Kraus"
+    },
+    {
+     "name": "코르니사 산책로",
+     "lat": 28.12318,
+     "lng": -15.43409,
+     "en": "Paseo de la Cornisa"
+    },
+    {
+     "name": "푸에블로 카나리오",
+     "lat": 28.1217,
+     "lng": -15.42666,
+     "en": "Pueblo Canario"
+    },
+    {
+     "name": "베게타 · 대성당",
+     "lat": 28.1051,
+     "lng": -15.41407,
+     "en": "Vegueta / Catedral"
+    },
+    {
+     "name": "산텔모 역",
+     "lat": 28.10882,
+     "lng": -15.41605,
+     "en": "Estación de San Telmo"
+    },
+    {
+     "name": "요트 항구",
+     "lat": 28.12137,
+     "lng": -15.42389,
+     "en": "Muelle Deportivo"
+    },
+    {
+     "name": "산타카탈리나 부두",
+     "lat": 28.14086,
+     "lng": -15.42773,
+     "en": "Muelle Santa Catalina"
+    },
+    {
+     "name": "포에마 델 마르 수족관",
+     "lat": 28.14513,
+     "lng": -15.42919,
+     "en": "Poema del Mar Aquarium"
+    },
+    {
+     "name": "라스 칸테라스 해변",
+     "lat": 28.14804,
+     "lng": -15.42859,
+     "en": "Playa de las Canteras"
+    }
+   ]
+  }
+ ]
+}

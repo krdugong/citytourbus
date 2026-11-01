@@ -1,0 +1,99 @@
+{
+ "city": "메디나",
+ "slug": "medina-city-tour-bus",
+ "title": "메디나 시티투어버스 노선도",
+ "sub": "레드 노선 8곳 · 그린 노선 4곳 · 번호는 노선별 순서",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 우후드 · 쿠바 · 히자즈 철도",
+   "title": "레드 노선",
+   "sub": "우후드 · 쿠바 · 히자즈 철도",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "우후드 전투지",
+     "lat": 24.50058,
+     "lng": 39.61137,
+     "en": "Uhud Battlefield"
+    },
+    {
+     "name": "알누르 몰",
+     "lat": 24.49445,
+     "lng": 39.59448,
+     "en": "Al-Noor Mall"
+    },
+    {
+     "name": "아부바크르 알시디크 로드 (술타나)",
+     "lat": 24.48913,
+     "lng": 39.58151,
+     "en": "Abu Bakr, Al Siddiq Road, Sultanah"
+    },
+    {
+     "name": "키블라타인 모스크",
+     "lat": 24.48443,
+     "lng": 39.57908,
+     "en": "Al Qiblatain Mosque"
+    },
+    {
+     "name": "참호 전투지",
+     "lat": 24.4764,
+     "lng": 39.59528,
+     "en": "The Trench Battlefield"
+    },
+    {
+     "name": "쿠바 모스크",
+     "lat": 24.43872,
+     "lng": 39.61656,
+     "en": "Masjid Quba"
+    },
+    {
+     "name": "히자즈 철도역",
+     "lat": 24.46045,
+     "lng": 39.60034,
+     "en": "Al Hijaz Railway Station"
+    },
+    {
+     "name": "쿠바 광장",
+     "lat": 24.46296,
+     "lng": 39.60515,
+     "en": "Quba Square"
+    }
+   ]
+  },
+  {
+   "key": "green",
+   "name": "그린 노선 · 예언자의 모스크 주변",
+   "title": "그린 노선",
+   "sub": "예언자의 모스크 주변",
+   "color": "#1f9d55",
+   "stops": [
+    {
+     "name": "예언자의 모스크 (알마스지드 안나바위)",
+     "lat": 24.47188,
+     "lng": 39.61121,
+     "en": "Al Masjid an Nabawi"
+    },
+    {
+     "name": "알바키 묘지",
+     "lat": 24.4656,
+     "lng": 39.61347,
+     "en": "Al-Baqi'"
+    },
+    {
+     "name": "알마나카 광장",
+     "lat": 24.46515,
+     "lng": 39.60734,
+     "en": "Al Manakha Square"
+    },
+    {
+     "name": "알살람 게이트",
+     "lat": 24.46722,
+     "lng": 39.60456,
+     "en": "Al Salam Gate"
+    }
+   ]
+  }
+ ]
+}

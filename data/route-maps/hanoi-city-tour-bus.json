@@ -1,0 +1,96 @@
+{
+ "city": "하노이",
+ "slug": "hanoi-city-tour-bus",
+ "title": "하노이 시티투어버스 노선도",
+ "sub": "하노이 시티투어 노선 13곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "하노이 시티투어 노선 · 평일 기준",
+   "title": "하노이 시티투어 노선",
+   "sub": "평일 기준",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "Frog Garden (터미널)",
+     "lat": 21.02427,
+     "lng": 105.85733,
+     "en": "Hanoi Opera House"
+    },
+    {
+     "name": "중앙우체국",
+     "lat": 21.02675,
+     "lng": 105.85626,
+     "en": "Frog Flower Garden"
+    },
+    {
+     "name": "하노이 대성당(성 요셉 성당)",
+     "lat": 21.02693,
+     "lng": 105.85359,
+     "en": "Hanoi Post Office"
+    },
+    {
+     "name": "군사역사박물관",
+     "lat": 21.02874,
+     "lng": 105.84898,
+     "en": "Hanoi Cathedral"
+    },
+    {
+     "name": "탕롱 황성",
+     "lat": 21.03224,
+     "lng": 105.84022,
+     "en": "Military History Museum"
+    },
+    {
+     "name": "꽌탄 사원",
+     "lat": 21.03521,
+     "lng": 105.84024,
+     "en": "Imperial Citadel of Thang Long"
+    },
+    {
+     "name": "쩐꾸옥 사원",
+     "lat": 21.043,
+     "lng": 105.83645,
+     "en": "Quan Thanh Temple"
+    },
+    {
+     "name": "호찌민 묘소",
+     "lat": 21.04789,
+     "lng": 105.83759,
+     "en": "Tran Quoc Pagoda"
+    },
+    {
+     "name": "문묘(반미에우)",
+     "lat": 21.03681,
+     "lng": 105.8347,
+     "en": "Ho Chi Minh Mausoleum"
+    },
+    {
+     "name": "호아로 수용소",
+     "lat": 21.02728,
+     "lng": 105.83609,
+     "en": "Temple of Literature"
+    },
+    {
+     "name": "하노이 대성당",
+     "lat": 21.02532,
+     "lng": 105.84647,
+     "en": "Hoa Lo Prison"
+    },
+    {
+     "name": "베트남 여성박물관",
+     "lat": 21.02874,
+     "lng": 105.84898,
+     "en": "Hanoi Cathedral"
+    },
+    {
+     "name": "하노이 오페라 하우스",
+     "lat": 21.02326,
+     "lng": 105.8514,
+     "en": "Vietnam Women's Museum"
+    }
+   ]
+  }
+ ]
+}

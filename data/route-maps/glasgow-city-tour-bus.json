@@ -1,0 +1,162 @@
+{
+ "city": "글래스고",
+ "slug": "glasgow-city-tour-bus",
+ "title": "글래스고 시티투어버스 노선도",
+ "sub": "레드 노선 24곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 시내 · 클라이드강 · 웨스트엔드",
+   "title": "레드 노선",
+   "sub": "시내 · 클라이드강 · 웨스트엔드",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "조지 광장 (1번)",
+     "lat": 55.86151,
+     "lng": -4.24916,
+     "en": "Stop 1 - George Square"
+    },
+    {
+     "name": "글래스고 대성당",
+     "lat": 55.86212,
+     "lng": -4.23517,
+     "en": "Stop 2 - Cathedral"
+    },
+    {
+     "name": "테넌츠 양조장 (임시 미운영)",
+     "lat": 55.86062,
+     "lng": -4.23388,
+     "en": "Stop 3 - Tennants"
+    },
+    {
+     "name": "하이 스트리트",
+     "lat": 55.8583,
+     "lng": -4.24193,
+     "en": "Stop 4 - High St"
+    },
+    {
+     "name": "바라스 마켓",
+     "lat": 55.85468,
+     "lng": -4.24011,
+     "en": "Stop 5 - Barra's"
+    },
+    {
+     "name": "글래스고 그린",
+     "lat": 55.85218,
+     "lng": -4.23722,
+     "en": "Stop 6 - Green"
+    },
+    {
+     "name": "맥레넌 아치",
+     "lat": 55.85395,
+     "lng": -4.24603,
+     "en": "Stop 7 - McLennan Arch"
+    },
+    {
+     "name": "클라이드 스트리트",
+     "lat": 55.85534,
+     "lng": -4.25345,
+     "en": "Stop 8 - Clyde St"
+    },
+    {
+     "name": "브루밀로",
+     "lat": 55.8567,
+     "lng": -4.2636,
+     "en": "Stop 9 - Broomielaw"
+    },
+    {
+     "name": "앤더스턴 키",
+     "lat": 55.85651,
+     "lng": -4.27078,
+     "en": "Stop 10 - Anderston Quay"
+    },
+    {
+     "name": "클라이드 아크",
+     "lat": 55.85758,
+     "lng": -4.28083,
+     "en": "Stop 11 - Clyde Arc"
+    },
+    {
+     "name": "글래스고 사이언스 센터",
+     "lat": 55.85818,
+     "lng": -4.29235,
+     "en": "Stop 12 - Science Centre"
+    },
+    {
+     "name": "거번 스톤스",
+     "lat": 55.86335,
+     "lng": -4.31289,
+     "en": "Stop 13 - Govan Stones"
+    },
+    {
+     "name": "페어필드",
+     "lat": 55.86336,
+     "lng": -4.31731,
+     "en": "Stop 14 - Fairfield"
+    },
+    {
+     "name": "빌리지 호텔",
+     "lat": 55.85666,
+     "lng": -4.28851,
+     "en": "Stop 15 - Villiage Hotel"
+    },
+    {
+     "name": "래디슨 레드",
+     "lat": 55.85809,
+     "lng": -4.28303,
+     "en": "Stop 16 - Raddison Red"
+    },
+    {
+     "name": "SECC",
+     "lat": 55.85919,
+     "lng": -4.28697,
+     "en": "Stop 17 - SECC"
+    },
+    {
+     "name": "클라이드사이드 증류소",
+     "lat": 55.86243,
+     "lng": -4.29652,
+     "en": "Stop 18 - Clydeside Distillary"
+    },
+    {
+     "name": "리버사이드 박물관 (임시 정류장)",
+     "lat": 55.86754,
+     "lng": -4.30561,
+     "en": "Stop 19 - Riverside (Temp Stop on Bridge)"
+    },
+    {
+     "name": "바이어스 로드",
+     "lat": 55.87035,
+     "lng": -4.2987,
+     "en": "Stop 20 - Byres Rd"
+    },
+    {
+     "name": "켈빈그로브",
+     "lat": 55.86858,
+     "lng": -4.29215,
+     "en": "Stop 21 - Kelvingrove"
+    },
+    {
+     "name": "히든 레인",
+     "lat": 55.86419,
+     "lng": -4.28229,
+     "en": "Stop 22 - Hidden Lane"
+    },
+    {
+     "name": "블라이스우드 광장",
+     "lat": 55.86318,
+     "lng": -4.26297,
+     "en": "Stop 23 - Blytheswood Sq"
+    },
+    {
+     "name": "넬슨 만델라 광장",
+     "lat": 55.86231,
+     "lng": -4.25587,
+     "en": "Stop 24 - Nelson Mandela Pl"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,96 @@
+{
+ "city": "세비야",
+ "slug": "seville-city-tour-bus",
+ "title": "세비야 시티투어버스 노선도",
+ "sub": "세비야 시티투어 노선 13곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "세비야 시티투어 노선 · 정류장 13곳",
+   "title": "세비야 시티투어 노선",
+   "sub": "정류장 13곳",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "파세오 데 콜론",
+     "lat": 37.38362,
+     "lng": -5.99725,
+     "en": "Paseo de Colón"
+    },
+    {
+     "name": "스페인 광장",
+     "lat": 37.37897,
+     "lng": -5.98852,
+     "en": "Plaza de España"
+    },
+    {
+     "name": "세비야 수족관",
+     "lat": 37.36997,
+     "lng": -5.99054,
+     "en": "Acuario de Sevilla"
+    },
+    {
+     "name": "아메리카 광장",
+     "lat": 37.37097,
+     "lng": -5.98879,
+     "en": "Plaza de América"
+    },
+    {
+     "name": "쿠바 광장",
+     "lat": 37.3792,
+     "lng": -5.99952,
+     "en": "Plaza de Cuba"
+    },
+    {
+     "name": "트리아나 · 산하신토",
+     "lat": 37.37963,
+     "lng": -6.00841,
+     "en": "Triana: San Jacinto"
+    },
+    {
+     "name": "트리아나 · 카스티야 거리",
+     "lat": 37.3886,
+     "lng": -6.01057,
+     "en": "Triana: Calle Castilla"
+    },
+    {
+     "name": "엑스포 92 (세비야 만국박람회장)",
+     "lat": 37.39438,
+     "lng": -6.00839,
+     "en": "Exposición Universal (Expo '92)"
+    },
+    {
+     "name": "이슬라 마히카",
+     "lat": 37.40515,
+     "lng": -5.99887,
+     "en": "Isla Mágica"
+    },
+    {
+     "name": "토레 데 로스 페르디고네스",
+     "lat": 37.40344,
+     "lng": -5.99225,
+     "en": "Torre de los Perdigones"
+    },
+    {
+     "name": "마카레나",
+     "lat": 37.40385,
+     "lng": -5.98935,
+     "en": "Macarena"
+    },
+    {
+     "name": "두케 광장",
+     "lat": 37.39276,
+     "lng": -5.99598,
+     "en": "Plaza del Duque"
+    },
+    {
+     "name": "아르마스 광장",
+     "lat": 37.39222,
+     "lng": -6.00356,
+     "en": "Plaza de Armas"
+    }
+   ]
+  }
+ ]
+}

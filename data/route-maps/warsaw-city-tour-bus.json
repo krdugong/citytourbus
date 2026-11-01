@@ -1,0 +1,213 @@
+{
+ "city": "바르샤바",
+ "slug": "warsaw-city-tour-bus",
+ "title": "바르샤바 시티투어버스 노선도",
+ "sub": "레드 노선 16곳 · 블루 노선 15곳 · 번호는 노선별 순서",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 구시가지 · 왕궁",
+   "title": "레드 노선",
+   "sub": "구시가지 · 왕궁",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "중앙역 (드보제츠 첸트랄니)",
+     "lat": 52.23044,
+     "lng": 21.00454,
+     "en": "Dworzec Centralny 12"
+    },
+    {
+     "name": "그지보프스키 광장",
+     "lat": 52.23661,
+     "lng": 21.00311,
+     "en": "Plac Grzybowski 01"
+    },
+    {
+     "name": "빌레뉴스키역",
+     "lat": 52.25389,
+     "lng": 21.03536,
+     "en": "Dworzec Wileński 01"
+    },
+    {
+     "name": "파니엔스카 지구",
+     "lat": 52.24834,
+     "lng": 21.02823,
+     "en": "Osiedle Panieńska 01"
+    },
+    {
+     "name": "시비엥토크시스키 다리",
+     "lat": 52.24333,
+     "lng": 21.03746,
+     "en": "Most Świętokrzyski 03"
+    },
+    {
+     "name": "코페르니쿠스 과학센터 (메트로 CNK)",
+     "lat": 52.23985,
+     "lng": 21.02949,
+     "en": "Metro CNK 04"
+    },
+    {
+     "name": "노비 시비아트 거리",
+     "lat": 52.23703,
+     "lng": 21.01789,
+     "en": "Nowy Świat 04"
+    },
+    {
+     "name": "브리스톨 호텔",
+     "lat": 52.2423,
+     "lng": 21.01519,
+     "en": "Hotel Bristol 02"
+    },
+    {
+     "name": "마와호프스키 광장",
+     "lat": 52.24567,
+     "lng": 21.01373,
+     "en": "Plac Małachowskiego 01"
+    },
+    {
+     "name": "구시가 (스타레 미아스토)",
+     "lat": 52.2472,
+     "lng": 21.01279,
+     "en": "Stare Miasto 05"
+    },
+    {
+     "name": "크라신스키 광장",
+     "lat": 52.24905,
+     "lng": 21.00542,
+     "en": "Plac Krasińskich 02"
+    },
+    {
+     "name": "무라노프스카",
+     "lat": 52.25385,
+     "lng": 20.99857,
+     "en": "Muranowska 04"
+    },
+    {
+     "name": "날레프키 박물관",
+     "lat": 52.24881,
+     "lng": 20.99454,
+     "en": "Muzeum Nalewki 02"
+    },
+    {
+     "name": "아니엘레비차",
+     "lat": 52.24738,
+     "lng": 20.98897,
+     "en": "Anielewicza 03"
+    },
+    {
+     "name": "은행 광장 (플라츠 반코비)",
+     "lat": 52.24316,
+     "lng": 21.00224,
+     "en": "Plac Bankowy 03"
+    },
+    {
+     "name": "첸트룸",
+     "lat": 52.22944,
+     "lng": 21.00954,
+     "en": "Centrum 03"
+    }
+   ]
+  },
+  {
+   "key": "blue",
+   "name": "블루 노선 · 국립박물관 등",
+   "title": "블루 노선",
+   "sub": "국립박물관 등",
+   "color": "#1f6fd1",
+   "stops": [
+    {
+     "name": "문화과학궁전 (중앙역)",
+     "lat": 52.23061,
+     "lng": 21.00473,
+     "en": "Palace of Culture & Science (Dworzec Centralny 12)"
+    },
+    {
+     "name": "노르블린 공장 박물관",
+     "lat": 52.23173,
+     "lng": 20.99082,
+     "en": "Norblin Factory Museum"
+    },
+    {
+     "name": "바르샤바 봉기 박물관",
+     "lat": 52.23309,
+     "lng": 20.98133,
+     "en": "Warsaw Rising Museum (Muzeum Powstania Warszawskiego 01"
+    },
+    {
+     "name": "브로니아 (현재 미운영)",
+     "lat": 52.23415,
+     "lng": 20.98702,
+     "en": "Wronia (currently closed and out of service)"
+    },
+    {
+     "name": "그지보프스키 광장",
+     "lat": 52.23596,
+     "lng": 20.9978,
+     "en": "Grzybowski Square (Aleja Jana Pawła II 01)"
+    },
+    {
+     "name": "자헹타 미술관",
+     "lat": 52.23925,
+     "lng": 21.01048,
+     "en": "Zachęta Gallery (Zachęta 01)"
+    },
+    {
+     "name": "구시가 (스타레 미아스토)",
+     "lat": 52.24731,
+     "lng": 21.01266,
+     "en": "Old Town (Stare Miasto 05)"
+    },
+    {
+     "name": "마와호프스키 광장",
+     "lat": 52.24567,
+     "lng": 21.01373,
+     "en": "Plac Małachowskiego 01"
+    },
+    {
+     "name": "왕궁 광장 (플라츠 잠코비)",
+     "lat": 52.24533,
+     "lng": 21.01375,
+     "en": "Castle Square (Plac Zamkowy 01)"
+    },
+    {
+     "name": "쇼팽 박물관",
+     "lat": 52.23624,
+     "lng": 21.01805,
+     "en": "Chopin Museum (Ordynacka 01)"
+    },
+    {
+     "name": "국립 박물관",
+     "lat": 52.23233,
+     "lng": 21.01995,
+     "en": "National Museum (Foksal 01"
+    },
+    {
+     "name": "세 십자가 광장",
+     "lat": 52.22691,
+     "lng": 21.02323,
+     "en": "Three Crosses Square (Plac Trzech Krzyży 03"
+    },
+    {
+     "name": "와지엔키 공원",
+     "lat": 52.21417,
+     "lng": 21.02642,
+     "en": "Łazienki Royal Park (Łazienkowskie 01)"
+    },
+    {
+     "name": "헌법 광장",
+     "lat": 52.22248,
+     "lng": 21.0167,
+     "en": "Constitution Square (Konstytucji 01)"
+    },
+    {
+     "name": "다운타운 (첸트룸)",
+     "lat": 52.22968,
+     "lng": 21.01,
+     "en": "Downtown (Centrum 06)"
+    }
+   ]
+  }
+ ]
+}

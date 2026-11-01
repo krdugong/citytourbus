@@ -1,0 +1,84 @@
+{
+ "city": "하롱",
+ "slug": "ha-long-city-tour-bus",
+ "title": "하롱베이 시티투어버스 노선도",
+ "sub": "하롱 시티 투어 11곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "하롱 시티 투어 · 시내 · 해안 · 뚜언쩌우",
+   "title": "하롱 시티 투어",
+   "sub": "시내 · 해안 · 뚜언쩌우",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "터미널",
+     "lat": 20.95627,
+     "lng": 107.05154,
+     "en": "Terminal"
+    },
+    {
+     "name": "하롱 시장",
+     "lat": 20.95153,
+     "lng": 107.08248,
+     "en": "Ha Long Market"
+    },
+    {
+     "name": "BWP 사파이어 호텔",
+     "lat": 20.95271,
+     "lng": 107.07093,
+     "en": "BWP Sapphire Hotel Ha Long"
+    },
+    {
+     "name": "빈컴 하롱",
+     "lat": 20.94959,
+     "lng": 107.08467,
+     "en": "Vincom Ha Long"
+    },
+    {
+     "name": "로열 로터스 호텔",
+     "lat": 20.95677,
+     "lng": 107.01852,
+     "en": "Royal Lotus Hotel"
+    },
+    {
+     "name": "꽝닌 박물관",
+     "lat": 20.94914,
+     "lng": 107.09744,
+     "en": "Quang Ninh Museum"
+    },
+    {
+     "name": "빈펄 하롱 (터미널)",
+     "lat": 20.94771,
+     "lng": 107.02646,
+     "en": " Vinpearl Ha Long - terminal"
+    },
+    {
+     "name": "해변 (바이짜이)",
+     "lat": 20.93729,
+     "lng": 107.12875,
+     "en": "Beach"
+    },
+    {
+     "name": "계획 전시·엑스포 센터",
+     "lat": 20.94787,
+     "lng": 107.10099,
+     "en": "Exhibition of Planning and Expo  Center"
+    },
+    {
+     "name": "하롱 꽃 공원",
+     "lat": 20.94953,
+     "lng": 107.08704,
+     "en": " Ha Long Flower Park"
+    },
+    {
+     "name": "뚜언쩌우 항",
+     "lat": 20.92366,
+     "lng": 106.99052,
+     "en": " Tuan Chau Harbord"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,117 @@
+{
+ "city": "고조",
+ "slug": "gozo-city-tour-bus",
+ "title": "고조섬 시티투어버스 노선도",
+ "sub": "퍼플 노선 9곳 · 블루 노선 6곳 · 번호는 노선별 순서",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "purple",
+   "name": "퍼플 노선 · 빅토리아 · 드웨이라 · 슐렌디",
+   "title": "퍼플 노선",
+   "sub": "빅토리아 · 드웨이라 · 슐렌디",
+   "color": "#7b2fbe",
+   "stops": [
+    {
+     "name": "음자르 항 (1번)",
+     "lat": 36.02458,
+     "lng": 14.29857,
+     "en": "Mgarr"
+    },
+    {
+     "name": "셰우키야",
+     "lat": 36.03227,
+     "lng": 14.26114,
+     "en": "Xewkija"
+    },
+    {
+     "name": "사비나 크리에이티비티",
+     "lat": 36.03805,
+     "lng": 14.25499,
+     "en": "Savina Creativity"
+    },
+    {
+     "name": "빅토리아 (드웨이라 방면)",
+     "lat": 36.04442,
+     "lng": 14.24209,
+     "en": "Victoria to Dwejra"
+    },
+    {
+     "name": "타드비에지",
+     "lat": 36.05506,
+     "lng": 14.20985,
+     "en": "Ta'Dbiegi"
+    },
+    {
+     "name": "드웨이라",
+     "lat": 36.05224,
+     "lng": 14.19038,
+     "en": "Dwejra"
+    },
+    {
+     "name": "타피누 성당",
+     "lat": 36.06126,
+     "lng": 14.21591,
+     "en": "Ta'Pinu"
+    },
+    {
+     "name": "폰타나 코티지",
+     "lat": 36.03704,
+     "lng": 14.23497,
+     "en": "Fontana Cottage"
+    },
+    {
+     "name": "슐렌디",
+     "lat": 36.03031,
+     "lng": 14.2183,
+     "en": "Xlendi"
+    }
+   ]
+  },
+  {
+   "key": "blue",
+   "name": "블루 노선 · 마르살포른 · 즈간티야 · 람라",
+   "title": "블루 노선",
+   "sub": "마르살포른 · 즈간티야 · 람라",
+   "color": "#1f6fd1",
+   "stops": [
+    {
+     "name": "빅토리아 (마르살포른 방면)",
+     "lat": 36.04419,
+     "lng": 14.24199,
+     "en": "Victoria to Marsalforn"
+    },
+    {
+     "name": "마르살포른",
+     "lat": 36.06946,
+     "lng": 14.26026,
+     "en": "Marsalforn"
+    },
+    {
+     "name": "즈간티야 신전",
+     "lat": 36.04925,
+     "lng": 14.26776,
+     "en": "Ggantija Temples"
+    },
+    {
+     "name": "람라 해변",
+     "lat": 36.05773,
+     "lng": 14.28429,
+     "en": "Ramla"
+    },
+    {
+     "name": "나두르",
+     "lat": 36.03848,
+     "lng": 14.29159,
+     "en": "Nadur"
+    },
+    {
+     "name": "음자르",
+     "lat": 36.02454,
+     "lng": 14.29864,
+     "en": "Mgarr"
+    }
+   ]
+  }
+ ]
+}

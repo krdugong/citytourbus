@@ -72,20 +72,30 @@ for s in specs {
   (s.title as NSString).draw(at: NSPoint(x: 70, y: 56 + (50 - tsize) / 2), withAttributes: attrs(font(tsize, true), NSColor(white: 0.1, alpha: 1)))
   (s.sub as NSString).draw(at: NSPoint(x: 72, y: 118), withAttributes: attrs(font(24, false), NSColor(white: 0.35, alpha: 1)))
   ("CITYTOURBUS.KR" as NSString).draw(at: NSPoint(x: W - 280, y: 64), withAttributes: attrs(font(22, true), color("#e22b37")))
-  // legend
-  let lh: CGFloat = 64 + CGFloat(max(0, s.routes.count - 3)) * 0
-  let lp = NSRect(x: 40, y: H - 40 - 120, width: W - 80, height: 120)
-  NSColor(white: 1, alpha: 0.94).setFill(); NSBezierPath(roundedRect: lp, xRadius: 22, yRadius: 22).fill()
-  var x: CGFloat = 70
+  // legend: route names wrap onto extra rows when there are many routes (e.g. 6 weekday courses)
+  let lfont = font(s.routes.count > 3 ? 20 : 24, true)
+  let la = attrs(lfont, NSColor(white: 0.15, alpha: 1))
+  var rowsNeeded = 0, mx: CGFloat = 70
   for r in s.routes {
-    color(r.color).setFill(); NSBezierPath(roundedRect: NSRect(x: x, y: lp.minY + 30, width: 44, height: 12), xRadius: 6, yRadius: 6).fill()
-    let a = attrs(font(24, true), NSColor(white: 0.15, alpha: 1))
-    (r.name as NSString).draw(at: NSPoint(x: x + 54, y: lp.minY + 20), withAttributes: a)
-    x += 54 + (r.name as NSString).size(withAttributes: a).width + 40
+    let w = 54 + (r.name as NSString).size(withAttributes: la).width + 40
+    if mx + w > W - 70 && mx > 70 { mx = 70; rowsNeeded += 1 }
+    mx += w
   }
-  _ = lh
-  (s.note as NSString).draw(at: NSPoint(x: 70, y: lp.minY + 70), withAttributes: attrs(font(19, false), NSColor(white: 0.4, alpha: 1)))
-  ("© OpenStreetMap contributors" as NSString).draw(at: NSPoint(x: W - 300, y: lp.minY + 70), withAttributes: attrs(font(17, false), NSColor(white: 0.4, alpha: 1)))
+  let rowH: CGFloat = 34
+  let lp = NSRect(x: 40, y: H - 40 - 120 - CGFloat(rowsNeeded) * rowH, width: W - 80, height: 120 + CGFloat(rowsNeeded) * rowH)
+  NSColor(white: 1, alpha: 0.94).setFill(); NSBezierPath(roundedRect: lp, xRadius: 22, yRadius: 22).fill()
+  var x: CGFloat = 70, row = 0
+  for r in s.routes {
+    let w = 54 + (r.name as NSString).size(withAttributes: la).width + 40
+    if x + w > W - 70 && x > 70 { x = 70; row += 1 }
+    let y = lp.minY + 20 + CGFloat(row) * rowH
+    color(r.color).setFill(); NSBezierPath(roundedRect: NSRect(x: x, y: y + 10, width: 44, height: 12), xRadius: 6, yRadius: 6).fill()
+    (r.name as NSString).draw(at: NSPoint(x: x + 54, y: y), withAttributes: la)
+    x += w
+  }
+  let noteY = lp.minY + 70 + CGFloat(rowsNeeded) * rowH
+  (s.note as NSString).draw(at: NSPoint(x: 70, y: noteY), withAttributes: attrs(font(19, false), NSColor(white: 0.4, alpha: 1)))
+  ("© OpenStreetMap contributors" as NSString).draw(at: NSPoint(x: W - 300, y: noteY), withAttributes: attrs(font(17, false), NSColor(white: 0.4, alpha: 1)))
   NSGraphicsContext.restoreGraphicsState()
   let url = URL(fileURLWithPath: args[2]).appendingPathComponent(s.out)
   try! FileManager.default.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)

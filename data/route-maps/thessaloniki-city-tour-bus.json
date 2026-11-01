@@ -1,0 +1,72 @@
+{
+ "city": "테살로니키",
+ "slug": "thessaloniki-city-tour-bus",
+ "title": "테살로니키 시티투어버스 노선도",
+ "sub": "레드 노선 9곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 화이트 타워 · 성당 · 아노 폴리",
+   "title": "레드 노선",
+   "sub": "화이트 타워 · 성당 · 아노 폴리",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "화이트 타워",
+     "lat": 40.62488,
+     "lng": 22.95069,
+     "en": "Lefkós Pýrgos - White Tower"
+    },
+    {
+     "name": "고고학 박물관",
+     "lat": 40.62555,
+     "lng": 22.95288,
+     "en": "Archaeological Museum"
+    },
+    {
+     "name": "아기아 소피아 성당",
+     "lat": 40.63322,
+     "lng": 22.94694,
+     "en": "Agia Sofia Church"
+    },
+    {
+     "name": "아기오스 디미트리오스 성당",
+     "lat": 40.63894,
+     "lng": 22.94656,
+     "en": "Agios Dimitrios Church "
+    },
+    {
+     "name": "아노 폴리 (비잔틴 성벽)",
+     "lat": 40.64135,
+     "lng": 22.95836,
+     "en": "Ano Poli (Byzantine Castles)"
+    },
+    {
+     "name": "카마라 · 로톤다",
+     "lat": 40.63261,
+     "lng": 22.95058,
+     "en": "Kamara & Rotonda"
+    },
+    {
+     "name": "에그나티아 (아리스토텔레스 광장)",
+     "lat": 40.63646,
+     "lng": 22.94313,
+     "en": "Egnatia (Aristotelous)"
+    },
+    {
+     "name": "옛 기차역 (현재 미운영)",
+     "lat": 40.64169,
+     "lng": 22.92536,
+     "en": "Paleos Stathmos: Old Railway Station (currently closed)"
+    },
+    {
+     "name": "테살로니키 항",
+     "lat": 40.63392,
+     "lng": 22.93694,
+     "en": "Port of Thessaloniki"
+    }
+   ]
+  }
+ ]
+}

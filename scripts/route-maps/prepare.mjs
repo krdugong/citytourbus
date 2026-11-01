@@ -15,6 +15,16 @@ fs.mkdirSync(path.join(CACHE, 'tiles'), { recursive: true });
 fs.mkdirSync(path.join(CACHE, 'osrm'), { recursive: true });
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+// public servers drop connections now and then: retry a few times with a pause before giving up
+async function fetchRetry(url, tries = 4) {
+  for (let i = 1; ; i++) {
+    try {
+      const res = await fetch(url, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(30000) });
+      if (res.ok || i >= tries) return res;
+    } catch (e) { if (i >= tries) throw e; }
+    await sleep(3000 * i);
+  }
+}
 const lon2x = (lng, z) => (lng + 180) / 360 * TILE * 2 ** z;
 const lat2y = (lat, z) => { const r = lat * Math.PI / 180; return (1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2 * TILE * 2 ** z; };
 
@@ -27,7 +37,7 @@ async function osrmLeg(a, b) {
   const coords = `${a.lng},${a.lat};${b.lng},${b.lat}`;
   const file = path.join(CACHE, 'osrm', `leg-${coords.replace(/[^0-9.,;-]/g, '')}.json`);
   if (!fs.existsSync(file)) {
-    const res = await fetch(`https://router.project-osrm.org/route/v1/driving/${coords}?overview=full&geometries=geojson`, { headers: { 'User-Agent': UA } });
+    const res = await fetchRetry(`https://router.project-osrm.org/route/v1/driving/${coords}?overview=full&geometries=geojson`);
     if (!res.ok) throw new Error(`OSRM ${res.status}`);
     fs.writeFileSync(file, await res.text());
     await sleep(1100); // be polite to the public demo server
@@ -53,7 +63,7 @@ async function roadPath(route) {
 async function tile(z, x, y) {
   const file = path.join(CACHE, 'tiles', `${z}-${x}-${y}.png`);
   if (!fs.existsSync(file)) {
-    const res = await fetch(`https://tile.openstreetmap.org/${z}/${x}/${y}.png`, { headers: { 'User-Agent': UA } });
+    const res = await fetchRetry(`https://tile.openstreetmap.org/${z}/${x}/${y}.png`);
     if (!res.ok) throw new Error(`tile ${z}/${x}/${y}: ${res.status}`);
     fs.writeFileSync(file, Buffer.from(await res.arrayBuffer()));
     await sleep(150);

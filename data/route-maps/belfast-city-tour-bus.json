@@ -1,0 +1,132 @@
+{
+ "city": "벨파스트",
+ "slug": "belfast-city-tour-bus",
+ "title": "벨파스트 시티투어버스 노선도",
+ "sub": "레드 노선 19곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 시청 · 타이태닉 쿼터 · 웨스트 벨파스트",
+   "title": "레드 노선",
+   "sub": "시청 · 타이태닉 쿼터 · 웨스트 벨파스트",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "벨파스트 시청",
+     "lat": 54.59736,
+     "lng": -5.93029,
+     "en": "Belfast City Hall"
+    },
+    {
+     "name": "SSE 아레나",
+     "lat": 54.60315,
+     "lng": -5.91682,
+     "en": "SSE Arena"
+    },
+    {
+     "name": "타이태닉 쿼터",
+     "lat": 54.6045,
+     "lng": -5.91121,
+     "en": "Titanic Quarter"
+    },
+    {
+     "name": "HMS 캐롤라인",
+     "lat": 54.61385,
+     "lng": -5.90308,
+     "en": "HMS Caroline"
+    },
+    {
+     "name": "타이태닉 벨파스트",
+     "lat": 54.60754,
+     "lng": -5.90847,
+     "en": "Titanic Belfast"
+    },
+    {
+     "name": "워터프런트 · 세인트조지 마켓",
+     "lat": 54.59627,
+     "lng": -5.92258,
+     "en": "Waterfront / Laganside / St. George's Market"
+    },
+    {
+     "name": "그레이트 빅토리아 스트리트",
+     "lat": 54.59451,
+     "lng": -5.93446,
+     "en": "Great Victoria Street"
+    },
+    {
+     "name": "더블린 로드",
+     "lat": 54.59224,
+     "lng": -5.93211,
+     "en": "Dublin Road"
+    },
+    {
+     "name": "섀프츠베리 광장",
+     "lat": 54.58901,
+     "lng": -5.93465,
+     "en": "Shaftesbury Square"
+    },
+    {
+     "name": "퀸스 대학교",
+     "lat": 54.58424,
+     "lng": -5.93648,
+     "en": "Queen's University"
+    },
+    {
+     "name": "에글런틴 애비뉴",
+     "lat": 54.58146,
+     "lng": -5.94264,
+     "en": "Eglantine Avenue"
+    },
+    {
+     "name": "쿨투를란 맥아담 오피아크",
+     "lat": 54.59305,
+     "lng": -5.95959,
+     "en": "Cultúrlann McAdam Ó Fiaich"
+    },
+    {
+     "name": "폴스 로드",
+     "lat": 54.59683,
+     "lng": -5.95419,
+     "en": "Falls Road"
+    },
+    {
+     "name": "국제 벽화 거리",
+     "lat": 54.59938,
+     "lng": -5.94755,
+     "en": "International Wall Murals"
+    },
+    {
+     "name": "평화의 벽",
+     "lat": 54.6019,
+     "lng": -5.95912,
+     "en": "Belfast Peace Wall"
+    },
+    {
+     "name": "스펙트럼 관광안내소",
+     "lat": 54.60473,
+     "lng": -5.95705,
+     "en": "Spectrum Tourist Information Centre"
+    },
+    {
+     "name": "섕킬 메모리얼 가든",
+     "lat": 54.60408,
+     "lng": -5.94826,
+     "en": "Shankill Memorial Garden"
+    },
+    {
+     "name": "크럼린 로드 감옥",
+     "lat": 54.60907,
+     "lng": -5.94384,
+     "en": "Crumlin Road Gaol"
+    },
+    {
+     "name": "도니걸 스트리트",
+     "lat": 54.60488,
+     "lng": -5.93167,
+     "en": "Donegall Street"
+    }
+   ]
+  }
+ ]
+}

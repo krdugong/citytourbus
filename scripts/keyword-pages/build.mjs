@@ -59,19 +59,20 @@ function figure(p, key) {
 
 // Route-map images made by scripts/route-maps (overview + one per route, in data/route-maps order)
 function routeMap(p) {
-  const out = { overview: null, perRoute: [] };
+  const out = { overview: null, perRoute: [], uncertain: [] };
   const overview = `img/${p.slug}/${p.slug}-map.jpg`;
   if (fs.existsSync(path.join(ROOT, overview))) out.overview = `/${overview}`;
   const dataFile = path.join(ROOT, 'data/route-maps', `${p.slug}.json`);
   if (fs.existsSync(dataFile)) {
     for (const r of JSON.parse(fs.readFileSync(dataFile, 'utf8')).routes) {
+      out.uncertain.push(...r.stops.filter(s => s.uncertain).map(s => s.name));
       const f = `img/${p.slug}/${p.slug}-map-${r.key}.jpg`;
       out.perRoute.push(fs.existsSync(path.join(ROOT, f)) ? { src: `/${f}`, title: r.title || r.name } : null);
     }
   }
   return out;
 }
-const mapFigure = (src, alt) => `<figure class="kw-figure kw-map"><img src="${src}" alt="${esc(alt)}" width="1080" height="1080" loading="lazy" decoding="async"><figcaption>${esc(alt)} · 정류장 순서 기준 참고용 · © OpenStreetMap contributors</figcaption></figure>`;
+const mapFigure = (src, alt, note = '') => `<figure class="kw-figure kw-map"><img src="${src}" alt="${esc(alt)}" width="1080" height="1080" loading="lazy" decoding="async"><figcaption>${esc(alt)} · 정류장 순서 기준 참고용${note ? ` · ${esc(note)}` : ''} · © OpenStreetMap contributors</figcaption></figure>`;
 const cta = (p) => `<a class="button kw-cta" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${esc(p.booking.label)} →</a>`;
 // Stop-order diagram per route (metro-map style list; transfers = stops shared by 2+ routes)
 function routeDiagram(p) {
@@ -134,7 +135,7 @@ function render(p, all) {
   const map = routeMap(p);
   const diagram = routeDiagram(p);
   sec('route', 'ROUTE', h2.route, '노선',
-    (map.overview ? mapFigure(map.overview, `${k} 노선도`) : '') +
+    (map.overview ? mapFigure(map.overview, `${k} 노선도`, map.uncertain.length ? `${map.uncertain.join(', ')} 위치는 대략적인 추정` : '') : '') +
     `<p>${esc(k)}는 ${esc(routeNames)} ${p.routes.length > 1 ? `${p.routes.length}개 노선으로` : '노선 하나로'} 운행합니다.${p.routeCheck ? ` 정류장 위치는 <a href="${esc(p.routeCheck.url)}">${esc(p.routeCheck.label)}</a>에서 지도로 볼 수 있습니다.` : ''}${SIM[p.slug] ? ` 가고 싶은 곳을 넣으면 탈 노선과 내릴 정류장을 순서대로 짜 주는 <a href="${SIM[p.slug].url}">${esc(SIM[p.slug].label)}</a>도 있습니다.` : ''}</p>` +
     `<div class="kw-route-grid">` + p.routes.map((r, i) => `<div class="kw-route" style="--rc:${r.color}"><h3>${esc(k)} ${esc(r.name)}${r.area ? ` · ${esc(r.area)}` : ''}</h3><p class="small">${esc(r.en)} · ${esc(r.duration)} · ${esc(r.interval)} · ${esc(r.hours)}</p>${diagram[i] || ''}<p>${esc(r.tip)}</p>${map.perRoute[i] ? mapFigure(map.perRoute[i].src, `${k} ${map.perRoute[i].title} 노선도`) : ''}</div>`).join('') + `</div>`);
 

@@ -1,0 +1,315 @@
+{
+ "city": "몰타",
+ "slug": "malta-city-tour-bus",
+ "title": "몰타 시티투어버스 노선도",
+ "sub": "북부 노선 30곳 · 남부 노선 18곳 · 번호는 노선별 순서",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "북부 노선 · 부지바 · 슬리에마 · 발레타 · 음디나",
+   "title": "북부 노선",
+   "sub": "부지바 · 슬리에마 · 발레타 · 음디나",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "부지바 (토파즈 · 페블스 호텔)",
+     "lat": 35.94716,
+     "lng": 14.41219,
+     "en": "Bugibba (Topaz Hotel/Pebbles Hotel)"
+    },
+    {
+     "name": "부지바 (페블스 호텔)",
+     "lat": 35.94789,
+     "lng": 14.41017,
+     "en": "Bugibba (Pebbles Hotel)"
+    },
+    {
+     "name": "부지바 선착장",
+     "lat": 35.95208,
+     "lng": 14.40904,
+     "en": "Bugibba Jetty (Seatrips Outlet)"
+    },
+    {
+     "name": "부지바 센터",
+     "lat": 35.95317,
+     "lng": 14.41601,
+     "en": "Bugibba Centre (Opposite HSBC)"
+    },
+    {
+     "name": "부지바 (산타나 호텔)",
+     "lat": 35.95393,
+     "lng": 14.42081,
+     "en": "Bugibba (Santana Hotel)"
+    },
+    {
+     "name": "몰타 국립 수족관",
+     "lat": 35.95854,
+     "lng": 14.42339,
+     "en": "Malta National Aquarium"
+    },
+    {
+     "name": "카우라 팰리스 호텔",
+     "lat": 35.95394,
+     "lng": 14.42382,
+     "en": "Qawra Palace Hotel (Bus stop opp Hotel)"
+    },
+    {
+     "name": "카우라 해변 (시티사이트싱 매장 맞은편)",
+     "lat": 35.95264,
+     "lng": 14.42384,
+     "en": "Qawra Seafront (Opposite CitySightSeeing Outlet)"
+    },
+    {
+     "name": "벨라비스타 호텔",
+     "lat": 35.94571,
+     "lng": 14.41762,
+     "en": "Bellavista Hotel"
+    },
+    {
+     "name": "ITS 로터리 (래디슨 · 코린시아 호텔)",
+     "lat": 35.92871,
+     "lng": 14.48967,
+     "en": "ITS Roundabout (Radisson & Corinthia Hotels Roundabout)"
+    },
+    {
+     "name": "세인트 조지 베이",
+     "lat": 35.92532,
+     "lng": 14.48845,
+     "en": "St.George's Bay (CitySightseeing route stage)"
+    },
+    {
+     "name": "웨스틴 드라고나라",
+     "lat": 35.92435,
+     "lng": 14.49176,
+     "en": "Westin Dragonara"
+    },
+    {
+     "name": "힐튼 로터리",
+     "lat": 35.92119,
+     "lng": 14.49164,
+     "en": "Hilton Roundabout"
+    },
+    {
+     "name": "스피놀라 베이",
+     "lat": 35.91976,
+     "lng": 14.49015,
+     "en": "Spinola Bay"
+    },
+    {
+     "name": "발루타 베이",
+     "lat": 35.91486,
+     "lng": 14.49629,
+     "en": "Balluta Bay (Opposite Balluta church)"
+    },
+    {
+     "name": "슬리에마 해변",
+     "lat": 35.91289,
+     "lng": 14.50686,
+     "en": "Sliema Seafront (Opposite Prelune Hotel)"
+    },
+    {
+     "name": "슬리에마 페리",
+     "lat": 35.90874,
+     "lng": 14.50551,
+     "en": "Sliema Ferries"
+    },
+    {
+     "name": "베이뷰 호텔 맞은편 (시티사이트싱 매장)",
+     "lat": 35.90615,
+     "lng": 14.49746,
+     "en": "Opposite Bayview hotel (CitySightseeing outlet)"
+    },
+    {
+     "name": "발레타 시내",
+     "lat": 35.89426,
+     "lng": 14.50651,
+     "en": "Valletta City Centre"
+    },
+    {
+     "name": "발레타 워터프런트 (남부 노선 환승)",
+     "lat": 35.89349,
+     "lng": 14.51157,
+     "en": "Valletta Waterfront Terminus (Change for South route)"
+    },
+    {
+     "name": "파슨스 양조장 체험관",
+     "lat": 35.89131,
+     "lng": 14.46554,
+     "en": "Farsons Brewery Experience"
+    },
+    {
+     "name": "산 안톤 정원",
+     "lat": 35.89444,
+     "lng": 14.44808,
+     "en": "San Anton Gardens"
+    },
+    {
+     "name": "모스타 교회",
+     "lat": 35.9092,
+     "lng": 14.4254,
+     "en": "Mosta church"
+    },
+    {
+     "name": "타칼리 · 항공 박물관",
+     "lat": 35.89353,
+     "lng": 14.4165,
+     "en": "Ta' Qali - Aviation Museum"
+    },
+    {
+     "name": "발레타 글라스",
+     "lat": 35.89142,
+     "lng": 14.41876,
+     "en": "Valetta Glass"
+    },
+    {
+     "name": "음디나 글라스",
+     "lat": 35.89132,
+     "lng": 14.42247,
+     "en": "Mdina Glass"
+    },
+    {
+     "name": "타칼리 공예 마을",
+     "lat": 35.88992,
+     "lng": 14.41805,
+     "en": "Ta' Qali Crafts Village"
+    },
+    {
+     "name": "음디나 정문",
+     "lat": 35.88404,
+     "lng": 14.40288,
+     "en": "Mdina Main Gate"
+    },
+    {
+     "name": "스코르바 유적",
+     "lat": 35.92082,
+     "lng": 14.37773,
+     "en": "Skorba"
+    },
+    {
+     "name": "골든 베이",
+     "lat": 35.9352,
+     "lng": 14.34642,
+     "en": "Golden Bay"
+    }
+   ]
+  },
+  {
+   "key": "r2",
+   "name": "남부 노선 · 발레타 · 마르사실로크 · 블루 그로토",
+   "title": "남부 노선",
+   "sub": "발레타 · 마르사실로크 · 블루 그로토",
+   "color": "#1f6fd1",
+   "stops": [
+    {
+     "name": "ITS 로터리 (래디슨 · 코린시아 호텔)",
+     "lat": 35.92871,
+     "lng": 14.48967,
+     "en": "ITS Roundabout (Radisson & Corinthia Hotels Roundabout)"
+    },
+    {
+     "name": "세인트 조지 베이",
+     "lat": 35.92532,
+     "lng": 14.48845,
+     "en": "St.George's Bay (CitySightseeing route stage)"
+    },
+    {
+     "name": "웨스틴 드라고나라",
+     "lat": 35.92435,
+     "lng": 14.49176,
+     "en": "Westin Dragonara"
+    },
+    {
+     "name": "힐튼 로터리",
+     "lat": 35.92119,
+     "lng": 14.49164,
+     "en": "Hilton Roundabout"
+    },
+    {
+     "name": "스피놀라 베이",
+     "lat": 35.91976,
+     "lng": 14.49015,
+     "en": "Spinola Bay"
+    },
+    {
+     "name": "발루타 베이",
+     "lat": 35.91486,
+     "lng": 14.49629,
+     "en": "Balluta Bay (Opposite Balluta church)"
+    },
+    {
+     "name": "슬리에마 해변",
+     "lat": 35.91289,
+     "lng": 14.50686,
+     "en": "Sliema Seafront (Opposite Prelune Hotel)"
+    },
+    {
+     "name": "슬리에마 페리",
+     "lat": 35.90874,
+     "lng": 14.50551,
+     "en": "Sliema Ferries"
+    },
+    {
+     "name": "베이뷰 호텔 맞은편 (시티사이트싱 매장)",
+     "lat": 35.90615,
+     "lng": 14.49746,
+     "en": "Opposite Bayview hotel (CitySightseeing outlet)"
+    },
+    {
+     "name": "발레타 시내",
+     "lat": 35.89426,
+     "lng": 14.50651,
+     "en": "Valletta City Centre"
+    },
+    {
+     "name": "발레타 · 몰타 익스피리언스 · 성 엘모 요새",
+     "lat": 35.89989,
+     "lng": 14.51849,
+     "en": "Valletta - Malta Experience/fort st elmo"
+    },
+    {
+     "name": "발레타 워터프런트 터미널",
+     "lat": 35.89349,
+     "lng": 14.51157,
+     "en": "Valletta Waterfront Terminus"
+    },
+    {
+     "name": "비토리오사 워터프런트",
+     "lat": 35.88713,
+     "lng": 14.52082,
+     "en": "Vittoriosa Waterfront"
+    },
+    {
+     "name": "에스플로라 과학센터",
+     "lat": 35.89196,
+     "lng": 14.5242,
+     "en": "Esplora Science centre"
+    },
+    {
+     "name": "마르사실록 어촌 마을",
+     "lat": 35.84093,
+     "lng": 14.5467,
+     "en": "Marsaxlokk fishing village"
+    },
+    {
+     "name": "가르 달람 동굴",
+     "lat": 35.8372,
+     "lng": 14.52827,
+     "en": "Ghar Dalam Cave"
+    },
+    {
+     "name": "블루 그로토",
+     "lat": 35.81968,
+     "lng": 14.45362,
+     "en": "Blue Grotto"
+    },
+    {
+     "name": "하자르 임 · 므나이드라 신전",
+     "lat": 35.82736,
+     "lng": 14.44376,
+     "en": "Hagar Qim & Mnajdra Temples"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,183 @@
+{
+ "city": "LA",
+ "slug": "los-angeles-city-tour-bus",
+ "title": "LA 시티투어버스 노선도",
+ "sub": "할리우드 투어 16곳 · 산타모니카 투어 10곳 · 번호는 노선별 순서",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "할리우드 투어 · 할리우드 · 선셋 대로",
+   "title": "할리우드 투어",
+   "sub": "할리우드 · 선셋 대로",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "돌비 극장 (할리우드 대로)",
+     "lat": 34.1016,
+     "lng": -118.3401,
+     "en": "Dolby Theatre"
+    },
+    {
+     "name": "기타 센터 · 록워크",
+     "lat": 34.09806,
+     "lng": -118.35207,
+     "en": "Guitar Center / RockWalk"
+    },
+    {
+     "name": "래프 팩토리",
+     "lat": 34.09801,
+     "lng": -118.36443,
+     "en": "Laugh Factory"
+    },
+    {
+     "name": "코미디 스토어",
+     "lat": 34.09494,
+     "lng": -118.37405,
+     "en": "The Comedy Store"
+    },
+    {
+     "name": "더 런던 웨스트 할리우드",
+     "lat": 34.09034,
+     "lng": -118.38561,
+     "en": "The London West Hollywood"
+    },
+    {
+     "name": "산타모니카 대로",
+     "lat": 34.08377,
+     "lng": -118.38584,
+     "en": "Santa Monica Blvd"
+    },
+    {
+     "name": "로데오 드라이브",
+     "lat": 34.07345,
+     "lng": -118.39703,
+     "en": "Rodeo Drive"
+    },
+    {
+     "name": "로데오 드라이브 (일요일만)",
+     "lat": 34.07272,
+     "lng": -118.39956,
+     "en": "Rodeo Drive (Sundays only)"
+    },
+    {
+     "name": "포시즌스",
+     "lat": 34.07273,
+     "lng": -118.38968,
+     "en": "Four Seasons"
+    },
+    {
+     "name": "베벌리 센터",
+     "lat": 34.07616,
+     "lng": -118.3784,
+     "en": "Beverly Center"
+    },
+    {
+     "name": "아카데미 박물관 · LACMA · 피터슨 자동차 박물관",
+     "lat": 34.0649,
+     "lng": -118.36136,
+     "en": "Academy Museum / Lacma / Peterson Auto"
+    },
+    {
+     "name": "파머스 마켓 · 더 그로브",
+     "lat": 34.07368,
+     "lng": -118.36136,
+     "en": "The Original Farmers Market / The Grove"
+    },
+    {
+     "name": "멜로즈 애비뉴",
+     "lat": 34.08369,
+     "lng": -118.35693,
+     "en": "Melrose Avenue"
+    },
+    {
+     "name": "핑크스 핫도그",
+     "lat": 34.08343,
+     "lng": -118.34312,
+     "en": "Pink's Hot Dogs"
+    },
+    {
+     "name": "바인 스트리트 · 파라마운트 픽처스",
+     "lat": 34.08397,
+     "lng": -118.32659,
+     "en": "Vine Street / Paramount Pictures"
+    },
+    {
+     "name": "할리우드 & 바인 · 판타지스 극장",
+     "lat": 34.10163,
+     "lng": -118.32545,
+     "en": "Hollywood & Vine / Pantages Theatre"
+    }
+   ]
+  },
+  {
+   "key": "r2",
+   "name": "산타모니카 투어 · 비벌리힐스 · 산타모니카 · 베니스",
+   "title": "산타모니카 투어",
+   "sub": "비벌리힐스 · 산타모니카 · 베니스",
+   "color": "#1f6fd1",
+   "stops": [
+    {
+     "name": "오션 애비뉴 · 산타모니카 피어",
+     "lat": 34.01227,
+     "lng": -118.49592,
+     "en": "Ocean Avenue / Santa Monica Pier"
+    },
+    {
+     "name": "윌셔 대로",
+     "lat": 34.01806,
+     "lng": -118.4997,
+     "en": "Wilshire Blvd"
+    },
+    {
+     "name": "로데오 드라이브",
+     "lat": 34.07345,
+     "lng": -118.39703,
+     "en": "Rodeo Drive"
+    },
+    {
+     "name": "로데오 드라이브 (일요일만)",
+     "lat": 34.07272,
+     "lng": -118.39956,
+     "en": "Rodeo Drive (Sundays only)"
+    },
+    {
+     "name": "베벌리 힐튼 · 산타모니카 대로",
+     "lat": 34.06607,
+     "lng": -118.41193,
+     "en": "The Beverly Hilton / Santa Monica Blvd"
+    },
+    {
+     "name": "페어몬트 센추리 플라자 호텔",
+     "lat": 34.05816,
+     "lng": -118.41563,
+     "en": "Fairmont Century Plaza Hotel"
+    },
+    {
+     "name": "산타모니카 칼리지",
+     "lat": 34.01804,
+     "lng": -118.47234,
+     "en": "Santa Monica College"
+    },
+    {
+     "name": "사우스 비치 파크",
+     "lat": 33.99814,
+     "lng": -118.48329,
+     "en": "South Beach Park"
+    },
+    {
+     "name": "베니스 비치",
+     "lat": 33.99713,
+     "lng": -118.48078,
+     "en": "Venice Beach"
+    },
+    {
+     "name": "메인 스트리트 · 관광안내소",
+     "lat": 34.00345,
+     "lng": -118.48501,
+     "en": "Main Street / Visitor Information Center"
+    }
+   ]
+  }
+ ]
+}

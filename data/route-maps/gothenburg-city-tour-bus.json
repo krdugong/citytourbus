@@ -1,0 +1,66 @@
+{
+ "city": "예테보리",
+ "slug": "gothenburg-city-tour-bus",
+ "title": "예테보리 시티투어버스 노선도",
+ "sub": "예테보리 시티 투어 8곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "예테보리 시티 투어 · 대극장 · 하가 · 예타플라첸",
+   "title": "예테보리 시티 투어",
+   "sub": "대극장 · 하가 · 예타플라첸",
+   "color": "#1f9d55",
+   "stops": [
+    {
+     "name": "쿵스포르츠플라첸 · 대극장",
+     "lat": 57.7032,
+     "lng": 11.97074,
+     "en": "Kungsportsplatsen / Stora Teatern"
+    },
+    {
+     "name": "예른토리에트",
+     "lat": 57.69994,
+     "lng": 11.95198,
+     "en": "Järntorget"
+    },
+    {
+     "name": "린네플라첸",
+     "lat": 57.69074,
+     "lng": 11.9515,
+     "en": "Linnéplatsen"
+    },
+    {
+     "name": "하가",
+     "lat": 57.69635,
+     "lng": 11.96075,
+     "en": "Haga"
+    },
+    {
+     "name": "발란드",
+     "lat": 57.70042,
+     "lng": 11.9747,
+     "en": "Valand"
+    },
+    {
+     "name": "예타플라첸",
+     "lat": 57.69723,
+     "lng": 11.97939,
+     "en": "Götaplatsen"
+    },
+    {
+     "name": "드로트닝토리에트",
+     "lat": 57.7076,
+     "lng": 11.9729,
+     "en": "Drottningtorget"
+    },
+    {
+     "name": "브룬스파르켄 · 사자 계단",
+     "lat": 57.70661,
+     "lng": 11.96762,
+     "en": "Brunnsparken / Lejontrappan"
+    }
+   ]
+  }
+ ]
+}

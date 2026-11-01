@@ -1,0 +1,126 @@
+{
+ "city": "케임브리지",
+ "slug": "cambridge-city-tour-bus",
+ "title": "케임브리지 시티투어버스 노선도",
+ "sub": "레드 노선 18곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 칼리지 · 더 백스 · 기차역",
+   "title": "레드 노선",
+   "sub": "칼리지 · 더 백스 · 기차역",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "실버 스트리트",
+     "lat": 52.20137,
+     "lng": 0.1147,
+     "en": "Silver Street"
+    },
+    {
+     "name": "다우닝 스트리트",
+     "lat": 52.20346,
+     "lng": 0.12308,
+     "en": "Downing Street"
+    },
+    {
+     "name": "체스터턴 레인",
+     "lat": 52.21332,
+     "lng": 0.12134,
+     "en": "Chesterton Lane"
+    },
+    {
+     "name": "브리지 스트리트",
+     "lat": 52.20862,
+     "lng": 0.11847,
+     "en": "Bridge Street"
+    },
+    {
+     "name": "트리니티 스트리트 (일요일만)",
+     "lat": 52.20753,
+     "lng": 0.11804,
+     "en": "Trinity Street (Sunday only)"
+    },
+    {
+     "name": "마켓 스트리트 (일요일만)",
+     "lat": 52.20563,
+     "lng": 0.11799,
+     "en": "Market Street (Sunday only)"
+    },
+    {
+     "name": "지저스 레인",
+     "lat": 52.20802,
+     "lng": 0.12576,
+     "en": "Jesus Lane"
+    },
+    {
+     "name": "이매뉴얼 스트리트 (E4)",
+     "lat": 52.2047,
+     "lng": 0.12409,
+     "en": "Emmanuel Street (Stop E4)"
+    },
+    {
+     "name": "파크사이드",
+     "lat": 52.20309,
+     "lng": 0.13001,
+     "en": "Parkside"
+    },
+    {
+     "name": "힐스 로드",
+     "lat": 52.19804,
+     "lng": 0.12857,
+     "en": "Hills Road"
+    },
+    {
+     "name": "케임브리지역",
+     "lat": 52.19326,
+     "lng": 0.13612,
+     "en": "Railway Station"
+    },
+    {
+     "name": "트럼핑턴 로드",
+     "lat": 52.19579,
+     "lng": 0.12216,
+     "en": "Trumpington Road"
+    },
+    {
+     "name": "피츠윌리엄 박물관",
+     "lat": 52.19942,
+     "lng": 0.12103,
+     "en": "The Fitzwilliam Museum"
+    },
+    {
+     "name": "실버 스트리트",
+     "lat": 52.20153,
+     "lng": 0.11493,
+     "en": "Silver Street"
+    },
+    {
+     "name": "퀸스 로드 (더 백스)",
+     "lat": 52.20966,
+     "lng": 0.11123,
+     "en": "Queen's Road"
+    },
+    {
+     "name": "케임브리지 미군 묘지",
+     "lat": 52.21563,
+     "lng": 0.05385,
+     "en": "Cambridge American Cemetery and Memorial"
+    },
+    {
+     "name": "매딩리 로드",
+     "lat": 52.21379,
+     "lng": 0.08137,
+     "en": "Madingley Road"
+    },
+    {
+     "name": "그레인지 로드",
+     "lat": 52.20485,
+     "lng": 0.10586,
+     "en": "Grange Road"
+    }
+   ]
+  }
+ ]
+}

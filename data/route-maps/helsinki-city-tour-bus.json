@@ -1,0 +1,132 @@
+{
+ "city": "헬싱키",
+ "slug": "helsinki-city-tour-bus",
+ "title": "헬싱키 시티투어버스 노선도",
+ "sub": "헬싱키 시티투어 노선 19곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "헬싱키 시티투어 노선 · 정류장 19곳",
+   "title": "헬싱키 시티투어 노선",
+   "sub": "정류장 19곳",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "원로원 광장 · 헬싱키 시립박물관",
+     "lat": 60.16974,
+     "lng": 24.95083,
+     "en": "Senate Square / Helsinki City Museum"
+    },
+    {
+     "name": "올드 마켓홀",
+     "lat": 60.16564,
+     "lng": 24.95129,
+     "en": "Old Market Hall"
+    },
+    {
+     "name": "올림피아 터미널 (실야 라인) · 만네르헤임 박물관",
+     "lat": 60.16073,
+     "lng": 24.95731,
+     "en": "Olympia Terminal (Silja Line) / Mannerheim Museum"
+    },
+    {
+     "name": "카페 우르술라 · 카이보푸이스토 공원",
+     "lat": 60.15528,
+     "lng": 24.95982,
+     "en": "Café Ursula / Kaivopuisto Park"
+    },
+    {
+     "name": "컴퍼스 광장",
+     "lat": 60.15557,
+     "lng": 24.95059,
+     "en": "Compass Square"
+    },
+    {
+     "name": "에이라",
+     "lat": 60.15464,
+     "lng": 24.93758,
+     "en": "Eira"
+    },
+    {
+     "name": "헤르네사리 크루즈 터미널 LHD (크루즈 입항일만)",
+     "lat": 60.14735,
+     "lng": 24.92211,
+     "en": "Hernesaari Cruise Terminal LHD (stop serviced only on certain cruise days)"
+    },
+    {
+     "name": "헤르네사리 크루즈 터미널 LHB·LHC (크루즈 입항일만)",
+     "lat": 60.15043,
+     "lng": 24.92241,
+     "en": "Hernesaari Cruise Terminal  LHB & LHC (stop serviced only on certain cruise days)"
+    },
+    {
+     "name": "뢰일뤼 사우나",
+     "lat": 60.15229,
+     "lng": 24.93014,
+     "en": "Löyly"
+    },
+    {
+     "name": "힐튼 아텔리에 · 힐튼 스트란드",
+     "lat": 60.16232,
+     "lng": 24.93116,
+     "en": "HILTON ATELIER / HILTON STRAND"
+    },
+    {
+     "name": "히에타니에미 마켓홀 · 불레바르디 · 시네브리코프 미술관",
+     "lat": 60.16666,
+     "lng": 24.94391,
+     "en": "HIESTANIEMI MARKET HALL / BULEVARD / SINEBRYCHOFF ART MUSEUM"
+    },
+    {
+     "name": "마켓 광장 (운하 크루즈 출발)",
+     "lat": 60.1673,
+     "lng": 24.95248,
+     "en": "Market Square (departure for Canal Cruise/City Highlights Cruise)"
+    },
+    {
+     "name": "소코스 백화점 · 아모스 렉스 · 키아스마 (미운영)",
+     "lat": 60.17054,
+     "lng": 24.93783,
+     "en": "SOKOS DEP. STORE / AMOS REX / KAISMA (Not in use)"
+    },
+    {
+     "name": "템펠리아우키오 교회 (암석 교회)",
+     "lat": 60.17138,
+     "lng": 24.92386,
+     "en": "Temppeliaukio Church (Rock Church)"
+    },
+    {
+     "name": "시벨리우스 기념비",
+     "lat": 60.18318,
+     "lng": 24.91557,
+     "en": "Sibelius monument"
+    },
+    {
+     "name": "퇴욀뢰 시장 광장",
+     "lat": 60.18422,
+     "lng": 24.92747,
+     "en": "Töölöntori"
+    },
+    {
+     "name": "국회의사당",
+     "lat": 60.17397,
+     "lng": 24.9331,
+     "en": "Parliament House"
+    },
+    {
+     "name": "아테네움 미술관",
+     "lat": 60.17036,
+     "lng": 24.9437,
+     "en": "Ateneum"
+    },
+    {
+     "name": "카이사니에미 공원 · 식물원",
+     "lat": 60.1718,
+     "lng": 24.94764,
+     "en": "KAISANIEMI PARK / BOTANICAL GARDEN"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+ "city": "코르푸",
+ "slug": "corfu-city-tour-bus",
+ "title": "코르푸 시티투어버스 노선도",
+ "sub": "카노니 노선 7곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "카노니 노선 · 카노니 · 몬레포 · 구시가지",
+   "title": "카노니 노선",
+   "sub": "카노니 · 몬레포 · 구시가지",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "코르푸 신항 정문",
+     "lat": 39.62712,
+     "lng": 19.90388,
+     "en": "CORFU New Port - Main Gate"
+    },
+    {
+     "name": "카노니",
+     "lat": 39.59305,
+     "lng": 19.91886,
+     "en": "Kanoni"
+    },
+    {
+     "name": "몬레포 궁전",
+     "lat": 39.60775,
+     "lng": 19.92285,
+     "en": "Mon Repo Palace"
+    },
+    {
+     "name": "아네모밀로스 (가리차)",
+     "lat": 39.61061,
+     "lng": 19.92748,
+     "en": "Anemomylos (Garitsa)"
+    },
+    {
+     "name": "스피아나다 광장",
+     "lat": 39.62356,
+     "lng": 19.92553,
+     "en": "Spianada Square"
+    },
+    {
+     "name": "스필리아 광장",
+     "lat": 39.62616,
+     "lng": 19.91954,
+     "en": "Spilia Square"
+    },
+    {
+     "name": "구항",
+     "lat": 39.62646,
+     "lng": 19.91326,
+     "en": "Old Port"
+    }
+   ]
+  }
+ ]
+}

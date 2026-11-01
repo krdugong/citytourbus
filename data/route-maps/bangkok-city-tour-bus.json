@@ -1,0 +1,114 @@
+{
+ "city": "방콕",
+ "slug": "bangkok-city-tour-bus",
+ "title": "방콕 시티투어버스 노선도",
+ "sub": "방콕 시티투어 노선 16곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "방콕 시티투어 노선 · 시암 · 차이나타운 · 왕궁 · 강변",
+   "title": "방콕 시티투어 노선",
+   "sub": "시암 · 차이나타운 · 왕궁 · 강변",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "시암 파라곤",
+     "lat": 13.74569,
+     "lng": 100.53558,
+     "en": "Siam Paragon"
+    },
+    {
+     "name": "MBK 센터",
+     "lat": 13.74347,
+     "lng": 100.53054,
+     "en": "MBK Center"
+    },
+    {
+     "name": "왓 후아람퐁",
+     "lat": 13.7333,
+     "lng": 100.52707,
+     "en": "Wat Hualumpong"
+    },
+    {
+     "name": "왓 트라이밋 (황금불상 사원)",
+     "lat": 13.73758,
+     "lng": 100.51465,
+     "en": "Wat Traimit"
+    },
+    {
+     "name": "차이나타운",
+     "lat": 13.73959,
+     "lng": 100.51097,
+     "en": "China Town"
+    },
+    {
+     "name": "그랜드 차이나 호텔",
+     "lat": 13.74272,
+     "lng": 100.50711,
+     "en": "Grand China Hotel"
+    },
+    {
+     "name": "로하 쁘라삿",
+     "lat": 13.75383,
+     "lng": 100.50483,
+     "en": "Loha Prasat"
+    },
+    {
+     "name": "카오산 로드",
+     "lat": 13.76045,
+     "lng": 100.49949,
+     "en": "Khao San Road"
+    },
+    {
+     "name": "자이언트 스윙",
+     "lat": 13.75267,
+     "lng": 100.50109,
+     "en": "Giant Swing"
+    },
+    {
+     "name": "왓 포 (와불 사원)",
+     "lat": 13.7473,
+     "lng": 100.49502,
+     "en": "Wat Pho"
+    },
+    {
+     "name": "사남루앙 · 왕궁",
+     "lat": 13.75415,
+     "lng": 100.49378,
+     "en": "Sanamluang/Grand Palace"
+    },
+    {
+     "name": "왓 아룬 (새벽 사원)",
+     "lat": 13.74379,
+     "lng": 100.48665,
+     "en": "Wat Arun"
+    },
+    {
+     "name": "아이콘시암",
+     "lat": 13.72583,
+     "lng": 100.51051,
+     "en": "Iconsiam"
+    },
+    {
+     "name": "마하나콘 스카이워크",
+     "lat": 13.72383,
+     "lng": 100.52886,
+     "en": "Mahanakhon Skywalk"
+    },
+    {
+     "name": "팟퐁 야시장",
+     "lat": 13.72942,
+     "lng": 100.52991,
+     "en": "Patpong Night Market"
+    },
+    {
+     "name": "센트럴 월드",
+     "lat": 13.7476,
+     "lng": 100.53817,
+     "en": "Central World"
+    }
+   ]
+  }
+ ]
+}

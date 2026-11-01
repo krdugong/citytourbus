@@ -1,0 +1,96 @@
+{
+ "city": "스타방에르",
+ "slug": "stavanger-city-tour-bus",
+ "title": "스타방에르 시티투어버스 노선도",
+ "sub": "스타방에르 노선 13곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "스타방에르 노선 · 구시가지 · 대성당 · 바위 속의 칼",
+   "title": "스타방에르 노선",
+   "sub": "구시가지 · 대성당 · 바위 속의 칼",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "스트란드카이엔 크루즈 터미널 · 올드 스타방에르",
+     "lat": 58.97348,
+     "lng": 5.72602,
+     "en": "Strandkaien Cruise Terminal & Old Stavanger"
+    },
+    {
+     "name": "스타방에르 중앙역 · 뷔파르켄",
+     "lat": 58.96702,
+     "lng": 5.73256,
+     "en": "Stavanger Sentralstasjon / Byparken"
+    },
+    {
+     "name": "스타방에르 대성당",
+     "lat": 58.97017,
+     "lng": 5.7334,
+     "en": "Stavanger Cathedral"
+    },
+    {
+     "name": "석유 박물관",
+     "lat": 58.97299,
+     "lng": 5.73449,
+     "en": "Petroleum Museum"
+    },
+    {
+     "name": "스카겐카이엔 · 컬러풀 스트리트",
+     "lat": 58.97308,
+     "lng": 5.73046,
+     "en": "Skagenkaien / Colourful Street"
+    },
+    {
+     "name": "시내 중심 · 석유 박물관",
+     "lat": 58.97333,
+     "lng": 5.73394,
+     "en": "City Centre / Petroleum Museum"
+    },
+    {
+     "name": "고고학 박물관 · 자연사 박물관",
+     "lat": 58.96379,
+     "lng": 5.72951,
+     "en": "Archaeology Museum / Museum of Natural History"
+    },
+    {
+     "name": "바위의 검 (스베르 이 피엘)",
+     "lat": 58.94502,
+     "lng": 5.67054,
+     "en": "Swords in Rock"
+    },
+    {
+     "name": "AMFI 마들라 쇼핑몰",
+     "lat": 58.953,
+     "lng": 5.67743,
+     "en": "AMFI Madla Shopping Mall"
+    },
+    {
+     "name": "스타방에르 미술관",
+     "lat": 58.95492,
+     "lng": 5.7022,
+     "en": "Stavanger Art Museum"
+    },
+    {
+     "name": "모스바트네트 공원 · 호수",
+     "lat": 58.96077,
+     "lng": 5.7106,
+     "en": "Mosvatnet Park/Lake"
+    },
+    {
+     "name": "레달 왕실 저택",
+     "lat": 58.9658,
+     "lng": 5.7205,
+     "en": "Ledaal Royal Residence"
+    },
+    {
+     "name": "스트란드카이엔 크루즈 터미널 · 올드 스타방에르 (종점)",
+     "lat": 58.97349,
+     "lng": 5.72609,
+     "en": "Strandkaien Cruise Terminal / Old Stavanger"
+    }
+   ]
+  }
+ ]
+}

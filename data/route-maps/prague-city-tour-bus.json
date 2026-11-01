@@ -1,0 +1,117 @@
+{
+ "city": "프라하",
+ "slug": "prague-city-tour-bus",
+ "title": "프라하 시티투어버스 노선도",
+ "sub": "레드 노선 8곳 · 블루 노선 7곳 · 번호는 노선별 순서",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 프라하 성 · 스트라호프 · 댄싱 하우스",
+   "title": "레드 노선",
+   "sub": "프라하 성 · 스트라호프 · 댄싱 하우스",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "프라하 중앙역 (임시 폐쇄)",
+     "lat": 50.08321,
+     "lng": 14.43504,
+     "en": "Main Train Station (temporarily closed)"
+    },
+    {
+     "name": "우 브루스키흐 카사렌 · 옛 성 계단",
+     "lat": 50.09262,
+     "lng": 14.4096,
+     "en": "U Bruských kasáren - Old Castle Stairs"
+    },
+    {
+     "name": "프라하 성",
+     "lat": 50.09651,
+     "lng": 14.40141,
+     "en": "Prague castle"
+    },
+    {
+     "name": "스트라호프 수도원",
+     "lat": 50.0864,
+     "lng": 14.38629,
+     "en": "Strahov Monastery"
+    },
+    {
+     "name": "스트라호프 경기장 · 페트린 정원",
+     "lat": 50.07853,
+     "lng": 14.3891,
+     "en": "Strahov Stadium - Petrin Garden"
+    },
+    {
+     "name": "슈반다 극장",
+     "lat": 50.07854,
+     "lng": 14.40457,
+     "en": "Svanda Theatre"
+    },
+    {
+     "name": "댄싱 하우스",
+     "lat": 50.07589,
+     "lng": 14.4175,
+     "en": "Dancing House"
+    },
+    {
+     "name": "I. P. 파블로바 광장",
+     "lat": 50.07509,
+     "lng": 14.43048,
+     "en": "I. P. Pavlova Square"
+    }
+   ]
+  },
+  {
+   "key": "blue",
+   "name": "블루 노선 · 구시가지 · 말라 스트라나 · 유대인 지구",
+   "title": "블루 노선",
+   "sub": "구시가지 · 말라 스트라나 · 유대인 지구",
+   "color": "#1f6fd1",
+   "stops": [
+    {
+     "name": "공화국 광장",
+     "lat": 50.08785,
+     "lng": 14.42861,
+     "en": "Republic Square 3"
+    },
+    {
+     "name": "바츨라프 광장",
+     "lat": 50.08227,
+     "lng": 14.42684,
+     "en": "Wenceslas Square"
+    },
+    {
+     "name": "레슬로바 거리",
+     "lat": 50.07592,
+     "lng": 14.41866,
+     "en": "Resslova Street"
+    },
+    {
+     "name": "우 브루스키흐 카사렌",
+     "lat": 50.09262,
+     "lng": 14.4096,
+     "en": "U Bruských kasáren"
+    },
+    {
+     "name": "말라 스트라나 광장",
+     "lat": 50.08776,
+     "lng": 14.40425,
+     "en": "Malostranské Square"
+    },
+    {
+     "name": "강변 (리버 뱅크)",
+     "lat": 50.09331,
+     "lng": 14.4264,
+     "en": "River bank"
+    },
+    {
+     "name": "구시가 광장",
+     "lat": 50.08804,
+     "lng": 14.42114,
+     "en": "Old Town Square"
+    }
+   ]
+  }
+ ]
+}

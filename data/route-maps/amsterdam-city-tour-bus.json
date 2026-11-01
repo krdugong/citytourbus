@@ -1,0 +1,78 @@
+{
+ "city": "암스테르담",
+ "slug": "amsterdam-city-tour-bus",
+ "title": "암스테르담 시티투어버스 노선도",
+ "sub": "암스테르담 시티투어 노선 10곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "암스테르담 시티투어 노선 · 정류장 10곳",
+   "title": "암스테르담 시티투어 노선",
+   "sub": "정류장 10곳",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "중앙역 동쪽",
+     "lat": 52.37753,
+     "lng": 4.90089,
+     "en": "Central Station East"
+    },
+    {
+     "name": "암스테르담 여객 터미널 (PTA)",
+     "lat": 52.3772,
+     "lng": 4.91353,
+     "en": "Passenger Terminal Amsterdam"
+    },
+    {
+     "name": "국립 해양박물관",
+     "lat": 52.36983,
+     "lng": 4.90349,
+     "en": "National Maritime Museum"
+    },
+    {
+     "name": "가산 다이아몬드",
+     "lat": 52.3695,
+     "lng": 4.90364,
+     "en": "Gassan Diamonds"
+    },
+    {
+     "name": "유대인 문화지구",
+     "lat": 52.3668,
+     "lng": 4.90441,
+     "en": "Jewish Cultural Quarter"
+    },
+    {
+     "name": "왕립 카레 극장",
+     "lat": 52.3599,
+     "lng": 4.90728,
+     "en": "Royal Theatre Carré"
+    },
+    {
+     "name": "하이네켄 익스피리언스",
+     "lat": 52.358,
+     "lng": 4.89175,
+     "en": "Heineken Experience"
+    },
+    {
+     "name": "뮤지엄 광장",
+     "lat": 52.35956,
+     "lng": 4.88786,
+     "en": "Museum Square"
+    },
+    {
+     "name": "라이체플레인",
+     "lat": 52.362,
+     "lng": 4.88152,
+     "en": "Leidseplein"
+    },
+    {
+     "name": "요르단",
+     "lat": 52.3813,
+     "lng": 4.8793,
+     "en": "Jordaan"
+    }
+   ]
+  }
+ ]
+}

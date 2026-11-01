@@ -1,0 +1,177 @@
+{
+ "city": "두바이",
+ "slug": "dubai-city-tour-bus",
+ "title": "두바이 시티투어버스 노선도",
+ "sub": "레드 노선 13곳 · 블루 노선 12곳 · 번호는 노선별 순서",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 다운타운 · 팜 · 마리나 · 올드 두바이",
+   "title": "레드 노선",
+   "sub": "다운타운 · 팜 · 마리나 · 올드 두바이",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "자빌 주차장 정류장 (두바이 몰)",
+     "lat": 25.20011,
+     "lng": 55.28119,
+     "en": "Zabeel Area Parking Bus Stop (The Dubai Mall)"
+    },
+    {
+     "name": "미래 박물관 (임시 휴무)",
+     "lat": 25.21822,
+     "lng": 55.28013,
+     "en": "Museum of the Future ( temporarily closed )"
+    },
+    {
+     "name": "알 시프 현대 구역",
+     "lat": 25.2563,
+     "lng": 55.30969,
+     "en": "Al Seef Contemporary Area"
+    },
+    {
+     "name": "알 시프 헤리티지 구역 (다우 크루즈)",
+     "lat": 25.26299,
+     "lng": 55.30644,
+     "en": "Al Seef Heritage Area  ( Dhow cruise )"
+    },
+    {
+     "name": "알 파히디 역사 지구",
+     "lat": 25.26455,
+     "lng": 55.30155,
+     "en": "Al Fahidi Historical District"
+    },
+    {
+     "name": "두바이 박물관",
+     "lat": 25.26357,
+     "lng": 55.29755,
+     "en": "Dubai Museum"
+    },
+    {
+     "name": "올드 수크",
+     "lat": 25.26445,
+     "lng": 55.29274,
+     "en": "Old Souk"
+    },
+    {
+     "name": "알 신다가 박물관",
+     "lat": 25.2664,
+     "lng": 55.28943,
+     "en": "Al Shindagha Museum"
+    },
+    {
+     "name": "골드 · 스파이스 수크",
+     "lat": 25.26702,
+     "lng": 55.29713,
+     "en": "Gold & Spice Souk"
+    },
+    {
+     "name": "리비에라 호텔 두바이",
+     "lat": 25.26734,
+     "lng": 55.30662,
+     "en": "Riviera Hotel Dubai"
+    },
+    {
+     "name": "두바이 크리크",
+     "lat": 25.26391,
+     "lng": 55.31133,
+     "en": "Dubai Creek"
+    },
+    {
+     "name": "쉐라톤 두바이 크리크",
+     "lat": 25.26164,
+     "lng": 55.31406,
+     "en": "Sheraton Dubai Creek Hotel & Towers"
+    },
+    {
+     "name": "두바이 프레임",
+     "lat": 25.23418,
+     "lng": 55.30148,
+     "en": "The Dubai Frame"
+    }
+   ]
+  },
+  {
+   "key": "blue",
+   "name": "블루 노선 · 두바이몰 출발",
+   "title": "블루 노선",
+   "sub": "두바이몰 출발",
+   "color": "#1f6fd1",
+   "stops": [
+    {
+     "name": "자빌 주차장 정류장 (두바이 몰)",
+     "lat": 25.20011,
+     "lng": 55.28119,
+     "en": "Zabeel Area Parking Bus Stop (The Dubai Mall)"
+    },
+    {
+     "name": "수크 마디나트 주메이라",
+     "lat": 25.13318,
+     "lng": 55.18754,
+     "en": "Souk Madinat Jumeirah"
+    },
+    {
+     "name": "아틀란티스 더 팜",
+     "lat": 25.13298,
+     "lng": 55.11852,
+     "en": "Atlantis The Palm"
+    },
+    {
+     "name": "페어몬트 더 팜",
+     "lat": 25.11032,
+     "lng": 55.14148,
+     "en": "Fairmont The Palm"
+    },
+    {
+     "name": "힐튼 두바이 팜 주메이라",
+     "lat": 25.10654,
+     "lng": 55.14638,
+     "en": "Hilton Dubai Palm Jumeirah"
+    },
+    {
+     "name": "두바이 마리나 몰",
+     "lat": 25.0758,
+     "lng": 55.14108,
+     "en": "Dubai Marina Mall"
+    },
+    {
+     "name": "더 비치 @ JBR",
+     "lat": 25.07348,
+     "lng": 55.13033,
+     "en": "The Beach @ JBR"
+    },
+    {
+     "name": "마리나 프로머네이드",
+     "lat": 25.07452,
+     "lng": 55.13253,
+     "en": "Marina Promenade"
+    },
+    {
+     "name": "그로브너 하우스 두바이",
+     "lat": 25.08418,
+     "lng": 55.14307,
+     "en": "Grosvenor House Dubai"
+    },
+    {
+     "name": "인피니티 타워",
+     "lat": 25.08694,
+     "lng": 55.14525,
+     "en": "Infinity Tower"
+    },
+    {
+     "name": "미나 세야히",
+     "lat": 25.09313,
+     "lng": 55.15039,
+     "en": "Mina Seyahi"
+    },
+    {
+     "name": "몰 오브 디 에미리트",
+     "lat": 25.11746,
+     "lng": 55.2006,
+     "en": "Mall of the Emirates"
+    }
+   ]
+  }
+ ]
+}

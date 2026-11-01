@@ -1,0 +1,141 @@
+{
+ "city": "포르투",
+ "slug": "porto-city-tour-bus",
+ "title": "포르투 시티투어버스 노선도",
+ "sub": "레드 노선 12곳 · 블루 노선 7곳 · 번호는 노선별 순서",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 구시가지 · 해안(포즈)",
+   "title": "레드 노선",
+   "sub": "구시가지 · 해안(포즈)",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "바탈랴 (1번)",
+     "lat": 41.14465,
+     "lng": -8.6066,
+     "en": "BATALHA"
+    },
+    {
+     "name": "정의궁 (팔라시우 다 주스티사)",
+     "lat": 41.14619,
+     "lng": -8.61766,
+     "en": "PALÁCIO DA JUSTIÇA"
+    },
+    {
+     "name": "크리스탈 궁전 정원",
+     "lat": 41.14857,
+     "lng": -8.62491,
+     "en": "PALÁCIO DE CRISTAL"
+    },
+    {
+     "name": "카사 다 무지카",
+     "lat": 41.15865,
+     "lng": -8.62833,
+     "en": "CASA DA MÚSICA"
+    },
+    {
+     "name": "베사",
+     "lat": 41.15951,
+     "lng": -8.63856,
+     "en": "BESSA"
+    },
+    {
+     "name": "세할베스 미술관",
+     "lat": 41.15836,
+     "lng": -8.6605,
+     "en": "Serralves"
+    },
+    {
+     "name": "시티 파크 (파르케 다 시다드)",
+     "lat": 41.16525,
+     "lng": -8.67229,
+     "en": "PARQUE DA CIDADE"
+    },
+    {
+     "name": "카스텔루 두 케이주",
+     "lat": 41.16732,
+     "lng": -8.6888,
+     "en": "CASTELO DO QUEIJO"
+    },
+    {
+     "name": "포즈 두 도루",
+     "lat": 41.14764,
+     "lng": -8.67128,
+     "en": "FOZ"
+    },
+    {
+     "name": "카이스 두 오루",
+     "lat": 41.1483,
+     "lng": -8.64811,
+     "en": "CAIS DO OURO"
+    },
+    {
+     "name": "마사렐루스",
+     "lat": 41.14726,
+     "lng": -8.6335,
+     "en": "MASSARELOS"
+    },
+    {
+     "name": "히베이라",
+     "lat": 41.14074,
+     "lng": -8.61709,
+     "en": "RIBEIRA"
+    }
+   ]
+  },
+  {
+   "key": "blue",
+   "name": "블루 노선 · 빌라 노바 드 가이아",
+   "title": "블루 노선",
+   "sub": "빌라 노바 드 가이아",
+   "color": "#1f6fd1",
+   "stops": [
+    {
+     "name": "바탈랴",
+     "lat": 41.14455,
+     "lng": -8.60636,
+     "en": "BATALHA"
+    },
+    {
+     "name": "자르딩 두 모후 (모후 정원)",
+     "lat": 41.13537,
+     "lng": -8.60808,
+     "en": "JARDIM DO MORRO"
+    },
+    {
+     "name": "예트만 호텔 · WOW 문화지구",
+     "lat": 41.13298,
+     "lng": -8.6124,
+     "en": "YEATMAN HOTEL - WOW"
+    },
+    {
+     "name": "킨타 다 보에이라",
+     "lat": 41.12723,
+     "lng": -8.61123,
+     "en": "QUINTA DA BOEIRA"
+    },
+    {
+     "name": "엘 코르테 잉글레스",
+     "lat": 41.12628,
+     "lng": -8.60544,
+     "en": "EL CORTE INGLÉS"
+    },
+    {
+     "name": "세하 두 필라르 수도원",
+     "lat": 41.13594,
+     "lng": -8.60811,
+     "en": "MOSTEIRO DA SERRA DO PILAR"
+    },
+    {
+     "name": "헤알 콤파니아 벨랴 와이너리",
+     "lat": 41.13278,
+     "lng": -8.60099,
+     "en": "REAL COMPANHIA VELHA"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,84 @@
+{
+ "city": "스트랫퍼드어폰에이번",
+ "slug": "stratford-upon-avon-city-tour-bus",
+ "title": "스트랫퍼드 시티투어버스 노선도",
+ "sub": "레드 라인 11곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 라인 · 셰익스피어 유적 · 에이번강",
+   "title": "레드 라인",
+   "sub": "셰익스피어 유적 · 에이번강",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "방문자 안내소",
+     "lat": 52.19262,
+     "lng": -1.70284,
+     "en": "Visitor Information Centre"
+    },
+    {
+     "name": "에이번강 · 로열 셰익스피어 극장",
+     "lat": 52.19022,
+     "lng": -1.70464,
+     "en": "River Avon & Royal Shakespeare's Theatre"
+    },
+    {
+     "name": "홀스 크로프트",
+     "lat": 52.18833,
+     "lng": -1.70867,
+     "en": "Hall's Croft"
+    },
+    {
+     "name": "셰익스피어 뉴 플레이스",
+     "lat": 52.19081,
+     "lng": -1.70781,
+     "en": "Shakespeare's New Place"
+    },
+    {
+     "name": "셰익스피어 생가",
+     "lat": 52.19424,
+     "lng": -1.70777,
+     "en": "Shakespeare's Birthplace"
+    },
+    {
+     "name": "마켓 광장 · 아메리칸 분수",
+     "lat": 52.19232,
+     "lng": -1.71017,
+     "en": "Market Square & American Fountain"
+    },
+    {
+     "name": "이브셤 플레이스",
+     "lat": 52.18926,
+     "lng": -1.71322,
+     "en": "Evesham Place"
+    },
+    {
+     "name": "앨세스터 로드 (요청 정차)",
+     "lat": 52.19347,
+     "lng": -1.7155,
+     "en": "Alcester Road"
+    },
+    {
+     "name": "앤 해서웨이 코티지",
+     "lat": 52.19074,
+     "lng": -1.73192,
+     "en": "Anne Hathaway's Cottage"
+    },
+    {
+     "name": "메리 아든 농장 (현재 일반 공개 중단)",
+     "lat": 52.22146,
+     "lng": -1.76086,
+     "en": "Mary Arden's Farm"
+    },
+    {
+     "name": "메이버드 쇼핑파크 (요청 정차)",
+     "lat": 52.2,
+     "lng": -1.71309,
+     "en": "Maybird Shopping Park"
+    }
+   ]
+  }
+ ]
+}

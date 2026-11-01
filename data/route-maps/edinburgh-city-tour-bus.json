@@ -1,0 +1,108 @@
+{
+ "city": "에든버러",
+ "slug": "edinburgh-city-tour-bus",
+ "title": "에든버러 시티투어버스 노선도",
+ "sub": "에든버러 시티투어 노선 15곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "에든버러 시티투어 노선 · 구시가지 · 신시가지",
+   "title": "에든버러 시티투어 노선",
+   "sub": "구시가지 · 신시가지",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "조지 스트리트",
+     "lat": 55.95318,
+     "lng": -3.19964,
+     "en": "George Street"
+    },
+    {
+     "name": "로디언 로드",
+     "lat": 55.9495,
+     "lng": -3.20685,
+     "en": "Lothian Road"
+    },
+    {
+     "name": "그래스마켓",
+     "lat": 55.9474,
+     "lng": -3.19616,
+     "en": "Grassmarket"
+    },
+    {
+     "name": "니콜슨 스퀘어",
+     "lat": 55.94614,
+     "lng": -3.18577,
+     "en": "Nicolson Square"
+    },
+    {
+     "name": "체임버스 스트리트",
+     "lat": 55.94754,
+     "lng": -3.18969,
+     "en": "Chambers Street"
+    },
+    {
+     "name": "조지 4세 다리 (에든버러 성)",
+     "lat": 55.94852,
+     "lng": -3.19227,
+     "en": "George IV Bridge (for Edinburgh Castle)"
+    },
+    {
+     "name": "더 마운드",
+     "lat": 55.95137,
+     "lng": -3.1967,
+     "en": "The Mound"
+    },
+    {
+     "name": "세인트 앤드루 스퀘어",
+     "lat": 55.95491,
+     "lng": -3.19301,
+     "en": "St. Andrew Square"
+    },
+    {
+     "name": "어린이 박물관",
+     "lat": 55.95052,
+     "lng": -3.18543,
+     "en": "Museum of Childhood"
+    },
+    {
+     "name": "캐넌게이트",
+     "lat": 55.95157,
+     "lng": -3.17904,
+     "en": "Canongate"
+    },
+    {
+     "name": "스코틀랜드 의회",
+     "lat": 55.95248,
+     "lng": -3.17566,
+     "en": "Scottish Parliament"
+    },
+    {
+     "name": "아워 다이내믹 어스",
+     "lat": 55.95086,
+     "lng": -3.17475,
+     "en": "Our Dynamic Earth"
+    },
+    {
+     "name": "애비힐 크레센트",
+     "lat": 55.95395,
+     "lng": -3.17392,
+     "en": "Abbeyhill Crescent"
+    },
+    {
+     "name": "칼튼 테라스 브래",
+     "lat": 55.95586,
+     "lng": -3.17267,
+     "en": "Carlton Terrace Brae"
+    },
+    {
+     "name": "레오폴드 플레이스",
+     "lat": 55.95796,
+     "lng": -3.18264,
+     "en": "Leopold Place"
+    }
+   ]
+  }
+ ]
+}

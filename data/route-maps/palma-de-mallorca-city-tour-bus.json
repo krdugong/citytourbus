@@ -1,0 +1,132 @@
+{
+ "city": "팔마 데 마요르카",
+ "slug": "palma-de-mallorca-city-tour-bus",
+ "title": "마요르카 시티투어버스 노선도",
+ "sub": "레드 노선 19곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 대성당 · 해안 · 벨베르 성",
+   "title": "레드 노선",
+   "sub": "대성당 · 해안 · 벨베르 성",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "안토니 마우라 (대성당 앞)",
+     "lat": 39.56761,
+     "lng": 2.64588,
+     "en": "Antoni Maura"
+    },
+    {
+     "name": "메르카트 광장",
+     "lat": 39.57143,
+     "lng": 2.64983,
+     "en": "Plaça del Mercat"
+    },
+    {
+     "name": "람블라 · 오르츠 거리",
+     "lat": 39.57327,
+     "lng": 2.65001,
+     "en": "La Rambla / Carrer dels Horts"
+    },
+    {
+     "name": "에스파냐 광장",
+     "lat": 39.5757,
+     "lng": 2.6538,
+     "en": "Plaça de'Espanya"
+    },
+    {
+     "name": "알렉산드레 로세요 거리",
+     "lat": 39.57213,
+     "lng": 2.65662,
+     "en": "Av. Alexandre Roselló"
+    },
+    {
+     "name": "가브리엘 알로마르 거리 (포르타 데스 캄프)",
+     "lat": 39.56531,
+     "lng": 2.65645,
+     "en": "Av. Gabriel Alomar i Villalonga (Porta des Camp)"
+    },
+    {
+     "name": "파세이그 마리팀 (엘스 몰린스)",
+     "lat": 39.56926,
+     "lng": 2.63792,
+     "en": "Passeig Marítim (Els Molins)"
+    },
+    {
+     "name": "폰트 광장",
+     "lat": 39.57042,
+     "lng": 2.63258,
+     "en": "Plaça des Pont"
+    },
+    {
+     "name": "포블레 에스파뇰",
+     "lat": 39.57274,
+     "lng": 2.62821,
+     "en": "Poble Espanyol"
+    },
+    {
+     "name": "벨베르 성",
+     "lat": 39.56266,
+     "lng": 2.61931,
+     "en": "Castell de Bellver"
+    },
+    {
+     "name": "고밀라 광장",
+     "lat": 39.56296,
+     "lng": 2.62556,
+     "en": "Plaça Gomila"
+    },
+    {
+     "name": "호안 미로 거리",
+     "lat": 39.55229,
+     "lng": 2.62156,
+     "en": "Av. Joan Miró"
+    },
+    {
+     "name": "산카를로스 성 (외부)",
+     "lat": 39.54562,
+     "lng": 2.62227,
+     "en": "CASTILLO SAN CARLOS (exterior)"
+    },
+    {
+     "name": "산카를로스 성 (내부, 13B)",
+     "lat": 39.54662,
+     "lng": 2.62233,
+     "en": "(13B ) CASTILLO SAN CARLOS (interior)"
+    },
+    {
+     "name": "해양 터미널 (에스타시오 마리티마)",
+     "lat": 39.5535,
+     "lng": 2.62579,
+     "en": "Estació Marítima"
+    },
+    {
+     "name": "메르카트 1930 (해변 산책로)",
+     "lat": 39.56286,
+     "lng": 2.62775,
+     "en": "MERCAT 1930 (Paseo Marítimo)"
+    },
+    {
+     "name": "가브리엘 로카 거리 (오디토리움)",
+     "lat": 39.56822,
+     "lng": 2.63166,
+     "en": "AV. GABRIEL ROCA (AUDITORIUM)"
+    },
+    {
+     "name": "하우메 3세 거리",
+     "lat": 39.57233,
+     "lng": 2.64338,
+     "en": "Av. Jaume III"
+    },
+    {
+     "name": "상업 부두 (몰 코메르시알)",
+     "lat": 39.56541,
+     "lng": 2.64437,
+     "en": "Moll Comercial"
+    }
+   ]
+  }
+ ]
+}

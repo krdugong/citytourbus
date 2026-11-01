@@ -1,0 +1,126 @@
+{
+ "city": "뉴올리언스",
+ "slug": "new-orleans-city-tour-bus",
+ "title": "뉴올리언스 시티투어버스 노선도",
+ "sub": "뉴올리언스 시티투어 노선 18곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "뉴올리언스 시티투어 노선 · 순환 노선",
+   "title": "뉴올리언스 시티투어 노선",
+   "sub": "순환 노선",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "잭슨 스퀘어",
+     "lat": 29.95694,
+     "lng": -90.06259,
+     "en": "Jackson Square"
+    },
+    {
+     "name": "프렌치 마켓",
+     "lat": 29.95961,
+     "lng": -90.05956,
+     "en": "French Market"
+    },
+    {
+     "name": "마리니 · 바이워터",
+     "lat": 29.96435,
+     "lng": -90.05637,
+     "en": "MARIGNY BYWATER"
+    },
+    {
+     "name": "트레메 (램파트 · 어슐린 거리)",
+     "lat": 29.96374,
+     "lng": -90.06563,
+     "en": "TREME - Rampart & Ursulines Ave."
+    },
+    {
+     "name": "베이슨 스트리트 스테이션 관광안내소",
+     "lat": 29.95945,
+     "lng": -90.07068,
+     "en": "BASIN ST. STATION Visitor Information Center"
+    },
+    {
+     "name": "커낼 스트리트 500",
+     "lat": 29.95208,
+     "lng": -90.06767,
+     "en": "CANAL STREET - 500 Canal St."
+    },
+    {
+     "name": "시저스 · 해라스 카지노",
+     "lat": 29.94857,
+     "lng": -90.06567,
+     "en": "CAESARS / HARRAH’S CASINO – Poydras & S. Peters"
+    },
+    {
+     "name": "포이드라스 @ 로욜라",
+     "lat": 29.95052,
+     "lng": -90.0755,
+     "en": "Poydras @ Loyola (1100 Poydras Street)"
+    },
+    {
+     "name": "세인트 찰스 @ 라파예트",
+     "lat": 29.94866,
+     "lng": -90.07106,
+     "en": "St. Charles @ Lafayette (545 St. Charles)"
+    },
+    {
+     "name": "국립 2차대전 박물관",
+     "lat": 29.94284,
+     "lng": -90.07039,
+     "en": "THE NATIONAL WWII MUSEUM - 945 Magazine St."
+    },
+    {
+     "name": "매거진 스트리트 · 잭슨 애비뉴",
+     "lat": 29.92944,
+     "lng": -90.07702,
+     "en": "MAGAZINE STREET - Magazine St. & Jackson Ave."
+    },
+    {
+     "name": "가든 디스트릭트 (매거진 스트리트)",
+     "lat": 29.92627,
+     "lng": -90.08239,
+     "en": "GARDEN DISTRICT on MAGAZINE STREET"
+    },
+    {
+     "name": "매거진 스트리트 · 나인스 스트리트",
+     "lat": 29.92396,
+     "lng": -90.08654,
+     "en": "MAGAZINE STREET - Magazine St. & Ninth St."
+    },
+    {
+     "name": "세인트 찰스 애비뉴 · 루이지애나 애비뉴",
+     "lat": 29.92805,
+     "lng": -90.09125,
+     "en": "ST. CHARLES AVENUE - Louisiana Ave. & St. Charles Ave."
+    },
+    {
+     "name": "컨벤션 센터 (홀 E)",
+     "lat": 29.94031,
+     "lng": -90.06433,
+     "en": "CONVENTION CENTER - in front of Hall E"
+    },
+    {
+     "name": "세인트 찰스 애비뉴 2020",
+     "lat": 29.93475,
+     "lng": -90.0788,
+     "en": "ST. CHARLES AVENUE - 2020 St. Charles Ave."
+    },
+    {
+     "name": "아츠 디스트릭트 (줄리아 스트리트)",
+     "lat": 29.94455,
+     "lng": -90.06562,
+     "en": "ARTS DISTRICT - Julia St. & S. Peters St."
+    },
+    {
+     "name": "리버프런트 · 크리올 퀸 (커낼 스트리트 2)",
+     "lat": 29.94979,
+     "lng": -90.06386,
+     "en": "RIVERFRONT | CREOLE QUEEN – 2 Canal Street"
+    }
+   ]
+  }
+ ]
+}

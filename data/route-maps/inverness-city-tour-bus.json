@@ -1,0 +1,60 @@
+{
+ "city": "인버네스",
+ "slug": "inverness-city-tour-bus",
+ "title": "인버네스 시티투어버스 노선도",
+ "sub": "레드 노선 7곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 시내 · 대성당 · 네스호 입구",
+   "title": "레드 노선",
+   "sub": "시내 · 대성당 · 네스호 입구",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "인버네스 버스터미널 (6번 승강장)",
+     "lat": 57.48083,
+     "lng": -4.22532,
+     "en": "Bus Station, Stance 6"
+    },
+    {
+     "name": "브리지 스트리트 (인버네스성)",
+     "lat": 57.47742,
+     "lng": -4.22564,
+     "en": "Bridge Street"
+    },
+    {
+     "name": "벨필드 공원 전쟁기념비",
+     "lat": 57.47022,
+     "lng": -4.22718,
+     "en": "Bellfield Park War Memorial"
+    },
+    {
+     "name": "비숍스 로드 · 세인트앤드루 대성당",
+     "lat": 57.47322,
+     "lng": -4.22928,
+     "en": "Bishops Road, St Andrew's Cathedral"
+    },
+    {
+     "name": "버트 드라이브 · 아이스링크",
+     "lat": 57.46395,
+     "lng": -4.23719,
+     "en": "Bught Drive, Inverness Ice Rink"
+    },
+    {
+     "name": "도크개로크 (네스호 입구 운하)",
+     "lat": 57.43291,
+     "lng": -4.30409,
+     "en": "Dochgarroch Loch"
+    },
+    {
+     "name": "텔퍼드 스트리트",
+     "lat": 57.48169,
+     "lng": -4.24375,
+     "en": "Telford Street"
+    }
+   ]
+  }
+ ]
+}

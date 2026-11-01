@@ -11,7 +11,7 @@
 //   night?{time,start,duration,price,text}, tickets[{name,validity,price,includes[],for}], priceNote,
 //   onsite?{text,compare[[k,v]]}, extra?[{id,label,h2,image?,paras?[],table?[[k,v]]}],
 //   howToBook?[], howToRide?[] (Big Bus defaults used when operator is "bigbus"),
-//   h2?{route,night,price,booking,onsite,ride,faq}, faq[{q,a}], images{key:{alt,eyebrow,title,sub,bg}},
+//   h2?{route,night,price,booking,onsite,ride,topics,faq}, topics?[{h3,a,anchor,label}] (scripts/keyword-pages/topics.py), faq[{q,a}], images{key:{alt,eyebrow,title,sub,bg}},
 //   asideNote, operator?, affiliate? (false = booking button goes to the operator's own site)
 import fs from 'node:fs';
 import path from 'node:path';
@@ -94,8 +94,8 @@ function render(p, all) {
 
   // Other spellings people search with (Naver autocomplete), shown as a plain "also known as" row
   const aka = p.aka || (/빅버스$/.test(k)
-    ? [`${p.city} 빅버스 투어`, `${p.city} 시티투어버스`, `${p.city} 시티투어 버스`, `${p.city} 2층버스 투어`, `${p.city} 홉온홉오프 버스`]
-    : [`${p.city} 시티투어 버스`, `${p.city} 버스투어`, `${p.city} 2층버스 투어`, `${p.city} 홉온홉오프 버스`]);
+    ? [`${p.city} 빅버스 투어`, `${p.city} 시티투어버스`, `${p.city} 시티투어 버스`, `${p.city} 2층버스 투어`, `${p.city} 홉온홉오프 버스`, `${p.city} 관광버스`]
+    : [`${p.city} 시티투어 버스`, `${p.city} 버스투어`, `${p.city} 2층버스 투어`, `${p.city} 홉온홉오프 버스`, `${p.city} 관광버스`, ...(p.operator === 'city-sightseeing' ? [`${p.city} City Sightseeing`] : [])]);
   sec('summary', 'SUMMARY', `${k} 한눈에 보기`, '한눈에 보기', kvTable([['다른 이름', aka.join(', ')], ...p.summary], 'kw-summary'));
 
   const routeNames = p.routes.map(r => `${r.name.replace(/ \(.*\)/, '')}${r.area ? `(${r.area})` : ''}`).join(', ');
@@ -125,6 +125,10 @@ function render(p, all) {
 
   sec('ride', 'HOW TO RIDE', h2.ride, '타는법',
     figure(p, 'ride') + `<ol class="kw-steps">${howToRide.map(s => `<li>${esc(s)}</li>`).join('')}</ol>`);
+
+  if (p.topics && p.topics.length) sec('topics', 'TOPICS', h2.topics || `${k} 궁금한 점별 정리`, '궁금한 점',
+    `<p class="small">네이버에서 많이 찾는 질문 순서대로, 이 페이지의 공식 정보 기준으로 짧게 답했습니다.</p>` +
+    p.topics.map(t => `<div class="kw-topic"><h3>${esc(t.h3)}</h3><p>${t.a} <a href="#${esc(t.anchor)}">${esc(t.label)} →</a></p></div>`).join(''));
 
   sec('faq', 'FAQ', h2.faq, 'FAQ', p.faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join(''));
 

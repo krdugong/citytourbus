@@ -1,0 +1,84 @@
+{
+ "city": "베날마데나",
+ "slug": "benalmadena-city-tour-bus",
+ "title": "베날마데나 시티투어버스 노선도",
+ "sub": "레드 노선 11곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 마리나 · 해변 · 케이블카",
+   "title": "레드 노선",
+   "sub": "마리나 · 해변 · 케이블카",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "푸에르토 마리나",
+     "lat": 36.59719,
+     "lng": -4.51066,
+     "en": "Puerto Marina"
+    },
+    {
+     "name": "말라페스케라 해변",
+     "lat": 36.59729,
+     "lng": -4.51562,
+     "en": "Playa de Malapesquera"
+    },
+    {
+     "name": "리비에라 호텔",
+     "lat": 36.59497,
+     "lng": -4.52114,
+     "en": "Hotel Riviera"
+    },
+    {
+     "name": "베날로마 유적",
+     "lat": 36.59206,
+     "lng": -4.5247,
+     "en": "Ruinas de Benal-Roma"
+    },
+    {
+     "name": "셀보 마리나",
+     "lat": 36.59278,
+     "lng": -4.5319,
+     "en": "Selwo Marina"
+    },
+    {
+     "name": "팔로마 공원",
+     "lat": 36.59264,
+     "lng": -4.52725,
+     "en": "Parque de la Paloma"
+    },
+    {
+     "name": "아로요 데 라 미엘역 (렌페)",
+     "lat": 36.59883,
+     "lng": -4.5366,
+     "en": "Renfe - Arroyo de la Miel"
+    },
+    {
+     "name": "티볼리 · 케이블카",
+     "lat": 36.59934,
+     "lng": -4.53971,
+     "en": "Tivoli - Teleférico"
+    },
+    {
+     "name": "아로요 데 라 미엘 해변",
+     "lat": 36.58584,
+     "lng": -4.53307,
+     "en": "Playa Arroyo de la Miel"
+    },
+    {
+     "name": "빌빌 성",
+     "lat": 36.59053,
+     "lng": -4.52717,
+     "en": "Castillo de Bil-Bil"
+    },
+    {
+     "name": "전시 센터",
+     "lat": 36.59674,
+     "lng": -4.51931,
+     "en": "Centro de Exposiciones"
+    }
+   ]
+  }
+ ]
+}

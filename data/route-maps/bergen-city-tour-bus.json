@@ -1,0 +1,96 @@
+{
+ "city": "베르겐",
+ "slug": "bergen-city-tour-bus",
+ "title": "베르겐 시티투어버스 노선도",
+ "sub": "레드 라인 13곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 라인 · 브뤼겐 · 어시장 · 노르네스",
+   "title": "레드 라인",
+   "sub": "브뤼겐 · 어시장 · 노르네스",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "스콜텐·본텔라보 크루즈 터미널 · 호콘 왕의 홀 · 로센크란츠 탑",
+     "lat": 60.40141,
+     "lng": 5.31614,
+     "en": "Skolten/Bontelabo Cruise Terminal / King Håkon’s Hall / Rosenkrantz Tower"
+    },
+    {
+     "name": "관광안내소 · 어시장",
+     "lat": 60.39473,
+     "lng": 5.32556,
+     "en": "Tourist Information , The Fish Market"
+    },
+    {
+     "name": "마르켄 · 페스트플라센 · 시립공원",
+     "lat": 60.39271,
+     "lng": 5.3305,
+     "en": "Marken / Festplassen / The City Park"
+    },
+    {
+     "name": "베르겐 쇼핑몰 · 코데 미술관",
+     "lat": 60.38981,
+     "lng": 5.33112,
+     "en": "Bergen Shopping Mall / Kode Art Museum / The City Park"
+    },
+    {
+     "name": "예크테비켄 크루즈 터미널",
+     "lat": 60.39237,
+     "lng": 5.31494,
+     "en": "Jekteviken Cruise Terminal"
+    },
+    {
+     "name": "프레드릭스베르그 요새",
+     "lat": 60.39664,
+     "lng": 5.31004,
+     "en": "Fredriksberg Fortress"
+    },
+    {
+     "name": "베르겐 수족관 · 노르네스 공원",
+     "lat": 60.39937,
+     "lng": 5.30491,
+     "en": " Bergen Aquarium / Nordnes Park"
+    },
+    {
+     "name": "매직 아이스 · 뉘키르켄",
+     "lat": 60.39773,
+     "lng": 5.31278,
+     "en": "Magic Ice / Nykirken"
+    },
+    {
+     "name": "어시장 · 관광안내소",
+     "lat": 60.39396,
+     "lng": 5.32334,
+     "en": "Fish Market / Tourist Information"
+    },
+    {
+     "name": "플뢰엔 푸니쿨라역",
+     "lat": 60.39595,
+     "lng": 5.3274,
+     "en": "Fløyen Funicular Station"
+    },
+    {
+     "name": "플뢰엔 푸니쿨라역 · 브뤼겐",
+     "lat": 60.39662,
+     "lng": 5.32779,
+     "en": "Fløyen Funicular Station / Bryggen"
+    },
+    {
+     "name": "성모 마리아 교회 · 브뤼겐 박물관",
+     "lat": 60.39866,
+     "lng": 5.32428,
+     "en": "Saint Mary’s Church / Bryggens Museum"
+    },
+    {
+     "name": "산드비켄 교회 · 전망 포인트",
+     "lat": 60.40545,
+     "lng": 5.32396,
+     "en": "Sandvikskirken / Viewpoint"
+    }
+   ]
+  }
+ ]
+}

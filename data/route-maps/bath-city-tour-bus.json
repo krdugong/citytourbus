@@ -1,0 +1,207 @@
+{
+ "city": "바스",
+ "slug": "bath-city-tour-bus",
+ "title": "영국 바스 시티투어버스 노선도",
+ "sub": "시티 투어 15곳 · 스카이라인 투어 15곳 · 번호는 노선별 순서",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "시티 투어 · 로만 바스 · 로열 크레센트",
+   "title": "시티 투어",
+   "sub": "로만 바스 · 로열 크레센트",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "바스 수도원",
+     "lat": 51.3809,
+     "lng": -2.35749,
+     "en": "Terrace Walk"
+    },
+    {
+     "name": "그랜드 퍼레이드",
+     "lat": 51.38387,
+     "lng": -2.35578,
+     "en": "Great Pulteney Street"
+    },
+    {
+     "name": "앰버리",
+     "lat": 51.38534,
+     "lng": -2.35214,
+     "en": "Holburne Museum"
+    },
+    {
+     "name": "콘 스트리트",
+     "lat": 51.38711,
+     "lng": -2.35043,
+     "en": "Beckford Road"
+    },
+    {
+     "name": "에이번 스트리트",
+     "lat": 51.37257,
+     "lng": -2.32257,
+     "en": "Rainbow Woods Farm"
+    },
+    {
+     "name": "웨스트게이트 빌딩스",
+     "lat": 51.36603,
+     "lng": -2.31965,
+     "en": "Brassknocker Hill"
+    },
+    {
+     "name": "퀸스 스퀘어",
+     "lat": 51.36458,
+     "lng": -2.32555,
+     "en": "Claverton Down"
+    },
+    {
+     "name": "어셈블리 룸스",
+     "lat": 51.36377,
+     "lng": -2.33103,
+     "en": "Ralph Allen School"
+    },
+    {
+     "name": "로열 크레센트",
+     "lat": 51.36296,
+     "lng": -2.33892,
+     "en": "North Road / Shaft Road"
+    },
+    {
+     "name": "말버러 빌딩스",
+     "lat": 51.36253,
+     "lng": -2.34249,
+     "en": "Tyning / North Road"
+    },
+    {
+     "name": "식물원",
+     "lat": 51.3649,
+     "lng": -2.34598,
+     "en": "Prior Park"
+    },
+    {
+     "name": "놀이터 (빅토리아 공원)",
+     "lat": 51.36976,
+     "lng": -2.34609,
+     "en": "Middle Hill Lodge"
+    },
+    {
+     "name": "컴퍼터블 플레이스",
+     "lat": 51.37223,
+     "lng": -2.34889,
+     "en": "Abbey Cemetery"
+    },
+    {
+     "name": "로열 애비뉴",
+     "lat": 51.37359,
+     "lng": -2.35075,
+     "en": "Prior Park Road"
+    },
+    {
+     "name": "밀섬 스트리트",
+     "lat": 51.3768,
+     "lng": -2.35306,
+     "en": "Widcombe"
+    }
+   ]
+  },
+  {
+   "key": "r2",
+   "name": "스카이라인 투어 · 펄트니 거리 · 프라이어 파크 · 언덕 전망",
+   "title": "스카이라인 투어",
+   "sub": "펄트니 거리 · 프라이어 파크 · 언덕 전망",
+   "color": "#1f6fd1",
+   "stops": [
+    {
+     "name": "테라스 워크",
+     "lat": 51.3817,
+     "lng": -2.35894,
+     "en": "Bath Abbey "
+    },
+    {
+     "name": "그레이트 펄트니 스트리트",
+     "lat": 51.38204,
+     "lng": -2.35726,
+     "en": "Grand Parade"
+    },
+    {
+     "name": "홀번 박물관",
+     "lat": 51.37826,
+     "lng": -2.36141,
+     "en": "Ambury"
+    },
+    {
+     "name": "벡퍼드 로드",
+     "lat": 51.37912,
+     "lng": -2.36291,
+     "en": "Corn Street"
+    },
+    {
+     "name": "레인보우 우즈 농장",
+     "lat": 51.37975,
+     "lng": -2.36315,
+     "en": "Avon Street"
+    },
+    {
+     "name": "브라스노커 힐",
+     "lat": 51.38079,
+     "lng": -2.36242,
+     "en": "Westgate Buildings"
+    },
+    {
+     "name": "클래버턴 다운",
+     "lat": 51.38334,
+     "lng": -2.36293,
+     "en": "Queens Square"
+    },
+    {
+     "name": "랄프 앨런 스쿨",
+     "lat": 51.38641,
+     "lng": -2.36316,
+     "en": "Assembly Rooms"
+    },
+    {
+     "name": "노스 로드 · 샤프트 로드",
+     "lat": 51.38637,
+     "lng": -2.36676,
+     "en": "Royal Crescent"
+    },
+    {
+     "name": "타이닝 · 노스 로드",
+     "lat": 51.38835,
+     "lng": -2.37083,
+     "en": "Marlborough Buildings"
+    },
+    {
+     "name": "프라이어 파크",
+     "lat": 51.38904,
+     "lng": -2.37753,
+     "en": "Botanical Gardens"
+    },
+    {
+     "name": "미들 힐 로지",
+     "lat": 51.38552,
+     "lng": -2.37784,
+     "en": "Play Ground "
+    },
+    {
+     "name": "애비 묘지",
+     "lat": 51.3847,
+     "lng": -2.374,
+     "en": "Comfortable Place "
+    },
+    {
+     "name": "프라이어 파크 로드",
+     "lat": 51.38553,
+     "lng": -2.36722,
+     "en": "Royal Avenue"
+    },
+    {
+     "name": "위드콤",
+     "lat": 51.384,
+     "lng": -2.3615,
+     "en": "Milsom Street"
+    }
+   ]
+  }
+ ]
+}

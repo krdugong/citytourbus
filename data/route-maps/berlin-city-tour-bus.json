@@ -1,0 +1,138 @@
+{
+ "city": "베를린",
+ "slug": "berlin-city-tour-bus",
+ "title": "베를린 시티투어버스 노선도",
+ "sub": "베를린 시티투어 노선 20곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "베를린 시티투어 노선 · 클래식 · 2개 노선",
+   "title": "베를린 시티투어 노선",
+   "sub": "클래식 · 2개 노선",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "타우엔치엔 거리",
+     "lat": 52.50352,
+     "lng": 13.33783,
+     "en": "Tauentzienstraße (Tauentzienstraße 15)"
+    },
+    {
+     "name": "카데베(KaDeWe) 백화점",
+     "lat": 52.50218,
+     "lng": 13.34128,
+     "en": "KaDeWe (Tauentzienstraße 21-24)"
+    },
+    {
+     "name": "뤼초플라츠 · 쿨투어포룸",
+     "lat": 52.50489,
+     "lng": 13.35178,
+     "en": "Lützowplatz (Kulturforum Tiergarten)"
+    },
+    {
+     "name": "포츠다머 광장",
+     "lat": 52.50864,
+     "lng": 13.37716,
+     "en": "Potsdamer Platz/Kolhoff-Hochhaus"
+    },
+    {
+     "name": "그로피우스 바우",
+     "lat": 52.50714,
+     "lng": 13.38162,
+     "en": "Gropiusbau"
+    },
+    {
+     "name": "체크포인트 찰리",
+     "lat": 52.50711,
+     "lng": 13.39058,
+     "en": "Checkpoint Charlie (Friedrichstraße 45)"
+    },
+    {
+     "name": "젠다르멘마르크트",
+     "lat": 52.51342,
+     "lng": 13.39334,
+     "en": "Gendarmenmarkt"
+    },
+    {
+     "name": "넵튠 분수 · 붉은 시청사",
+     "lat": 52.51936,
+     "lng": 13.40631,
+     "en": "Neptune Fontaine, Neptunbrunnen/Rotes Rathaus (Rathausstraße 1)"
+    },
+    {
+     "name": "알렉산더 광장",
+     "lat": 52.52274,
+     "lng": 13.4143,
+     "en": "Alexanderplatz / Park Inn"
+    },
+    {
+     "name": "루스트가르텐 · 박물관섬",
+     "lat": 52.5181,
+     "lng": 13.40029,
+     "en": "Lustgarten"
+    },
+    {
+     "name": "베벨 광장 · 훔볼트 대학",
+     "lat": 52.5175,
+     "lng": 13.39429,
+     "en": "Bebelplatz / Universität"
+    },
+    {
+     "name": "운터 덴 린덴 · 프리드리히 거리",
+     "lat": 52.51717,
+     "lng": 13.38801,
+     "en": "Unter den Linden/Friedrichstraße"
+    },
+    {
+     "name": "브란덴부르크 문",
+     "lat": 52.51723,
+     "lng": 13.37731,
+     "en": "Brandenburger Tor"
+    },
+    {
+     "name": "국회의사당 (라이히스탁)",
+     "lat": 52.51781,
+     "lng": 13.37342,
+     "en": "Reichstag"
+    },
+    {
+     "name": "베를린 중앙역",
+     "lat": 52.52394,
+     "lng": 13.3683,
+     "en": "Berlin Central Station, Hauptbahnhof (Ella-Trebe-Straße/Washington Pl)"
+    },
+    {
+     "name": "벨뷔 궁전",
+     "lat": 52.51681,
+     "lng": 13.35406,
+     "en": "Schloss Bellvue"
+    },
+    {
+     "name": "전승기념탑 (지게스조일레)",
+     "lat": 52.51405,
+     "lng": 13.3491,
+     "en": "Victory Column, Siegessäule/ Hofjägerallee"
+    },
+    {
+     "name": "베를린 동물원 · 코끼리 문",
+     "lat": 52.50542,
+     "lng": 13.33978,
+     "en": "Zoo/Elephant Gate, Elefantentor"
+    },
+    {
+     "name": "카페 크란츨러 · 쿠담 거리",
+     "lat": 52.50387,
+     "lng": 13.33098,
+     "en": "Café Kranzler (Kurfürstendamm 21-24)"
+    },
+    {
+     "name": "쿠르퓌르스텐담 236",
+     "lat": 52.50433,
+     "lng": 13.33411,
+     "en": "Kurfürstendamm 236"
+    }
+   ]
+  }
+ ]
+}

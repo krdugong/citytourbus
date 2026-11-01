@@ -1,0 +1,102 @@
+{
+ "city": "말라가",
+ "slug": "malaga-city-tour-bus",
+ "title": "말라가 시티투어버스 노선도",
+ "sub": "말라가 시티투어 노선 14곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "말라가 시티투어 노선 · 시내 · 항구",
+   "title": "말라가 시티투어 노선",
+   "sub": "시내 · 항구",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "비알리아 · 렌페 말라가역",
+     "lat": 36.71231,
+     "lng": -4.43116,
+     "en": "Vialia - Renfe"
+    },
+    {
+     "name": "현대미술센터 (CAC)",
+     "lat": 36.7157,
+     "lng": -4.42698,
+     "en": "Centro de Arte Contemporáneo"
+    },
+    {
+     "name": "항구",
+     "lat": 36.71654,
+     "lng": -4.42049,
+     "en": "Puerto"
+    },
+    {
+     "name": "마리나 광장",
+     "lat": 36.71851,
+     "lng": -4.41927,
+     "en": "Plaza de la Marina"
+    },
+    {
+     "name": "파세오 델 파르케",
+     "lat": 36.7195,
+     "lng": -4.41572,
+     "en": "Paseo del Parque"
+    },
+    {
+     "name": "퐁피두 센터 말라가",
+     "lat": 36.71939,
+     "lng": -4.41224,
+     "en": "Centre Pompidou Málaga"
+    },
+    {
+     "name": "파세오 데 라 파롤라",
+     "lat": 36.71448,
+     "lng": -4.41442,
+     "en": "Paseo de la Farola"
+    },
+    {
+     "name": "말라게타 해변",
+     "lat": 36.71755,
+     "lng": -4.41044,
+     "en": "Playa de la Malagueta"
+    },
+    {
+     "name": "투우장",
+     "lat": 36.72092,
+     "lng": -4.41056,
+     "en": "Plaza de Toros"
+    },
+    {
+     "name": "히브랄파로 성",
+     "lat": 36.72332,
+     "lng": -4.41015,
+     "en": "Castillo de Gibralfaro"
+    },
+    {
+     "name": "빅토리아 대성당",
+     "lat": 36.72898,
+     "lng": -4.4137,
+     "en": "Basílica de Sta. M. de la Victoria"
+    },
+    {
+     "name": "메르세드 광장 · 피카소 생가",
+     "lat": 36.72354,
+     "lng": -4.41647,
+     "en": "Pza. de la Merced - Casa de Picasso"
+    },
+    {
+     "name": "카르멘 티센 미술관 · 대성당",
+     "lat": 36.71845,
+     "lng": -4.42014,
+     "en": "Museo Carmen Thyssen - Catedral"
+    },
+    {
+     "name": "안달루시아 대로",
+     "lat": 36.71692,
+     "lng": -4.42871,
+     "en": "Avenida de Andalucía"
+    }
+   ]
+  }
+ ]
+}

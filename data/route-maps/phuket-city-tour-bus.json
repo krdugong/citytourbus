@@ -1,0 +1,84 @@
+{
+ "city": "푸껫",
+ "slug": "phuket-city-tour-bus",
+ "title": "푸껫 시티투어버스 노선도",
+ "sub": "레드 노선 11곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 올드타운 · 찰롱 · 센트럴",
+   "title": "레드 노선",
+   "sub": "올드타운 · 찰롱 · 센트럴",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "센트럴 푸껫 플로레스타",
+     "lat": 7.88986,
+     "lng": 98.36596,
+     "en": "Central Phuket Floresta"
+    },
+    {
+     "name": "올드타운 1 · 몽꼰니밋 사원",
+     "lat": 7.88599,
+     "lng": 98.38909,
+     "en": "Old Town 1 / Mongol Nimit Temple"
+    },
+    {
+     "name": "올드타운 2",
+     "lat": 7.88223,
+     "lng": 98.39119,
+     "en": "Old Town 2 "
+    },
+    {
+     "name": "사판힌 공원",
+     "lat": 7.86801,
+     "lng": 98.39684,
+     "en": "Sapan Hin Park"
+    },
+    {
+     "name": "끼우티엔켕 사당",
+     "lat": 7.86218,
+     "lng": 98.39984,
+     "en": "Kiu Thian Keng Shrine (Sapan Hin Shrine)"
+    },
+    {
+     "name": "무에타이 거리 (소이 따이앗)",
+     "lat": 7.85848,
+     "lng": 98.34169,
+     "en": "Muay Thai Street (Soi Ta-iad)"
+    },
+    {
+     "name": "찰롱 사원 (왓 찰롱)",
+     "lat": 7.84669,
+     "lng": 98.33656,
+     "en": "Chalong Temple (Wat Chai Thararam)"
+    },
+    {
+     "name": "로빈슨 라이프스타일 찰롱",
+     "lat": 7.84662,
+     "lng": 98.35089,
+     "en": "Robinson Lifestyle Chalong"
+    },
+    {
+     "name": "하누만 월드",
+     "lat": 7.87594,
+     "lng": 98.35544,
+     "en": "Hanuman World Phuket"
+    },
+    {
+     "name": "킹파워 푸껫",
+     "lat": 7.8724,
+     "lng": 98.36252,
+     "en": "King Power Phuket"
+    },
+    {
+     "name": "아쿠아리아 푸껫 · 센트럴 플로레스타",
+     "lat": 7.88843,
+     "lng": 98.36705,
+     "en": "Aquaria Phuket / Central Phuket Floresta"
+    }
+   ]
+  }
+ ]
+}

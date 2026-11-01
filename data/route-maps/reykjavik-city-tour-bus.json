@@ -1,0 +1,114 @@
+{
+ "city": "레이캬비크",
+ "slug": "reykjavik-city-tour-bus",
+ "title": "레이캬비크 시티투어버스 노선도",
+ "sub": "레이캬비크 시티투어 노선 16곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "레이캬비크 시티투어 노선 · 정류장 16곳",
+   "title": "레이캬비크 시티투어 노선",
+   "sub": "정류장 16곳",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "하르파 콘서트홀",
+     "lat": 64.14945,
+     "lng": -21.93251,
+     "en": "Harpa Concert Hall and Conference Centre"
+    },
+    {
+     "name": "올드 하버",
+     "lat": 64.15171,
+     "lng": -21.94895,
+     "en": "The Old Harbour"
+    },
+    {
+     "name": "레이캬비크 해양박물관",
+     "lat": 64.15307,
+     "lng": -21.94988,
+     "en": "Reykjavik Maritime Museum"
+    },
+    {
+     "name": "웨일스 오브 아이슬란드",
+     "lat": 64.1554,
+     "lng": -21.94817,
+     "en": "Whales of Iceland"
+    },
+    {
+     "name": "국립 박물관",
+     "lat": 64.14204,
+     "lng": -21.94774,
+     "en": "National Museum"
+    },
+    {
+     "name": "라이캬르가타",
+     "lat": 64.14581,
+     "lng": -21.93835,
+     "en": "Lækjargata"
+    },
+    {
+     "name": "라우가베구르 쇼핑 거리",
+     "lat": 64.14326,
+     "lng": -21.91476,
+     "en": "Laugavegur Shopping Street"
+    },
+    {
+     "name": "레이캬비크 미술관 (캬르발스타디르)",
+     "lat": 64.13866,
+     "lng": -21.92164,
+     "en": "Reykjavik Art Museum - Kjarvalsstaðir"
+    },
+    {
+     "name": "할그림스키르캬",
+     "lat": 64.142,
+     "lng": -21.9269,
+     "en": "Hallgrímskirkja"
+    },
+    {
+     "name": "BSI 버스 터미널",
+     "lat": 64.13758,
+     "lng": -21.93415,
+     "en": "BSI Bus Terminal"
+    },
+    {
+     "name": "페를란",
+     "lat": 64.12931,
+     "lng": -21.91875,
+     "en": "Perlan"
+    },
+    {
+     "name": "크링글란 쇼핑센터",
+     "lat": 64.12963,
+     "lng": -21.90004,
+     "en": "Kringlan Shopping Centre"
+    },
+    {
+     "name": "힐튼 레이캬비크 노르디카",
+     "lat": 64.14015,
+     "lng": -21.88812,
+     "en": "Hilton Reykjavik Nordica"
+    },
+    {
+     "name": "라우가르달루르 밸리",
+     "lat": 64.14674,
+     "lng": -21.8757,
+     "en": "Laugardalur Valley"
+    },
+    {
+     "name": "스카르파바키 항구 (여름만)",
+     "lat": 64.1551,
+     "lng": -21.86819,
+     "en": "Skarfabakki Harbour (summer only)"
+    },
+    {
+     "name": "회프디 하우스",
+     "lat": 64.14641,
+     "lng": -21.90579,
+     "en": "Höfdi House"
+    }
+   ]
+  }
+ ]
+}

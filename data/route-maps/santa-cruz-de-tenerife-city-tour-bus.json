@@ -1,0 +1,96 @@
+{
+ "city": "산타크루스 데 테네리페",
+ "slug": "santa-cruz-de-tenerife-city-tour-bus",
+ "title": "테네리페 시티투어버스 노선도",
+ "sub": "레드 노선 13곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 항구 · 오디토리움 · 팔메툼",
+   "title": "레드 노선",
+   "sub": "항구 · 오디토리움 · 팔메툼",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "에스파냐 광장",
+     "lat": 28.46781,
+     "lng": -16.247,
+     "en": "Plaza de España"
+    },
+    {
+     "name": "무나 · 라 콘셉시온",
+     "lat": 28.46419,
+     "lng": -16.25039,
+     "en": "Muna/La Concepcion"
+    },
+    {
+     "name": "카니발 박물관",
+     "lat": 28.46494,
+     "lng": -16.254,
+     "en": "Casa del Carnaval"
+    },
+    {
+     "name": "라 레코바 시장",
+     "lat": 28.46316,
+     "lng": -16.25122,
+     "en": "Mercado la Recova"
+    },
+    {
+     "name": "팔메툼",
+     "lat": 28.45428,
+     "lng": -16.25647,
+     "en": "Palmetum"
+    },
+    {
+     "name": "테네리페 오디토리움",
+     "lat": 28.45672,
+     "lng": -16.25178,
+     "en": "Auditorio"
+    },
+    {
+     "name": "교통 환승센터",
+     "lat": 28.45958,
+     "lng": -16.25494,
+     "en": "Intercambiador"
+    },
+    {
+     "name": "5월 3일 거리",
+     "lat": 28.45847,
+     "lng": -16.25981,
+     "en": "Avenida 3 de Mayo"
+    },
+    {
+     "name": "스타디움 · 비에라 이 클라비호 공원",
+     "lat": 28.46269,
+     "lng": -16.26181,
+     "en": "Estadio/ Parque Viera y Clavijo"
+    },
+    {
+     "name": "웨일러 광장",
+     "lat": 28.46891,
+     "lng": -16.25521,
+     "en": "Plaza Weyler"
+    },
+    {
+     "name": "오리 광장",
+     "lat": 28.47058,
+     "lng": -16.25553,
+     "en": "Plaza de los Patos"
+    },
+    {
+     "name": "가르시아 사나브리아 공원",
+     "lat": 28.47322,
+     "lng": -16.2545,
+     "en": "Parque García Sanabria"
+    },
+    {
+     "name": "군사역사박물관",
+     "lat": 28.47578,
+     "lng": -16.2485,
+     "en": "Museo Historico Militar"
+    }
+   ]
+  }
+ ]
+}

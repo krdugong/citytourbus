@@ -1,0 +1,138 @@
+{
+ "city": "스플리트",
+ "slug": "split-city-tour-bus",
+ "title": "스플리트 시티투어버스 노선도",
+ "sub": "레드 라인 7곳 · 블루 라인 4곳 · 그린 라인 6곳 · 번호는 노선별 순서",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 라인 · 승하차 노선",
+   "title": "레드 라인",
+   "sub": "승하차 노선",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "아포도스 버스 정류장 (출발)",
+     "lat": 43.50663,
+     "lng": 16.44074,
+     "en": "Apodos Bus Station"
+    },
+    {
+     "name": "바치비체 해변",
+     "lat": 43.50154,
+     "lng": 16.45033,
+     "en": "Bačvice Beach- Sandy Beach"
+    },
+    {
+     "name": "그리페 스포츠센터 · 해양박물관",
+     "lat": 43.51051,
+     "lng": 16.44918,
+     "en": "Gripe Sports Center & Maritime Museum"
+    },
+    {
+     "name": "고고학 박물관",
+     "lat": 43.51609,
+     "lng": 16.43535,
+     "en": "Archaeological Museum"
+    },
+    {
+     "name": "폴류드 축구 경기장",
+     "lat": 43.5199,
+     "lng": 16.42976,
+     "en": "Football Stadium Poljud"
+    },
+    {
+     "name": "메슈트로비치 갤러리",
+     "lat": 43.50435,
+     "lng": 16.42336,
+     "en": "Gallery Meštrović"
+    },
+    {
+     "name": "성 프란체스코 교회 · 수도원",
+     "lat": 43.50811,
+     "lng": 16.43594,
+     "en": "St. Francis church and monastery"
+    }
+   ]
+  },
+  {
+   "key": "blue",
+   "name": "블루 라인 · 가이드 투어",
+   "title": "블루 라인",
+   "sub": "가이드 투어",
+   "color": "#1f6fd1",
+   "stops": [
+    {
+     "name": "아포도스 버스 정류장 (출발)",
+     "lat": 43.50663,
+     "lng": 16.44074,
+     "en": "Apodos Bus Station"
+    },
+    {
+     "name": "트로기르",
+     "lat": 43.51846,
+     "lng": 16.251,
+     "en": "Trogir"
+    },
+    {
+     "name": "올리브 박물관",
+     "lat": 43.57188,
+     "lng": 16.53653,
+     "en": "Olive Museum"
+    },
+    {
+     "name": "클리스 요새",
+     "lat": 43.56096,
+     "lng": 16.52281,
+     "en": "Klis Fortress"
+    }
+   ]
+  },
+  {
+   "key": "green",
+   "name": "그린 라인 · 가이드 투어",
+   "title": "그린 라인",
+   "sub": "가이드 투어",
+   "color": "#1f9d55",
+   "stops": [
+    {
+     "name": "아포도스 버스 정류장 (출발)",
+     "lat": 43.50663,
+     "lng": 16.44074,
+     "en": "Apodos Bus Station"
+    },
+    {
+     "name": "올리브 박물관",
+     "lat": 43.57188,
+     "lng": 16.53653,
+     "en": "Olive Museum"
+    },
+    {
+     "name": "클리스 요새",
+     "lat": 43.56096,
+     "lng": 16.52281,
+     "en": "Klis Fortress"
+    },
+    {
+     "name": "히든 달마티아",
+     "lat": 43.58883,
+     "lng": 16.57312,
+     "en": "Hidden Dalmatia"
+    },
+    {
+     "name": "살로나 유적",
+     "lat": 43.54268,
+     "lng": 16.48058,
+     "en": "Salona"
+    },
+    {
+     "name": "즈냔 해변",
+     "lat": 43.50631,
+     "lng": 16.47907,
+     "en": "Žnjan Beach"
+    }
+   ]
+  }
+ ]
+}

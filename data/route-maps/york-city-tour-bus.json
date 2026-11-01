@@ -1,0 +1,144 @@
+{
+ "city": "요크",
+ "slug": "york-city-tour-bus",
+ "title": "요크 시티투어버스 노선도",
+ "sub": "레드 노선 21곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 성벽 · 클리퍼드 타워 · 기차역",
+   "title": "레드 노선",
+   "sub": "성벽 · 클리퍼드 타워 · 기차역",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "전시 광장",
+     "lat": 53.96267,
+     "lng": -1.08537,
+     "en": "Exhibition Square"
+    },
+    {
+     "name": "길리게이트",
+     "lat": 53.96476,
+     "lng": -1.0834,
+     "en": "Gillygate"
+    },
+    {
+     "name": "몽크 바",
+     "lat": 53.96338,
+     "lng": -1.07745,
+     "en": "Monk Bar"
+    },
+    {
+     "name": "포스 뱅크",
+     "lat": 53.96279,
+     "lng": -1.07403,
+     "en": "Foss Bank"
+    },
+    {
+     "name": "피즈홈 그린",
+     "lat": 53.96067,
+     "lng": -1.0751,
+     "en": "Peasholme Green"
+    },
+    {
+     "name": "스톤보우",
+     "lat": 53.95903,
+     "lng": -1.07826,
+     "en": "The Stonebow"
+    },
+    {
+     "name": "클리퍼드 타워",
+     "lat": 53.95559,
+     "lng": -1.08059,
+     "en": "Clifford's Tower"
+    },
+    {
+     "name": "마거릿 스트리트",
+     "lat": 53.95596,
+     "lng": -1.07403,
+     "en": "Margaret Street"
+    },
+    {
+     "name": "월름게이트 바",
+     "lat": 53.95555,
+     "lng": -1.07177,
+     "en": "Walmgate Bar"
+    },
+    {
+     "name": "요크 바비컨",
+     "lat": 53.95338,
+     "lng": -1.07529,
+     "en": "York Barbican"
+    },
+    {
+     "name": "피셔게이트",
+     "lat": 53.95306,
+     "lng": -1.07637,
+     "en": "Fishergate"
+    },
+    {
+     "name": "비숍소프 로드 상점가",
+     "lat": 53.95196,
+     "lng": -1.08445,
+     "en": "Bishopthorpe Road Shops"
+    },
+    {
+     "name": "비숍소프 로드",
+     "lat": 53.94942,
+     "lng": -1.08473,
+     "en": "Bishopthorpe Road"
+    },
+    {
+     "name": "사우스 뱅크",
+     "lat": 53.94695,
+     "lng": -1.0857,
+     "en": "South Bank"
+    },
+    {
+     "name": "캠플숀 로드",
+     "lat": 53.94299,
+     "lng": -1.09226,
+     "en": "Campleshon Road"
+    },
+    {
+     "name": "블로섬 스트리트",
+     "lat": 53.95451,
+     "lng": -1.09296,
+     "en": "Blossom Street"
+    },
+    {
+     "name": "더 마운트",
+     "lat": 53.95261,
+     "lng": -1.09578,
+     "en": "The Mount"
+    },
+    {
+     "name": "마운트 베일",
+     "lat": 53.94987,
+     "lng": -1.09901,
+     "en": "Mount Vale"
+    },
+    {
+     "name": "기차역",
+     "lat": 53.95838,
+     "lng": -1.09164,
+     "en": "Railway Station"
+    },
+    {
+     "name": "메모리얼 가든",
+     "lat": 53.9596,
+     "lng": -1.09015,
+     "en": "Memorial Gardens"
+    },
+    {
+     "name": "뮤지엄 가든",
+     "lat": 53.96101,
+     "lng": -1.08601,
+     "en": "Museum Gardens"
+    }
+   ]
+  }
+ ]
+}

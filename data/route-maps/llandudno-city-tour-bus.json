@@ -1,0 +1,36 @@
+{
+ "city": "랜디드노",
+ "slug": "llandudno-city-tour-bus",
+ "title": "랜디드노 시티투어버스 노선도",
+ "sub": "그레이트 옴 익스플로러 3곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "grey",
+   "name": "그레이트 옴 익스플로러 · 그레이트 옴 곶 · 정상",
+   "title": "그레이트 옴 익스플로러",
+   "sub": "그레이트 옴 곶 · 정상",
+   "color": "#1f6fd1",
+   "stops": [
+    {
+     "name": "랜디드노 피어",
+     "lat": 53.32725,
+     "lng": -3.83086,
+     "en": "Llandudno Pier"
+    },
+    {
+     "name": "그레이트 옴 광산",
+     "lat": 53.33078,
+     "lng": -3.84587,
+     "en": "Great Orme Mines"
+    },
+    {
+     "name": "그레이트 옴 정상",
+     "lat": 53.33234,
+     "lng": -3.85506,
+     "en": "Great Orme Summit"
+    }
+   ]
+  }
+ ]
+}

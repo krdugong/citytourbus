@@ -1,0 +1,144 @@
+{
+ "city": "푼샬",
+ "slug": "funchal-city-tour-bus",
+ "title": "푼샬 시티투어버스 노선도",
+ "sub": "레드 노선 21곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 시내 · 카마라 드 로부스 · 리두",
+   "title": "레드 노선",
+   "sub": "시내 · 카마라 드 로부스 · 리두",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "아베니다 두 마르 · 마리나",
+     "lat": 32.64641,
+     "lng": -16.91117,
+     "en": "AVENIDA DO MAR - MARINA"
+    },
+    {
+     "name": "프라사 두 포부",
+     "lat": 32.64702,
+     "lng": -16.9072,
+     "en": "PRAÇA DO POVO"
+    },
+    {
+     "name": "케이블카역 (몬테행)",
+     "lat": 32.64706,
+     "lng": -16.90294,
+     "en": "TELEFÉRICO"
+    },
+    {
+     "name": "캄푸 다 바르카",
+     "lat": 32.65168,
+     "lng": -16.90237,
+     "en": "CAMPO DA BARCA"
+    },
+    {
+     "name": "자치 광장",
+     "lat": 32.64824,
+     "lng": -16.90564,
+     "en": "PRAÇA DA AUTONOMIA"
+    },
+    {
+     "name": "시청",
+     "lat": 32.65124,
+     "lng": -16.90877,
+     "en": "CÂMARA MUNICIPAL"
+    },
+    {
+     "name": "마데이라 카지노",
+     "lat": 32.64498,
+     "lng": -16.91775,
+     "en": "CASINO DA MADEIRA"
+    },
+    {
+     "name": "킨타 마그놀리아",
+     "lat": 32.6435,
+     "lng": -16.92512,
+     "en": "QUINTA MAGNÓLIA"
+    },
+    {
+     "name": "상 마르티뉴 성당",
+     "lat": 32.65022,
+     "lng": -16.94234,
+     "en": "IGREJA S. MARTINHO"
+    },
+    {
+     "name": "피쿠 두스 바르셀루스 전망대",
+     "lat": 32.65928,
+     "lng": -16.94077,
+     "en": "PICO DOS BARCELOS"
+    },
+    {
+     "name": "카마라 드 로부스 1",
+     "lat": 32.64839,
+     "lng": -16.97406,
+     "en": "CENTRO - CÂMARA DE LOBOS 1"
+    },
+    {
+     "name": "카마라 드 로부스 2",
+     "lat": 32.64846,
+     "lng": -16.97397,
+     "en": "CENTRO - CÂMARA DE LOBOS 2"
+    },
+    {
+     "name": "오르카 프라이아 호텔",
+     "lat": 32.64396,
+     "lng": -16.95927,
+     "en": "HOTEL ORCA PRAIA"
+    },
+    {
+     "name": "포르모자 해변",
+     "lat": 32.64273,
+     "lng": -16.95041,
+     "en": "PRAIA FORMOSA"
+    },
+    {
+     "name": "아시콩 로터리",
+     "lat": 32.64038,
+     "lng": -16.94832,
+     "en": "ROTUNDA ASSICOM"
+    },
+    {
+     "name": "포룸 마데이라 쇼핑몰",
+     "lat": 32.63555,
+     "lng": -16.94222,
+     "en": "FÓRUM MADEIRA SHOPPING"
+    },
+    {
+     "name": "페스타나 프롬나드 호텔",
+     "lat": 32.63751,
+     "lng": -16.93703,
+     "en": "HOTEL PESTANA PROMENADE"
+    },
+    {
+     "name": "포르투 마르 호텔",
+     "lat": 32.63806,
+     "lng": -16.93292,
+     "en": "HOTEL PORTO MARE"
+    },
+    {
+     "name": "리두",
+     "lat": 32.63795,
+     "lng": -16.93094,
+     "en": "LIDO"
+    },
+    {
+     "name": "라르구 다 파스",
+     "lat": 32.64163,
+     "lng": -16.92404,
+     "en": "LARGO DA PAZ"
+    },
+    {
+     "name": "페스타나 칼턴 마데이라 호텔",
+     "lat": 32.64254,
+     "lng": -16.92391,
+     "en": "HOTEL PESTANA CARLTON MADEIRA"
+    }
+   ]
+  }
+ ]
+}

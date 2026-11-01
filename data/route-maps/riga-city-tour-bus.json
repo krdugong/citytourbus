@@ -1,0 +1,84 @@
+{
+ "city": "리가",
+ "slug": "riga-city-tour-bus",
+ "title": "리가 시티투어버스 노선도",
+ "sub": "레드 라인 11곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 라인 · 구시가지 · 아르누보 지구 · 중앙시장",
+   "title": "레드 라인",
+   "sub": "구시가지 · 아르누보 지구 · 중앙시장",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "트리앙굴라 요새 (구시가지)",
+     "lat": 56.94799,
+     "lng": 24.10266,
+     "en": "Triangula Bastion. Old town "
+    },
+    {
+     "name": "벨뷰 호텔 · 대관람차",
+     "lat": 56.9421,
+     "lng": 24.08174,
+     "en": "Hotel Bellevue, Ferris Wheel"
+    },
+    {
+     "name": "키프살라 섬",
+     "lat": 56.94949,
+     "lng": 24.088,
+     "en": "Kipsala Island"
+    },
+    {
+     "name": "화약탑 · 전쟁박물관",
+     "lat": 56.9515,
+     "lng": 24.11004,
+     "en": "Powder Tower. Museum of war"
+    },
+    {
+     "name": "국립 오페라",
+     "lat": 56.94902,
+     "lng": 24.11362,
+     "en": "National Opera"
+    },
+    {
+     "name": "모니카 호텔 · 의학박물관",
+     "lat": 56.95717,
+     "lng": 24.10733,
+     "en": "Hotel Monika. Medicine Museum"
+    },
+    {
+     "name": "아르누보 (유겐트슈틸) 지구",
+     "lat": 56.95965,
+     "lng": 24.10826,
+     "en": "Jugendstil/Art Nouveau district"
+    },
+    {
+     "name": "KGB 코너 하우스",
+     "lat": 56.95836,
+     "lng": 24.12411,
+     "en": "KGB - Corner house"
+    },
+    {
+     "name": "라트비아 호텔 · 대성당",
+     "lat": 56.95426,
+     "lng": 24.1172,
+     "en": "Hotel Latvia. Catherdal"
+    },
+    {
+     "name": "탈링크 호텔 · 중앙역",
+     "lat": 56.94867,
+     "lng": 24.12292,
+     "en": "Hotel Tallink. Railway Station"
+    },
+    {
+     "name": "중앙시장",
+     "lat": 56.94595,
+     "lng": 24.11377,
+     "en": "Central Market"
+    }
+   ]
+  }
+ ]
+}

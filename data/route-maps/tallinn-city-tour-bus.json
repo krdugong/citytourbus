@@ -1,0 +1,195 @@
+{
+ "city": "탈린",
+ "slug": "tallinn-city-tour-bus",
+ "title": "탈린 시티투어버스 노선도",
+ "sub": "레드 노선 11곳 · 피리타 노선 17곳 · 번호는 노선별 순서",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 구시가지 · 톰페아 · 카드리오르그",
+   "title": "레드 노선",
+   "sub": "구시가지 · 톰페아 · 카드리오르그",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "메레 대로 5번지 (출발)",
+     "lat": 59.43823,
+     "lng": 24.75342,
+     "en": "Mere Pst. 5"
+    },
+    {
+     "name": "카드리오르그 공원 · 백조 호수",
+     "lat": 59.43837,
+     "lng": 24.78502,
+     "en": "Kadriorg Park / Swan Lake"
+    },
+    {
+     "name": "노래 축제 공원",
+     "lat": 59.44421,
+     "lng": 24.8129,
+     "en": "Song Festival Grounds"
+    },
+    {
+     "name": "시티 하버 D터미널 (탈링크)",
+     "lat": 59.44282,
+     "lng": 24.76555,
+     "en": "City Harbour: D-Terminal (Tallink)"
+    },
+    {
+     "name": "스위소텔 · 래디슨 블루",
+     "lat": 59.43323,
+     "lng": 24.76134,
+     "en": "Swissotel / Radisson BLU"
+    },
+    {
+     "name": "구시가 · 톰페아 성 (항구 방향)",
+     "lat": 59.43484,
+     "lng": 24.73796,
+     "en": "Old Town / Toompea Castle (Harbour direction)"
+    },
+    {
+     "name": "기차역 · 타워스 공원",
+     "lat": 59.4396,
+     "lng": 24.73785,
+     "en": "Railway Station / Towers Park"
+    },
+    {
+     "name": "시티 하버 ABC 터미널",
+     "lat": 59.44451,
+     "lng": 24.76019,
+     "en": "City Harbour: ABC-Terminals"
+    },
+    {
+     "name": "시티 하버 크루즈 터미널 (크루즈 입항일만)",
+     "lat": 59.44624,
+     "lng": 24.76054,
+     "en": "City Harbour: Cruise Ship Terminal (Cruise Only)"
+    },
+    {
+     "name": "수상비행기 항구 박물관 (13시 이후 출발편)",
+     "lat": 59.45078,
+     "lng": 24.738,
+     "en": "Seaplane Harbour Museum (in use on departures after 13:00)"
+    },
+    {
+     "name": "뚱보 마가렛 탑 (13시 이후 출발편)",
+     "lat": 59.44337,
+     "lng": 24.74987,
+     "en": "Fat Margareth Tower (in use on departures after 13:00)"
+    }
+   ]
+  },
+  {
+   "key": "r2",
+   "name": "피리타 노선 · 피리타 해변 · TV 타워 · 식물원",
+   "title": "피리타 노선",
+   "sub": "피리타 해변 · TV 타워 · 식물원",
+   "color": "#1f9d55",
+   "stops": [
+    {
+     "name": "메레 대로 5번지 (출발)",
+     "lat": 59.43823,
+     "lng": 24.75342,
+     "en": "Mere Pst. 5"
+    },
+    {
+     "name": "수상비행기 항구 박물관 (13시 이후 출발편)",
+     "lat": 59.45078,
+     "lng": 24.738,
+     "en": "Seaplane Harbour Museum (in use on departures after 13:00)"
+    },
+    {
+     "name": "뚱보 마가렛 탑 (13시 이후 출발편)",
+     "lat": 59.44337,
+     "lng": 24.74987,
+     "en": "Fat Margareth Tower (in use on departures after 13:00)"
+    },
+    {
+     "name": "로테르만 지구 · 비루 센터",
+     "lat": 59.43816,
+     "lng": 24.75741,
+     "en": "Rotermann Quarter / Viru Center"
+    },
+    {
+     "name": "스위소텔 · 래디슨 블루",
+     "lat": 59.43323,
+     "lng": 24.76134,
+     "en": "Swissotel / Radisson BLU"
+    },
+    {
+     "name": "카드리오르그 공원 · 백조 호수",
+     "lat": 59.43823,
+     "lng": 24.78485,
+     "en": "Kadriorg Park / Swan Lake"
+    },
+    {
+     "name": "노래 축제 공원 · 해변 산책로",
+     "lat": 59.44596,
+     "lng": 24.80064,
+     "en": "Song Festival Grounds / Beach Walk"
+    },
+    {
+     "name": "마리아매에 성 · 영화박물관",
+     "lat": 59.45294,
+     "lng": 24.80815,
+     "en": "Maarjamäe Castle / Filmmuseum"
+    },
+    {
+     "name": "피리타",
+     "lat": 59.46721,
+     "lng": 24.83366,
+     "en": "Pirita"
+    },
+    {
+     "name": "식물원",
+     "lat": 59.4713,
+     "lng": 24.87718,
+     "en": "Botanic Garden"
+    },
+    {
+     "name": "TV 타워",
+     "lat": 59.47232,
+     "lng": 24.88691,
+     "en": "TV Tower"
+    },
+    {
+     "name": "피리타 (시내 방향)",
+     "lat": 59.46674,
+     "lng": 24.83273,
+     "en": "Pirita (to town)"
+    },
+    {
+     "name": "루살카 기념비 · 해변 산책로",
+     "lat": 59.44286,
+     "lng": 24.78872,
+     "en": "Russalka Monument / Beachwalk"
+    },
+    {
+     "name": "시티 하버 D터미널 (탈링크)",
+     "lat": 59.44282,
+     "lng": 24.76555,
+     "en": "City Harbour: D-Terminal (Tallink)"
+    },
+    {
+     "name": "성 시메온 · 성 안나 교회",
+     "lat": 59.44018,
+     "lng": 24.75919,
+     "en": "St. Simeon's and St. Anne's Church"
+    },
+    {
+     "name": "시티 하버 ABC 터미널",
+     "lat": 59.44427,
+     "lng": 24.76051,
+     "en": "City Harbour: ABC-Terminals"
+    },
+    {
+     "name": "시티 하버 크루즈 터미널 (크루즈 입항일만)",
+     "lat": 59.44624,
+     "lng": 24.76054,
+     "en": "City Harbour: Cruise Ship Terminal (Cruise Only)"
+    }
+   ]
+  }
+ ]
+}

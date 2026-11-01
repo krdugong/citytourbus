@@ -1,0 +1,234 @@
+{
+ "city": "마드리드",
+ "slug": "madrid-city-tour-bus",
+ "title": "마드리드 시티투어버스 노선도",
+ "sub": "역사 노선 13곳 · 현대 노선 10곳 · 컨템퍼러리 노선 10곳 · 번호는 노선별 순서",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "역사 노선 · Historic Madrid",
+   "title": "역사 노선",
+   "sub": "Historic Madrid",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "넵투노",
+     "lat": 40.41506,
+     "lng": -3.69393,
+     "en": "NEPTUNO"
+    },
+    {
+     "name": "시벨레스",
+     "lat": 40.41843,
+     "lng": -3.69305,
+     "en": "CIBELES"
+    },
+    {
+     "name": "그란 비아",
+     "lat": 40.42016,
+     "lng": -3.70287,
+     "en": "GRAN VÍA"
+    },
+    {
+     "name": "스페인 광장",
+     "lat": 40.42416,
+     "lng": -3.71146,
+     "en": "PLAZA DE ESPAÑA"
+    },
+    {
+     "name": "몽클로아",
+     "lat": 40.43451,
+     "lng": -3.71891,
+     "en": "MONCLOA"
+    },
+    {
+     "name": "텔레페리코 (케이블카)",
+     "lat": 40.42938,
+     "lng": -3.72219,
+     "en": "TELEFÉRICO"
+    },
+    {
+     "name": "데보드 신전",
+     "lat": 40.42506,
+     "lng": -3.71667,
+     "en": "TEMPLO DE DEBOD"
+    },
+    {
+     "name": "산비센테 문",
+     "lat": 40.42005,
+     "lng": -3.72075,
+     "en": "PUERTA DE SAN VICENTE"
+    },
+    {
+     "name": "쿠에스타 데 라 베가",
+     "lat": 40.41487,
+     "lng": -3.71733,
+     "en": "CUESTA DE LA VEGA"
+    },
+    {
+     "name": "톨레도 문",
+     "lat": 40.40768,
+     "lng": -3.71224,
+     "en": "PUERTA DE TOLEDO"
+    },
+    {
+     "name": "마요르 광장",
+     "lat": 40.41309,
+     "lng": -3.70745,
+     "en": "PLAZA MAYOR"
+    },
+    {
+     "name": "문학 지구 (바리오 데 라스 레트라스)",
+     "lat": 40.41222,
+     "lng": -3.69888,
+     "en": "BARRIO DE LAS LETRAS"
+    },
+    {
+     "name": "파세오 델 프라도",
+     "lat": 40.40998,
+     "lng": -3.69222,
+     "en": "PASEO DEL PRADO"
+    }
+   ]
+  },
+  {
+   "key": "r2",
+   "name": "현대 노선 · Modern Madrid",
+   "title": "현대 노선",
+   "sub": "Modern Madrid",
+   "color": "#1f6fd1",
+   "stops": [
+    {
+     "name": "넵투노",
+     "lat": 40.41506,
+     "lng": -3.69393,
+     "en": "NEPTUNO"
+    },
+    {
+     "name": "시벨레스",
+     "lat": 40.42016,
+     "lng": -3.69226,
+     "en": "CIBELES."
+    },
+    {
+     "name": "콜론",
+     "lat": 40.42608,
+     "lng": -3.68978,
+     "en": "COLON"
+    },
+    {
+     "name": "국립 자연과학 박물관",
+     "lat": 40.44109,
+     "lng": -3.69139,
+     "en": "MUSEO CIENCIAS NATURALES"
+    },
+    {
+     "name": "산티아고 베르나베우",
+     "lat": 40.45131,
+     "lng": -3.69055,
+     "en": "SANTIAGO BERNABEU"
+    },
+    {
+     "name": "누에보스 미니스테리오스",
+     "lat": 40.44665,
+     "lng": -3.69137,
+     "en": "NUEVOS MINISTERIOS"
+    },
+    {
+     "name": "소로야 미술관",
+     "lat": 40.42969,
+     "lng": -3.68713,
+     "en": "MUSEO SOROLLA"
+    },
+    {
+     "name": "세라노 거리",
+     "lat": 40.4356,
+     "lng": -3.69131,
+     "en": "SERRANO"
+    },
+    {
+     "name": "알칼라 문",
+     "lat": 40.42129,
+     "lng": -3.68866,
+     "en": "PUERTA ALCALÁ"
+    },
+    {
+     "name": "카날레하스",
+     "lat": 40.41659,
+     "lng": -3.69988,
+     "en": "CANALEJAS"
+    }
+   ]
+  },
+  {
+   "key": "r3",
+   "name": "컨템퍼러리 노선 · Contemporary Madrid",
+   "title": "컨템퍼러리 노선",
+   "sub": "Contemporary Madrid",
+   "color": "#1f9d55",
+   "stops": [
+    {
+     "name": "넵투노",
+     "lat": 40.41506,
+     "lng": -3.69393,
+     "en": "NEPTUNO"
+    },
+    {
+     "name": "알칼라 문",
+     "lat": 40.41903,
+     "lng": -3.68865,
+     "en": "PUERTA DE ALCALÁ"
+    },
+    {
+     "name": "카사 아라베",
+     "lat": 40.42242,
+     "lng": -3.68084,
+     "en": "CASA ÁRABE"
+    },
+    {
+     "name": "고야",
+     "lat": 40.42511,
+     "lng": -3.67481,
+     "en": "GOYA"
+    },
+    {
+     "name": "라스 벤타스 투우장",
+     "lat": 40.43079,
+     "lng": -3.66415,
+     "en": "PLAZA DE TOROS"
+    },
+    {
+     "name": "콜론",
+     "lat": 40.42594,
+     "lng": -3.69218,
+     "en": "COLON."
+    },
+    {
+     "name": "빌바오",
+     "lat": 40.42921,
+     "lng": -3.70292,
+     "en": "BILBAO"
+    },
+    {
+     "name": "말라사냐",
+     "lat": 40.42551,
+     "lng": -3.70736,
+     "en": "MALASAÑA"
+    },
+    {
+     "name": "카야오",
+     "lat": 40.42017,
+     "lng": -3.70443,
+     "en": "CALLAO"
+    },
+    {
+     "name": "그란 비아",
+     "lat": 40.41958,
+     "lng": -3.69922,
+     "en": "GRAN VÍA."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,126 @@
+{
+ "city": "옥스퍼드",
+ "slug": "oxford-city-tour-bus",
+ "title": "옥스퍼드 시티투어버스 노선도",
+ "sub": "시티·대학 투어 18곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "시티·대학 투어 · 칼리지 · 옥스퍼드 성 · 시내",
+   "title": "시티·대학 투어",
+   "sub": "칼리지 · 옥스퍼드 성 · 시내",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "기차역",
+     "lat": 51.7537,
+     "lng": -1.26952,
+     "en": "Railway Station"
+    },
+    {
+     "name": "파크 엔드 스트리트",
+     "lat": 51.75281,
+     "lng": -1.26505,
+     "en": "Park End St"
+    },
+    {
+     "name": "글로스터 그린 버스터미널 (7번 베이)",
+     "lat": 51.75387,
+     "lng": -1.26302,
+     "en": "Gloucester Green Bus Station (Bay 7)"
+    },
+    {
+     "name": "옥스퍼드 성",
+     "lat": 51.75206,
+     "lng": -1.26316,
+     "en": "Oxford Castle"
+    },
+    {
+     "name": "웨스트게이트 쇼핑센터",
+     "lat": 51.75113,
+     "lng": -1.26127,
+     "en": "Westgate Shopping Centre"
+    },
+    {
+     "name": "스피드웰 스트리트",
+     "lat": 51.74845,
+     "lng": -1.25817,
+     "en": "Speedwell Street"
+    },
+    {
+     "name": "크라이스트처치",
+     "lat": 51.75039,
+     "lng": -1.25689,
+     "en": "Christ Church"
+    },
+    {
+     "name": "래드클리프 카메라",
+     "lat": 51.75244,
+     "lng": -1.2549,
+     "en": "The Radcliffe Camera"
+    },
+    {
+     "name": "퀸스 칼리지",
+     "lat": 51.75274,
+     "lng": -1.25104,
+     "en": "The Queen's College"
+    },
+    {
+     "name": "세인트크로스 로드",
+     "lat": 51.75802,
+     "lng": -1.24958,
+     "en": "St. Cross Road"
+    },
+    {
+     "name": "사우스 파크스 로드",
+     "lat": 51.7584,
+     "lng": -1.2533,
+     "en": "South Parks Road"
+    },
+    {
+     "name": "워덤 칼리지",
+     "lat": 51.75573,
+     "lng": -1.25469,
+     "en": " Wadham College"
+    },
+    {
+     "name": "트리니티 칼리지",
+     "lat": 51.75454,
+     "lng": -1.25571,
+     "en": "Trinity College"
+    },
+    {
+     "name": "파크스 로드",
+     "lat": 51.75997,
+     "lng": -1.25805,
+     "en": "Parks Road"
+    },
+    {
+     "name": "밴버리 로드",
+     "lat": 51.7659,
+     "lng": -1.26114,
+     "en": "Banbury Road"
+    },
+    {
+     "name": "우드스톡 로드",
+     "lat": 51.76308,
+     "lng": -1.26358,
+     "en": "Woodstock Road"
+    },
+    {
+     "name": "세인트자일스 교회",
+     "lat": 51.75859,
+     "lng": -1.26056,
+     "en": "St. Giles Church"
+    },
+    {
+     "name": "순교자 기념비",
+     "lat": 51.75523,
+     "lng": -1.25892,
+     "en": "Martyr's Memorial"
+    }
+   ]
+  }
+ ]
+}

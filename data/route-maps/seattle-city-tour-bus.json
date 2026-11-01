@@ -1,0 +1,138 @@
+{
+ "city": "시애틀",
+ "slug": "seattle-city-tour-bus",
+ "title": "시애틀 시티투어버스 노선도",
+ "sub": "시애틀 시티투어 노선 20곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "시애틀 시티투어 노선 · 스페이스 니들 · 워터프런트 · 파이어니어 스퀘어",
+   "title": "시애틀 시티투어 노선",
+   "sub": "스페이스 니들 · 워터프런트 · 파이어니어 스퀘어",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "스페이스 니들",
+     "lat": 47.6196,
+     "lng": -122.34901,
+     "en": "SPACE NEEDLE"
+    },
+    {
+     "name": "클리퍼 · 에지워터 호텔",
+     "lat": 47.61283,
+     "lng": -122.35144,
+     "en": "CLIPPER & EDGEWATER HOTEL"
+    },
+    {
+     "name": "피어 66 (노르웨이지안 크루즈)",
+     "lat": 47.61102,
+     "lng": -122.34822,
+     "en": "PIER 66 NORWEGIAN CRUISE LINES"
+    },
+    {
+     "name": "시애틀 수족관 · 그레이트 휠 · 워터프런트 파크",
+     "lat": 47.60712,
+     "lng": -122.34126,
+     "en": "SEATTLE AQUARIUM & THE GREAT WHEEL & WATERFRONT PARK & MINERS LANDING"
+    },
+    {
+     "name": "피어 54·55 · 아르고시 크루즈 · 시티사이트싱",
+     "lat": 47.60492,
+     "lng": -122.33931,
+     "en": "PIER 54, 55 & ARGOSY CRUISES & CITY SIGHTSEEING"
+    },
+    {
+     "name": "베스트웨스턴 호텔 · 파이오니어 스퀘어",
+     "lat": 47.60172,
+     "lng": -122.33515,
+     "en": "BEST WESTERN HOTEL & PIONEER SQUARE"
+    },
+    {
+     "name": "워터폴 가든 · 스미스 타워 · 클론다이크 골드러시",
+     "lat": 47.60025,
+     "lng": -122.33176,
+     "en": "WATERFALL GARDEN & SMITH TOWER & KLONDIKE GOLD RUSH"
+    },
+    {
+     "name": "차이나타운 게이트 · 인터내셔널 디스트릭트",
+     "lat": 47.59836,
+     "lng": -122.32726,
+     "en": "HISTORIC CHINATOWN GATE & INTERNATIONAL DISTRICT"
+    },
+    {
+     "name": "파나마 호텔 · 티하우스",
+     "lat": 47.60008,
+     "lng": -122.32663,
+     "en": "PANAMA HOTEL & TEA HOUSE"
+    },
+    {
+     "name": "스카이뷰 전망대 · 컬럼비아 타워",
+     "lat": 47.60428,
+     "lng": -122.3309,
+     "en": "SKY VIEW OBSERVATORY & COLUMBIA TOWER"
+    },
+    {
+     "name": "시애틀 도서관 · 호텔 지구",
+     "lat": 47.60628,
+     "lng": -122.33301,
+     "en": "SEATTLE LIBRARY & HOTEL DISTRICT"
+    },
+    {
+     "name": "시애틀 컨벤션센터 · 웨스트레이크 센터",
+     "lat": 47.61205,
+     "lng": -122.33361,
+     "en": "SEATTLE CONVENTION & WESTLAKE CENTER"
+    },
+    {
+     "name": "파이크 플레이스 마켓",
+     "lat": 47.60998,
+     "lng": -122.34064,
+     "en": "PIKE PLACE & FARMERS MARKET"
+    },
+    {
+     "name": "파이크 브루잉 · 껌 벽",
+     "lat": 47.60828,
+     "lng": -122.33972,
+     "en": "PIKE BREWING COMPANY & THE GUM WALL"
+    },
+    {
+     "name": "시애틀 미술관 · 해머링 맨 · 하버 스텝스",
+     "lat": 47.607,
+     "lng": -122.33849,
+     "en": "SEATTLE ART MUSEUM & HAMMERING MAN & HARBOR STEPS"
+    },
+    {
+     "name": "피어 55 · 시티사이트싱 (북행)",
+     "lat": 47.60501,
+     "lng": -122.33904,
+     "en": "PIER 55 & CITY SIGHTSEEING NORTHBOUND"
+    },
+    {
+     "name": "스타벅스 1호점 · 파이크 플레이스 마켓",
+     "lat": 47.61056,
+     "lng": -122.34378,
+     "en": "FIRST EVER STARBUCKS & PIKE PLACE MARKET"
+    },
+    {
+     "name": "웨스트레이크 스퀘어",
+     "lat": 47.61329,
+     "lng": -122.33755,
+     "en": "WESTLAKE SQUARE & WEST INN HOTEL"
+    },
+    {
+     "name": "아마존 스피어스",
+     "lat": 47.6156,
+     "lng": -122.3402,
+     "en": "THE AMAZON SPHERES"
+    },
+    {
+     "name": "하얏트 플레이스 · 트래블로지",
+     "lat": 47.61939,
+     "lng": -122.34493,
+     "en": "HYATT PLACE & TRAVEL LODGE BY WYNDHAM HOTELS"
+    }
+   ]
+  }
+ ]
+}

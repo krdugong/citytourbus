@@ -1,0 +1,114 @@
+{
+ "city": "아테네",
+ "slug": "athens-city-tour-bus",
+ "title": "아테네 시티투어버스 노선도",
+ "sub": "아테네 라인 16곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "아테네 라인 · 역사 중심지",
+   "title": "아테네 라인",
+   "sub": "역사 중심지",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "신타그마 광장",
+     "lat": 37.97611,
+     "lng": 23.734,
+     "en": "A Syntagma Square"
+    },
+    {
+     "name": "아크로폴리스 · 플라카",
+     "lat": 37.9698,
+     "lng": 23.7315,
+     "en": "A Acropolis / Plaka"
+    },
+    {
+     "name": "아크로폴리스 박물관",
+     "lat": 37.968,
+     "lng": 23.7281,
+     "en": "A Acropolis Museum"
+    },
+    {
+     "name": "아크로폴리스 · 파르테논 (피레우스 노선 환승)",
+     "lat": 37.9702,
+     "lng": 23.7219,
+     "en": "A The Acropolis & Parthenon (Interchange: Piraeus route)"
+    },
+    {
+     "name": "제우스 신전",
+     "lat": 37.9695,
+     "lng": 23.7318,
+     "en": "A Temple of Zeus"
+    },
+    {
+     "name": "국회의사당 · 국립정원",
+     "lat": 37.9745,
+     "lng": 23.7356,
+     "en": "A Parliament / National Gardens"
+    },
+    {
+     "name": "4대 박물관",
+     "lat": 37.97537,
+     "lng": 23.74347,
+     "en": "A The Four Museums"
+    },
+    {
+     "name": "국립 미술관",
+     "lat": 37.9728,
+     "lng": 23.7518,
+     "en": "A The National Gallery"
+    },
+    {
+     "name": "파나티나이코 경기장 (고대 올림픽 경기장)",
+     "lat": 37.97,
+     "lng": 23.7394,
+     "en": "A Ancient Olympic Stadium"
+    },
+    {
+     "name": "국회의사당 · 국립정원 (복귀 방향)",
+     "lat": 37.9745,
+     "lng": 23.7356,
+     "en": "b A Parliament / National Gardens"
+    },
+    {
+     "name": "국립 도서관",
+     "lat": 37.981,
+     "lng": 23.7324,
+     "en": "A National Library"
+    },
+    {
+     "name": "국립 고고학 박물관",
+     "lat": 37.9891,
+     "lng": 23.7305,
+     "en": "A National Archaeological Museum"
+    },
+    {
+     "name": "오모니아 광장",
+     "lat": 37.9845,
+     "lng": 23.7279,
+     "en": "A Omonia Square"
+    },
+    {
+     "name": "카라이스카키 광장",
+     "lat": 37.9856,
+     "lng": 23.7211,
+     "en": "A Karaiskaki Square"
+    },
+    {
+     "name": "모나스티라키 광장",
+     "lat": 37.97661,
+     "lng": 23.72561,
+     "en": "A Monastiraki Square"
+    },
+    {
+     "name": "코치아 광장",
+     "lat": 37.982,
+     "lng": 23.7276,
+     "en": "A Kotzia Square"
+    }
+   ]
+  }
+ ]
+}

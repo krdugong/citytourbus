@@ -1,0 +1,96 @@
+{
+ "city": "샤르자",
+ "slug": "sharjah-city-tour-bus",
+ "title": "샤르자 시티투어버스 노선도",
+ "sub": "레저 투어 13곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "레저 투어 · 센트럴 수크 출발",
+   "title": "레저 투어",
+   "sub": "센트럴 수크 출발",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "센트럴 수크 I",
+     "lat": 25.34656,
+     "lng": 55.38344,
+     "en": "Central Souq I"
+    },
+    {
+     "name": "팜 트리 오아시스",
+     "lat": 25.33954,
+     "lng": 55.38573,
+     "en": "Palm Tree Oasis"
+    },
+    {
+     "name": "알 누르 섬",
+     "lat": 25.33515,
+     "lng": 55.38754,
+     "en": "Al Noor Island"
+    },
+    {
+     "name": "알 마자즈 워터프런트",
+     "lat": 25.32677,
+     "lng": 55.38893,
+     "en": "Al Majaz Waterfront"
+    },
+    {
+     "name": "알 마자즈 원형극장",
+     "lat": 25.32779,
+     "lng": 55.37865,
+     "en": "Al Majaz Amphitheatre"
+    },
+    {
+     "name": "알 몬타자 · 플래그 아일랜드",
+     "lat": 25.33274,
+     "lng": 55.37626,
+     "en": "Al Montazah & Flag Island"
+    },
+    {
+     "name": "알 칸 해변 I",
+     "lat": 25.34748,
+     "lng": 55.3684,
+     "en": "Al Khan Beach I"
+    },
+    {
+     "name": "알 칸 해변 II",
+     "lat": 25.34171,
+     "lng": 55.36473,
+     "en": "Al Khan Beach II"
+    },
+    {
+     "name": "샤르자 수족관",
+     "lat": 25.33203,
+     "lng": 55.36034,
+     "en": "Sharjah Aquarium"
+    },
+    {
+     "name": "알 카스바",
+     "lat": 25.32453,
+     "lng": 55.37405,
+     "en": "Al Qasba"
+    },
+    {
+     "name": "사하라 센터",
+     "lat": 25.29806,
+     "lng": 55.37207,
+     "en": "Sahara Centre"
+    },
+    {
+     "name": "샤르자 시티 센터",
+     "lat": 25.32476,
+     "lng": 55.39198,
+     "en": "Sharjah City Centre"
+    },
+    {
+     "name": "킹 파이살 로드",
+     "lat": 25.33805,
+     "lng": 55.38961,
+     "en": "King Faisal Road"
+    }
+   ]
+  }
+ ]
+}

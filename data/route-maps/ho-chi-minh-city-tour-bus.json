@@ -1,0 +1,141 @@
+{
+ "city": "호치민",
+ "slug": "ho-chi-minh-city-tour-bus",
+ "title": "호치민 시티투어버스 노선도",
+ "sub": "사이공 시티 투어 10곳 · 블루 노선 9곳 · 번호는 노선별 순서",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "사이공 시티 투어 · 1군 중심가",
+   "title": "사이공 시티 투어",
+   "sub": "1군 중심가",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "사이공 오페라하우스",
+     "lat": 10.77663,
+     "lng": 106.70316,
+     "en": "Saigon Opera House"
+    },
+    {
+     "name": "응우옌후에 거리",
+     "lat": 10.77508,
+     "lng": 106.70255,
+     "en": "Nguyen Hue Street"
+    },
+    {
+     "name": "냐롱 부두",
+     "lat": 10.76818,
+     "lng": 106.70601,
+     "en": "Nha Rong Wharf"
+    },
+    {
+     "name": "쩐흥다오 동상",
+     "lat": 10.7743,
+     "lng": 106.70647,
+     "en": "Trần Hưng Đạo Statue"
+    },
+    {
+     "name": "베트남 역사박물관",
+     "lat": 10.78698,
+     "lng": 106.70426,
+     "en": "Museum of Vietnamese History"
+    },
+    {
+     "name": "전쟁 유적 박물관",
+     "lat": 10.77951,
+     "lng": 106.69209,
+     "en": "War Remnants Museum"
+    },
+    {
+     "name": "팜응우라오 (데탐) 거리",
+     "lat": 10.76904,
+     "lng": 106.69355,
+     "en": "Pham Ngu Lao Street"
+    },
+    {
+     "name": "벤탄 시장",
+     "lat": 10.77263,
+     "lng": 106.69593,
+     "en": "Ben Thanh Market"
+    },
+    {
+     "name": "통일궁 (독립궁)",
+     "lat": 10.77863,
+     "lng": 106.69666,
+     "en": "Independent Palace"
+    },
+    {
+     "name": "노트르담 대성당 · 중앙우체국",
+     "lat": 10.77978,
+     "lng": 106.69901,
+     "en": "Saigon Notre Dame Cathedral / Central Post Office"
+    }
+   ]
+  },
+  {
+   "key": "blue",
+   "name": "블루 노선 · 촐론 (차이나타운)",
+   "title": "블루 노선",
+   "sub": "촐론 (차이나타운)",
+   "color": "#1f6fd1",
+   "stops": [
+    {
+     "name": "팜응우라오 (비어 스트리트)",
+     "lat": 10.76875,
+     "lng": 106.69369,
+     "en": "Beer street - Pham Ngu Lao Street "
+    },
+    {
+     "name": "벤탄 시장",
+     "lat": 10.77263,
+     "lng": 106.69593,
+     "en": "Ben Thanh Market "
+    },
+    {
+     "name": "전쟁 유적 박물관",
+     "lat": 10.77896,
+     "lng": 106.69252,
+     "en": "War Remnants Museum "
+    },
+    {
+     "name": "호티키 꽃시장",
+     "lat": 10.76376,
+     "lng": 106.67869,
+     "en": "Ho Thi Ky Flower Market "
+    },
+    {
+     "name": "푸억안 회관",
+     "lat": 10.7549,
+     "lng": 106.6592,
+     "en": "Phuoc An society's premises "
+    },
+    {
+     "name": "옹본 사원",
+     "lat": 10.75105,
+     "lng": 106.65606,
+     "en": "Ong Bon Pagoda"
+    },
+    {
+     "name": "빈떠이 시장",
+     "lat": 10.74966,
+     "lng": 106.65098,
+     "en": "Binh Tay Market"
+    },
+    {
+     "name": "티엔허우 사원",
+     "lat": 10.75296,
+     "lng": 106.66179,
+     "en": "Thien Hau Pagoda "
+    },
+    {
+     "name": "반팟 사원",
+     "lat": 10.75387,
+     "lng": 106.67625,
+     "en": "Van Phat Pagoda "
+    }
+   ]
+  }
+ ]
+}

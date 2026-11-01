@@ -1,0 +1,42 @@
+{
+ "city": "게이랑에르",
+ "slug": "geiranger-city-tour-bus",
+ "title": "게이랑에르 시티투어버스 노선도",
+ "sub": "게이랑에르 노선 4곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "게이랑에르 노선 · 피오르 센터 · 농장 · 전망대",
+   "title": "게이랑에르 노선",
+   "sub": "피오르 센터 · 농장 · 전망대",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "크루즈 터미널",
+     "lat": 62.10315,
+     "lng": 7.2046,
+     "en": "Cruise Terminal "
+    },
+    {
+     "name": "노르웨이 피오르 센터",
+     "lat": 62.09623,
+     "lng": 7.21232,
+     "en": "Norwegian Fjord Centre"
+    },
+    {
+     "name": "베스테로스 농장",
+     "lat": 62.09505,
+     "lng": 7.22667,
+     "en": "Westerås Farm"
+    },
+    {
+     "name": "플뤼달스유베 전망대",
+     "lat": 62.09095,
+     "lng": 7.22307,
+     "en": "Flydalsjuvet Viewpoint"
+    }
+   ]
+  }
+ ]
+}

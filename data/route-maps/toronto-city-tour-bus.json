@@ -1,0 +1,96 @@
+{
+ "city": "토론토",
+ "slug": "toronto-city-tour-bus",
+ "title": "토론토 시티투어버스 노선도",
+ "sub": "토론토 시티 투어 노선 13곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "토론토 시티 투어 노선 · 정류장 13곳",
+   "title": "토론토 시티 투어 노선",
+   "sub": "정류장 13곳",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "산코파 광장 (옛 영-던다스 광장, 1번)",
+     "lat": 43.65581,
+     "lng": -79.38066,
+     "en": "Sankofa Square (formerly Yonge-Dundas Square)"
+    },
+    {
+     "name": "영 & 웰즐리",
+     "lat": 43.6646,
+     "lng": -79.38434,
+     "en": "Yonge & Wellesley"
+    },
+    {
+     "name": "요크빌",
+     "lat": 43.6717,
+     "lng": -79.38864,
+     "en": "Yorkville"
+    },
+    {
+     "name": "로열 온타리오 박물관 · 파크 하얏트",
+     "lat": 43.66893,
+     "lng": -79.39428,
+     "en": "Royal Ontario Museum / Park Hyatt"
+    },
+    {
+     "name": "카사 로마",
+     "lat": 43.67642,
+     "lng": -79.41028,
+     "en": "Casa Loma"
+    },
+    {
+     "name": "스파다이나 & 블루어",
+     "lat": 43.66709,
+     "lng": -79.4041,
+     "en": "Spadina & Bloor"
+    },
+    {
+     "name": "온타리오 미술관(AGO) · 차이나타운",
+     "lat": 43.65403,
+     "lng": -79.39143,
+     "en": "Art Gallery of Ontario / Chinatown"
+    },
+    {
+     "name": "CN 타워 북쪽 · 컨벤션센터",
+     "lat": 43.64381,
+     "lng": -79.38832,
+     "en": "CN Tower North / MTCC"
+    },
+    {
+     "name": "CN 타워 남쪽 · 리플리 아쿠아리움",
+     "lat": 43.64158,
+     "lng": -79.38692,
+     "en": "CN Tower South / Ripley's Aquarium"
+    },
+    {
+     "name": "래디슨 블루 · 하버프런트",
+     "lat": 43.63853,
+     "lng": -79.38525,
+     "en": "Radisson Blu / Harbourfront"
+    },
+    {
+     "name": "메리디언 홀 · 하키 명예의 전당",
+     "lat": 43.64716,
+     "lng": -79.37615,
+     "en": "Meridian Hall / Hockey Hall of Fame"
+    },
+    {
+     "name": "세인트 로렌스 마켓",
+     "lat": 43.64919,
+     "lng": -79.37168,
+     "en": "St. Lawrence Market South Building"
+    },
+    {
+     "name": "디스틸러리 디스트릭트",
+     "lat": 43.652,
+     "lng": -79.3615,
+     "en": "Distillery District"
+    }
+   ]
+  }
+ ]
+}

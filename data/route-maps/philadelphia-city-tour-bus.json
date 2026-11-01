@@ -1,0 +1,174 @@
+{
+ "city": "필라델피아",
+ "slug": "philadelphia-city-tour-bus",
+ "title": "필라델피아 시티투어버스 노선도",
+ "sub": "레드 노선 26곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 정류장 26곳",
+   "title": "레드 노선",
+   "sub": "정류장 26곳",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "더 보스 빌딩",
+     "lat": 39.94985,
+     "lng": -75.149,
+     "en": "The Bourse Building"
+    },
+    {
+     "name": "벳시 로스 하우스",
+     "lat": 39.95219,
+     "lng": -75.14508,
+     "en": "Betsy Ross House"
+    },
+    {
+     "name": "국립 헌법 센터",
+     "lat": 39.9528,
+     "lng": -75.14981,
+     "en": "National Constitution Center"
+    },
+    {
+     "name": "차이나타운",
+     "lat": 39.95338,
+     "lng": -75.15459,
+     "en": "Chinatown"
+    },
+    {
+     "name": "레딩 터미널 마켓",
+     "lat": 39.95241,
+     "lng": -75.15981,
+     "en": "Reading Terminal Market"
+    },
+    {
+     "name": "러브 파크",
+     "lat": 39.95375,
+     "lng": -75.16594,
+     "en": "Love Park"
+    },
+    {
+     "name": "성 베드로 · 바오로 대성당",
+     "lat": 39.95605,
+     "lng": -75.16788,
+     "en": "Cathedral Basilica"
+    },
+    {
+     "name": "로건 서클",
+     "lat": 39.95857,
+     "lng": -75.1704,
+     "en": "Logan Circle"
+    },
+    {
+     "name": "로댕 박물관",
+     "lat": 39.96154,
+     "lng": -75.17493,
+     "en": "Rodin Museum"
+    },
+    {
+     "name": "이스턴 스테이트 교도소",
+     "lat": 39.96734,
+     "lng": -75.17382,
+     "en": "Eastern State Penitentiary"
+    },
+    {
+     "name": "페럴먼 빌딩",
+     "lat": 39.96747,
+     "lng": -75.17951,
+     "en": "The Perelman Building"
+    },
+    {
+     "name": "록키 계단 · 동상 (필라델피아 미술관)",
+     "lat": 39.96665,
+     "lng": -75.17916,
+     "en": "Rocky Steps & Statue"
+    },
+    {
+     "name": "프랭클린 과학관",
+     "lat": 39.95764,
+     "lng": -75.17243,
+     "en": "Franklin Institute"
+    },
+    {
+     "name": "뮈터 박물관",
+     "lat": 39.95342,
+     "lng": -75.17238,
+     "en": "Mutter Museum"
+    },
+    {
+     "name": "숍스 앳 리버티 플레이스",
+     "lat": 39.95314,
+     "lng": -75.17019,
+     "en": "Shops at Liberty Place"
+    },
+    {
+     "name": "더 벨뷰",
+     "lat": 39.94979,
+     "lng": -75.16455,
+     "en": "The Bellevue"
+    },
+    {
+     "name": "애비뉴 오브 디 아츠",
+     "lat": 39.9481,
+     "lng": -75.16464,
+     "en": "Avenue of the Arts"
+    },
+    {
+     "name": "앤티크 로우",
+     "lat": 39.94469,
+     "lng": -75.15838,
+     "en": "Antique Row"
+    },
+    {
+     "name": "마더 베델 AME 교회",
+     "lat": 39.94391,
+     "lng": -75.15211,
+     "en": "Mother Bethel A.M.E. Church"
+    },
+    {
+     "name": "헤드하우스 스퀘어",
+     "lat": 39.94308,
+     "lng": -75.14546,
+     "en": "Headhouse Square"
+    },
+    {
+     "name": "베트남 · 한국전쟁 기념비",
+     "lat": 39.94419,
+     "lng": -75.1433,
+     "en": "Vietnam & Korean War Memorials"
+    },
+    {
+     "name": "펜스 랜딩",
+     "lat": 39.94526,
+     "lng": -75.14284,
+     "en": "Penn's Landing"
+    },
+    {
+     "name": "메리어트 올드 시티",
+     "lat": 39.94697,
+     "lng": -75.14546,
+     "en": "Marriott Old City"
+    },
+    {
+     "name": "미국 독립혁명 박물관",
+     "lat": 39.94868,
+     "lng": -75.14609,
+     "en": "Museum of the American Revolution"
+    },
+    {
+     "name": "착시 박물관",
+     "lat": 39.95046,
+     "lng": -75.14729,
+     "en": "Museum of Illusions"
+    },
+    {
+     "name": "자유의 종",
+     "lat": 39.94964,
+     "lng": -75.15068,
+     "en": "Liberty Bell"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+ "city": "오르후스",
+ "slug": "aarhus-city-tour-bus",
+ "title": "오르후스 시티투어버스 노선도",
+ "sub": "레드 라인 7곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 라인 · 크루즈 터미널 · 올드타운 · 아로스",
+   "title": "레드 라인",
+   "sub": "크루즈 터미널 · 올드타운 · 아로스",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "크루즈 터미널",
+     "lat": 56.15232,
+     "lng": 10.21685,
+     "en": "Cruise Ship Terminal"
+    },
+    {
+     "name": "마셀리스보르 궁전",
+     "lat": 56.13051,
+     "lng": 10.20337,
+     "en": "Marselisborg Palace"
+    },
+    {
+     "name": "탕크로겐 · 마셀리스보르 마리나",
+     "lat": 56.13952,
+     "lng": 10.20729,
+     "en": "Tangkrogen/Marselisborg Marina"
+    },
+    {
+     "name": "올드타운 (덴 감레 바이)",
+     "lat": 56.15946,
+     "lng": 10.18834,
+     "en": "The Old Town"
+    },
+    {
+     "name": "오르후스 Ø",
+     "lat": 56.1647,
+     "lng": 10.22457,
+     "en": "Aarhus Ø"
+    },
+    {
+     "name": "오르후스 대성당",
+     "lat": 56.15909,
+     "lng": 10.21358,
+     "en": "Aarhus Cathedral"
+    },
+    {
+     "name": "시청 · 아로스 미술관",
+     "lat": 56.15266,
+     "lng": 10.20366,
+     "en": "City Hall/ARoS"
+    }
+   ]
+  }
+ ]
+}

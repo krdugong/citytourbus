@@ -1,0 +1,108 @@
+{
+ "city": "포츠담",
+ "slug": "potsdam-city-tour-bus",
+ "title": "포츠담 시티투어버스 노선도",
+ "sub": "포츠담 노선 15곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "포츠담 노선 · 중앙역 · 체칠리엔호프 · 상수시",
+   "title": "포츠담 노선",
+   "sub": "중앙역 · 체칠리엔호프 · 상수시",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "루이젠 광장 (출발)",
+     "lat": 52.39985,
+     "lng": 13.04658,
+     "en": "ab Luisenplatz"
+    },
+    {
+     "name": "항구 · 바르베리니 미술관",
+     "lat": 52.39471,
+     "lng": 13.05774,
+     "en": "Hafen / Barberini"
+    },
+    {
+     "name": "포츠담 중앙역",
+     "lat": 52.39266,
+     "lng": 13.06644,
+     "en": "Hauptbahnhof"
+    },
+    {
+     "name": "영화 박물관",
+     "lat": 52.3949,
+     "lng": 13.05825,
+     "en": "Filmmuseum"
+    },
+    {
+     "name": "네덜란드 지구",
+     "lat": 52.40019,
+     "lng": 13.0617,
+     "en": "Holländisches Viertel"
+    },
+    {
+     "name": "극장 · 플룩수스",
+     "lat": 52.40483,
+     "lng": 13.07298,
+     "en": "Theater / Fluxus"
+    },
+    {
+     "name": "글리니케 다리",
+     "lat": 52.41341,
+     "lng": 13.09204,
+     "en": "Glienicker Brücke"
+    },
+    {
+     "name": "대리석 궁전 (마르모어팔레)",
+     "lat": 52.41479,
+     "lng": 13.06652,
+     "en": "Marmorpalais"
+    },
+    {
+     "name": "체칠리엔호프 궁전",
+     "lat": 52.42154,
+     "lng": 13.06703,
+     "en": "Cecilienhof"
+    },
+    {
+     "name": "알렉산드로프카 러시아 마을",
+     "lat": 52.40848,
+     "lng": 13.05364,
+     "en": "Alexandrowka"
+    },
+    {
+     "name": "오랑제리 궁전 (상수시)",
+     "lat": 52.40409,
+     "lng": 13.02753,
+     "en": "Orangeriescholss (Sanssouci)"
+    },
+    {
+     "name": "신궁전 (노이에스 팔레)",
+     "lat": 52.39848,
+     "lng": 13.01469,
+     "en": "Neues Palais"
+    },
+    {
+     "name": "오랑제리 궁전 (상수시, 복귀)",
+     "lat": 52.40396,
+     "lng": 13.0277,
+     "en": "Orangeriescholss (Sanssouci)"
+    },
+    {
+     "name": "상수시 궁전",
+     "lat": 52.40461,
+     "lng": 13.03699,
+     "en": "Schloss Sanssouci"
+    },
+    {
+     "name": "상수시 오벨리스크",
+     "lat": 52.40232,
+     "lng": 13.0456,
+     "en": "Obelisk Sanssouci"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,72 @@
+{
+ "city": "올레순",
+ "slug": "alesund-city-tour-bus",
+ "title": "올레순 시티투어버스 노선도",
+ "sub": "올레순 노선 9곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "올레순 노선 · 아르누보 시내 · 악슬라 · 수족관",
+   "title": "올레순 노선",
+   "sub": "아르누보 시내 · 악슬라 · 수족관",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "크루즈 터미널",
+     "lat": 62.46999,
+     "lng": 6.15277,
+     "en": "Cruise Terminal"
+    },
+    {
+     "name": "순뫼레 박물관",
+     "lat": 62.46845,
+     "lng": 6.24059,
+     "en": "Sunnmøre Museum"
+    },
+    {
+     "name": "악슬라 전망대 (스타디움, 도보)",
+     "lat": 62.47565,
+     "lng": 6.18533,
+     "en": "Aksla Stadium (walk to viewpoint)"
+    },
+    {
+     "name": "파르켄 문화센터 · 쇼핑",
+     "lat": 62.47287,
+     "lng": 6.16005,
+     "en": "Parken Culture Centre Shopping)"
+    },
+    {
+     "name": "관광안내소",
+     "lat": 62.47451,
+     "lng": 6.15548,
+     "en": "Tourist Information"
+    },
+    {
+     "name": "아르누보 센터",
+     "lat": 62.47138,
+     "lng": 6.15025,
+     "en": "The Art Nouveau Centre"
+    },
+    {
+     "name": "올레순 교회",
+     "lat": 62.47101,
+     "lng": 6.14533,
+     "en": "Ålesund Church"
+    },
+    {
+     "name": "아틀란테르하브스파르켄 수족관",
+     "lat": 62.46567,
+     "lng": 6.09746,
+     "en": "Atlanterhavsparken Aquarium"
+    },
+    {
+     "name": "크루즈 터미널 (종점)",
+     "lat": 62.47,
+     "lng": 6.15274,
+     "en": "Cruise terminal"
+    }
+   ]
+  }
+ ]
+}

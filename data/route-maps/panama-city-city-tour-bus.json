@@ -1,0 +1,114 @@
+{
+ "city": "파나마시티",
+ "slug": "panama-city-city-tour-bus",
+ "title": "파나마시티 시티투어버스 노선도",
+ "sub": "레드 노선 16곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 카스코 안티구오 · 파나마 운하 · 아마도르",
+   "title": "레드 노선",
+   "sub": "카스코 안티구오 · 파나마 운하 · 아마도르",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "발보아 부티크",
+     "lat": 8.97568,
+     "lng": -79.52055,
+     "en": "Balboa Boutiques"
+    },
+    {
+     "name": "우라카 공원",
+     "lat": 8.97484,
+     "lng": -79.52769,
+     "en": "Parque Urraca"
+    },
+    {
+     "name": "포인 파나마",
+     "lat": 8.96122,
+     "lng": -79.53687,
+     "en": "Poin Panamá"
+    },
+    {
+     "name": "카스코 안티구오 (구시가지)",
+     "lat": 8.95487,
+     "lng": -79.53664,
+     "en": "Casco Antiguo"
+    },
+    {
+     "name": "미 푸에블리토 (전통 마을)",
+     "lat": 8.95439,
+     "lng": -79.54648,
+     "en": "Mi Pueblito"
+    },
+    {
+     "name": "알브룩 몰",
+     "lat": 8.97453,
+     "lng": -79.55382,
+     "en": "Albrook Mall "
+    },
+    {
+     "name": "시우다드 델 사베르",
+     "lat": 9.00188,
+     "lng": -79.58227,
+     "en": "Ciudad del Saber"
+    },
+    {
+     "name": "파나마 운하",
+     "lat": 8.99761,
+     "lng": -79.5907,
+     "en": "Canal de Panamá"
+    },
+    {
+     "name": "다운타운 아마도르",
+     "lat": 8.94039,
+     "lng": -79.55098,
+     "en": "Downtown Amador"
+    },
+    {
+     "name": "비오무세오 (생물다양성 박물관)",
+     "lat": 8.93248,
+     "lng": -79.54467,
+     "en": "Biomuseo"
+    },
+    {
+     "name": "푼타 쿨레브라",
+     "lat": 8.91499,
+     "lng": -79.53011,
+     "en": "Punta Culebra"
+    },
+    {
+     "name": "부카네로스",
+     "lat": 8.9099,
+     "lng": -79.52097,
+     "en": "Bucaneros"
+    },
+    {
+     "name": "플라멩코 섬",
+     "lat": 8.91073,
+     "lng": -79.52241,
+     "en": "Isla Flamenco"
+    },
+    {
+     "name": "페리코 섬",
+     "lat": 8.91516,
+     "lng": -79.52853,
+     "en": "Isla Perico / Sabroso"
+    },
+    {
+     "name": "카스코 안티구오",
+     "lat": 8.95529,
+     "lng": -79.53617,
+     "en": "Casco Antiguo"
+    },
+    {
+     "name": "수산시장 (메르카도 데 마리스코스)",
+     "lat": 8.95895,
+     "lng": -79.53751,
+     "en": "Mercado del Marisco"
+    }
+   ]
+  }
+ ]
+}

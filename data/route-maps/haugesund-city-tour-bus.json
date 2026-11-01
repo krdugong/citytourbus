@@ -1,0 +1,84 @@
+{
+ "city": "하우게순",
+ "slug": "haugesund-city-tour-bus",
+ "title": "하우게순 시티투어버스 노선도",
+ "sub": "레드 노선 11곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 시내 · 아발스네스 · 하랄스하우겐",
+   "title": "레드 노선",
+   "sub": "시내 · 아발스네스 · 하랄스하우겐",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "하우게순 크루즈 터미널",
+     "lat": 59.41093,
+     "lng": 5.25867,
+     "en": "Haugesund Cruise Terminal"
+    },
+    {
+     "name": "관광안내소 · 시내 중심",
+     "lat": 59.41267,
+     "lng": 5.27154,
+     "en": "Tourist Information/City Center"
+    },
+    {
+     "name": "오아센 쇼핑몰",
+     "lat": 59.37872,
+     "lng": 5.30421,
+     "en": "Oasen Shopping Mall"
+    },
+    {
+     "name": "비스네스 광산 박물관",
+     "lat": 59.35293,
+     "lng": 5.22086,
+     "en": "Visnes Mining Museum"
+    },
+    {
+     "name": "아발스네스 · 바이킹 마을",
+     "lat": 59.35565,
+     "lng": 5.2914,
+     "en": "Avaldsnes - Reconstructed Viking Village"
+    },
+    {
+     "name": "오아센 쇼핑몰 (복귀)",
+     "lat": 59.3781,
+     "lng": 5.30424,
+     "en": "Oasen Shopping mall"
+    },
+    {
+     "name": "시청",
+     "lat": 59.41048,
+     "lng": 5.27508,
+     "en": "City Hall"
+    },
+    {
+     "name": "구세주 교회 · 민속박물관 · 시내",
+     "lat": 59.41474,
+     "lng": 5.27056,
+     "en": "Vår Frelses Church, Folk Museum and City Center"
+    },
+    {
+     "name": "하랄스하우겐 국가 기념비",
+     "lat": 59.42902,
+     "lng": 5.26074,
+     "en": "Haraldshaugen National Monument"
+    },
+    {
+     "name": "뷔파르켄 · 도켄 박물관 (도보 5분)",
+     "lat": 59.41735,
+     "lng": 5.26337,
+     "en": "Byparken & Dokken Museum (5 min. walk to Byparken)"
+    },
+    {
+     "name": "하우게순 크루즈 터미널 (종점)",
+     "lat": 59.41094,
+     "lng": 5.2587,
+     "en": "Haugesund Cruise terminal"
+    }
+   ]
+  }
+ ]
+}

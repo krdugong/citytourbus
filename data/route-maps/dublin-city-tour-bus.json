@@ -1,0 +1,162 @@
+{
+ "city": "더블린",
+ "slug": "dublin-city-tour-bus",
+ "title": "더블린 시티투어버스 노선도",
+ "sub": "더블린 시티투어 노선 24곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "더블린 시티투어 노선 · 정류장 25곳 이상",
+   "title": "더블린 시티투어 노선",
+   "sub": "정류장 25곳 이상",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "아이리시 위스키 박물관 · 트리니티 칼리지 · 켈스의 서",
+     "lat": 53.34425,
+     "lng": -6.26022,
+     "en": "Irish Whiskey Museum, Trinity College, Book of Kells"
+    },
+    {
+     "name": "더블린 성 · 시청",
+     "lat": 53.34388,
+     "lng": -6.2683,
+     "en": "Dublin Castle, City Hall"
+    },
+    {
+     "name": "크라이스트처치 대성당 · 더블리니아",
+     "lat": 53.34303,
+     "lng": -6.27068,
+     "en": "Christ Church Cathedral, Dublinia Viking Visitor Centre"
+    },
+    {
+     "name": "성 패트릭 대성당 · 마시 도서관",
+     "lat": 53.3393,
+     "lng": -6.27185,
+     "en": "St. Patrick's Cathedral, Marsh's Library"
+    },
+    {
+     "name": "틸링 위스키 증류소 · 더블린 리버티스 증류소",
+     "lat": 53.33814,
+     "lng": -6.27774,
+     "en": "Teeling Whiskey Distillery, The Dublin Liberties Distillery"
+    },
+    {
+     "name": "기네스 스토어하우스",
+     "lat": 53.34163,
+     "lng": -6.28692,
+     "en": "Guinness Storehouse"
+    },
+    {
+     "name": "피어스 라이언스 증류소",
+     "lat": 53.34334,
+     "lng": -6.28915,
+     "en": "Pearse Lyons Distillery"
+    },
+    {
+     "name": "아일랜드 현대미술관 (킬메이넘 감옥 도보 10분)",
+     "lat": 53.3438,
+     "lng": -6.29702,
+     "en": "Irish Museum of Modern Art (10 min walk to Kilmainham Gaol)"
+    },
+    {
+     "name": "휴스턴역",
+     "lat": 53.34617,
+     "lng": -6.29275,
+     "en": "Heuston Station"
+    },
+    {
+     "name": "피닉스 공원 · 더블린 동물원",
+     "lat": 53.35012,
+     "lng": -6.30136,
+     "en": "Phoenix Park, Dublin Zoo"
+    },
+    {
+     "name": "파크게이트 스트리트 · 휴스턴역",
+     "lat": 53.34799,
+     "lng": -6.29244,
+     "en": "Parkgate Street, Heuston Station"
+    },
+    {
+     "name": "콜린스 배럭스 · 국립 장식미술 박물관",
+     "lat": 53.34708,
+     "lng": -6.28477,
+     "en": "Collins Barracks, National Museum for Decorative Art & History"
+    },
+    {
+     "name": "스미스필드 광장 · 올드 제임슨 증류소",
+     "lat": 53.34595,
+     "lng": -6.27602,
+     "en": "Smithfield Square, Old Jameson Distillery"
+    },
+    {
+     "name": "템플 바 · 아이리시 로큰롤 박물관",
+     "lat": 53.34695,
+     "lng": -6.26198,
+     "en": "Temple Bar, The Irish Rock & Roll Museum"
+    },
+    {
+     "name": "더블린 작가 박물관 · 휴 레인 갤러리 · 추모 정원",
+     "lat": 53.35415,
+     "lng": -6.26428,
+     "en": "Dublin Writers Museum, The Hugh Lane Gallery, Garden of Remembrance"
+    },
+    {
+     "name": "오코넬 스트리트",
+     "lat": 53.35125,
+     "lng": -6.26069,
+     "en": "O'Connell Street"
+    },
+    {
+     "name": "중앙우체국(GPO) · 애비 극장",
+     "lat": 53.34862,
+     "lng": -6.25875,
+     "en": "The GPO, Abbey Theatre"
+    },
+    {
+     "name": "EPIC 아일랜드 이민 박물관 · 지니 존스턴호",
+     "lat": 53.34806,
+     "lng": -6.24712,
+     "en": "EPIC The Irish Emigration Museum, Jeanie Johnston"
+    },
+    {
+     "name": "사무엘 베케트 다리 · 컨벤션센터 · 3아레나",
+     "lat": 53.34777,
+     "lng": -6.24231,
+     "en": "Samuel Beckett Bridge, The Convention Centre Dublin, 3Arena"
+    },
+    {
+     "name": "보드 가이스 에너지 극장 · 그랜드 커낼 독",
+     "lat": 53.34499,
+     "lng": -6.24057,
+     "en": "Bord Gáis Energy Theatre, Grand Canal Dock, U2 Studios, Shelbourne Park"
+    },
+    {
+     "name": "메리언 스퀘어 · 자연사 박물관 · 국립미술관",
+     "lat": 53.34087,
+     "lng": -6.25086,
+     "en": "Merrion Square, Natural History Museum, The National Gallery of Ireland"
+    },
+    {
+     "name": "국립미술관 (메리언 스트리트)",
+     "lat": 53.33938,
+     "lng": -6.25227,
+     "en": "National Gallery - Merrion Street Upper"
+    },
+    {
+     "name": "세인트 스티븐스 그린 · 리틀 뮤지엄 · MoLI",
+     "lat": 53.33924,
+     "lng": -6.25808,
+     "en": "St. Stephen's Green, The Little Museum of Dublin, MoLI"
+    },
+    {
+     "name": "맨션 하우스 · 세인트 앤 교회 (도슨 스트리트)",
+     "lat": 53.34079,
+     "lng": -6.25845,
+     "en": "Mansion House and St Ann's Church - Dawson Street"
+    }
+   ]
+  }
+ ]
+}

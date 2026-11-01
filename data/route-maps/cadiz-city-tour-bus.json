@@ -1,0 +1,108 @@
+{
+ "city": "카디스",
+ "slug": "cadiz-city-tour-bus",
+ "title": "카디스 시티투어버스 노선도",
+ "sub": "레드 노선 15곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "red",
+   "name": "레드 노선 · 구시가지 · 해변 · 항구",
+   "title": "레드 노선",
+   "sub": "구시가지 · 해변 · 항구",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "항구 대로 (아베니다 델 푸에르토)",
+     "lat": 36.53013,
+     "lng": -6.29011,
+     "en": "Avenida del Puerto"
+    },
+    {
+     "name": "이스파니다드 광장",
+     "lat": 36.53476,
+     "lng": -6.29198,
+     "en": "Plaza de la Hispanidad"
+    },
+    {
+     "name": "푸에르타스 데 티에라",
+     "lat": 36.52595,
+     "lng": -6.29043,
+     "en": "Puertas de Tierra"
+    },
+    {
+     "name": "카디스 대성당",
+     "lat": 36.52874,
+     "lng": -6.2961,
+     "en": "Catedral"
+    },
+    {
+     "name": "칼레타 해변",
+     "lat": 36.53168,
+     "lng": -6.3055,
+     "en": "Playa de la Caleta"
+    },
+    {
+     "name": "파라도르 호텔 · 헤노베스 공원",
+     "lat": 36.53446,
+     "lng": -6.3049,
+     "en": "Hotel Parador/Parque Genovés"
+    },
+    {
+     "name": "카르멘 교회",
+     "lat": 36.53744,
+     "lng": -6.29967,
+     "en": "Iglesia del Carmen"
+    },
+    {
+     "name": "스페인 광장",
+     "lat": 36.5365,
+     "lng": -6.29472,
+     "en": "Plaza de España"
+    },
+    {
+     "name": "파라도르 호텔 · 헤노베스 공원 (복귀)",
+     "lat": 36.53643,
+     "lng": -6.30273,
+     "en": "Hotel Parador/Parque Genovés"
+    },
+    {
+     "name": "대성당 II",
+     "lat": 36.52881,
+     "lng": -6.29806,
+     "en": "Catedral II"
+    },
+    {
+     "name": "산타마리아 해변",
+     "lat": 36.51762,
+     "lng": -6.28585,
+     "en": "Playa Santa María"
+    },
+    {
+     "name": "빅토리아 해변",
+     "lat": 36.50748,
+     "lng": -6.27952,
+     "en": "Playa Victoria"
+    },
+    {
+     "name": "호텔 카디스 바이아",
+     "lat": 36.50571,
+     "lng": -6.27763,
+     "en": "Hotel Cádiz Bahia"
+    },
+    {
+     "name": "세비야 광장",
+     "lat": 36.52998,
+     "lng": -6.2891,
+     "en": "Plaza de Sevilla"
+    },
+    {
+     "name": "카디스 만",
+     "lat": 36.52192,
+     "lng": -6.27721,
+     "en": "Bahía de Cádiz"
+    }
+   ]
+  }
+ ]
+}

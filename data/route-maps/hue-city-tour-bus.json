@@ -1,0 +1,90 @@
+{
+ "city": "후에",
+ "slug": "hue-city-tour-bus",
+ "title": "후에 시티투어버스 노선도",
+ "sub": "후에 시티 투어 12곳",
+ "source": "city-sightseeing.com product map",
+ "routes": [
+  {
+   "key": "r1",
+   "name": "후에 시티 투어 · 황성 · 사원 · 황릉",
+   "title": "후에 시티 투어",
+   "sub": "황성 · 사원 · 황릉",
+   "color": "#e2252b",
+   "stops": [
+    {
+     "name": "토아캄 선착장",
+     "lat": 16.47019,
+     "lng": 107.59242,
+     "en": "Toa Kham Boat Wharf"
+    },
+    {
+     "name": "동바 시장",
+     "lat": 16.4729,
+     "lng": 107.58833,
+     "en": "Dong Ba Market"
+    },
+    {
+     "name": "후에 황성 (왕궁)",
+     "lat": 16.47721,
+     "lng": 107.57391,
+     "en": "Hue Imperial Citadel"
+    },
+    {
+     "name": "안히엔 정원 가옥",
+     "lat": 16.45559,
+     "lng": 107.55368,
+     "en": " An Hien Garden House"
+    },
+    {
+     "name": "티엔무 사원",
+     "lat": 16.45334,
+     "lng": 107.54492,
+     "en": "Thien Mu Pagoda"
+    },
+    {
+     "name": "후에 기차역",
+     "lat": 16.45702,
+     "lng": 107.57795,
+     "en": "Hue Train Station"
+    },
+    {
+     "name": "뜨히에우 사원",
+     "lat": 16.43909,
+     "lng": 107.57202,
+     "en": "Tu Hieu Pagoda"
+    },
+    {
+     "name": "필그리미지 빌리지",
+     "lat": 16.43367,
+     "lng": 107.56266,
+     "en": "Pilgrimage Village"
+    },
+    {
+     "name": "뜨득 황제릉",
+     "lat": 16.43326,
+     "lng": 107.5664,
+     "en": "Tu Duc Tomb: "
+    },
+    {
+     "name": "카이딘 황제릉",
+     "lat": 16.39925,
+     "lng": 107.59031,
+     "en": "Khai Dinh Tomb"
+    },
+    {
+     "name": "남지아오 제단",
+     "lat": 16.43793,
+     "lng": 107.58268,
+     "en": "Nam Giao Explanade"
+    },
+    {
+     "name": "꾸옥혹 후에 (국학 학교)",
+     "lat": 16.46022,
+     "lng": 107.58338,
+     "en": "Quoc Hoc Hue"
+    }
+   ]
+  }
+ ]
+}

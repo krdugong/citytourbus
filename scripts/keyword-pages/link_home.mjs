@@ -35,8 +35,9 @@ const fEnd = html.indexOf(tail, fStart);
 if (fStart < 0 || fEnd < 0) throw new Error('href function not found');
 html = html.slice(0, fStart) + fn + html.slice(fEnd + tail.length);
 
-const popular = ['paris', 'london', 'rome', 'barcelona', 'dubai', 'new-york'];
-const popHtml = popular.map(s => { const x = all.find(c => c[0] === s); return `<a href="${href(s)}"><div><b>${x[1]}</b><small>${x[2]}</small></div><div class="go">운영사 비교 →</div></a>`; }).join('');
+// Korean travellers' most-searched cities first (Japan and South-East Asia before Europe)
+const popular = ['osaka', 'tokyo', 'fukuoka', 'hong-kong', 'bangkok', 'singapore', 'paris', 'london', 'rome', 'barcelona', 'new-york', 'dubai'];
+const popHtml = popular.map(s => { const x = all.find(c => c[0] === s); return `<a href="${href(s)}"><div><b>${x[1]}</b><small>${x[2]}</small></div><div class="go">노선·가격 총정리 →</div></a>`; }).join('');
 const regHtml = Object.entries(groups).map(([name, arr]) => `<div><div class="regionhd"><h3>${name}</h3><span>${arr.length}개 도시</span></div><div class="citygrid">${arr.map(x => `<a class="chip" href="${href(x[0])}"><b>${x[1]}</b><span>${x[2]}</span></a>`).join('')}</div></div>`).join('');
 const swapInner = (h, open, close, inner) => {
   const a = h.indexOf(open); if (a < 0) throw new Error(`missing ${open}`);

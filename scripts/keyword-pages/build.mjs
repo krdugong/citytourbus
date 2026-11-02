@@ -44,9 +44,8 @@ const BIGBUS_DEFAULTS = {
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-// Korean-won conversion of foreign prices (data/keyword-pages/_fx.json, refreshed by scripts/keyword-pages/fx.py).
-// Shown as "약 N원" so a Korean reader gets a feel for the price without a calculator; the rate date is printed too.
-const FX = JSON.parse(fs.readFileSync(path.join(DATA_DIR, '_fx.json'), 'utf8'));
+// Price parsing shared by the price bars and the card-payment tip (currency symbol → ISO code for the tip).
+// No won conversion on purpose: the user found "약 N원" made prices look higher and could be read as a won charge.
 const CUR_CODE = { '€': 'EUR', '유로': 'EUR', 'US$': 'USD', '$': 'USD', '달러': 'USD', '£': 'GBP', '¥': 'JPY', '엔': 'JPY', 'HK$': 'HKD', 'S$': 'SGD', 'AU$': 'AUD', 'CA$': 'CAD', 'C$': 'CAD', 'NZ$': 'NZD', '฿': 'THB', '바트': 'THB', '₫': 'VND', '동': 'VND', 'AED': 'AED', 'CHF': 'CHF', 'SEK': 'SEK', 'NOK': 'NOK', 'DKK': 'DKK', 'zł': 'PLN', 'Kč': 'CZK', 'Ft': 'HUF', 'R': 'ZAR' };
 const PRICE_RX = /(US\$|AU\$|HK\$|CA\$|NZ\$|S\$|R\$|C\$|[€£¥₩$฿₫]|AED|CHF|kr|zł|Kč|Ft|SEK|NOK|DKK|R)\s?([\d,]+(?:\.\d+)?)|([\d,]+(?:\.\d+)?)(?:\s?[~–-]\s?[\d,]+(?:\.\d+)?)?\s?(원|엔|유로|달러|바트|동|루피)/g;
 // lowest adult amount in a price string → {num, cur, label}; null when nothing parses. Text after a child/senior
@@ -62,16 +61,6 @@ function lowestPrice(s) {
   }
   return best;
 }
-// "약 49,000원" for a foreign amount (rounded to 1,000원 above 20,000원, else 100원); null for 원 or unknown currency
-function krw(cur, num) {
-  const rate = FX.krwPer[CUR_CODE[cur]];
-  if (!rate || cur === '원' || cur === '₩') return null;
-  const w = num * rate;
-  const r = w >= 20000 ? Math.round(w / 1000) * 1000 : Math.round(w / 100) * 100;
-  return `약 ${r.toLocaleString('ko-KR')}원`;
-}
-const krwOf = (priceStr) => { const b = lowestPrice(priceStr); return b ? krw(b.cur, b.num) : null; };
-const FX_NOTE = `원화 환산은 ${FX.date} 환율 기준 참고용이며, 실제 결제 금액은 카드사 환율과 해외결제 수수료에 따라 달라집니다.`;
 const imgPath = (p, key) => `/img/${p.slug}/${p.slug}-${key}.jpg`;
 
 // The two shared stylesheets (~5KB) are inlined into each city page so the first paint needs no extra round trip.
@@ -131,15 +120,7 @@ function priceBars(p) {
   }
   if (rows.length < 2 || new Set(rows.map(r => r.cur)).size !== 1) return '';
   const max = Math.max(...rows.map(r => r.num));
-  const hasKrw = rows.some(r => krw(r.cur, r.num));
-  return `<div class="kw-bars" role="img" aria-label="${esc(p.keyword)} 티켓별 가격 비교">${rows.map(r => { const w = krw(r.cur, r.num); return `<div class="kw-bar"><span class="kw-bar-l">${esc(r.name)}<small>${esc(r.validity)}</small></span><span class="kw-bar-t"><i style="width:${Math.max(4, Math.round(r.num / max * 100))}%"></i></span><span class="kw-bar-v">${esc(r.label)}${w ? `<small class="kw-krw">${w}</small>` : ''}</span></div>`; }).join('')}<p class="small">티켓별 성인 최저가 기준 · 자세한 조건은 아래 표${hasKrw ? ` · ${esc(FX_NOTE)}` : ''}</p></div>`;
-}
-// Korean-won line for pages without a bar chart (one ticket, or mixed currencies)
-function krwLine(p) {
-  if (priceBars(p)) return '';
-  const rows = p.tickets.map(t => ({ t, w: krwOf(t.price), b: lowestPrice(t.price) })).filter(r => r.w);
-  if (!rows.length) return '';
-  return `<p class="small">원화로 보면 ${rows.slice(0, 3).map(r => `${esc(r.t.name)} ${esc(r.b.label)} ≈ ${r.w}`).join(' · ')} · ${esc(FX_NOTE)}</p>`;
+  return `<div class="kw-bars" role="img" aria-label="${esc(p.keyword)} 티켓별 가격 비교">${rows.map(r => `<div class="kw-bar"><span class="kw-bar-l">${esc(r.name)}<small>${esc(r.validity)}</small></span><span class="kw-bar-t"><i style="width:${Math.max(4, Math.round(r.num / max * 100))}%"></i></span><span class="kw-bar-v">${esc(r.label)}</span></div>`).join('')}<p class="small">티켓별 성인 최저가 기준 · 자세한 조건은 아래 표</p></div>`;
 }
 // Where to find the first stop: Naver Map for Korean cities (what Korean travellers use), Google Maps with the
 // official coordinates elsewhere (only when data/route-maps has them, so the pin is never a guess)
@@ -183,16 +164,7 @@ function render(p, all) {
   const aka = p.aka || (/빅버스$/.test(k)
     ? [`${p.city} 빅버스 투어`, `${p.city} 시티투어버스`, `${p.city} 시티투어 버스`, `${p.city} 2층버스 투어`, `${p.city} 홉온홉오프 버스`, `${p.city} 관광버스`]
     : [`${p.city} 시티투어 버스`, `${p.city} 버스투어`, `${p.city} 2층버스 투어`, `${p.city} 홉온홉오프 버스`, `${p.city} 관광버스`, ...(p.operator === 'city-sightseeing' ? [`${p.city} City Sightseeing`] : [])]);
-  // "원화 환산" row right after the price row (or at the end) so the won figure sits where Korean readers look first
-  const summary = [['다른 이름', aka.join(', ')], ...p.summary];
-  const adults = p.tickets.filter(t => !NON_ADULT_RX.test(t.name) && !NON_ADULT_RX.test(t.for || ''));
-  const cheapest = (adults.length ? adults : p.tickets).map(t => ({ b: lowestPrice(t.price), w: krwOf(t.price) })).filter(r => r.w).sort((a, b) => a.b.num - b.b.num)[0];
-  if (cheapest) {
-    const row = ['원화 환산', `성인 최저 ${cheapest.b.label} ≈ ${cheapest.w} (${FX.date} 환율 기준, 참고용)`];
-    const at = summary.findIndex(([a]) => a === '가격');
-    summary.splice(at >= 0 ? at + 1 : summary.length, 0, row);
-  }
-  sec('summary', 'SUMMARY', `${k} 한눈에 보기`, '한눈에 보기', kvTable(summary, 'kw-summary'));
+  sec('summary', 'SUMMARY', `${k} 한눈에 보기`, '한눈에 보기', kvTable([['다른 이름', aka.join(', ')], ...p.summary], 'kw-summary'));
 
   const routeNames = p.routes.map(r => `${r.name.replace(/ \(.*\)/, '')}${r.area ? `(${r.area})` : ''}`).join(', ');
   const map = routeMap(p);
@@ -207,7 +179,7 @@ function render(p, all) {
 
   sec('price', 'PRICE', h2.price, '가격',
     priceBars(p) +
-    `<div class="table-scroll"><table><thead><tr><th>티켓</th><th>유효</th><th>성인 가격</th><th>포함 내용</th><th>추천</th></tr></thead><tbody>${p.tickets.map(t => { const w = krwOf(t.price); return `<tr><th scope="row">${esc(t.name)}</th><td>${esc(t.validity)}</td><td>${esc(t.price)}${w ? `<br><small class="kw-krw">${w}</small>` : ''}</td><td>${t.includes.map(esc).join('<br>')}</td><td>${esc(t.for)}</td></tr>`; }).join('')}</tbody></table></div>${krwLine(p)}<p class="small">${esc(p.priceNote)}</p>`);
+    `<div class="table-scroll"><table><thead><tr><th>티켓</th><th>유효</th><th>성인 가격</th><th>포함 내용</th><th>추천</th></tr></thead><tbody>${p.tickets.map(t => `<tr><th scope="row">${esc(t.name)}</th><td>${esc(t.validity)}</td><td>${esc(t.price)}</td><td>${t.includes.map(esc).join('<br>')}</td><td>${esc(t.for)}</td></tr>`).join('')}</tbody></table></div><p class="small">${esc(p.priceNote)}</p>`);
 
   for (const x of p.extra || []) {
     sec(x.id, x.label, x.h2, x.toc || null,
@@ -297,7 +269,7 @@ ${PRECONNECT}${fontLinks()}
 ${sections.join('\n')}
 </article><aside><div class="aside-card"><strong>${esc(k)} 예약</strong><p>${esc(p.asideNote)}</p><a class="aside-link kw-aside-book" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${esc(bookLabel(p))} →</a>${gygUrl(p) ? `<a class="aside-link" href="${esc(gygUrl(p))}" target="_blank" rel="sponsored nofollow noopener">GetYourGuide에서 ${esc(p.city)} 투어 보기 →</a>` : ''}${p.routeCheck ? `<a class="aside-link" href="${esc(p.routeCheck.url)}">정류장 지도 보기 →</a>` : `<a class="aside-link" href="#route">노선·정류장 보기 →</a>`}${SIM[p.slug] ? `<a class="aside-link" href="${SIM[p.slug].url}">하루 코스 시뮬레이터 →</a>` : ''}</div></aside></div>
 </div></main><footer><div class="wrap"><a href="/">CITYTOURBUS.KR</a><p>전 세계 시티투어버스를 비교합니다. 일부 예약 링크를 통해 수수료를 받을 수 있으며 이용자 추가 비용은 없습니다.</p><a href="/terms">이용약관</a> · <a href="/privacy">개인정보처리방침</a></div></footer>
-<div class="kw-sticky" id="kw-sticky" hidden><div class="kw-sticky-txt"><b>${esc(k)}</b><small>${esc(p.tickets[0].price)}${krwOf(p.tickets[0].price) ? ` · ${krwOf(p.tickets[0].price)}` : ''}</small></div><a class="button kw-cta" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${BRAND[p.operator] ? esc(BRAND[p.operator]) + ' 예약' : '예약하기'} →</a></div>
+<div class="kw-sticky" id="kw-sticky" hidden><div class="kw-sticky-txt"><b>${esc(k)}</b><small>${esc(p.tickets[0].price)}</small></div><a class="button kw-cta" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${BRAND[p.operator] ? esc(BRAND[p.operator]) + ' 예약' : '예약하기'} →</a></div>
 <script>(function(){var s=document.getElementById('kw-sticky'),h=document.querySelector('.hero-actions');if(!s||!h||!('IntersectionObserver' in window))return;new IntersectionObserver(function(e){var r=e[0],show=!r.isIntersecting&&r.boundingClientRect.top<0;s.hidden=!show;document.body.classList.toggle('has-sticky',show)}).observe(h)})();
 (function(){var b=document.getElementById('kw-share');if(!b)return;b.addEventListener('click',function(){var u=location.origin+location.pathname,t=b.getAttribute('data-title');if(navigator.share){navigator.share({title:t,url:u}).catch(function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){var o=b.textContent;b.textContent='링크를 복사했어요';setTimeout(function(){b.textContent=o},1800)})}})})();</script>
 </body></html>

@@ -40,7 +40,6 @@
 .kw-map img{max-width:620px;aspect-ratio:auto}
 .kw-sticky{display:none}
 @media(max-width:760px){.kw-sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;align-items:center;gap:12px;padding:10px 16px;padding-bottom:calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);box-shadow:0 -8px 30px rgba(0,0,0,.08)}.kw-sticky[hidden]{display:none}.kw-sticky-txt{flex:1;min-width:0}.kw-sticky-txt b{display:block;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.kw-sticky-txt small{display:block;font-size:11px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.kw-sticky .button{width:auto;flex:0 0 auto;padding:12px 16px;font-size:13px}body.has-sticky{padding-bottom:76px}}
-.kw-krw{display:block;font-size:11px;font-weight:700;color:var(--muted);white-space:nowrap}.kw-bar-v{text-align:right}
 .kw-callout{margin:18px 0 4px;padding:14px 16px;border-radius:12px;background:var(--paper);border:1px solid var(--line)}.kw-callout b{font-size:13px}.kw-callout p{margin:6px 0 0;font-size:13px!important}
 .kw-share{appearance:none;border:0;background:none;padding:0;font:inherit;font-weight:700;color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .related-links .kw-all{background:var(--ink);color:#fff}

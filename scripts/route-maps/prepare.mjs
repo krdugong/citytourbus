@@ -2,7 +2,11 @@
 // For each route it asks the public OSRM server for a road path through the stops (in order, looping
 // back to the first stop), downloads the OpenStreetMap tiles that cover the map, and writes
 // scripts/route-maps/.cache/specs.json for render.swift. Network results are cached in .cache/.
-// Usage (from repo root): node scripts/route-maps/prepare.mjs [slug]
+// Usage (from repo root): node scripts/route-maps/prepare.mjs [slug] [--lang en|ja]
+// With --lang it draws the same maps with English/Japanese text (title, legend, note) for the pages that
+// have data/i18n/<lang>/<slug>.json, written to img/<lang>/<slug>-map*.jpg. Stops are numbered, so no
+// stop names are drawn; route i of the map is the Korean page route with the same name, and the
+// translation's route at that index.
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -71,16 +75,45 @@ async function tile(z, x, y) {
   return file;
 }
 
-const only = process.argv[2];
+const argv = process.argv.slice(2);
+const LANG = argv.includes('--lang') ? argv[argv.indexOf('--lang') + 1] : '';
+const only = argv.find((a, i) => !a.startsWith('--') && argv[i - 1] !== '--lang');
+const TEXT = {
+  en: { face: null, map: (k) => `${k} route map`, stops: (n) => `${n} stops`, routes: (n) => `${n} routes`, order: 'numbers show stop order on each route',
+    note: 'Stop-order reference map · actual bus path may differ' },
+  ja: { face: 'HiraginoSans-W3', map: (k) => `${k} 路線図`, stops: (n) => `${n}停留所`, routes: (n) => `${n}ルート`, order: '番号はルートごとの停留所順',
+    note: '停留所順の参考路線図 · 実際の運行経路と異なる場合があります' },
+};
+const routeTitle = (name) => name.replace(/\s*[(（].*?[)）]\s*$/, '').trim();
+// swaps the Korean text of a route-map file for the translation; null when the page has no translation
+function translate(m) {
+  const T = TEXT[LANG], file = path.join(ROOT, 'data/i18n', LANG, `${m.slug}.json`);
+  if (!T || !fs.existsSync(file)) return null;
+  const t = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const ko = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/keyword-pages', `${m.slug}.json`), 'utf8'));
+  const routes = m.routes.map(r => {
+    const i = ko.routes.findIndex(k => routeTitle(k.name) === r.title);
+    const tr = t.routes[i];
+    if (!tr || (tr.stops || []).length !== r.stops.length) throw new Error(`${LANG}/${m.slug}: no translated route for ${r.title}`);
+    const title = routeTitle(tr.name);
+    return { ...r, title, sub: tr.area || '', name: tr.area && !/^\d/.test(tr.area) && m.routes.length <= 3 ? `${title} · ${tr.area}` : title };
+  });
+  // the subtitle line fits about 900 px at 24 px: drop the order hint, then the per-route counts, when too long
+  const fits = (str) => [...str].reduce((w, c) => w + (c.charCodeAt(0) < 0x2000 ? 12.5 : 24), 0) <= 900;
+  const counts = routes.map(r => `${r.title} ${T.stops(r.stops.length)}`).join(' · ');
+  const sub = [routes.length > 1 ? `${counts} · ${T.order}` : counts, counts, `${T.routes(routes.length)} · ${T.order}`].find(fits) || T.routes(routes.length);
+  return { ...m, title: T.map(t.keyword), routeTitle: (r) => T.map(`${t.keyword} ${r.title}`), sub, routes, labels: [], note: T.note, face: T.face, dir: `img/${LANG}/${m.slug}` };
+}
 const specs = [];
 for (const f of fs.readdirSync(path.join(ROOT, 'data/route-maps')).filter(f => f.endsWith('.json'))) {
-  const m = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/route-maps', f), 'utf8'));
+  let m = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/route-maps', f), 'utf8'));
   if (only && m.slug !== only) continue;
+  if (LANG && !(m = translate(m))) continue;
   const allLines = [];
   for (const r of m.routes) allLines.push({ route: r, geo: r.road === false ? [...r.stops, r.stops[0]] : await roadPath(r) });
   // one overview map with every route, plus one zoomed map per route when there is more than one
   const variants = [{ suffix: '', lines: allLines, title: m.title, sub: m.sub || '', labels: m.labels || [] }];
-  if (allLines.length > 1) for (const l of allLines) variants.push({ suffix: `-${l.route.key}`, lines: [l], title: m.title.replace(/노선도$/, `${l.route.title || l.route.name} 노선도`), sub: l.route.sub || '', labels: [] });
+  if (allLines.length > 1) for (const l of allLines) variants.push({ suffix: `-${l.route.key}`, lines: [l], title: m.routeTitle ? m.routeTitle(l.route) : m.title.replace(/노선도$/, `${l.route.title || l.route.name} 노선도`), sub: l.route.sub || '', labels: [] });
   for (const v of variants) {
   const lines = v.lines;
   const all = lines.flatMap(l => l.geo);
@@ -100,13 +133,14 @@ for (const f of fs.readdirSync(path.join(ROOT, 'data/route-maps')).filter(f => f
     for (let ty = Math.floor(oy / TILE); ty * TILE < oy + H; ty++)
       tiles.push({ file: await tile(z, tx, ty), x: tx * TILE - ox, y: ty * TILE - oy });
   specs.push({
-    out: `img/${m.slug}/${m.slug}-map${v.suffix}.jpg`, w: W, h: H, title: v.title, sub: v.sub, zoom: z, tiles,
+    out: `${m.dir || `img/${m.slug}/${m.slug}`}-map${v.suffix}.jpg`, w: W, h: H, title: v.title, sub: v.sub, zoom: z, tiles,
     routes: lines.map(({ route, geo }, i) => ({
       name: route.name, color: route.color, path: geo.map(toPx),
       stops: route.stops.map((s, k) => ({ n: k + 1, p: toPx(s) })), offset: i
     })),
     labels: v.labels.map(l => ({ name: l.name, p: toPx(l) })),
-    note: m.note || '정류장 순서 기준 참고용 노선도 · 실제 운행 경로와 다를 수 있음'
+    note: m.note || '정류장 순서 기준 참고용 노선도 · 실제 운행 경로와 다를 수 있음',
+    ...(m.face ? { face: m.face } : {})
   });
   console.log(m.slug + v.suffix, 'zoom', z, 'tiles', tiles.length);
   }

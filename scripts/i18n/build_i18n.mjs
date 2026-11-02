@@ -30,6 +30,7 @@ const LANGS = {
     more: (p) => `More tours and tickets in ${p.city}`, moreText: (p) => `Besides the city tour bus, you can compare day trips, guided tours and attraction tickets in ${p.city} on GetYourGuide.`,
     moreBtn: 'Browse more tours →', moreNote: 'GetYourGuide affiliate link, no extra cost to you.', related: 'Other city guides', relatedNo: 'MORE GUIDES',
     asideBook: (p) => `${p.keyword}`, asideRoute: 'See route and stops →', book: 'Book →',
+    map: (k) => `${k} route map`, mapCap: 'stop-order reference', approx: (n) => `approximate position: ${n}`,
     footer: 'Independent guides to city tour buses. Some booking links earn us a commission at no extra cost to you.', langName: 'English', korean: '한국어',
   },
   ja: {
@@ -45,6 +46,7 @@ const LANGS = {
     more: (p) => `${p.city}のツアー・チケットをもっと見る`, moreText: (p) => `シティツアーバス以外にも、${p.city}発の日帰りツアーやガイドツアー、観光施設のチケットをGetYourGuideで比べられます。`,
     moreBtn: 'ほかのツアーを見る →', moreNote: 'GetYourGuideのアフィリエイトリンクです。追加料金はかかりません。', related: 'ほかの都市のガイド', relatedNo: 'MORE GUIDES',
     asideBook: (p) => `${p.keyword}`, asideRoute: 'ルート・停留所を見る →', book: '予約する →',
+    map: (k) => `${k} 路線図`, mapCap: '停留所順の参考図', approx: (n) => `${n}の位置はおおよその推定`,
     footer: 'シティツアーバスを比較する独立ガイドです。一部の予約リンクから手数料を受け取ることがありますが、追加料金はかかりません。', langName: '日本語', korean: '한국어',
   },
 };
@@ -65,6 +67,28 @@ function merge(lang, slug) {
 }
 
 const imgBase = (lang, slug) => `/img/${lang}/${slug}`;
+
+// Route maps drawn by scripts/route-maps/prepare.mjs --lang: one overview, plus one per route when there are
+// several. Map route ↔ page route by the Korean route name; returns per page-route index { src, title }.
+const routeTitle = (name) => name.replace(/\s*[(（].*?[)）]\s*$/, '').trim();
+function routeMap(lang, p) {
+  const out = { overview: null, perRoute: [], uncertain: [] };
+  const file = path.join(ROOT, 'data/route-maps', `${p.slug}.json`);
+  if (!fs.existsSync(file) || !fs.existsSync(path.join(ROOT, `img/${lang}/${p.slug}-map.jpg`))) return out;
+  const m = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const ko = koPage(p.slug);
+  out.overview = `${imgBase(lang, p.slug)}-map.jpg`;
+  for (const r of m.routes) {
+    const i = ko.routes.findIndex(k => routeTitle(k.name) === r.title);
+    const tr = p.routes[i];
+    if (!tr) continue;
+    r.stops.forEach((st, k) => { if (st.uncertain && tr.stops && tr.stops[k]) out.uncertain.push(tr.stops[k]); });
+    if (m.routes.length > 1 && fs.existsSync(path.join(ROOT, `img/${lang}/${p.slug}-map-${r.key}.jpg`)))
+      out.perRoute[i] = { src: `${imgBase(lang, p.slug)}-map-${r.key}.jpg`, title: routeTitle(tr.name) };
+  }
+  return out;
+}
+const mapFigure = (L, src, alt, note = '') => `<figure class="kw-figure kw-map"><img src="${src}" alt="${esc(alt)}" width="1080" height="1080" loading="lazy" decoding="async"><figcaption>${esc(alt)} · ${esc(L.mapCap)}${note ? ` · ${esc(note)}` : ''} · © OpenStreetMap contributors</figcaption></figure>`;
 function render(lang, p, all) {
   const L = LANGS[lang];
   const url = `${SITE}/${lang}/${p.slug}`;
@@ -78,8 +102,10 @@ function render(lang, p, all) {
     if (tocLabel) toc.push(`<a href="#${id}">${esc(tocLabel)}</a>`);
   };
   sec('summary', 'SUMMARY', `${k}: ${L.glance}`, L.glance, kv([...(p.aka ? [[L.aka, p.aka.join(', ')]] : []), ...p.summary], 'kw-summary'));
+  const map = routeMap(lang, p);
   sec('route', 'ROUTE', `${k}: ${L.route}`, L.route, `<p>${esc(L.routeIntro(p))}</p>` +
-    p.routes.map(r => `<div class="kw-route" style="--rc:${r.color}"><h3>${esc(r.name)}${r.area ? ` · ${esc(r.area)}` : ''}</h3><p class="small">${[r.duration, r.interval, r.hours].filter(Boolean).map(esc).join(' · ')}</p>${r.stops && r.stops.length ? `<ol class="kw-stops">${r.stops.map(s => `<li>${esc(s)}</li>`).join('')}</ol>` : ''}<p>${esc(r.tip)}</p></div>`).join(''));
+    (map.overview ? mapFigure(L, map.overview, L.map(k), map.uncertain.length ? L.approx(map.uncertain.join(', ')) : '') : '') +
+    p.routes.map((r, i) => `<div class="kw-route" style="--rc:${r.color}"><h3>${esc(r.name)}${r.area ? ` · ${esc(r.area)}` : ''}</h3><p class="small">${[r.duration, r.interval, r.hours].filter(Boolean).map(esc).join(' · ')}</p>${r.stops && r.stops.length ? `<ol class="kw-stops">${r.stops.map(s => `<li>${esc(s)}</li>`).join('')}</ol>` : ''}<p>${esc(r.tip)}</p>${map.perRoute[i] ? mapFigure(L, map.perRoute[i].src, L.map(`${k} ${map.perRoute[i].title}`)) : ''}</div>`).join(''));
   if (p.night) sec('night', 'NIGHT TOUR', `${k}: ${L.night}`, L.night,
     `<p>${esc(p.night.text)}</p><ul>${[p.night.time, p.night.start, p.night.duration, p.night.price].map((v, i) => `<li><b>${L.nightLbl[i]}</b> ${esc(v)}</li>`).join('')}</ul>`);
   sec('price', 'PRICE', `${k}: ${L.price}`, L.price,

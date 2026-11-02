@@ -6,14 +6,15 @@ struct Stop: Decodable { let n: Int; let p: [Double] }
 struct Route: Decodable { let name: String; let color: String; let path: [[Double]]; let stops: [Stop]; let offset: Int }
 struct Tile: Decodable { let file: String; let x: Double; let y: Double }
 struct Label: Decodable { let name: String; let p: [Double] }
-struct Spec: Decodable { let out: String; let w: Int; let h: Int; let title: String; let sub: String; let tiles: [Tile]; let routes: [Route]; let labels: [Label]; let note: String }
+struct Spec: Decodable { let out: String; let w: Int; let h: Int; let title: String; let sub: String; let tiles: [Tile]; let routes: [Route]; let labels: [Label]; let note: String; let face: String? } // face: font for non-Korean maps (e.g. Hiragino Sans for Japanese)
 
 func color(_ hex: String, _ a: CGFloat = 1) -> NSColor {
   var v: UInt64 = 0; Scanner(string: hex.replacingOccurrences(of: "#", with: "")).scanHexInt64(&v)
   return NSColor(red: CGFloat((v >> 16) & 255) / 255, green: CGFloat((v >> 8) & 255) / 255, blue: CGFloat(v & 255) / 255, alpha: a)
 }
+var FACE = "Apple SD Gothic Neo"
 func font(_ size: CGFloat, _ bold: Bool) -> NSFont {
-  let base = NSFont(name: "Apple SD Gothic Neo", size: size) ?? NSFont.systemFont(ofSize: size)
+  let base = NSFont(name: FACE, size: size) ?? NSFont.systemFont(ofSize: size)
   return bold ? NSFontManager.shared.convert(base, toHaveTrait: .boldFontMask) : base
 }
 func attrs(_ f: NSFont, _ c: NSColor) -> [NSAttributedString.Key: Any] { [.font: f, .foregroundColor: c] }
@@ -21,6 +22,7 @@ func attrs(_ f: NSFont, _ c: NSColor) -> [NSAttributedString.Key: Any] { [.font:
 let args = CommandLine.arguments
 let specs = try! JSONDecoder().decode([Spec].self, from: Data(contentsOf: URL(fileURLWithPath: args[1])))
 for s in specs {
+  FACE = s.face ?? "Apple SD Gothic Neo"
   let W = CGFloat(s.w), H = CGFloat(s.h)
   let rep = NSBitmapImageRep(bitmapDataPlanes: nil, pixelsWide: s.w, pixelsHigh: s.h, bitsPerSample: 8, samplesPerPixel: 4, hasAlpha: true, isPlanar: false, colorSpaceName: .deviceRGB, bytesPerRow: 0, bitsPerPixel: 0)!
   NSGraphicsContext.saveGraphicsState()
@@ -95,7 +97,8 @@ for s in specs {
   }
   let noteY = lp.minY + 70 + CGFloat(rowsNeeded) * rowH
   (s.note as NSString).draw(at: NSPoint(x: 70, y: noteY), withAttributes: attrs(font(19, false), NSColor(white: 0.4, alpha: 1)))
-  ("© OpenStreetMap contributors" as NSString).draw(at: NSPoint(x: W - 300, y: noteY), withAttributes: attrs(font(17, false), NSColor(white: 0.4, alpha: 1)))
+  let osm = "© OpenStreetMap contributors" as NSString, oa = attrs(font(17, false), NSColor(white: 0.4, alpha: 1))
+  osm.draw(at: NSPoint(x: min(W - 300, W - 78 - osm.size(withAttributes: oa).width), y: noteY), withAttributes: oa)
   NSGraphicsContext.restoreGraphicsState()
   let url = URL(fileURLWithPath: args[2]).appendingPathComponent(s.out)
   try! FileManager.default.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)

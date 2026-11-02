@@ -77,13 +77,12 @@ function figure(p, key) {
 
 // Route-map images made by scripts/route-maps (overview + one per route, in data/route-maps order)
 function routeMap(p) {
-  const out = { overview: null, perRoute: [], uncertain: [], routes: [] };
+  const out = { overview: null, perRoute: [], uncertain: [] };
   const overview = `img/${p.slug}/${p.slug}-map.jpg`;
   if (fs.existsSync(path.join(ROOT, overview))) out.overview = `/${overview}`;
   const dataFile = path.join(ROOT, 'data/route-maps', `${p.slug}.json`);
   if (fs.existsSync(dataFile)) {
     for (const r of JSON.parse(fs.readFileSync(dataFile, 'utf8')).routes) {
-      out.routes.push(r);
       out.uncertain.push(...r.stops.filter(s => s.uncertain).map(s => s.name));
       const f = `img/${p.slug}/${p.slug}-map-${r.key}.jpg`;
       out.perRoute.push(fs.existsSync(path.join(ROOT, f)) ? { src: `/${f}`, title: r.title || r.name } : null);
@@ -121,18 +120,6 @@ function priceBars(p) {
   if (rows.length < 2 || new Set(rows.map(r => r.cur)).size !== 1) return '';
   const max = Math.max(...rows.map(r => r.num));
   return `<div class="kw-bars" role="img" aria-label="${esc(p.keyword)} 티켓별 가격 비교">${rows.map(r => `<div class="kw-bar"><span class="kw-bar-l">${esc(r.name)}<small>${esc(r.validity)}</small></span><span class="kw-bar-t"><i style="width:${Math.max(4, Math.round(r.num / max * 100))}%"></i></span><span class="kw-bar-v">${esc(r.label)}</span></div>`).join('')}<p class="small">티켓별 성인 최저가 기준 · 자세한 조건은 아래 표</p></div>`;
-}
-// Where to find the first stop: Naver Map for Korean cities (what Korean travellers use), Google Maps with the
-// official coordinates elsewhere (only when data/route-maps has them, so the pin is never a guess)
-function startStopLink(p, r, mapRoute) {
-  const first = (r.stops || [])[0];
-  if (!first) return '';
-  const name = first.replace(/\s*\(.*?\)/g, '').trim();
-  let href = null;
-  if (p.flag === '🇰🇷') href = `https://map.naver.com/p/search/${encodeURIComponent(name)}`;
-  else if (mapRoute && mapRoute.stops[0] && !mapRoute.stops[0].uncertain) href = `https://www.google.com/maps/search/?api=1&query=${mapRoute.stops[0].lat},${mapRoute.stops[0].lng}`;
-  if (!href) return '';
-  return ` · <a href="${href}" target="_blank" rel="noopener">1번 정류장 ${p.flag === '🇰🇷' ? '네이버 지도' : '구글 지도'}에서 보기 ↗</a>`;
 }
 // Korean cardholders pay 3–8% more when a foreign checkout bills them in won (DCC); shown on every foreign-currency page
 function payTip(p) {
@@ -172,7 +159,7 @@ function render(p, all) {
   sec('route', 'ROUTE', h2.route, '노선',
     (map.overview ? mapFigure(map.overview, `${k} 노선도`, map.uncertain.length ? `${map.uncertain.join(', ')} 위치는 대략적인 추정` : '') : '') +
     `<p>${esc(k)}는 ${esc(routeNames)} ${p.routes.length > 1 ? `${p.routes.length}개 노선으로` : '노선 하나로'} 운행합니다.${p.routeCheck ? ` 정류장 위치는 <a href="${esc(p.routeCheck.url)}">${esc(p.routeCheck.label)}</a>에서 지도로 볼 수 있습니다.` : ''}${SIM[p.slug] ? ` 가고 싶은 곳을 넣으면 탈 노선과 내릴 정류장을 순서대로 짜 주는 <a href="${SIM[p.slug].url}">${esc(SIM[p.slug].label)}</a>도 있습니다.` : ''}</p>` +
-    `<div class="kw-route-grid">` + p.routes.map((r, i) => `<div class="kw-route" style="--rc:${r.color}"><h3>${esc(k)} ${esc(r.name)}${r.area ? ` · ${esc(r.area)}` : ''}</h3><p class="small">${esc(r.en)} · ${esc(r.duration)} · ${esc(r.interval)} · ${esc(r.hours)}${startStopLink(p, r, map.routes[i])}</p>${diagram[i] || ''}<p>${esc(r.tip)}</p>${map.perRoute[i] ? mapFigure(map.perRoute[i].src, `${k} ${map.perRoute[i].title} 노선도`) : ''}</div>`).join('') + `</div>`);
+    `<div class="kw-route-grid">` + p.routes.map((r, i) => `<div class="kw-route" style="--rc:${r.color}"><h3>${esc(k)} ${esc(r.name)}${r.area ? ` · ${esc(r.area)}` : ''}</h3><p class="small">${esc(r.en)} · ${esc(r.duration)} · ${esc(r.interval)} · ${esc(r.hours)}</p>${diagram[i] || ''}<p>${esc(r.tip)}</p>${map.perRoute[i] ? mapFigure(map.perRoute[i].src, `${k} ${map.perRoute[i].title} 노선도`) : ''}</div>`).join('') + `</div>`);
 
   if (p.night) sec('night', 'NIGHT TOUR', h2.night, '나이트 투어',
     `<p>${esc(p.night.text)}</p><ul><li><b>출발</b> ${esc(p.night.time)}</li><li><b>출발 장소</b> ${esc(p.night.start)}</li><li><b>소요 시간</b> ${esc(p.night.duration)}</li><li><b>가격</b> ${esc(p.night.price)}</li></ul>`);

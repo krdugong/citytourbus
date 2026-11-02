@@ -1,4 +1,4 @@
-// Google Analytics (GA4) and Naver Analytics for every page, plus GA click events for outbound and affiliate links.
+// Google Analytics (GA4), Naver Analytics and GoatCounter for every page, plus GA click events for outbound and affiliate links.
 // Loaded from <head> next to gtag.js. Events: affiliate_click (booking / GetYourGuide links) and outbound_click.
 window.dataLayer = window.dataLayer || [];
 function gtag() { dataLayer.push(arguments); }
@@ -19,6 +19,15 @@ wcs_add['wa'] = '1b9fef917767ec0';
   }
   if (document.readyState === 'complete') load();
   else window.addEventListener('load', load, { once: true });
+})();
+
+// GoatCounter (krdugong.goatcounter.com): simple visitor counts per page, referrer and country.
+(function () {
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://gc.zgo.at/count.js';
+  s.setAttribute('data-goatcounter', 'https://krdugong.goatcounter.com/count');
+  document.head.appendChild(s);
 })();
 
 (function () {

@@ -8,7 +8,7 @@
 //   datePublished and the RSS pubDate use published, dateModified and the sitemap lastmod use updated.)
 //   booking{url,label}, official, routeCheck?{url,label}, cityGuide?{url,label},
 //   summary[[k,v]], routes[{color,name,area?,en,duration,interval,hours,stops?[],tip}],
-//   night?{time,start,duration,price,text}, tickets[{name,validity,price,includes[],for}], priceNote,
+//   night?{time,start,duration,price,text}, tickets[{name,validity,price,includes[],for}], priceNote, payCurrency?,
 //   onsite?{text,compare[[k,v]]}, extra?[{id,label,h2,image?,paras?[],table?[[k,v]]}],
 //   howToBook?[], howToRide?[] (Big Bus defaults used when operator is "bigbus"),
 //   h2?{route,night,price,booking,onsite,ride,topics,faq}, topics?[{h3,a,anchor,label}] (scripts/keyword-pages/topics.py), faq[{q,a}], images{key:{alt,eyebrow,title,sub,bg}},
@@ -46,8 +46,8 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 
 // Price parsing shared by the price bars and the card-payment tip (currency symbol → ISO code for the tip).
 // No won conversion on purpose: the user found "약 N원" made prices look higher and could be read as a won charge.
-const CUR_CODE = { '€': 'EUR', '유로': 'EUR', 'US$': 'USD', '$': 'USD', '달러': 'USD', '£': 'GBP', '¥': 'JPY', '엔': 'JPY', 'HK$': 'HKD', 'S$': 'SGD', 'AU$': 'AUD', 'CA$': 'CAD', 'C$': 'CAD', 'NZ$': 'NZD', '฿': 'THB', '바트': 'THB', '₫': 'VND', '동': 'VND', 'AED': 'AED', 'CHF': 'CHF', 'SEK': 'SEK', 'NOK': 'NOK', 'DKK': 'DKK', 'zł': 'PLN', 'Kč': 'CZK', 'Ft': 'HUF', 'R': 'ZAR' };
-const PRICE_RX = /(US\$|AU\$|HK\$|CA\$|NZ\$|S\$|R\$|C\$|[€£¥₩$฿₫]|AED|CHF|kr|zł|Kč|Ft|SEK|NOK|DKK|R)\s?([\d,]+(?:\.\d+)?)|([\d,]+(?:\.\d+)?)(?:\s?[~–-]\s?[\d,]+(?:\.\d+)?)?\s?(원|엔|유로|달러|바트|동|루피)/g;
+const CUR_CODE = { '€': 'EUR', '유로': 'EUR', 'US$': 'USD', '$': 'USD', '달러': 'USD', '£': 'GBP', '¥': 'JPY', '엔': 'JPY', 'HK$': 'HKD', 'S$': 'SGD', 'AU$': 'AUD', 'CA$': 'CAD', 'C$': 'CAD', 'NZ$': 'NZD', '฿': 'THB', '바트': 'THB', '₫': 'VND', '동': 'VND', 'AED': 'AED', 'CHF': 'CHF', 'SEK': 'SEK', 'NOK': 'NOK', 'DKK': 'DKK', 'zł': 'PLN', 'Kč': 'CZK', 'Ft': 'HUF', 'R': 'ZAR', 'CZK': 'CZK', 'PLN': 'PLN', 'ISK': 'ISK', 'SAR': 'SAR', 'THB': 'THB', 'VND': 'VND', 'ZAR': 'ZAR' };
+const PRICE_RX = /(US\$|AU\$|HK\$|CA\$|NZ\$|S\$|R\$|C\$|[€£¥₩$฿₫]|AED|CHF|CZK|PLN|ISK|SAR|THB|VND|ZAR|kr|zł|Kč|Ft|SEK|NOK|DKK|R)\s?([\d,]+(?:\.\d+)?)|([\d,]+(?:\.\d+)?)(?:\s?[~–-]\s?[\d,]+(?:\.\d+)?)?\s?(원|엔|유로|달러|바트|동|루피)/g;
 // lowest adult amount in a price string → {num, cur, label}; null when nothing parses. Text after a child/senior
 // label ("… · 어린이 1,200엔") is ignored so the figure is always the adult price.
 const NON_ADULT_RX = /어린이|소인|아동|유아|청소년|학생|경로|65세|장애인|child|youth|senior|kid/i;
@@ -57,7 +57,7 @@ function lowestPrice(s) {
   for (const m of adult.matchAll(PRICE_RX)) {
     const num = parseFloat((m[2] || m[3]).replace(/,/g, ''));
     const cur = m[1] || m[4];
-    if (!isNaN(num) && (!best || num < best.num)) best = { num, cur, label: m[1] ? `${m[1]}${m[2]}` : `${m[3]}${m[4]}` };
+    if (!isNaN(num) && (!best || num < best.num)) best = { num, cur, label: m[1] ? `${m[1]}${/^[A-Z]{3}$/.test(m[1]) ? ' ' : ''}${m[2]}` : `${m[3]}${m[4]}` };
   }
   return best;
 }
@@ -126,7 +126,9 @@ function payTip(p) {
   const cur = (p.tickets.map(t => lowestPrice(t.price)).find(Boolean) || {}).cur;
   if (!cur || cur === '원' || cur === '₩') return '';
   const code = CUR_CODE[cur] || '현지 통화';
-  return `<div class="kw-callout"><b>한국 카드로 결제할 때</b><p>결제 화면에 원화(KRW)와 현지 통화 선택이 나오면 <b>${esc(code)}(현지 통화)</b>를 고르세요. 원화 결제(DCC)를 택하면 3~8%가 더 붙습니다. 해외결제 수수료가 없는 트래블카드를 쓰면 가장 저렴하고, 결제 전 카드사 해외 사용 설정이 켜져 있는지 확인하세요.</p></div>`;
+  // payCurrency: the booking page bills in another currency than the local prices shown (City Sightseeing → EUR)
+  const pick = p.payCurrency ? `예약 버튼의 공식 예약 페이지는 ${esc(p.payCurrency)}로 결제됩니다. 결제 화면에 원화(KRW)와 ${esc(p.payCurrency)} 선택이 나오면 <b>${esc(p.payCurrency)}</b>를 고르세요.` : `결제 화면에 원화(KRW)와 현지 통화 선택이 나오면 <b>${esc(code)}(현지 통화)</b>를 고르세요.`;
+  return `<div class="kw-callout"><b>한국 카드로 결제할 때</b><p>${pick} 원화 결제(DCC)를 택하면 3~8%가 더 붙습니다. 해외결제 수수료가 없는 트래블카드를 쓰면 가장 저렴하고, 결제 전 카드사 해외 사용 설정이 켜져 있는지 확인하세요.</p></div>`;
 }
 const kvTable = (rows, cls = '') => `<div class="table-scroll"><table${cls ? ` class="${cls}"` : ''}><tbody>${rows.map(([a, b]) => `<tr><th scope="row">${esc(a)}</th><td>${esc(b)}</td></tr>`).join('')}</tbody></table></div>`;
 

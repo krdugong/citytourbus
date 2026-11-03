@@ -12,7 +12,7 @@ DEFAULT_DATE = '2026-10-28'
 def cs_page(*, slug, keyword, city, flag, cs_url, sid, lead, title, description, operator_note,
             summary, routes, tickets, faq, start_stop, ride_extra=None, night=None, extra=None, h2=None,
             hours_note='', vouchers='구매 후 12개월 안에 사용', languages=None, aside=None, date=DEFAULT_DATE,
-            cj_verified=False, image_sub=None, short=None):
+            cj_verified=False, image_sub=None, short=None, currency='유로'):
     short = short or city
     booking = {'url': f'https://www.jdoqocy.com/click-8754229-15734727?sid={sid}&url={cs_url}', 'label': f'{keyword} 예약하기'}
     cj = ('결제 화면 할인코드 칸에 CJTRAVEL10을 입력하면 할인가에서 10%가 추가로 빠집니다.' if cj_verified else
@@ -46,7 +46,7 @@ def cs_page(*, slug, keyword, city, flag, cs_url, sid, lead, title, description,
         'h1Sub': '노선·가격·예약 총정리', 'lead': lead, 'booking': booking, 'official': cs_url,
         'summary': [['운영', operator_note]] + summary,
         'routes': routes, 'tickets': tickets,
-        'priceNote': f'가격은 {date[:4]}년 {int(date[5:7])}월 {int(date[8:])}일 City Sightseeing 공식 사이트의 성인 기준 최저가(from, 유로 표시)입니다. 날짜와 프로모션에 따라 바뀌므로 결제 화면에서 최종 금액을 확인하세요.',
+        'priceNote': f'가격은 {date[:4]}년 {int(date[5:7])}월 {int(date[8:])}일 City Sightseeing 공식 사이트의 성인 기준 최저가(from, {currency} 표시)입니다. 날짜와 프로모션에 따라 바뀌므로 결제 화면에서 최종 금액을 확인하세요.',
         'howToBook': how_to_book, 'howToRide': how_to_ride,
         'h2': {'route': f'{keyword} 노선', 'price': f'{keyword} 가격·티켓', 'ride': f'{keyword} 타는법', **(h2 or {})},
         'faq': faq + [{'q': f'CJTRAVEL10 할인코드가 {city}에도 되나요?', 'a': 'CITYTOURBUS 전용 City Sightseeing 코드입니다. ' + ('결제 화면에서 적용되는 것을 확인했습니다.' if cj_verified else f'{city} 적용 여부는 아직 결제 화면으로 확인하지 못했으니 입력 후 최종 금액을 확인하세요.')}],

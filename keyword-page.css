@@ -46,3 +46,8 @@
 .kw-share:hover{border-color:#c7c7cc;color:var(--ink)}
 @media(max-width:760px){.kw-hero .hero-actions{flex-direction:column;align-items:stretch;gap:10px}}
 .related-links .kw-all{background:var(--ink);color:#fff}
+.kw-sublink{margin:16px 0 0;font-size:14px}.kw-sublink a{color:var(--accent);font-weight:800;text-decoration:none}
+.kw-kids{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.kw-kid{display:flex;flex-direction:column;gap:6px;padding:18px;border:1px solid var(--line);border-radius:14px;text-decoration:none;background:#fff}
+.kw-kid b{font-size:17px;letter-spacing:-.4px}.kw-kid span{font-size:13px;line-height:1.7;color:var(--sub)}.kw-kid em{font-style:normal;font-size:13px;font-weight:800;color:var(--accent);margin-top:auto}
+.kw-kid:hover{border-color:#c7c7cc}

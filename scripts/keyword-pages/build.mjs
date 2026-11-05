@@ -13,6 +13,9 @@
 //   howToBook?[], howToRide?[] (Big Bus defaults used when operator is "bigbus"),
 //   h2?{route,night,price,booking,onsite,ride,topics,faq}, topics?[{h3,a,anchor,label}] (scripts/keyword-pages/topics.py), faq[{q,a}], images{key:{alt,eyebrow,title,sub,bg}},
 //   asideNote, operator?, affiliate? (false = booking button goes to the operator's own site)
+//   parent? (slug of the city page this operator page belongs to), cityKey? (GetYourGuide/card city when the slug
+//   has another suffix), fromParent?{sectionId: link label} (link added to that section of the parent page),
+//   courses? (true = fixed-course tours: no transfer labels or hop-on loop note), childCard?{title,desc,order?} (card in the parent's "종류별로 자세히" block). topics[].anchor may also be a /path.
 import fs from 'node:fs';
 import path from 'node:path';
 import { TAG, ICONS, PRECONNECT, fontLinks } from '../head-bits.mjs';
@@ -22,8 +25,9 @@ const ROOT = process.cwd();
 const SITE = 'https://www.citytourbus.kr';
 const DATA_DIR = path.join(ROOT, 'data/keyword-pages');
 const GYG = JSON.parse(fs.readFileSync(path.join(DATA_DIR, '_getyourguide.json'), 'utf8'));
+const cityKeyOf = (p) => p.cityKey || p.slug.replace(/-(big-bus|city-tour-bus)$/, '');
 const gygUrl = (p) => {
-  const loc = GYG.cities[p.slug.replace(/-(big-bus|city-tour-bus)$/, '')];
+  const loc = GYG.cities[cityKeyOf(p)];
   return loc ? `https://www.getyourguide.com/ko-kr/${loc}/?${GYG.partner}` : null;
 };
 
@@ -104,10 +108,11 @@ function routeDiagram(p) {
     const stops = r.stops || [];
     if (!stops.length) return '';
     const items = stops.map((st, i) => {
-      const others = (inRoutes[norm(st)] || []).filter(n => n !== r.name.replace(/ \(.*\)/, ''));
+      // fixed-course tours (courses: true) share sights, not stops, so there is nothing to transfer at
+      const others = p.courses ? [] : (inRoutes[norm(st)] || []).filter(n => n !== r.name.replace(/ \(.*\)/, ''));
       return `<li${others.length ? ' class="tr"' : ''}><span class="n">${i + 1}</span>${esc(norm(st))}${others.length ? `<small>환승 · ${esc(others.join(', '))}</small>` : ''}</li>`;
     }).join('');
-    return `<ol class="kw-line" style="--rc:${r.color}" aria-label="${esc(r.name)} 정류장 순서">${items}</ol><p class="small kw-loop">↻ 순환 노선 · ${stops.length}번 다음은 다시 1번 정류장</p>`;
+    return `<ol class="kw-line" style="--rc:${r.color}" aria-label="${esc(r.name)} 정류장 순서">${items}</ol>${p.courses ? '<p class="small kw-loop">↻ 출발지로 돌아오는 코스 · 중간 경유지는 차창 관광</p>' : `<p class="small kw-loop">↻ 순환 노선 · ${stops.length}번 다음은 다시 1번 정류장</p>`}`;
   });
 }
 // Ticket price bars: lowest number in each price string, only when 2+ tickets share one currency
@@ -144,8 +149,11 @@ function render(p, all) {
   const sections = [];
   const toc = [];
   let n = 0;
+  const parent = p.parent ? all.find(o => o.slug === p.parent) : null;
+  const children = all.filter(o => o.parent === p.slug).sort((a, b) => ((a.childCard || {}).order || 9) - ((b.childCard || {}).order || 9));
   const sec = (id, label, title, tocLabel, body) => {
-    sections.push(`<section id="${id}" class="card"><p class="section-no">${String(++n).padStart(2, '0')} · ${label}</p><h2>${esc(title)}</h2>${body}</section>`);
+    const sub = children.filter(c => c.fromParent && c.fromParent[id]).map(c => `<p class="kw-sublink"><a href="/${c.slug}">${esc(c.fromParent[id])} →</a></p>`).join('');
+    sections.push(`<section id="${id}" class="card"><p class="section-no">${String(++n).padStart(2, '0')} · ${label}</p><h2>${esc(title)}</h2>${body}${sub}</section>`);
     if (tocLabel) toc.push(`<a href="#${id}">${esc(tocLabel)}</a>`);
   };
 
@@ -153,14 +161,17 @@ function render(p, all) {
   const aka = p.aka || (/빅버스$/.test(k)
     ? [`${p.city} 빅버스 투어`, `${p.city} 시티투어버스`, `${p.city} 시티투어 버스`, `${p.city} 2층버스 투어`, `${p.city} 홉온홉오프 버스`, `${p.city} 관광버스`]
     : [`${p.city} 시티투어 버스`, `${p.city} 버스투어`, `${p.city} 2층버스 투어`, `${p.city} 홉온홉오프 버스`, `${p.city} 관광버스`, ...(p.operator === 'city-sightseeing' ? [`${p.city} City Sightseeing`] : [])]);
-  sec('summary', 'SUMMARY', `${k} 한눈에 보기`, '한눈에 보기', kvTable([['다른 이름', aka.join(', ')], ...p.summary], 'kw-summary'));
+  sec('summary', 'SUMMARY', `${k} 한눈에 보기`, '한눈에 보기', kvTable([['다른 이름', aka.join(', ')], ...p.summary], 'kw-summary') +
+    (parent ? `<p class="kw-sublink"><a href="/${parent.slug}">${esc(parent.keyword)} 전체 비교 보기 →</a></p>` : ''));
+  if (children.length) sec('types', 'TYPES', `${k} 종류별로 자세히 보기`, '종류별 자세히',
+    `<div class="kw-kids">${children.map(c => `<a class="kw-kid" href="/${c.slug}"><b>${esc((c.childCard || {}).title || c.keyword)}</b><span>${esc((c.childCard || {}).desc || c.asideNote)}</span><em>노선·가격·예약 자세히 →</em></a>`).join('')}</div>`);
 
   const routeNames = p.routes.map(r => `${r.name.replace(/ \(.*\)/, '')}${r.area ? `(${r.area})` : ''}`).join(', ');
   const map = routeMap(p);
   const diagram = routeDiagram(p);
   sec('route', 'ROUTE', h2.route, '노선',
     (map.overview ? mapFigure(map.overview, `${k} 노선도`, map.uncertain.length ? `${map.uncertain.join(', ')} 위치는 대략적인 추정` : '') : '') +
-    `<p>${esc(k)}는 ${esc(routeNames)} ${p.routes.length > 1 ? `${p.routes.length}개 노선으로` : '노선 하나로'} 운행합니다.${p.routeCheck ? ` 정류장 위치는 <a href="${esc(p.routeCheck.url)}">${esc(p.routeCheck.label)}</a>에서 지도로 볼 수 있습니다.` : ''}${SIM[p.slug] ? ` 가고 싶은 곳을 넣으면 탈 노선과 내릴 정류장을 순서대로 짜 주는 <a href="${SIM[p.slug].url}">${esc(SIM[p.slug].label)}</a>도 있습니다.` : ''}</p>` +
+    `<p>${esc(k)}는 ${esc(routeNames)} ${p.routes.length > 1 ? `${p.routes.length}개 ${p.courses ? '코스' : '노선'}으로` : `${p.courses ? '코스' : '노선'} 하나로`} 운행합니다.${p.routeCheck ? ` 정류장 위치는 <a href="${esc(p.routeCheck.url)}">${esc(p.routeCheck.label)}</a>에서 지도로 볼 수 있습니다.` : ''}${SIM[p.slug] ? ` 가고 싶은 곳을 넣으면 탈 노선과 내릴 정류장을 순서대로 짜 주는 <a href="${SIM[p.slug].url}">${esc(SIM[p.slug].label)}</a>도 있습니다.` : ''}</p>` +
     `<div class="kw-route-grid">` + p.routes.map((r, i) => `<div class="kw-route" style="--rc:${r.color}"><h3>${esc(k)} ${esc(r.name)}${r.area ? ` · ${esc(r.area)}` : ''}</h3><p class="small">${esc(r.en)} · ${esc(r.duration)} · ${esc(r.interval)} · ${esc(r.hours)}</p>${diagram[i] || ''}<p>${esc(r.tip)}</p>${map.perRoute[i] ? mapFigure(map.perRoute[i].src, `${k} ${map.perRoute[i].title} 노선도`) : ''}</div>`).join('') + `</div>`);
 
   if (p.night) sec('night', 'NIGHT TOUR', h2.night, '나이트 투어',
@@ -190,7 +201,7 @@ function render(p, all) {
 
   if (p.topics && p.topics.length) sec('topics', 'TOPICS', h2.topics || `${k} 궁금한 점별 정리`, '궁금한 점',
     `<p class="small">네이버에서 많이 찾는 질문 순서대로, 이 페이지의 공식 정보 기준으로 짧게 답했습니다.</p>` +
-    p.topics.map(t => `<div class="kw-topic"><h3>${esc(t.h3)}</h3><p>${t.a} <a href="#${esc(t.anchor)}">${esc(t.label)} →</a></p></div>`).join(''));
+    p.topics.map(t => `<div class="kw-topic"><h3>${esc(t.h3)}</h3><p>${t.a} <a href="${t.anchor.startsWith('/') ? esc(t.anchor) : `#${esc(t.anchor)}`}">${esc(t.label)} →</a></p></div>`).join(''));
 
   sec('faq', 'FAQ', h2.faq, 'FAQ', p.faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join(''));
 
@@ -198,18 +209,19 @@ function render(p, all) {
   // Related cities: same country first, then the same region, in Korean-traveller popularity order (max 12) plus a
   // link to the full list. 105 links on every page read like a link farm and buried the useful neighbours.
   const others = all.filter(o => o.slug !== p.slug);
-  const rank = (o) => { const i = POPULAR.indexOf(o.slug); return i < 0 ? 999 : i; };
+  const rank = (o) => { const i = POPULAR.indexOf(o.parent || o.slug); return (i < 0 ? 999 : i) + (o.parent ? 0.5 : 0); };
   const byRank = (a, b) => rank(a) - rank(b) || a.slug.localeCompare(b.slug);
   const sameCountry = others.filter(o => o.flag === p.flag).sort(byRank);
   const sameRegion = others.filter(o => o.flag !== p.flag && REGION[o.flag] === REGION[p.flag]).sort(byRank);
-  const picks = [...sameCountry, ...sameRegion].slice(0, 12);
+  const family = others.filter(o => o.slug === p.parent || (p.parent && o.parent === p.parent) || o.parent === p.slug);
+  const picks = [...new Set([...family, ...sameCountry, ...sameRegion])].slice(0, 12);
   const related = [
     ...(p.cityGuide ? [[p.cityGuide.url, p.cityGuide.label]] : []),
     ...(p.routeCheck ? [[p.routeCheck.url, p.routeCheck.label.replace(/로 정류장 찾기$/, '')]] : []),
     ...(SIM[p.slug] ? [[SIM[p.slug].url, SIM[p.slug].label]] : []),
     ...picks.map(o => [`/${o.slug}`, `${o.flag} ${o.keyword}`])
   ];
-  sections.push(`<section class="card related"><p class="section-no">함께 보기</p><h2>${esc(REGION_NAME[REGION[p.flag]] || '다른 도시')} 시티투어버스</h2><div class="related-links">${related.map(([h, t]) => `<a href="${esc(h)}">${esc(t)}</a>`).join('')}<a href="/" class="kw-all">전체 ${all.length}개 도시 보기 →</a></div></section>`);
+  sections.push(`<section class="card related"><p class="section-no">함께 보기</p><h2>${esc(REGION_NAME[REGION[p.flag]] || '다른 도시')} 시티투어버스</h2><div class="related-links">${related.map(([h, t]) => `<a href="${esc(h)}">${esc(t)}</a>`).join('')}<a href="/" class="kw-all">전체 ${all.filter(o => !o.parent).length}개 도시 보기 →</a></div></section>`);
 
   const ogImg = `${SITE}/img/${p.slug}/${p.slug}-og.jpg`;
   const ld = {
@@ -224,7 +236,8 @@ function render(p, all) {
       },
       { '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: '홈', item: `${SITE}/` },
-        { '@type': 'ListItem', position: 2, name: k, item: url }
+        ...(parent ? [{ '@type': 'ListItem', position: 2, name: parent.keyword, item: `${SITE}/${parent.slug}` }] : []),
+        { '@type': 'ListItem', position: parent ? 3 : 2, name: k, item: url }
       ] },
       { '@type': 'FAQPage', mainEntity: p.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
     ]
@@ -251,7 +264,7 @@ ${PRECONNECT}${fontLinks()}
 </head><body>
 <header class="site-header"><div class="header-inner"><a class="logo" href="/"><span>CITY</span>TOURBUS<small>.KR</small></a><nav aria-label="주요 메뉴"><a href="/">전체 도시</a><a href="/compare">한눈에 비교</a><a href="/bus-simulator">시뮬레이터</a>${langLinks(p.slug, 'ko')}</nav></div></header>
 <main><div class="wrap">
-<nav class="breadcrumbs" aria-label="이동 경로"><a href="/">홈</a><span>›</span><span>${esc(k)}</span></nav>
+<nav class="breadcrumbs" aria-label="이동 경로"><a href="/">홈</a><span>›</span>${parent ? `<a href="/${parent.slug}">${esc(parent.keyword)}</a><span>›</span>` : ''}<span>${esc(k)}</span></nav>
 <section class="hero kw-hero"><div><p class="eyebrow">${p.flag} ${esc(p.city)} · ${y}년 ${Number(m)}월 업데이트</p><h1>${esc(k)}<br><span>${esc(p.h1Sub)}</span></h1><p class="lead">${esc(p.lead)}</p><div class="hero-actions">${cta(p)}${gygUrl(p) ? `<a class="button kw-alt" href="${esc(gygUrl(p))}" target="_blank" rel="sponsored nofollow noopener">GetYourGuide에서 ${esc(p.city)} 투어 보기 →</a>` : ''}</div><p class="small kw-verified">공식 정보 확인일 ${esc(p.verified)}</p><button type="button" class="kw-share" id="kw-share" data-title="${esc(p.title)}"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>동행에게 공유하기</span></button></div>${figure(p, 'main')}</section>
 <nav class="kw-toc" aria-label="목차">${toc.join('')}</nav>
 <div class="grid"><article class="main-content">
@@ -343,7 +356,8 @@ ${rssItems.map(i => `<item><title>${esc(i.title)}</title><link>${i.link}</link><
 `);
 
 // homepage: list every keyword page (index.html is what "/" serves; keep index-v2.html in sync)
-const homeOrder = [...pages].sort((a, b) => { const r = s => { const i = POPULAR.indexOf(s); return i < 0 ? 999 : i; }; return r(a.slug) - r(b.slug) || a.slug.localeCompare(b.slug); });
+const homeRank = (p) => { const i = POPULAR.indexOf(p.parent || p.slug); return (i < 0 ? 999 : i) + (p.parent ? 0.5 : 0); };
+const homeOrder = [...pages].sort((a, b) => homeRank(a) - homeRank(b) || a.slug.localeCompare(b.slug));
 const homeLinks = homeOrder.map(p => `<a href="/${p.slug}" style="display:block;background:#fff;border:1px solid #e5e5ea;border-radius:12px;padding:16px;text-decoration:none;font-size:14px;font-weight:700">${esc(p.keyword)} <span style="float:right;color:#e22b37">→</span></a>`).join('');
 const homeBlock = `<div style="max-width:1180px;margin:28px auto 0"><h2 style="font-size:22px;letter-spacing:-.6px;margin:0 0 14px">도시별 시티투어버스 노선·가격 총정리</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px">${homeLinks}</div></div>`;
 for (const f of ['index.html', 'index-v2.html']) setBlock(f, 'kw-home', homeBlock, '</section><footer>');

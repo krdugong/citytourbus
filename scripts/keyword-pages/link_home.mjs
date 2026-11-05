@@ -10,7 +10,7 @@ import path from 'node:path';
 const ROOT = process.cwd();
 const pages = fs.readdirSync(path.join(ROOT, 'data/keyword-pages')).filter(f => f.endsWith('.json') && !f.startsWith('_'))
   .map(f => JSON.parse(fs.readFileSync(path.join(ROOT, 'data/keyword-pages', f), 'utf8')).slug);
-const cityOf = (slug) => slug.replace(/-(big-bus|city-tour-bus)$/, '');
+const cityOf = (slug) => slug.replace(/-(big-bus|city-tour-bus)$/, ''); // operator subpages (tokyo-hato-bus) never match a city
 
 let html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const gStart = html.indexOf('const groups=');

@@ -4,7 +4,7 @@
 // canvas, because Naver/Google/Kakao crop og:image (1200×630) to a 1:1 thumbnail around the centre.
 import AppKit
 
-struct Card: Decodable { let out: String; let w: Int; let h: Int; let eyebrow: String; let title: String; let sub: String; let bg: String; let vehicle: String? } // vehicle: nil = bus, "kart", "rickshaw", "boat"
+struct Card: Decodable { let out: String; let w: Int; let h: Int; let eyebrow: String; let title: String; let sub: String; let bg: String; let vehicle: String? } // vehicle: nil = bus, "kart", "rickshaw", "boat", "tram"
 
 func color(_ hex: String) -> NSColor {
   var v: UInt64 = 0; Scanner(string: hex.replacingOccurrences(of: "#", with: "")).scanHexInt64(&v)
@@ -134,6 +134,27 @@ func drawBoat(_ box: NSRect, accent: NSColor) {
   for x in stride(from: 80, through: 900, by: 160) { rr(R(CGFloat(x), -26, 90, 12), 6 * u, NSColor(white: 1, alpha: 0.7)) } // waves
 }
 
+// Hillside tram car (Peak Tram style) on a sloped track.
+func drawTram(_ box: NSRect, accent: NSColor) {
+  let u = box.width / 1000
+  func R(_ x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) -> NSRect { NSRect(x: box.minX + x * u, y: box.minY + (y + 40) * u, width: w * u, height: h * u) }
+  let dark = accent.blended(withFraction: 0.3, of: .black)!, glass = color("#dff3ff"), glassEdge = color("#b7dcf3"), ink = color("#2b3442")
+  let skins = ["#f6c9a8", "#e0a884", "#f8d8c0", "#c98b63", "#f3c5a5"].map(color)
+  NSGraphicsContext.saveGraphicsState()
+  let tf = NSAffineTransform(); tf.translateX(by: box.midX, yBy: box.minY + 230 * u); tf.rotate(byDegrees: 5); tf.translateX(by: -box.midX, yBy: -(box.minY + 200 * u)); tf.concat()
+  rr(R(-40, -10, 1080, 18), 9 * u, ink)                                          // rail
+  for x in stride(from: 0, through: 960, by: 80) { rr(R(CGFloat(x), -24, 40, 14), 4 * u, ink.withAlphaComponent(0.5)) } // sleepers
+  rr(R(60, 20, 880, 300), 50 * u, accent)                                        // body
+  rr(R(60, 260, 880, 60), 30 * u, dark)                                          // roof band
+  rr(R(60, 60, 880, 18), 9 * u, NSColor(white: 1, alpha: 0.85))                  // stripe
+  for (i, x) in [100, 270, 440, 610, 780].enumerated() {                         // windows with passengers
+    rr(R(CGFloat(x), 110, 130, 130), 16 * u, glass); rr(R(CGFloat(x) + 10, 220, 110, 10), 5 * u, glassEdge)
+    oval(R(CGFloat(x) + 38, 140, 54, 54), skins[i])
+  }
+  for cx in [200, 800] { oval(R(CGFloat(cx) - 40, -30, 80, 80), ink) }          // wheels
+  NSGraphicsContext.restoreGraphicsState()
+}
+
 let args = CommandLine.arguments
 let cards = try! JSONDecoder().decode([Card].self, from: Data(contentsOf: URL(fileURLWithPath: args[1])))
 let root = args[2]
@@ -159,7 +180,7 @@ for c in cards {
   drawLandmarks(CITY_LANDMARKS[cityKey(c.out)] ?? ["skyline", "mountains"], left: safeL, right: safeR, ground: ground, bandH: bandH, fill: accent.blended(withFraction: 0.68, of: .white)!, hole: bg)
   rr(NSRect(x: 0, y: busY + 36 * busW / 1000, width: W, height: 8 * s), 4 * s, accent.withAlphaComponent(0.14))
   let vbox = NSRect(x: cx - busW / 2, y: busY, width: busW, height: busW * 0.56)
-  switch c.vehicle { case "kart": drawKart(vbox, accent: accent); case "rickshaw": drawRickshaw(vbox, accent: accent); case "boat": drawBoat(vbox, accent: accent); default: drawBus(vbox, accent: accent) }
+  switch c.vehicle { case "kart": drawKart(vbox, accent: accent); case "rickshaw": drawRickshaw(vbox, accent: accent); case "boat": drawBoat(vbox, accent: accent); case "tram": drawTram(vbox, accent: accent); default: drawBus(vbox, accent: accent) }
   // eyebrow pill
   let ef = font(28 * s, bold: true)
   let ew = (c.eyebrow as NSString).size(withAttributes: [.font: ef]).width + 44 * s

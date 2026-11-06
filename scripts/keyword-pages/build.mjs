@@ -15,7 +15,7 @@
 //   asideNote, operator?, affiliate? (false = booking button goes to the operator's own site)
 //   parent? (slug of the city page this operator page belongs to), cityKey? (GetYourGuide/card city when the slug
 //   has another suffix), fromParent?{sectionId: link label} (link added to that section of the parent page),
-//   courses? (true = fixed-course tours: no transfer labels or hop-on loop note), childCard?{title,desc,order?} (card in the parent's "종류별로 자세히" block). topics[].anchor may also be a /path.
+//   courses? (true = fixed-course tours: no transfer labels or hop-on loop note), childCard?{title,desc,order?} (card in the parent's "종류별로 자세히" block), rideCard?{title,desc,order?} (a non-bus ride such as a go-kart or rickshaw: card in the parent's "함께 타볼 만한 탈것" block instead), oneWay? (with courses: point-to-point lines such as a water bus). topics[].anchor may also be a /path.
 import fs from 'node:fs';
 import path from 'node:path';
 import { TAG, ICONS, PRECONNECT, fontLinks } from '../head-bits.mjs';
@@ -112,7 +112,7 @@ function routeDiagram(p) {
       const others = p.courses ? [] : (inRoutes[norm(st)] || []).filter(n => n !== r.name.replace(/ \(.*\)/, ''));
       return `<li${others.length ? ' class="tr"' : ''}><span class="n">${i + 1}</span>${esc(norm(st))}${others.length ? `<small>환승 · ${esc(others.join(', '))}</small>` : ''}</li>`;
     }).join('');
-    return `<ol class="kw-line" style="--rc:${r.color}" aria-label="${esc(r.name)} 정류장 순서">${items}</ol>${p.courses ? '<p class="small kw-loop">↻ 출발지로 돌아오는 코스 · 중간 경유지는 차창 관광</p>' : `<p class="small kw-loop">↻ 순환 노선 · ${stops.length}번 다음은 다시 1번 정류장</p>`}`;
+    return `<ol class="kw-line" style="--rc:${r.color}" aria-label="${esc(r.name)} 정류장 순서">${items}</ol>${p.oneWay ? '<p class="small kw-loop">→ 편도 노선 · 원하는 선착장에서 내립니다</p>' : p.courses ? '<p class="small kw-loop">↻ 출발지로 돌아오는 코스 · 중간 경유지는 차창 관광</p>' : `<p class="small kw-loop">↻ 순환 노선 · ${stops.length}번 다음은 다시 1번 정류장</p>`}`;
   });
 }
 // Ticket price bars: lowest number in each price string, only when 2+ tickets share one currency
@@ -162,9 +162,11 @@ function render(p, all) {
     ? [`${p.city} 빅버스 투어`, `${p.city} 시티투어버스`, `${p.city} 시티투어 버스`, `${p.city} 2층버스 투어`, `${p.city} 홉온홉오프 버스`, `${p.city} 관광버스`]
     : [`${p.city} 시티투어 버스`, `${p.city} 버스투어`, `${p.city} 2층버스 투어`, `${p.city} 홉온홉오프 버스`, `${p.city} 관광버스`, ...(p.operator === 'city-sightseeing' ? [`${p.city} City Sightseeing`] : [])]);
   sec('summary', 'SUMMARY', `${k} 한눈에 보기`, '한눈에 보기', kvTable([['다른 이름', aka.join(', ')], ...p.summary], 'kw-summary') +
-    (parent ? `<p class="kw-sublink"><a href="/${parent.slug}">${esc(parent.keyword)} 전체 비교 보기 →</a></p>` : ''));
-  if (children.length) sec('types', 'TYPES', `${k} 종류별로 자세히 보기`, '종류별 자세히',
-    `<div class="kw-kids">${children.map(c => `<a class="kw-kid" href="/${c.slug}"><b>${esc((c.childCard || {}).title || c.keyword)}</b><span>${esc((c.childCard || {}).desc || c.asideNote)}</span><em>노선·가격·예약 자세히 →</em></a>`).join('')}</div>`);
+    (parent ? `<p class="kw-sublink"><a href="/${parent.slug}">${esc(parent.keyword)} ${p.rideCard ? '노선·가격 보기' : '전체 비교 보기'} →</a></p>` : ''));
+  const kids = children.filter(c => !c.rideCard);
+  const rides = children.filter(c => c.rideCard).sort((a, b) => (a.rideCard.order || 9) - (b.rideCard.order || 9));
+  if (kids.length) sec('types', 'TYPES', `${k} 종류별로 자세히 보기`, '종류별 자세히',
+    `<div class="kw-kids">${kids.map(c => `<a class="kw-kid" href="/${c.slug}"><b>${esc((c.childCard || {}).title || c.keyword)}</b><span>${esc((c.childCard || {}).desc || c.asideNote)}</span><em>노선·가격·예약 자세히 →</em></a>`).join('')}</div>`);
 
   const routeNames = p.routes.map(r => `${r.name.replace(/ \(.*\)/, '')}${r.area ? `(${r.area})` : ''}`).join(', ');
   const map = routeMap(p);
@@ -198,6 +200,9 @@ function render(p, all) {
 
   sec('ride', 'HOW TO RIDE', h2.ride, '타는법',
     `<ol class="kw-steps">${howToRide.map(s => `<li>${esc(s)}</li>`).join('')}</ol>`);
+
+  if (rides.length) sec('rides', 'RIDES', `${p.city}에서 시티투어버스와 함께 타볼 만한 탈것`, '이색 탈것',
+    `<p>버스 말고도 ${esc(p.city)}에서 직접 타 보며 도시를 구경하는 체험입니다. 가격·예약 방법과 준비물을 따로 정리했습니다.</p><div class="kw-kids">${rides.map(c => `<a class="kw-kid" href="/${c.slug}"><b>${esc(c.rideCard.title)}</b><span>${esc(c.rideCard.desc)}</span><em>가격·예약 자세히 →</em></a>`).join('')}</div>`);
 
   if (p.topics && p.topics.length) sec('topics', 'TOPICS', h2.topics || `${k} 궁금한 점별 정리`, '궁금한 점',
     `<p class="small">네이버에서 많이 찾는 질문 순서대로, 이 페이지의 공식 정보 기준으로 짧게 답했습니다.</p>` +

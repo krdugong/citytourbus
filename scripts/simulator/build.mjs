@@ -67,11 +67,13 @@ for (const [key, c] of Object.entries(cities)) {
     };
   });
   const pois = base.pois.map(p => ({ id: p.id, ko: p.ko, en: p.en || '', lat: p.lat, lng: p.lng, aliases: p.aliases || [] }));
-  const tickets = (page.tickets || []).map(t => ({ name: t.name, validity: t.validity, price: t.price }));
+  // ticketsFrom: take tickets and booking from another page (Tokyo: the Sky Hop Bus subpage, not the Hato rows)
+  const tp = c.ticketsFrom ? JSON.parse(fs.readFileSync(`data/keyword-pages/${c.ticketsFrom}.json`, 'utf8')) : page;
+  const tickets = (tp.tickets || []).map(t => ({ name: t.name, validity: t.validity, price: t.price }));
   out[key] = {
     key, ko: c.ko, en: c.en, brand: c.brand, operator: base.operator, source: base.source, verified: base.verified,
     center: base.center, zoom: base.zoom, bounds: base.bounds, startStop: c.startStop,
-    page: { url: `/${c.slug}`, title: page.keyword || page.title, booking: page.booking, tickets, routeCheck: fs.existsSync(`${key}-route-check.html`) ? `/${key}-route-check` : null, affiliate: page.affiliate !== false },
+    page: { url: `/${c.slug}`, title: page.keyword || page.title, booking: tp.booking, tickets, routeCheck: fs.existsSync(`${key}-route-check.html`) ? `/${key}-route-check` : null, affiliate: page.affiliate !== false },
     routes, pois,
     links: (c.links || []).map(l => ({ from: l.from, to: l.to, min: l.min, icon: l.icon || '🚇', label: l.label })),
   };
@@ -167,8 +169,8 @@ ${ICONS}
   const title = '시티투어버스 3D 시뮬레이터 | 가고 싶은 곳만 고르면 노선·하차 정류장·하루 코스 자동 추천';
   const desc = '서울·부산·홍콩·뉴욕·파리·런던·로마·두바이·바르셀로나 시티투어버스(빅버스) 시뮬레이터. 가고 싶은 곳을 고르면 어느 노선을 타고 어디서 내릴지 순서대로 계산하고, 3D 지도 위에서 버스가 실제 도로를 따라 달립니다(버드뷰·탑뷰).';
   const url = `${SITE}/bus-simulator`;
-  const blurb = { seoul: '경복궁·북촌·명동·남산타워를 도심고궁남산 코스로', busan: '해운대·광안리·감천·태종대를 레드·그린·오렌지 조합으로', 'hong-kong': '피크·스탠리·구룡 야시장, 스타페리 환승 포함', 'new-york': '타임스퀘어에서 브루클린브리지까지 다운타운·업타운', paris: '루브르·에펠탑·개선문을 레드 노선 한 바퀴로', london: '빅벤·런던탑·버킹엄궁을 레드·블루 환승으로', rome: '콜로세움·바티칸·스페인 계단, 버스와 도보를 섞어', dubai: '부르즈칼리파·두바이 프레임·골드수크를 시티 레드로', barcelona: '사그라다·구엘공원·몬주익을 레드·블루 조합으로' };
-  const order = ['seoul', 'busan', 'hong-kong', 'new-york', 'paris', 'london', 'rome', 'dubai', 'barcelona'].filter(k => out[k]);
+  const blurb = { seoul: '경복궁·북촌·명동·남산타워를 도심고궁남산 코스로', busan: '해운대·광안리·감천·태종대를 레드·그린·오렌지 조합으로', 'hong-kong': '피크·스탠리·구룡 야시장, 스타페리 환승 포함', 'new-york': '타임스퀘어에서 브루클린브리지까지 다운타운·업타운', paris: '루브르·에펠탑·개선문을 레드 노선 한 바퀴로', tokyo: '아사쿠사·스카이트리·도쿄타워·오다이바·시부야를 레드·블루·그린 환승으로', london: '빅벤·런던탑·버킹엄궁을 레드·블루 환승으로', rome: '콜로세움·바티칸·스페인 계단, 버스와 도보를 섞어', dubai: '부르즈칼리파·두바이 프레임·골드수크를 시티 레드로', barcelona: '사그라다·구엘공원·몬주익을 레드·블루 조합으로' };
+  const order = ['seoul', 'busan', 'tokyo', 'hong-kong', 'new-york', 'paris', 'london', 'rome', 'dubai', 'barcelona'].filter(k => out[k]);
   const cards = order.map(k => { const d = out[k]; const n = Object.values(d.routes).reduce((a, r) => a + r.stops.length, 0); return `<a class="hub-card" href="/${k}-bus-simulator"><div class="hub-city">${esc(d.ko)} <small>${esc(d.brand)}</small></div><p>${esc(blurb[k] || '')}</p><div class="hub-meta">${Object.values(d.routes).map(r => `<i style="background:${r.color}"></i>${esc(r.ko)}`).join(' · ')} · 정류장 ${n}곳</div><span class="hub-go">코스 만들기 →</span></a>`; }).join('');
   const faq = [
     ['시뮬레이터는 무엇을 해 주나요?', '가고 싶은 관광지·맛집·호텔을 고르면 탑승 정류장, 노선, 하차 정류장, 도보 거리, 예상 시각을 순서대로 계산합니다. 재생을 누르면 3D 지도 위에서 버스가 실제 도로를 따라 달리며 내릴 곳을 알려 줍니다.'],

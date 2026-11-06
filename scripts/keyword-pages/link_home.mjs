@@ -45,6 +45,8 @@ const swapInner = (h, open, close, inner) => {
   return h.slice(0, a + open.length) + inner + h.slice(b);
 };
 html = swapInner(html, '<div class="pop" id="popular">', '</div></section>', popHtml);
+// the inline script re-draws #popular on load from its own list: keep that list (and its link label) the same as above
+html = html.replace(/const popular=\[[^\]]*\];/, `const popular=${JSON.stringify(popular).replace(/"/g, "'")};`).replace('<div class="go">운영사 비교 →</div></a>`}).join(\'\');', '<div class="go">노선·가격 총정리 →</div></a>`}).join(\'\');');
 html = swapInner(html, '<div class="regions" id="regions">', '</div></section>', regHtml);
 
 // Home JSON-LD: the ItemList names every keyword page (the old hand-written list pointed at redirected URLs) and the

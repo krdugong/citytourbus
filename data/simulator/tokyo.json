@@ -1,0 +1,491 @@
+{
+ "ko": "도쿄",
+ "en": "Tokyo",
+ "operator": "스카이홉버스 (SKY HOP BUS)",
+ "verified": "2026-11-06",
+ "source": "https://skyhopbus.com/?locale=en",
+ "center": [
+  35.684,
+  139.76
+ ],
+ "zoom": 12,
+ "bounds": [
+  [
+   35.618,
+   139.685
+  ],
+  [
+   35.725,
+   139.818
+  ]
+ ],
+ "routes": {
+  "red": {
+   "ko": "레드 노선",
+   "en": "Red Course",
+   "color": "#e22b37",
+   "frequency": "약 35분",
+   "duration": "약 1시간 30분",
+   "stops": [
+    {
+     "n": 1,
+     "ko": "마루노우치 미쓰비시빌딩",
+     "en": "Marunouchi Mitsubishi Bldg",
+     "lat": 35.6803597,
+     "lng": 139.7637169,
+     "first": "09:15",
+     "last": "16:30",
+     "addr": "도쿄역 마루노우치 쪽 · 출발 정류장 (레드·블루·그린 공통)"
+    },
+    {
+     "n": 2,
+     "ko": "고덴마초역",
+     "en": "Kodenmacho Station",
+     "lat": 35.6907525,
+     "lng": 139.7784526,
+     "first": "09:25",
+     "last": "16:40"
+    },
+    {
+     "n": 3,
+     "ko": "료고쿠 (에도도쿄박물관)",
+     "en": "Ryogoku, Edo-Tokyo Museum",
+     "lat": 35.6964453,
+     "lng": 139.7960776,
+     "first": "09:30",
+     "last": "16:45"
+    },
+    {
+     "n": 4,
+     "ko": "도쿄 스카이트리역",
+     "en": "Tokyo SKYTREE Station",
+     "lat": 35.7106315,
+     "lng": 139.8109141,
+     "first": "09:45",
+     "last": "17:00"
+    },
+    {
+     "n": 5,
+     "ko": "아사쿠사 하나카와도",
+     "en": "Asakusa Hanakawado",
+     "lat": 35.7193994,
+     "lng": 139.8026804,
+     "first": "09:53",
+     "last": "17:08"
+    },
+    {
+     "n": 6,
+     "ko": "아사쿠사 다와라마치",
+     "en": "Asakusa Tawaramachi",
+     "lat": 35.7098357,
+     "lng": 139.7907549,
+     "first": "09:58",
+     "last": "17:13"
+    },
+    {
+     "n": 7,
+     "ko": "우에노역",
+     "en": "Ueno Station",
+     "lat": 35.7140413,
+     "lng": 139.7771164,
+     "first": "10:03",
+     "last": "17:18"
+    },
+    {
+     "n": 8,
+     "ko": "우에노 마쓰자카야",
+     "en": "Ueno Matsuzakaya",
+     "lat": 35.7071526,
+     "lng": 139.7736154,
+     "first": "10:12",
+     "last": "17:27"
+    },
+    {
+     "n": 9,
+     "ko": "아키하바라 (스에히로초)",
+     "en": "Akihabara (Suehirocho)",
+     "lat": 35.7018928,
+     "lng": 139.7743684,
+     "first": "10:14",
+     "last": "17:29"
+    },
+    {
+     "n": 10,
+     "ko": "신니혼바시역",
+     "en": "Shin Nihonbashi Station",
+     "lat": 35.6894038,
+     "lng": 139.7751076,
+     "first": "10:22",
+     "last": "17:37"
+    }
+   ]
+  },
+  "blue": {
+   "ko": "블루 노선",
+   "en": "Blue Course",
+   "color": "#1f6fd1",
+   "frequency": "약 80분",
+   "duration": "약 1시간 16분",
+   "stops": [
+    {
+     "n": 1,
+     "ko": "마루노우치 미쓰비시빌딩",
+     "en": "Marunouchi Mitsubishi Bldg",
+     "lat": 35.6803597,
+     "lng": 139.7637169,
+     "first": "09:15",
+     "last": "18:10",
+     "addr": "출발 정류장 (레드·블루·그린 공통)"
+    },
+    {
+     "n": 2,
+     "ko": "도쿄타워",
+     "en": "Tokyo Tower",
+     "lat": 35.6584491,
+     "lng": 139.745536,
+     "first": "09:35",
+     "last": "18:30"
+    },
+    {
+     "n": 3,
+     "ko": "도쿄 프린스호텔 (조조지)",
+     "en": "Tokyo Prince Hotel, Zojo-ji",
+     "lat": 35.6590243,
+     "lng": 139.7481355,
+     "first": "09:38",
+     "last": "18:33"
+    },
+    {
+     "n": 4,
+     "ko": "후지TV",
+     "en": "Fuji Television",
+     "lat": 35.6271848,
+     "lng": 139.7751659,
+     "first": "10:30",
+     "last": "17:35",
+     "addr": "첫차·막차는 후지TV를 거치지 않음"
+    },
+    {
+     "n": 5,
+     "ko": "도쿄텔레포트역",
+     "en": "Tokyo Teleport Station",
+     "lat": 35.6265836,
+     "lng": 139.7795824,
+     "first": "09:55",
+     "last": "18:50"
+    },
+    {
+     "n": 6,
+     "ko": "쓰키지·긴자",
+     "en": "Tsukiji, Ginza",
+     "lat": 35.6680848,
+     "lng": 139.7725918,
+     "first": "10:15",
+     "last": "19:10"
+    }
+   ]
+  },
+  "green": {
+   "ko": "그린 노선",
+   "en": "Green Course",
+   "color": "#1f9d55",
+   "frequency": "약 75분",
+   "duration": "약 1시간 35분",
+   "stops": [
+    {
+     "n": 1,
+     "ko": "마루노우치 미쓰비시빌딩",
+     "en": "Marunouchi Mitsubishi Bldg",
+     "lat": 35.6803597,
+     "lng": 139.7637169,
+     "first": "09:15",
+     "last": "16:45",
+     "addr": "출발 정류장 (레드·블루·그린 공통)"
+    },
+    {
+     "n": 2,
+     "ko": "신주쿠교엔마에역",
+     "en": "Shinjuku-gyoemmae Station",
+     "lat": 35.6885352,
+     "lng": 139.7115632,
+     "first": "09:41",
+     "last": "17:11"
+    },
+    {
+     "n": 3,
+     "ko": "신주쿠역 남쪽 출구",
+     "en": "Shinjuku Station South Exit",
+     "lat": 35.6891842,
+     "lng": 139.7003388,
+     "first": "09:50",
+     "last": "17:22"
+    },
+    {
+     "n": 4,
+     "ko": "신주쿠 미쓰이빌딩 (니시신주쿠)",
+     "en": "Shinjuku Mitsui Bldg (Nishi-Shinjuku)",
+     "lat": 35.6912504,
+     "lng": 139.6936857,
+     "first": "09:56",
+     "last": "17:27"
+    },
+    {
+     "n": 5,
+     "ko": "시부야구청",
+     "en": "Shibuya City Hall",
+     "lat": 35.663765,
+     "lng": 139.6978121,
+     "first": "10:13",
+     "last": "17:50"
+    },
+    {
+     "n": 6,
+     "ko": "도쿄타워",
+     "en": "Tokyo Tower",
+     "lat": 35.6584491,
+     "lng": 139.745536,
+     "first": "13:26",
+     "last": "17:31",
+     "addr": "1·2회차와 마지막 회차는 도쿄타워를 거치지 않음"
+    }
+   ]
+  }
+ },
+ "pois": [
+  {
+   "id": "sensoji",
+   "ko": "센소지 (아사쿠사)",
+   "en": "Senso-ji",
+   "lat": 35.7148,
+   "lng": 139.7967,
+   "aliases": [
+    "센소지",
+    "아사쿠사",
+    "가미나리몬",
+    "asakusa",
+    "sensoji"
+   ]
+  },
+  {
+   "id": "skytree",
+   "ko": "도쿄 스카이트리",
+   "en": "Tokyo Skytree",
+   "lat": 35.7101,
+   "lng": 139.8107,
+   "aliases": [
+    "스카이트리",
+    "skytree"
+   ]
+  },
+  {
+   "id": "ueno",
+   "ko": "우에노 공원",
+   "en": "Ueno Park",
+   "lat": 35.7156,
+   "lng": 139.7745,
+   "aliases": [
+    "우에노",
+    "ueno"
+   ]
+  },
+  {
+   "id": "ameyoko",
+   "ko": "아메요코 시장",
+   "en": "Ameyoko",
+   "lat": 35.71,
+   "lng": 139.7745,
+   "aliases": [
+    "아메요코",
+    "ameyoko"
+   ]
+  },
+  {
+   "id": "akihabara",
+   "ko": "아키하바라 전자상가",
+   "en": "Akihabara Electric Town",
+   "lat": 35.6984,
+   "lng": 139.7731,
+   "aliases": [
+    "아키하바라",
+    "아키바",
+    "akihabara"
+   ]
+  },
+  {
+   "id": "ryogoku",
+   "ko": "료고쿠 국기관",
+   "en": "Ryogoku Kokugikan",
+   "lat": 35.6969,
+   "lng": 139.7934,
+   "aliases": [
+    "료고쿠",
+    "국기관",
+    "스모",
+    "ryogoku"
+   ]
+  },
+  {
+   "id": "tokyostation",
+   "ko": "도쿄역",
+   "en": "Tokyo Station",
+   "lat": 35.6812,
+   "lng": 139.7671,
+   "aliases": [
+    "도쿄역",
+    "tokyo station",
+    "마루노우치"
+   ]
+  },
+  {
+   "id": "imperial",
+   "ko": "황궁 (고쿄가이엔)",
+   "en": "Imperial Palace",
+   "lat": 35.6825,
+   "lng": 139.758,
+   "aliases": [
+    "황궁",
+    "고쿄",
+    "imperial palace"
+   ]
+  },
+  {
+   "id": "ginza",
+   "ko": "긴자",
+   "en": "Ginza",
+   "lat": 35.6717,
+   "lng": 139.765,
+   "aliases": [
+    "긴자",
+    "ginza"
+   ]
+  },
+  {
+   "id": "tsukiji",
+   "ko": "쓰키지 장외시장",
+   "en": "Tsukiji Outer Market",
+   "lat": 35.6654,
+   "lng": 139.7707,
+   "aliases": [
+    "쓰키지",
+    "츠키지",
+    "tsukiji"
+   ]
+  },
+  {
+   "id": "tokyotower",
+   "ko": "도쿄타워",
+   "en": "Tokyo Tower",
+   "lat": 35.6586,
+   "lng": 139.7454,
+   "aliases": [
+    "도쿄타워",
+    "tokyo tower"
+   ]
+  },
+  {
+   "id": "zojoji",
+   "ko": "조조지",
+   "en": "Zojo-ji",
+   "lat": 35.6575,
+   "lng": 139.7484,
+   "aliases": [
+    "조조지",
+    "zojoji"
+   ]
+  },
+  {
+   "id": "odaiba",
+   "ko": "오다이바 해변공원",
+   "en": "Odaiba Seaside Park",
+   "lat": 35.6293,
+   "lng": 139.7765,
+   "aliases": [
+    "오다이바",
+    "odaiba"
+   ]
+  },
+  {
+   "id": "gundam",
+   "ko": "다이버시티 도쿄 (유니콘 건담)",
+   "en": "DiverCity Tokyo Plaza",
+   "lat": 35.6249,
+   "lng": 139.7756,
+   "aliases": [
+    "건담",
+    "다이버시티",
+    "gundam"
+   ]
+  },
+  {
+   "id": "shinjukugyoen",
+   "ko": "신주쿠교엔",
+   "en": "Shinjuku Gyoen",
+   "lat": 35.6852,
+   "lng": 139.7101,
+   "aliases": [
+    "신주쿠교엔",
+    "교엔",
+    "shinjuku gyoen"
+   ]
+  },
+  {
+   "id": "shinjuku",
+   "ko": "신주쿠역·가부키초",
+   "en": "Shinjuku Station",
+   "lat": 35.6938,
+   "lng": 139.7034,
+   "aliases": [
+    "신주쿠",
+    "가부키초",
+    "shinjuku"
+   ]
+  },
+  {
+   "id": "tochou",
+   "ko": "도쿄도청 전망대",
+   "en": "Tokyo Metropolitan Government Building",
+   "lat": 35.6896,
+   "lng": 139.6917,
+   "aliases": [
+    "도청",
+    "도쿄도청",
+    "tocho"
+   ]
+  },
+  {
+   "id": "shibuya",
+   "ko": "시부야 스크램블 교차로",
+   "en": "Shibuya Crossing",
+   "lat": 35.6595,
+   "lng": 139.7005,
+   "aliases": [
+    "시부야",
+    "스크램블",
+    "shibuya"
+   ]
+  },
+  {
+   "id": "harajuku",
+   "ko": "하라주쿠 다케시타도리",
+   "en": "Takeshita Street",
+   "lat": 35.6716,
+   "lng": 139.7031,
+   "aliases": [
+    "하라주쿠",
+    "다케시타",
+    "harajuku"
+   ]
+  },
+  {
+   "id": "meiji",
+   "ko": "메이지신궁",
+   "en": "Meiji Jingu",
+   "lat": 35.6764,
+   "lng": 139.6993,
+   "aliases": [
+    "메이지신궁",
+    "meiji"
+   ]
+  }
+ ]
+}

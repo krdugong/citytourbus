@@ -1,10 +1,10 @@
 // Renders keyword card images (JPEG) from a JSON spec. macOS only. Compiled together with landmarks.swift
 // (see make-cards.sh). Usage: cards <spec.json> <repoRoot>
-// Layout: light background, big open-top bus illustration and the title all inside the CENTRE SQUARE of the
+// Layout: light background, big open-top bus (or kart/rickshaw/boat) illustration and the title all inside the CENTRE SQUARE of the
 // canvas, because Naver/Google/Kakao crop og:image (1200×630) to a 1:1 thumbnail around the centre.
 import AppKit
 
-struct Card: Decodable { let out: String; let w: Int; let h: Int; let eyebrow: String; let title: String; let sub: String; let bg: String }
+struct Card: Decodable { let out: String; let w: Int; let h: Int; let eyebrow: String; let title: String; let sub: String; let bg: String; let vehicle: String? } // vehicle: nil = bus, "kart", "rickshaw", "boat"
 
 func color(_ hex: String) -> NSColor {
   var v: UInt64 = 0; Scanner(string: hex.replacingOccurrences(of: "#", with: "")).scanHexInt64(&v)
@@ -65,6 +65,75 @@ func drawBus(_ box: NSRect, accent: NSColor) {
   }
 }
 
+// Street go-kart with a helmeted driver, same 1000×560 design box as drawBus (ground at y=40).
+func drawKart(_ box: NSRect, accent: NSColor) {
+  let u = box.width / 1000
+  func R(_ x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) -> NSRect { NSRect(x: box.minX + x * u, y: box.minY + (y + 40) * u, width: w * u, height: h * u) }
+  let dark = accent.blended(withFraction: 0.3, of: .black)!, tire = color("#2b3442"), hub = color("#dde7ee"), ink = color("#2b3442"), glass = color("#dff3ff")
+  oval(R(90, -36, 820, 56), NSColor(white: 0, alpha: 0.08))
+  rr(R(70, 190, 200, 30), 12 * u, dark); rr(R(130, 110, 26, 90), 10 * u, ink); rr(R(200, 110, 26, 90), 10 * u, ink) // rear wing
+  rr(R(110, 50, 800, 100), 46 * u, accent)                                       // chassis
+  rr(R(640, 60, 320, 70), 34 * u, dark)                                          // nose
+  rr(R(110, 116, 800, 14), 7 * u, NSColor(white: 1, alpha: 0.85))                // stripe
+  rr(R(330, 120, 100, 190), 36 * u, dark)                                        // seat back
+  rr(R(390, 130, 170, 170), 50 * u, color("#ffffff"))                            // driver body
+  rr(R(500, 200, 170, 40), 20 * u, color("#f6c9a8"))                             // arm
+  oval(R(640, 175, 100, 100), ink); oval(R(658, 193, 64, 64), accent.blended(withFraction: 0.91, of: .white)!) // steering wheel
+  oval(R(400, 290, 190, 190), color("#ffd166"))                                  // helmet
+  rr(R(490, 345, 110, 66), 30 * u, glass); rr(R(490, 395, 110, 10), 5 * u, color("#b7dcf3")) // visor
+  oval(R(880, 92, 44, 30), color("#ffd166"))                                     // headlight
+  for (cx, d) in [(240, 190), (790, 160)] {                                      // wheels
+    let r = CGFloat(d) / 2
+    oval(R(CGFloat(cx) - r, -38, CGFloat(d), CGFloat(d)), tire); oval(R(CGFloat(cx) - r * 0.5, -38 + r * 0.5, r, r), hub)
+  }
+}
+
+// Jinrikisha (pulled rickshaw) with a passenger under the hood and the puller in front.
+func drawRickshaw(_ box: NSRect, accent: NSColor) {
+  let u = box.width / 1000
+  func R(_ x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) -> NSRect { NSRect(x: box.minX + x * u, y: box.minY + (y + 40) * u, width: w * u, height: h * u) }
+  let dark = accent.blended(withFraction: 0.3, of: .black)!, tire = color("#2b3442"), hub = color("#dde7ee"), ink = color("#2b3442")
+  oval(R(120, -36, 800, 56), NSColor(white: 0, alpha: 0.08))
+  rr(R(520, 210, 400, 18), 9 * u, ink)                                           // shafts
+  rr(R(230, 330, 250, 170), 70 * u, dark)                                        // folding hood
+  rr(R(220, 170, 320, 150), 40 * u, accent)                                      // seat body
+  rr(R(220, 280, 320, 14), 7 * u, NSColor(white: 1, alpha: 0.85))
+  rr(R(320, 300, 110, 90), 30 * u, color("#9ad0f5"))                             // passenger
+  oval(R(335, 370, 80, 80), color("#2b2118")); oval(R(337, 364, 76, 76), color("#f8d8c0"))
+  oval(R(190, -38, 360, 360), tire); oval(R(214, -14, 312, 312), hub)            // big wheel
+  for a in stride(from: 0.0, to: Double.pi, by: Double.pi / 6) {                 // spokes
+    let c = NSPoint(x: box.minX + 370 * u, y: box.minY + (142 + 40) * u), l = 150 * u
+    let path = NSBezierPath(); path.lineWidth = 8 * u
+    path.move(to: NSPoint(x: c.x - CGFloat(cos(a)) * l, y: c.y - CGFloat(sin(a)) * l)); path.line(to: NSPoint(x: c.x + CGFloat(cos(a)) * l, y: c.y + CGFloat(sin(a)) * l))
+    ink.withAlphaComponent(0.55).setStroke(); path.stroke()
+  }
+  oval(R(345, 117, 50, 50), tire)
+  rr(R(790, -30, 28, 170), 12 * u, ink); rr(R(840, -30, 28, 170), 12 * u, ink)   // puller legs
+  rr(R(770, 120, 120, 170), 40 * u, color("#2f3e5c"))                            // happi coat
+  rr(R(700, 200, 110, 28), 14 * u, color("#e0a884"))                             // arm on the shaft
+  oval(R(790, 280, 84, 84), color("#e0a884"))                                    // head
+  oval(R(750, 330, 170, 56), color("#d9b36c"))                                   // straw hat
+}
+
+// Futuristic Tokyo water bus on the river.
+func drawBoat(_ box: NSRect, accent: NSColor) {
+  let u = box.width / 1000
+  func R(_ x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) -> NSRect { NSRect(x: box.minX + x * u, y: box.minY + (y + 40) * u, width: w * u, height: h * u) }
+  let dark = accent.blended(withFraction: 0.3, of: .black)!, glass = color("#dff3ff"), glassEdge = color("#b7dcf3")
+  let skins = ["#f6c9a8", "#e0a884", "#f8d8c0", "#c98b63", "#f3c5a5"].map(color)
+  rr(R(-20, -40, 1040, 90), 40 * u, color("#9ad0f5").withAlphaComponent(0.55))   // water
+  rr(R(40, 10, 920, 140), 70 * u, accent)                                        // hull
+  rr(R(40, 10, 920, 46), 23 * u, dark)
+  rr(R(60, 112, 880, 14), 7 * u, NSColor(white: 1, alpha: 0.85))
+  rr(R(150, 130, 680, 200), 100 * u, dark)                                       // cabin frame
+  rr(R(172, 150, 636, 160), 80 * u, glass)                                       // glass dome
+  rr(R(172, 288, 636, 12), 6 * u, glassEdge)
+  for (i, x) in [250, 370, 490, 610, 720].enumerated() {                         // passengers
+    oval(R(CGFloat(x) - 28, 190, 56, 56), skins[i])
+  }
+  for x in stride(from: 80, through: 900, by: 160) { rr(R(CGFloat(x), -26, 90, 12), 6 * u, NSColor(white: 1, alpha: 0.7)) } // waves
+}
+
 let args = CommandLine.arguments
 let cards = try! JSONDecoder().decode([Card].self, from: Data(contentsOf: URL(fileURLWithPath: args[1])))
 let root = args[2]
@@ -89,7 +158,8 @@ for c in cards {
   let safeL = cx - (min(W, H) / 2 - 50 * s), safeR = cx + (min(W, H) / 2 - 50 * s)
   drawLandmarks(CITY_LANDMARKS[cityKey(c.out)] ?? ["skyline", "mountains"], left: safeL, right: safeR, ground: ground, bandH: bandH, fill: accent.blended(withFraction: 0.68, of: .white)!, hole: bg)
   rr(NSRect(x: 0, y: busY + 36 * busW / 1000, width: W, height: 8 * s), 4 * s, accent.withAlphaComponent(0.14))
-  drawBus(NSRect(x: cx - busW / 2, y: busY, width: busW, height: busW * 0.56), accent: accent)
+  let vbox = NSRect(x: cx - busW / 2, y: busY, width: busW, height: busW * 0.56)
+  switch c.vehicle { case "kart": drawKart(vbox, accent: accent); case "rickshaw": drawRickshaw(vbox, accent: accent); case "boat": drawBoat(vbox, accent: accent); default: drawBus(vbox, accent: accent) }
   // eyebrow pill
   let ef = font(28 * s, bold: true)
   let ew = (c.eyebrow as NSString).size(withAttributes: [.font: ef]).width + 44 * s

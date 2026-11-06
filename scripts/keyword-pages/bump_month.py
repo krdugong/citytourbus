@@ -4,6 +4,8 @@ Changes "(YYYY년 M월)" at the end of the title, "YYYY년 M월 기준" at the s
 description and the main card eyebrow "YYYY년 M월 업데이트", then sets updated to
 today (adding published first if a page has none). Dated facts such as price check
 dates and verified are left alone. Prints the changed slugs, one per line.
+Also moves the English ("UPDATED NOV 2026") and Japanese ("2026年11月更新") card eyebrows in
+data/i18n; those pages take their updated date from the Korean page. Prints them as en/<slug>, ja/<slug>.
 
 Usage (repo root): python3 -I scripts/keyword-pages/bump_month.py [YYYY-MM-DD]
 """
@@ -28,3 +30,14 @@ for f in sorted(glob.glob('data/keyword-pages/*.json')):
     json.loads(t)
     open(f, 'w', encoding='utf-8').write(t)
     print(f.split('/')[-1][:-5])
+
+MON = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'][m - 1]
+for lang, rx, new in (('en', r'"eyebrow": "UPDATED [A-Z]{3} \d{4}"', f'"eyebrow": "UPDATED {MON} {y}"'),
+                      ('ja', r'"eyebrow": "\d{4}年\d{1,2}月更新"', f'"eyebrow": "{y}年{m}月更新"')):
+    for f in sorted(glob.glob(f'data/i18n/{lang}/*.json')):
+        t = o = open(f, encoding='utf-8').read()
+        t = re.sub(rx, new, t)
+        if t != o:
+            json.loads(t)
+            open(f, 'w', encoding='utf-8').write(t)
+            print(f'{lang}/' + f.split('/')[-1][:-5])

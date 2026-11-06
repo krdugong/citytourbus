@@ -1,18 +1,20 @@
 {
   "keyword": "Seoul City Tour Bus",
   "city": "Seoul",
-  "title": "Seoul City Tour Bus (Tiger Bus) 2026: Routes, Stops, Prices, Night Tour and Tickets",
-  "description": "Seoul City Tour Bus guide, checked October 2026: the 15-stop Downtown, Palaces & Namsan hop-on hop-off course, the Han River night tour, prices from KRW 27,000, Monday closures and where to board at Gwanghwamun.",
-  "h1Sub": "Routes, prices, night tour and where to board",
+  "title": "Seoul City Tour Bus & Hop-On Hop-Off (Tiger Bus) 2026: Route Map, Timetable, Prices, Night Tour",
+  "description": "Seoul hop-on hop-off bus (Seoul City Tour Bus / Tiger Bus) guide, updated November 2026: the 15-stop route map from Gwanghwamun, timetable every 25 min from 09:20 to 16:50, ticket prices from KRW 27,000, the Han River night tour and Monday closures.",
+  "h1Sub": "Hop-on hop-off route map, timetable, prices and night tour",
   "lead": "The Seoul City Tour Bus (run by Tiger Bus) has left from Gwanghwamun since 2000. By day it loops past Gyeongbokgung Palace, Myeong-dong and N Seoul Tower on a hop-on hop-off course; at night a 90-minute tour crosses the Han River bridges and stops at Namsan.",
   "booking": {
     "url": "https://www.seoulcitybus.com/en/tours/1",
     "label": "Book on the official Seoul City Tour Bus site"
   },
   "aka": [
-    "Tiger Bus",
     "Seoul hop-on hop-off bus",
-    "Seoul double-decker bus tour"
+    "Tiger Bus",
+    "Seoul Tiger Bus",
+    "Seoul double-decker bus tour",
+    "Seoul bus tour"
   ],
   "summary": [
     [
@@ -111,6 +113,14 @@
   ],
   "faq": [
     {
+      "q": "Is there a hop-on hop-off bus in Seoul?",
+      "a": "Yes. The Seoul City Tour Bus (Tiger Bus) is Seoul's hop-on hop-off bus: one day ticket covers unlimited rides at 15 stops from Gwanghwamun, every 25 minutes from 09:20 to 16:50, Tuesday to Sunday."
+    },
+    {
+      "q": "Is the Tiger Bus the same as the Seoul City Tour Bus?",
+      "a": "Yes. Tiger Bus is the brand name of the Seoul City Tour Bus that leaves from Gwanghwamun."
+    },
+    {
       "q": "Can I ride the Seoul City Tour Bus without booking?",
       "a": "Yes. Same-day tickets cannot be bought online; buy them at the Gwanghwamun ticket office. For the night course it is worth calling 02-777-6090 to check seats first."
     },
@@ -134,11 +144,67 @@
   "images": {
     "main": {
       "alt": "Seoul City Tour Bus: routes, prices and how to ride",
-      "eyebrow": "UPDATED OCT 2026",
+      "eyebrow": "UPDATED NOV 2026",
       "title": "Seoul\nCity Tour Bus",
-      "sub": "Routes · prices · night tour · where to board",
+      "sub": "Hop-on hop-off · route map · prices · night tour",
       "bg": "#e22b37"
     }
   },
-  "asideNote": "Day from KRW 27,000 · night from KRW 25,000 · closed Mondays"
+  "asideNote": "Day from KRW 27,000 · night from KRW 25,000 · closed Mondays",
+  "topics": [
+    {
+      "h3": "Seoul hop-on hop-off bus route map",
+      "a": "The day course is a 15-stop loop that starts and ends at Gwanghwamun: Myeong-dong, Namsangol Hanok Village, N Seoul Tower, DDP and Dongdaemun Market, Changgyeonggung and Changdeokgung palaces, Insadong and Bukchon, Cheong Wa Dae and Gyeongbokgung Palace. The map on this page numbers every stop in order.",
+      "anchor": "route",
+      "label": "See the route and map"
+    },
+    {
+      "h3": "Seoul City Tour Bus timetable",
+      "a": "Buses leave Gwanghwamun every 25 minutes from 09:20 to 16:50, and a full loop takes about 1 hour 30 minutes. The last bus is back at Gwanghwamun around 18:20, so after about 16:00 check the time before you get off far from the start, for example at N Seoul Tower.",
+      "anchor": "route",
+      "label": "See the route and map"
+    },
+    {
+      "h3": "Seoul City Tour Bus ticket price",
+      "a": "The day course costs from KRW 27,000 for adults (KRW 36,000 list) and from KRW 19,000 for children; the night course costs from KRW 25,000 for adults and from KRW 16,000 for children. Children are 48 months to high-school age, and prices change by date.",
+      "anchor": "price",
+      "label": "See prices"
+    },
+    {
+      "h3": "Seoul City Tour Bus Gwanghwamun ticket office",
+      "a": "Everyone boards at the Gwanghwamun ticket office, 100 m from Gwanghwamun Station (Line 5) exit 6 or about 300 m from City Hall Station exit 3. Collect your boarding pass there with the name on your booking, or buy a same-day ticket.",
+      "anchor": "ride",
+      "label": "See where to board"
+    },
+    {
+      "h3": "Seoul Tiger Bus night tour",
+      "a": "The Han River & Namsan night course leaves Gwanghwamun at 19:00 (19:30 from May to August), crosses six Han River bridges and stops about 25 minutes at N Seoul Tower. It takes about 90 minutes and runs once a night.",
+      "anchor": "night",
+      "label": "See the night tour"
+    },
+    {
+      "h3": "Tiger Bus vs Yellow Balloon city bus",
+      "a": "Tiger Bus is the brand of the Seoul City Tour Bus that leaves Gwanghwamun, which is the bus this page covers. Yellow Balloon is a separate company with its own routes and tickets, so a ticket for one cannot be used on the other.",
+      "anchor": "summary",
+      "label": "See the summary"
+    },
+    {
+      "h3": "Discover Seoul Pass and the Seoul City Tour Bus",
+      "a": "Discover Seoul Pass sellers list the Seoul City Tour Bus among the pass attractions, usually as one ride. What is included depends on the pass type, so check the pass's own list before relying on it; otherwise buy at the Gwanghwamun ticket office or on the official site.",
+      "anchor": "booking",
+      "label": "See how to book"
+    },
+    {
+      "h3": "Can you buy Seoul hop-on hop-off tickets on the bus?",
+      "a": "Plan to buy at the Gwanghwamun ticket office: you show your boarding pass to the driver when you board. Online booking closes the day before, so for a same-day ride go to the ticket office.",
+      "anchor": "booking",
+      "label": "See how to book"
+    },
+    {
+      "h3": "Is the Seoul City Tour Bus worth it?",
+      "a": "It is worth it if you want palaces, Myeong-dong and N Seoul Tower in one day without working out subway transfers, especially with the English audio guide. With a bus every 25 minutes and a last departure at 16:50, plan on three or four stops, and avoid Mondays when it does not run.",
+      "anchor": "summary",
+      "label": "See the summary"
+    }
+  ]
 }

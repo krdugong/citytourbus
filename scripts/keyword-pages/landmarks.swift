@@ -172,7 +172,7 @@ func cityKey(_ out: String) -> String {
   let file = (out as NSString).lastPathComponent
   var slug = (file as NSString).deletingPathExtension
   if let r = slug.range(of: "-", options: .backwards) { slug = String(slug[..<r.lowerBound]) }
-  return slug.replacingOccurrences(of: "-city-tour-bus", with: "").replacingOccurrences(of: "-big-bus", with: "").replacingOccurrences(of: "-sky-hop-bus", with: "").replacingOccurrences(of: "-hato-bus", with: "").replacingOccurrences(of: "-go-kart", with: "").replacingOccurrences(of: "-asakusa-rickshaw", with: "").replacingOccurrences(of: "-rickshaw", with: "").replacingOccurrences(of: "-water-bus", with: "")
+  return slug.replacingOccurrences(of: "-city-tour-bus", with: "").replacingOccurrences(of: "-big-bus", with: "").replacingOccurrences(of: "-sky-hop-bus", with: "").replacingOccurrences(of: "-hato-bus", with: "").replacingOccurrences(of: "-go-kart", with: "").replacingOccurrences(of: "-asakusa-rickshaw", with: "").replacingOccurrences(of: "-rickshaw", with: "").replacingOccurrences(of: "-water-bus", with: "").replacingOccurrences(of: "-peak-tram", with: "").replacingOccurrences(of: "-river-cruise", with: "").replacingOccurrences(of: "-duck-tour", with: "").replacingOccurrences(of: "-bateaux-mouches", with: "")
 }
 
 func drawLandmarks(_ names: [String], left: CGFloat, right: CGFloat, ground: CGFloat, bandH: CGFloat, fill: NSColor, hole: NSColor) {

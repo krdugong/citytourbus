@@ -15,7 +15,7 @@
 //   asideNote, operator?, affiliate? (false = booking button goes to the operator's own site)
 //   parent? (slug of the city page this operator page belongs to), cityKey? (GetYourGuide/card city when the slug
 //   has another suffix), fromParent?{sectionId: link label} (link added to that section of the parent page),
-//   courses? (true = fixed-course tours: no transfer labels or hop-on loop note), childCard?{title,desc,order?} (card in the parent's "종류별로 자세히" block), rideCard?{title,desc,order?} (a non-bus ride such as a go-kart or rickshaw: card in the parent's "함께 타볼 만한 탈것" block instead), oneWay? (with courses: point-to-point lines such as a water bus). topics[].anchor may also be a /path.
+//   courses? (true = fixed-course tours: no transfer labels or hop-on loop note), childCard?{title,desc,order?} (card in the parent's "종류별로 자세히" block), rideCard?{title,desc,order?} + busTip? (a non-bus ride such as a go-kart or rickshaw: card in the parent's "함께 타볼 만한 탈것" block instead), oneWay? (with courses: point-to-point lines such as a water bus). topics[].anchor may also be a /path.
 import fs from 'node:fs';
 import path from 'node:path';
 import { TAG, ICONS, PRECONNECT, fontLinks } from '../head-bits.mjs';
@@ -163,6 +163,9 @@ function render(p, all) {
     : [`${p.city} 시티투어 버스`, `${p.city} 버스투어`, `${p.city} 2층버스 투어`, `${p.city} 홉온홉오프 버스`, `${p.city} 관광버스`, ...(p.operator === 'city-sightseeing' ? [`${p.city} City Sightseeing`] : [])]);
   sec('summary', 'SUMMARY', `${k} 한눈에 보기`, '한눈에 보기', kvTable([['다른 이름', aka.join(', ')], ...p.summary], 'kw-summary') +
     (parent ? `<p class="kw-sublink"><a href="/${parent.slug}">${esc(parent.keyword)} ${p.rideCard ? '노선·가격 보기' : '전체 비교 보기'} →</a></p>` : ''));
+  // Ride pages point readers back to the city's bus page: the bus is the site's main product.
+  if (p.rideCard && parent) sec('bus', 'CITY TOUR BUS', `${p.keyword}와 함께 ${parent.keyword} 타기`, '시티투어버스',
+    `<p>${esc(p.busTip || `${p.keyword} 앞뒤로 ${parent.keyword}를 타면 ${p.city}의 다른 명소까지 하루에 이어서 돌 수 있습니다.`)}</p><div class="kw-kids"><a class="kw-kid" href="/${parent.slug}"><b>${esc(parent.keyword)}</b><span>${esc(parent.asideNote)}</span><em>노선·가격·예약 보기 →</em></a></div>`);
   const kids = children.filter(c => !c.rideCard);
   const rides = children.filter(c => c.rideCard).sort((a, b) => (a.rideCard.order || 9) - (b.rideCard.order || 9));
   if (kids.length) sec('types', 'TYPES', `${k} 종류별로 자세히 보기`, '종류별 자세히',
@@ -360,10 +363,10 @@ ${rssItems.map(i => `<item><title>${esc(i.title)}</title><link>${i.link}</link><
 </channel></rss>
 `);
 
-// homepage: list every keyword page (index.html is what "/" serves; keep index-v2.html in sync)
+// homepage: list every bus keyword page; rideCard pages (go-kart, rickshaw...) are linked from their city's bus page only (index.html is what "/" serves; keep index-v2.html in sync)
 const homeRank = (p) => { const i = POPULAR.indexOf(p.parent || p.slug); return (i < 0 ? 999 : i) + (p.parent ? 0.5 : 0); };
 const homeOrder = [...pages].sort((a, b) => homeRank(a) - homeRank(b) || a.slug.localeCompare(b.slug));
-const homeLinks = homeOrder.map(p => `<a href="/${p.slug}" style="display:block;background:#fff;border:1px solid #e5e5ea;border-radius:12px;padding:16px;text-decoration:none;font-size:14px;font-weight:700">${esc(p.keyword)} <span style="float:right;color:#e22b37">→</span></a>`).join('');
+const homeLinks = homeOrder.filter(p => !p.rideCard).map(p => `<a href="/${p.slug}" style="display:block;background:#fff;border:1px solid #e5e5ea;border-radius:12px;padding:16px;text-decoration:none;font-size:14px;font-weight:700">${esc(p.keyword)} <span style="float:right;color:#e22b37">→</span></a>`).join('');
 const homeBlock = `<div style="max-width:1180px;margin:28px auto 0"><h2 style="font-size:22px;letter-spacing:-.6px;margin:0 0 14px">도시별 시티투어버스 노선·가격 총정리</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px">${homeLinks}</div></div>`;
 for (const f of ['index.html', 'index-v2.html']) setBlock(f, 'kw-home', homeBlock, '</section><footer>');
 

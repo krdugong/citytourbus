@@ -18,11 +18,19 @@ const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 
 const LANGS = {
   en: {
-    html: 'en', og: 'en_US', inLang: 'en-US', gyg: '', home: 'All cities', homeTitle: 'City Tour Bus Guides: Routes, Prices and How to Ride | CITYTOURBUS',
-    homeDesc: 'Plain-English guides to city tour buses in Korea and around the world: routes, stops, ticket prices, night tours and how to ride, checked against the operators\' own sites.',
-    homeH1: 'City tour bus guides', homeLead: 'Routes, stops, prices and how to ride, checked against each operator\'s official site.',
+    html: 'en', og: 'en_US', inLang: 'en-US', gyg: '', home: 'All cities', homeTitle: 'Korea Hop-On Hop-Off Bus & City Tour Bus Guide 2026: Seoul, Busan, Jeju | CITYTOURBUS',
+    homeDesc: 'Every hop-on hop-off and city tour bus in South Korea in one place: the Seoul Tiger Bus, Busan City Tour Bus, Jeju City Tour Bus and six more cities, with routes, maps, prices, night tours and where to board, checked against the official sites.',
+    homeH1: 'Korea hop-on hop-off & city tour buses', homeLead: 'Seoul, Busan, Jeju and six more Korean cities run their own city tour buses. Routes, stops, prices, night tours and where to board, checked against each operator\'s official site.',
+    homeCities: 'City tour buses in Korea', homeMore: 'Route, prices and how to ride →',
+    homeFaq: [
+      { q: 'Is there a hop-on hop-off bus in South Korea?', a: 'Yes. Seoul (the Seoul City Tour Bus, also called the Tiger Bus), Busan and Jeju run hop-on hop-off loops with day passes, Gyeongju, Incheon, Daegu, Yeosu, Andong and Paju run their own city tour buses too.' },
+      { q: 'Is there a hop-on hop-off bus in Seoul?', a: 'Yes. The Seoul City Tour Bus (Tiger Bus) leaves Gwanghwamun every 25 minutes from 09:20 to 16:50 on a 15-stop loop past Gyeongbokgung Palace, Myeong-dong, N Seoul Tower and DDP. It is closed on Mondays and also runs a 90-minute Han River night tour.' },
+      { q: 'Is there a hop-on hop-off bus in Busan?', a: 'Yes. The Busan City Tour Bus runs Red (Haeundae), Green (Taejongdae) and Orange (Dadaepo) lines from Busan Station on one KRW 20,000 day pass, Wednesday to Sunday.' },
+      { q: 'Is there a hop-on hop-off bus in Jeju?', a: 'Yes. The Jeju City Tour Bus loops 22 stops around Jeju City, including Jeju Airport stop 3, on a KRW 12,000 day pass you buy when you board. It is closed on Mondays.' },
+      { q: 'Do Korean city tour buses run on Mondays?', a: 'Mostly not. Seoul and Jeju close every Monday, and Busan closes on Mondays and Tuesdays. Check each city page before you plan.' }
+    ],
     crumbs: 'Breadcrumb', menu: 'Main menu', toc: 'Contents', glance: 'At a glance', aka: 'Also called', route: 'Route and stops', night: 'Night tour',
-    price: 'Prices and tickets', booking: 'How to book', ride: 'How to ride', faq: 'FAQ', priceFirst: 'See prices first ↓',
+    price: 'Prices and tickets', booking: 'How to book', ride: 'How to ride', faq: 'FAQ', topics: 'Quick answers', topicsNote: 'Short answers to the questions people search for most, based on the official information on this page.', priceFirst: 'See prices first ↓',
     th: ['Ticket', 'Valid', 'Adult price', 'Includes', 'Best for'], nightLbl: ['Departs', 'From', 'Duration', 'Price'],
     eyebrow: (p) => `${p.flag} ${p.city} · Updated ${MONTHS[Number(p.updated.slice(5, 7)) - 1]} ${p.updated.slice(0, 4)}`,
     verified: (p) => `Official info checked ${p.verified} · ${p.affiliate === false ? 'The booking button goes to the operator\'s official site; the GetYourGuide link below is an affiliate link.' : 'Booking links are affiliate links at no extra cost to you.'}`,
@@ -38,7 +46,7 @@ const LANGS = {
     homeDesc: '韓国と世界のシティツアーバスのルート、停留所、料金、夜景ツアー、乗り方を、運営会社の公式情報をもとに日本語でまとめています。',
     homeH1: 'シティツアーバス ガイド', homeLead: 'ルート・停留所・料金・乗り方を、各運営会社の公式サイトで確認してまとめています。',
     crumbs: 'パンくずリスト', menu: 'メインメニュー', toc: '目次', glance: '概要', aka: '別の呼び方', route: 'ルート・停留所', night: '夜景ツアー',
-    price: '料金・チケット', booking: '予約方法', ride: '乗り方', faq: 'よくある質問', priceFirst: '料金を先に見る ↓',
+    price: '料金・チケット', booking: '予約方法', ride: '乗り方', faq: 'よくある質問', topics: 'ポイント別まとめ', topicsNote: 'よく検索される質問に、このページの公式情報をもとに短く答えています。', priceFirst: '料金を先に見る ↓',
     th: ['チケット', '有効期間', '大人料金', '含まれるもの', 'おすすめ'], nightLbl: ['出発', '出発場所', '所要時間', '料金'],
     eyebrow: (p) => `${p.flag} ${p.city} · ${p.updated.slice(0, 4)}年${Number(p.updated.slice(5, 7))}月更新`,
     verified: (p) => `公式情報確認日 ${p.verified} · ${p.affiliate === false ? '予約ボタンは運営会社の公式サイトにつながります。下のGetYourGuideリンクはアフィリエイトリンクです。' : '予約リンクはアフィリエイトリンクで、追加料金はかかりません。'}`,
@@ -112,6 +120,8 @@ function render(lang, p, all) {
     `<div class="table-scroll"><table><thead><tr>${L.th.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${p.tickets.map(t => `<tr><th scope="row">${esc(t.name)}</th><td>${esc(t.validity)}</td><td>${esc(t.price)}</td><td>${t.includes.map(esc).join('<br>')}</td><td>${esc(t.for)}</td></tr>`).join('')}</tbody></table></div><p class="small">${esc(p.priceNote)}</p>${cta}`);
   sec('booking', 'BOOKING', `${k}: ${L.booking}`, L.booking, `<ol class="kw-steps">${p.howToBook.map(s => `<li>${esc(s)}</li>`).join('')}</ol>${cta}`);
   sec('ride', 'HOW TO RIDE', `${k}: ${L.ride}`, L.ride, `<ol class="kw-steps">${p.howToRide.map(s => `<li>${esc(s)}</li>`).join('')}</ol>`);
+  if (p.topics && p.topics.length) sec('answers', 'QUICK ANSWERS', `${k}: ${L.topics}`, L.topics, `<p class="small">${esc(L.topicsNote)}</p>` +
+    p.topics.map(t => `<div class="kw-topic"><h3>${esc(t.h3)}</h3><p>${esc(t.a)} <a href="${t.anchor.startsWith('/') ? esc(t.anchor) : `#${esc(t.anchor)}`}">${esc(t.label)} →</a></p></div>`).join(''));
   sec('faq', 'FAQ', `${k}: ${L.faq}`, L.faq, p.faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join(''));
   const loc = GYG.cities[p.slug.replace(/-(big-bus|city-tour-bus)$/, '')];
   if (loc) sections.push(`<section class="card kw-more"><p class="section-no">MORE TOURS</p><h2>${esc(L.more(p))}</h2><p>${esc(L.moreText(p))}</p><a class="button kw-cta" href="https://www.getyourguide.com/${L.gyg}${loc}/?${esc(GYG.partner)}" target="_blank" rel="sponsored nofollow noopener">${L.moreBtn}</a><p class="small">${L.moreNote}</p></section>`);
@@ -161,11 +171,16 @@ ${sections.join('\n')}
 `;
 }
 
+// Most-searched cities first, then the rest alphabetically.
+const HOME_FIRST = ['seoul-city-tour-bus', 'busan-city-tour-bus', 'jeju-city-tour-bus'];
+const homeOrder = (pages) => [...pages].sort((a, b) => ((HOME_FIRST.indexOf(a.slug) + 1) || 99) - ((HOME_FIRST.indexOf(b.slug) + 1) || 99) || a.slug.localeCompare(b.slug));
+
 function renderHome(lang, pages) {
   const L = LANGS[lang];
   const url = `${SITE}/${lang}`;
   const other = Object.keys(LANGS).filter(l => l !== lang);
-  const ld = { '@context': 'https://schema.org', '@type': 'ItemList', name: L.homeH1, itemListElement: pages.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}/${lang}/${p.slug}` })) };
+  const list = { '@type': 'ItemList', name: L.homeH1, itemListElement: homeOrder(pages).map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}/${lang}/${p.slug}` })) };
+  const ld = { '@context': 'https://schema.org', '@graph': [list, ...((L.homeFaq || []).length ? [{ '@type': 'FAQPage', mainEntity: L.homeFaq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : [])] };
   return `<!doctype html>
 <html lang="${L.html}">
 <head>
@@ -184,7 +199,8 @@ ${PRECONNECT}${fontLinks()}
 <header class="site-header"><div class="header-inner"><a class="logo" href="/${lang}"><span>CITY</span>TOURBUS<small>.KR</small></a><nav aria-label="${L.menu}"><a href="/" hreflang="ko" lang="ko">한국어</a>${other.map(l => `<a href="/${l}" hreflang="${l}" lang="${l}">${LANGS[l].langName}</a>`).join('')}</nav></div></header>
 <main><div class="wrap">
 <section class="hero kw-hero"><div><h1>${esc(L.homeH1)}</h1><p class="lead">${esc(L.homeLead)}</p></div></section>
-<section class="card related"><div class="related-links">${pages.map(p => `<a href="/${lang}/${p.slug}">${p.flag} ${esc(p.keyword)}</a>`).join('')}</div></section>
+<section class="card"><h2>${esc(L.homeCities || L.home)}</h2><div class="kw-kids">${homeOrder(pages).map(p => `<a class="kw-kid" href="/${lang}/${p.slug}"><b>${p.flag} ${esc(p.keyword)}</b><span>${esc(p.h1Sub)}</span><span>${esc(p.asideNote)}</span><em>${esc(L.homeMore || '→')}</em></a>`).join('')}</div></section>
+${(L.homeFaq || []).length ? `<section class="card"><h2>${esc(L.faq)}</h2>${L.homeFaq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('')}</section>` : ''}
 </div></main><footer><div class="wrap"><a href="/${lang}">CITYTOURBUS</a><p>${L.footer}</p></div></footer>
 </body></html>
 `;

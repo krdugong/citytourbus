@@ -51,3 +51,4 @@
 .kw-kid{display:flex;flex-direction:column;gap:6px;padding:18px;border:1px solid var(--line);border-radius:14px;text-decoration:none;background:#fff}
 .kw-kid b{font-size:17px;letter-spacing:-.4px}.kw-kid span{font-size:13px;line-height:1.7;color:var(--sub)}.kw-kid em{font-style:normal;font-size:13px;font-weight:800;color:var(--accent);margin-top:auto}
 .kw-kid:hover{border-color:#c7c7cc}
+.kw-aside-rides{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}.kw-aside-rides b{display:block;font-size:13px;margin-bottom:4px}.kw-aside-rides a{display:block;font-size:12px;line-height:1.6;margin-top:8px;text-decoration:none;color:var(--sub)}.kw-aside-rides a:hover{color:var(--ink)}.kw-aside-rides .kw-aside-more{color:var(--accent);font-weight:700}

@@ -24,6 +24,7 @@ import { alternates, langLinks } from '../i18n/links.mjs';
 const ROOT = process.cwd();
 const SITE = 'https://www.citytourbus.kr';
 const DATA_DIR = path.join(ROOT, 'data/keyword-pages');
+const RIDE_PICKS = fs.existsSync(path.join(DATA_DIR, '_ride-picks.json')) ? JSON.parse(fs.readFileSync(path.join(DATA_DIR, '_ride-picks.json'), 'utf8')) : { cities: {}, kinds: {} };
 const GYG = JSON.parse(fs.readFileSync(path.join(DATA_DIR, '_getyourguide.json'), 'utf8'));
 const cityKeyOf = (p) => p.cityKey || p.slug.replace(/-(big-bus|city-tour-bus)$/, '');
 const gygUrl = (p) => {
@@ -186,6 +187,21 @@ function render(p, all) {
     priceBars(p) +
     `<div class="table-scroll"><table><thead><tr><th>티켓</th><th>유효</th><th>성인 가격</th><th>포함 내용</th><th>추천</th></tr></thead><tbody>${p.tickets.map(t => `<tr><th scope="row">${esc(t.name)}</th><td>${esc(t.validity)}</td><td>${esc(t.price)}</td><td>${t.includes.map(esc).join('<br>')}</td><td>${esc(t.for)}</td></tr>`).join('')}</tbody></table></div><p class="small">${esc(p.priceNote)}</p>`);
 
+  // Rides next to the bus, right under the prices: this site's own ride pages first, then GetYourGuide's
+  // most-reviewed ride products for the city (data/keyword-pages/_ride-picks.json, scripts/keyword-pages/ride_picks.py).
+  const rideUrl = (x) => `https://www.getyourguide.com/ko-kr${x.u}?${GYG.partner}&cmp=citytourbuskr-${cityKeyOf(p)}-ride`;
+  const ridePicks = p.parent ? [] : (RIDE_PICKS.cities[cityKeyOf(p)] || []).filter(x => !rides.some(c => c.booking && c.booking.url.includes(`-t${x.id}/`)));
+  if (rides.length || ridePicks.length) sec('rides', 'RIDES', `${p.city} 시티투어버스와 함께 타볼 만한 탈것`, '이색 탈것',
+    `<p>버스로 도시를 돈 날 같이 타 보기 좋은 체험입니다.${ridePicks.length ? ' GetYourGuide에서 후기가 많은 순서로 골랐습니다.' : ''}</p><div class="kw-kids">` +
+    rides.map(c => `<a class="kw-kid" href="/${c.slug}"><b>${esc(c.rideCard.title)}</b><span>${esc(c.rideCard.desc)}</span><em>가격·예약 자세히 →</em></a>`).join('') +
+    ridePicks.map(x => `<a class="kw-kid" href="${esc(`https://www.getyourguide.com/ko-kr${x.u}?${GYG.partner}&cmp=citytourbuskr-${cityKeyOf(p)}-ride`)}" target="_blank" rel="sponsored nofollow noopener"><b>${esc(x.n)}</b><span>${esc(RIDE_PICKS.kinds[x.k] || '탈것')} · ★ ${x.r} · 후기 ${Number(x.c).toLocaleString('en-US')}개</span><em>GetYourGuide에서 보기 →</em></a>`).join('') +
+    `</div>${ridePicks.length ? `<p class="small">후기 수·평점은 ${esc(RIDE_PICKS.checked)} GetYourGuide 기준이며 GetYourGuide 링크는 제휴 링크입니다.</p>` : ''}`);
+
+  const short = (s) => s.length > 30 ? `${s.slice(0, 29)}…` : s;
+  const asideRides = (rides.length || ridePicks.length) ? `<div class="kw-aside-rides"><b>함께 타볼 만한 탈것</b>${[
+    ...rides.map(c => `<a href="/${c.slug}">${esc(c.rideCard.title)}</a>`),
+    ...ridePicks.map(x => `<a href="${esc(rideUrl(x))}" target="_blank" rel="sponsored nofollow noopener">${esc(short(x.n))}</a>`)].slice(0, 3).join('')}<a class="kw-aside-more" href="#rides">탈것 전체 보기 →</a></div>` : '';
+
   for (const x of p.extra || []) {
     sec(x.id, x.label, x.h2, x.toc || null,
       (x.paras || []).map(t => `<p>${esc(t)}</p>`).join('') + (x.table ? kvTable(x.table) : ''));
@@ -203,9 +219,6 @@ function render(p, all) {
 
   sec('ride', 'HOW TO RIDE', h2.ride, '타는법',
     `<ol class="kw-steps">${howToRide.map(s => `<li>${esc(s)}</li>`).join('')}</ol>`);
-
-  if (rides.length) sec('rides', 'RIDES', `${p.city}에서 시티투어버스와 함께 타볼 만한 탈것`, '이색 탈것',
-    `<p>버스 말고도 ${esc(p.city)}에서 직접 타 보며 도시를 구경하는 체험입니다. 가격·예약 방법과 준비물을 따로 정리했습니다.</p><div class="kw-kids">${rides.map(c => `<a class="kw-kid" href="/${c.slug}"><b>${esc(c.rideCard.title)}</b><span>${esc(c.rideCard.desc)}</span><em>가격·예약 자세히 →</em></a>`).join('')}</div>`);
 
   if (p.topics && p.topics.length) sec('topics', 'TOPICS', h2.topics || `${k} 궁금한 점별 정리`, '궁금한 점',
     `<p class="small">네이버에서 많이 찾는 질문 순서대로, 이 페이지의 공식 정보 기준으로 짧게 답했습니다.</p>` +
@@ -277,7 +290,7 @@ ${PRECONNECT}${fontLinks()}
 <nav class="kw-toc" aria-label="목차">${toc.join('')}</nav>
 <div class="grid"><article class="main-content">
 ${sections.join('\n')}
-</article><aside><div class="aside-card"><strong>${esc(k)} 예약</strong><p>${esc(p.asideNote)}</p><a class="aside-link kw-aside-book" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${esc(bookLabel(p))} →</a>${gygUrl(p) ? `<a class="aside-link" href="${esc(gygUrl(p))}" target="_blank" rel="sponsored nofollow noopener">GetYourGuide에서 ${esc(p.city)} 투어 보기 →</a>` : ''}${p.routeCheck ? `<a class="aside-link" href="${esc(p.routeCheck.url)}">정류장 지도 보기 →</a>` : `<a class="aside-link" href="#route">노선·정류장 보기 →</a>`}${SIM[p.slug] ? `<a class="aside-link" href="${SIM[p.slug].url}">하루 코스 시뮬레이터 →</a>` : ''}</div></aside></div>
+</article><aside><div class="aside-card"><strong>${esc(k)} 예약</strong><p>${esc(p.asideNote)}</p><a class="aside-link kw-aside-book" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${esc(bookLabel(p))} →</a>${gygUrl(p) ? `<a class="aside-link" href="${esc(gygUrl(p))}" target="_blank" rel="sponsored nofollow noopener">GetYourGuide에서 ${esc(p.city)} 투어 보기 →</a>` : ''}${p.routeCheck ? `<a class="aside-link" href="${esc(p.routeCheck.url)}">정류장 지도 보기 →</a>` : `<a class="aside-link" href="#route">노선·정류장 보기 →</a>`}${SIM[p.slug] ? `<a class="aside-link" href="${SIM[p.slug].url}">하루 코스 시뮬레이터 →</a>` : ''}${asideRides}</div></aside></div>
 </div></main><footer><div class="wrap"><a href="/">CITYTOURBUS.KR</a><p>전 세계 시티투어버스를 비교합니다. ${p.affiliate === false ? '예약 버튼은 운영사 공식 사이트로 연결되며, GetYourGuide 링크는 제휴 링크라 예약 시 수수료를 받을 수 있습니다.' : '이 페이지의 예약 링크는 제휴 링크라 예약 시 수수료를 받을 수 있으며, 이용자가 내는 금액은 같습니다.'}</p><p>문의·제휴 <a href="mailto:contact@citytourbus.kr">contact@citytourbus.kr</a></p><a href="/terms">이용약관</a> · <a href="/privacy">개인정보처리방침</a></div></footer>
 <div class="kw-sticky" id="kw-sticky" hidden><div class="kw-sticky-txt"><b>${esc(k)}</b><small>${esc(p.tickets[0].price)}</small></div><a class="button kw-cta" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${BRAND[p.operator] ? esc(BRAND[p.operator]) + ' 예약' : '예약하기'} →</a></div>
 <script>(function(){var s=document.getElementById('kw-sticky'),h=document.querySelector('.hero-actions');if(!s||!h||!('IntersectionObserver' in window))return;new IntersectionObserver(function(e){var r=e[0],show=!r.isIntersecting&&r.boundingClientRect.top<0;s.hidden=!show;document.body.classList.toggle('has-sticky',show)}).observe(h)})();

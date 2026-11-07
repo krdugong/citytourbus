@@ -1,0 +1,853 @@
+{
+ "checked": "2026년 11월 7일",
+ "kinds": {
+  "kart": "고카트",
+  "duck": "수륙양용 덕투어",
+  "heli": "헬기 투어",
+  "balloon": "열기구",
+  "jetski": "제트스키",
+  "safari": "사막 사파리",
+  "atv": "ATV·버기",
+  "rickshaw": "인력거·툭툭",
+  "gondola": "곤돌라",
+  "boat": "보트·크루즈"
+ },
+ "cities": {
+  "amsterdam": [
+   {
+    "id": "313498",
+    "u": "/amsterdam-l36/amsterdam-classic-saloon-boat-cruise-with-cheese-wine-t313498/",
+    "n": "암스테르담: 살롱 보트 크루즈 - 치즈 & 와인 옵션",
+    "r": 4.6,
+    "c": 32085,
+    "k": "boat"
+   },
+   {
+    "id": "396132",
+    "u": "/amsterdam-l36/amsterdam-luxury-canal-cruise-with-unlimited-drinks-bite-t396132/",
+    "n": "암스테르담: 운하 크루즈 + 무제한 음료 & 스낵 옵션",
+    "r": 4.5,
+    "c": 27267,
+    "k": "boat"
+   },
+   {
+    "id": "420563",
+    "u": "/amsterdam-l36/amsterdam-private-guided-city-tour-by-pedicab-t420563/",
+    "n": "암스테르담: 페디캡으로 즐기는 개인 가이드 시티 투어",
+    "r": 4.9,
+    "c": 189,
+    "k": "rickshaw"
+   },
+   {
+    "id": "53735",
+    "u": "/amsterdam-l36/amsterdam-sightseeing-rickshaw-tour-t53735/",
+    "n": "암스테르담: 2시간 인력거 관광 투어",
+    "r": 4.8,
+    "c": 89,
+    "k": "rickshaw"
+   }
+  ],
+  "athens": [
+   {
+    "id": "643549",
+    "u": "/athens-l91/athens-cruiseagistrimonimetopiaegina-with-lunch-drinks-t643549/",
+    "n": "아기스트리, 메토피, 에기나 럭셔리 크루즈 - 식사 및 음료 포함",
+    "r": 4.9,
+    "c": 2855,
+    "k": "boat"
+   },
+   {
+    "id": "305278",
+    "u": "/athens-l91/athens-private-3-hour-city-tour-on-eco-friendly-tuk-tuk-t305278/",
+    "n": "아테네: 전기 툭툭을 타고 즐기는 3시간 개인 시티 투어",
+    "r": 4.8,
+    "c": 359,
+    "k": "rickshaw"
+   },
+   {
+    "id": "315927",
+    "u": "/athens-l91/athens-private-evening-sightseeing-tour-by-electric-tuk-tuk-t315927/",
+    "n": "아테네: 전기 툭툭으로 즐기는 저녁 개인 관광 투어",
+    "r": 4.8,
+    "c": 303,
+    "k": "rickshaw"
+   }
+  ],
+  "bangkok": [
+   {
+    "id": "517600",
+    "u": "/bangkok-l169/bangkok-train-market-floating-market-with-boat-ride-t517600/",
+    "n": "방콕: 매끌롱 철도시장 & 수상시장 보트 투어",
+    "r": 4.8,
+    "c": 12062,
+    "k": "boat"
+   },
+   {
+    "id": "960991",
+    "u": "/bangkok-l169/bangkok-the-newest-luxury-5-star-bangkok-chao-phraya-cruise-t960991/",
+    "n": "방콕: 최신 럭셔리 5성급 방콕 차오 프라야 크루즈",
+    "r": 4.8,
+    "c": 5171,
+    "k": "boat"
+   },
+   {
+    "id": "122076",
+    "u": "/bangkok-l169/bangkok-midnight-food-tour-by-tuk-tuk-t122076/",
+    "n": "방콕: 툭툭으로 즐기는 야간 음식 투어",
+    "r": 4.9,
+    "c": 2863,
+    "k": "rickshaw"
+   },
+   {
+    "id": "52629",
+    "u": "/bangkok-l169/bangkok-tuk-tuk-tour-by-night-t52629/",
+    "n": "방콕: 툭툭을 타고 즐기는 마켓, 사원, 음식 야간 투어",
+    "r": 4.9,
+    "c": 2664,
+    "k": "rickshaw"
+   }
+  ],
+  "barcelona": [
+   {
+    "id": "168604",
+    "u": "/barcelona-l45/daytime-or-sunset-catamaran-experience-in-barcelona-t168604/",
+    "n": "바르셀로나: 음악과 함께하는 주간 또는 일몰 쌍동선 크루즈",
+    "r": 4.3,
+    "c": 7272,
+    "k": "boat"
+   },
+   {
+    "id": "153381",
+    "u": "/barcelona-l45/barcelona-best-experience-day-sunset-cruise-with-drinks-t153381/",
+    "n": "바르셀로나: 음료가 포함된 주간 또는 선셋 크루즈",
+    "r": 4.7,
+    "c": 1329,
+    "k": "boat"
+   }
+  ],
+  "berlin": [
+   {
+    "id": "520045",
+    "u": "/berlin-l17/berlin-bilingual-river-cruise-ende-live-guided-heated-t520045/",
+    "n": "베를린: 1시간 보트 투어 & 이중 언어 라이브 가이드(독일어/영어)",
+    "r": 4.7,
+    "c": 7414,
+    "k": "boat"
+   },
+   {
+    "id": "51352",
+    "u": "/berlin-l17/berlin-25-hour-east-side-boat-cruise-with-commentary-t51352/",
+    "n": "베를린: 2시간 30분 이스트 사이드 보트 크루즈(해설 포함)",
+    "r": 4.4,
+    "c": 2289,
+    "k": "boat"
+   }
+  ],
+  "budapest": [
+   {
+    "id": "416276",
+    "u": "/budapest-l29/budapest-unlimited-prosecco-beer-and-aperol-spritz-cruise-t416276/",
+    "n": "무제한 프로세코, 맥주, 아페롤 & 리몬첼로 스프리츠 크루즈",
+    "r": 4.8,
+    "c": 51113,
+    "k": "boat"
+   },
+   {
+    "id": "69093",
+    "u": "/budapest-l29/budapest-by-night-sightseeing-cruise-with-welcome-drink-t69093/",
+    "n": "부다페스트: 웰컴 드링크가 제공되는 야간 관광 크루즈",
+    "r": 4.4,
+    "c": 27369,
+    "k": "boat"
+   }
+  ],
+  "busan": [
+   {
+    "id": "553244",
+    "u": "/busan-l32281/busan-group-sightseeing-yacht-cruise-with-snacks-and-drinks-t553244/",
+    "n": "요트홀릭 I 광안대교 전망을 감상하는 부산 요트 투어",
+    "r": 4.6,
+    "c": 311,
+    "k": "boat"
+   },
+   {
+    "id": "303333",
+    "u": "/busan-l32281/busan-night-viewpoints-tour-with-evening-cruise-t303333/",
+    "n": "부산: 야경 투어 & 저녁 크루즈(불꽃놀이 포함)",
+    "r": 4.7,
+    "c": 233,
+    "k": "boat"
+   }
+  ],
+  "chicago": [
+   {
+    "id": "290485",
+    "u": "/chicago-l225/chicago-river-75-minute-guided-architecture-cruise-t290485/",
+    "n": "시카고강: 1.5시간 건축 가이드 크루즈",
+    "r": 4.8,
+    "c": 9875,
+    "k": "boat"
+   },
+   {
+    "id": "46389",
+    "u": "/chicago-l225/architecture-river-tour-t46389/",
+    "n": "시카고: 건축물 강 크루즈(티켓 대기줄 건너뛰기)",
+    "r": 4.8,
+    "c": 4755,
+    "k": "boat"
+   }
+  ],
+  "copenhagen": [
+   {
+    "id": "37848",
+    "u": "/copenhagen-l12/copenhagen-canal-boat-tour-from-gammel-strand-t37848/",
+    "n": "코펜하겐: 가이드와 함께하는 운하 크루즈",
+    "r": 4.6,
+    "c": 13186,
+    "k": "boat"
+   },
+   {
+    "id": "888258",
+    "u": "/copenhagen-l12/copenhagen-canal-tour-with-guide-in-electric-boat-t888258/",
+    "n": "코펜하겐: 라이브 가이드와 함께하는 전동 보트 운하 투어 & 휴게",
+    "r": 4.7,
+    "c": 1640,
+    "k": "boat"
+   }
+  ],
+  "dubai": [
+   {
+    "id": "67792",
+    "u": "/dubai-l173/from-dubai-private-6-hour-desert-safari-dubai-w-bbq-t67792/",
+    "n": "두바이: 사막 사파리, 사륜 오토바이(쿼드바이크) 탑승, 낙타 타기 & 알 하이마 캠프",
+    "r": 4.9,
+    "c": 73435,
+    "k": "safari"
+   },
+   {
+    "id": "59772",
+    "u": "/dubai-l173/dubai-jetski-to-burj-arab-atlantis-w-pic-video-icecream-t59772/",
+    "n": "부르즈 알 아랍 & 아틀란티스까지 제트스키 타기, 사진, 동영상 & 아이스크림",
+    "r": 4.9,
+    "c": 27122,
+    "k": "jetski"
+   },
+   {
+    "id": "128958",
+    "u": "/dubai-l173/dubai-marina-luxury-yacht-tour-with-breakfast-or-bbq-option-t128958/",
+    "n": "두바이 마리나: 아침 식사 또는 바비큐 옵션이 포함된 고급 요트 투어",
+    "r": 4.7,
+    "c": 22416,
+    "k": "boat"
+   },
+   {
+    "id": "57583",
+    "u": "/dubai-l173/dubai-marina-15-hour-sightseeing-speedboat-tour-atlantis-t57583/",
+    "n": "두바이 마리나: 1.5시간 아틀란티스 관광 쾌속선 투어",
+    "r": 4.7,
+    "c": 3796,
+    "k": "boat"
+   }
+  ],
+  "dublin": [
+   {
+    "id": "29053",
+    "u": "/dublin-l31/liffey-river-cruises-cruise-through-the-heart-of-dublin-t29053/",
+    "n": "더블린: 리피강 관광 크루즈",
+    "r": 4.4,
+    "c": 5467,
+    "k": "boat"
+   },
+   {
+    "id": "447098",
+    "u": "/dublin-l31/dublin-howth-coastal-boat-tour-t447098/",
+    "n": "더블린: 호스 해안 보트 투어",
+    "r": 4.7,
+    "c": 1432,
+    "k": "boat"
+   }
+  ],
+  "edinburgh": [
+   {
+    "id": "192819",
+    "u": "/queensferry-l115822/edinburgh-firth-of-forth-three-bridges-sightseeing-cruise-t192819/",
+    "n": "에든버러: '퍼스 오브 포스' 3대 교량 관광 크루즈",
+    "r": 4.7,
+    "c": 2794,
+    "k": "boat"
+   }
+  ],
+  "galway": [
+   {
+    "id": "240577",
+    "u": "/galway-l804/galway-bay-day-trip-cliffs-of-moher-cruise-t240577/",
+    "n": "소그룹 투어: 골웨이에서 아란 제도로 가는 클리프 크루즈.",
+    "r": 4.6,
+    "c": 144,
+    "k": "boat"
+   }
+  ],
+  "hanoi": [
+   {
+    "id": "422336",
+    "u": "/hanoi-l205/hanoi-ha-long-bay-day-cruise-swimming-meal-kayaking-t422336/",
+    "n": "하노이: 하롱베이 일일 크루즈 - 수영, 식사, 카약",
+    "r": 4.8,
+    "c": 14754,
+    "k": "boat"
+   },
+   {
+    "id": "693553",
+    "u": "/hanoi-l205/hanoi-ninh-binh-hoa-lu-trang-an-boat-ride-mua-cave-tou-t693553/",
+    "n": "하노이 - 닌빈: 호아루, 짱안 보트 타기 & 무아 동굴 투어",
+    "r": 4.9,
+    "c": 8538,
+    "k": "boat"
+   }
+  ],
+  "helsinki": [
+   {
+    "id": "406235",
+    "u": "/helsinki-l13/helsinki-archipelago-sightseeing-boat-tour-t406235/",
+    "n": "헬싱키 군도: 관광 보트 투어",
+    "r": 4.4,
+    "c": 687,
+    "k": "boat"
+   }
+  ],
+  "hong-kong": [
+   {
+    "id": "194297",
+    "u": "/hong-kong-l174/hong-kong-victoria-harbor-symphony-unlimited-drink-cruise-t194297/",
+    "n": "홍콩: 빅토리아 항구 야간 크루즈 & 무제한 음료",
+    "r": 4.4,
+    "c": 2445,
+    "k": "boat"
+   },
+   {
+    "id": "558058",
+    "u": "/hong-kong-l174/starlight-victoria-harbour-night-yacht-tour-stunning-view-t558058/",
+    "n": "홍콩: 빅토리아 하버 저녁 크루즈 & 음료",
+    "r": 4.6,
+    "c": 1846,
+    "k": "boat"
+   }
+  ],
+  "las-vegas": [
+   {
+    "id": "536681",
+    "u": "/las-vegas-l58/vegas-grand-canyon-rim-to-river-vip-skywalk-entry-option-t536681/",
+    "n": "라스베이거스 출발 그랜드 캐니언 웨스트 비행기, 헬리콥터 & 보트 투어",
+    "r": 4.7,
+    "c": 241,
+    "k": "heli"
+   },
+   {
+    "id": "622644",
+    "u": "/boulder-city-l106487/hoover-dam-90-minute-midday-sightseeing-cruise-t622644/",
+    "n": "후버 댐: 1시간 30분 정오 관광 크루즈",
+    "r": 4.6,
+    "c": 218,
+    "k": "boat"
+   },
+   {
+    "id": "9857",
+    "u": "/las-vegas-l58/grand-canyon-celebration-helicopter-boat-skywalk-t9857/",
+    "n": "라스베이거스: 그랜드 캐니언 헬리콥터 탑승, 보트 투어 & 스카이 워크",
+    "r": 4.6,
+    "c": 84,
+    "k": "heli"
+   }
+  ],
+  "lisbon": [
+   {
+    "id": "433303",
+    "u": "/lisbon-l42/lisbon-sunset-tour-with-music-and-a-drink-t433303/",
+    "n": "쌍동선(카타마란)으로 즐기는 리스본 일몰 보트 투어(웰컴 드링크 1잔 제공)",
+    "r": 4.7,
+    "c": 3633,
+    "k": "boat"
+   },
+   {
+    "id": "309373",
+    "u": "/lisbon-l42/lisbon-3-hour-dolphin-watching-boat-tour-t309373/",
+    "n": "리스본: 해양 생물학자와 함께하는 돌고래 관찰 바다 사파리",
+    "r": 4.9,
+    "c": 2262,
+    "k": "boat"
+   },
+   {
+    "id": "1134436",
+    "u": "/lisbon-l42/lisbon-exclusive-sunset-golden-hour-reflection-boat-cruise-t1134436/",
+    "n": "리스본: 포르투갈 와인을 곁들인 황금빛 일몰 보트 크루즈",
+    "r": 4.8,
+    "c": 762,
+    "k": "boat"
+   }
+  ],
+  "london": [
+   {
+    "id": "71379",
+    "u": "/london-l57/westminster-to-greenwich-sightseeing-cruise-t71379/",
+    "n": "런던: 웨스트민스터 출발 그리니치행 템스강 크루즈",
+    "r": 4.5,
+    "c": 25791,
+    "k": "boat"
+   },
+   {
+    "id": "193403",
+    "u": "/london-l57/coca-cola-london-eye-river-cruise-t193403/",
+    "n": "런던: 템스강 크루즈(런던 아이 티켓 옵션)",
+    "r": 4.5,
+    "c": 4548,
+    "k": "boat"
+   }
+  ],
+  "los-angeles": [
+   {
+    "id": "570751",
+    "u": "/los-angeles-l179/long-beach-whale-and-dolphin-watching-cruise-t570751/",
+    "n": "롱비치: 고래 및 돌고래 관찰 크루즈",
+    "r": 4.5,
+    "c": 1062,
+    "k": "boat"
+   },
+   {
+    "id": "404585",
+    "u": "/los-angeles-l179/echo-park-lake-swan-pedal-boat-rental-t404585/",
+    "n": "에코 파크 호수: 백조 페달 보트 대여",
+    "r": 4.5,
+    "c": 352,
+    "k": "boat"
+   }
+  ],
+  "malaga": [
+   {
+    "id": "622031",
+    "u": "/malaga-l402/malaga-catamaran-sunset-or-night-cruise-w-live-dj-drink-t622031/",
+    "n": "말라가: 쌍동선(카타마란) 선셋 또는 야간 크루즈 - 라이브 DJ & 음료",
+    "r": 4.6,
+    "c": 3150,
+    "k": "boat"
+   },
+   {
+    "id": "383552",
+    "u": "/malaga-l402/malaga-scenic-catamaran-cruise-t383552/",
+    "n": "말라가: 경치 좋은 쌍동선 크루즈",
+    "r": 4.5,
+    "c": 2151,
+    "k": "boat"
+   }
+  ],
+  "miami": [
+   {
+    "id": "643959",
+    "u": "/miami-l176/miami-biscayne-bay-millionaires-homes-sightseeing-cruise-t643959/",
+    "n": "마이애미: 비스케인 베이 백만장자 주택 관광 크루즈",
+    "r": 4.5,
+    "c": 9523,
+    "k": "boat"
+   },
+   {
+    "id": "172401",
+    "u": "/miami-l176/everglades-national-park-airboat-tour-and-wildlife-show-t172401/",
+    "n": "마이애미: 에버글레이즈 국립공원 에어보트 투어 & 야생 동물 쇼",
+    "r": 4.5,
+    "c": 8108,
+    "k": "boat"
+   }
+  ],
+  "new-orleans": [
+   {
+    "id": "22812",
+    "u": "/new-orleans-l370/new-orleans-evening-steamboat-jazz-cruise-optional-dinner-t22812/",
+    "n": "뉴올리언스: 저녁 증기선 재즈 크루즈 + 저녁 식사 옵션",
+    "r": 4.4,
+    "c": 5523,
+    "k": "boat"
+   },
+   {
+    "id": "145602",
+    "u": "/new-orleans-l370/new-orleans-high-speed-16-passenger-airboat-ride-from-dock-t145602/",
+    "n": "뉴올리언스: 16인용 고속 에어보트 탑승",
+    "r": 4.9,
+    "c": 2965,
+    "k": "boat"
+   }
+  ],
+  "new-york": [
+   {
+    "id": "393246",
+    "u": "/new-york-city-l59/statue-of-liberty-ellis-island-ticket-options-with-ferry-t393246/",
+    "n": "NYC Statue City Cruises: 공식 자유의 여신상 티켓",
+    "r": 4.6,
+    "c": 21368,
+    "k": "boat"
+   },
+   {
+    "id": "108082",
+    "u": "/new-york-city-l59/nyc-circle-line-2h-harbor-lights-cruise-skip-the-box-office-t108082/",
+    "n": "서클 라인: 뉴욕 하버 라이트 크루즈",
+    "r": 4.6,
+    "c": 9074,
+    "k": "boat"
+   }
+  ],
+  "osaka": [
+   {
+    "id": "1054760",
+    "u": "/osaka-l1204/osaka-dotonbori-river-cruise-with-glico-sign-neon-views-t1054760/",
+    "n": "오사카: 도톤보리 강 크루즈 & 글리코 사인 및 네온 조명 전망",
+    "r": 4.5,
+    "c": 2651,
+    "k": "boat"
+   },
+   {
+    "id": "1323946",
+    "u": "/osaka-l1204/osaka-2-hour-walking-tour-with-dotonbori-river-cruise-t1323946/",
+    "n": "오사카 도톤보리 강 크루즈 & 워킹 투어",
+    "r": 4.7,
+    "c": 351,
+    "k": "boat"
+   },
+   {
+    "id": "690318",
+    "u": "/osaka-l1204/osaka-original-street-go-karting-1-hr-t690318/",
+    "n": "오사카: 오리지널 스트리트 카트 체험(1시간)",
+    "r": 4.9,
+    "c": 317,
+    "k": "kart"
+   }
+  ],
+  "oslo": [
+   {
+    "id": "460460",
+    "u": "/oslo-l38/oslo-scenic-fjord-cruise-with-audio-guide-commentary-t460460/",
+    "n": "오슬로: 경치 좋은 피오르드 크루즈 & 오디오 가이드 해설",
+    "r": 4.5,
+    "c": 6905,
+    "k": "boat"
+   },
+   {
+    "id": "576",
+    "u": "/oslo-l38/oslo-2-hour-fjord-sightseeing-tour-t576/",
+    "n": "오슬로 피오르드 전통 목조 보트 세일링 크루즈 2시간",
+    "r": 4.5,
+    "c": 6219,
+    "k": "boat"
+   }
+  ],
+  "paris": [
+   {
+    "id": "1282311",
+    "u": "/paris-l16/paris-bateaux-mouches-evening-cruise-souvenir-postcard-t1282311/",
+    "n": "파리: 전설적인 Bateaux-Mouches®와 함께하는 저녁 조명 크루즈",
+    "r": 4.4,
+    "c": 7065,
+    "k": "boat"
+   },
+   {
+    "id": "1349437",
+    "u": "/paris-l16/seine-river-sightseeing-guided-cruise-vedettes-du-pont-neuf-t1349437/",
+    "n": "센 강 관광 가이드 크루즈 Vedettes du Pont Neuf",
+    "r": 4.6,
+    "c": 511,
+    "k": "boat"
+   }
+  ],
+  "phuket": [
+   {
+    "id": "459047",
+    "u": "/phuket-city-l187/phuket-paradise-trip-atv-jungle-adventure-t459047/",
+    "n": "푸켓: 파라다이스 트립 전지형차(ATV) 정글 어드벤처",
+    "r": 4.8,
+    "c": 3911,
+    "k": "atv"
+   },
+   {
+    "id": "708828",
+    "u": "/phuket-city-l187/atv-tour-to-big-buddha-view-point-and-zipline-adventure-t708828/",
+    "n": "푸켓: 빅 부다 전망대 ATV 투어 및 집라인 어드벤처",
+    "r": 4.8,
+    "c": 696,
+    "k": "atv"
+   },
+   {
+    "id": "1122058",
+    "u": "/patong-l93618/phuket-6-island-self-drive-jetski-adventure-post-sun-spa-t1122058/",
+    "n": "푸껫 6개 섬 제트스키 자가 운전 어드벤처 & 일광욕 후 스파",
+    "r": 4.8,
+    "c": 334,
+    "k": "jetski"
+   },
+   {
+    "id": "873464",
+    "u": "/phuket-city-l187/phuket-e-jetski-and-water-sports-patong-for-rent-and-tour-t873464/",
+    "n": "푸껫: 파통에서 즐기는 전기 제트스키 및 수상 스포츠(대여 및 투어)",
+    "r": 4.7,
+    "c": 114,
+    "k": "jetski"
+   }
+  ],
+  "prague": [
+   {
+    "id": "71256",
+    "u": "/prague-l10/prague-by-night-3-hour-dinner-cruise-t71256/",
+    "n": "프라하: 저녁 뷔페와 라이브 음악이 있는 이브닝 크루즈",
+    "r": 4.3,
+    "c": 7484,
+    "k": "boat"
+   },
+   {
+    "id": "390094",
+    "u": "/prague-l10/prague-sightseeing-dinner-cruise-on-open-top-glass-boat-t390094/",
+    "n": "프라하: 라이브 음악과 뷔페가 함께하는 유리 보트 디너 크루즈",
+    "r": 4.4,
+    "c": 7172,
+    "k": "boat"
+   }
+  ],
+  "reykjavik": [
+   {
+    "id": "248622",
+    "u": "/reykjavik-l30/reykjavik-scenic-whale-watching-tour-t248622/",
+    "n": "레이캬비크: 고래 관람 및 해양 생물 크루즈",
+    "r": 4.5,
+    "c": 11954,
+    "k": "boat"
+   },
+   {
+    "id": "174093",
+    "u": "/reykjavik-l30/whale-watching-on-board-a-yacht-t174093/",
+    "n": "레이캬비크: 아멜리아 로즈 요트에서 즐기는 고래 관람 크루즈",
+    "r": 4.5,
+    "c": 3223,
+    "k": "boat"
+   }
+  ],
+  "san-francisco": [
+   {
+    "id": "3285",
+    "u": "/san-francisco-l61/san-francisco-golden-gate-bay-cruise-1-hour-t3285/",
+    "n": "샌프란시스코: 금문교 베이 크루즈",
+    "r": 4.7,
+    "c": 4123,
+    "k": "boat"
+   },
+   {
+    "id": "3287",
+    "u": "/san-francisco-l61/san-francisco-san-francisco-city-lights-cruise-2-hours-t3287/",
+    "n": "샌프란시스코: 샌프란시스코 시티 라이츠 크루즈",
+    "r": 4.6,
+    "c": 2688,
+    "k": "boat"
+   }
+  ],
+  "seattle": [
+   {
+    "id": "18343",
+    "u": "/seattle-l198/seattle-guided-harbor-cruise-t18343/",
+    "n": "시애틀: 현지 가이드와 함께하는 항구 크루즈",
+    "r": 4.8,
+    "c": 749,
+    "k": "boat"
+   },
+   {
+    "id": "434605",
+    "u": "/seattle-l198/seattle-half-day-wildlife-and-whale-watching-cruise-t434605/",
+    "n": "시애틀: 야생 동물과 고래 관람 크루즈",
+    "r": 4.5,
+    "c": 731,
+    "k": "boat"
+   }
+  ],
+  "seoul": [
+   {
+    "id": "1288245",
+    "u": "/seoul-l197/seoul-han-river-rainbow-boat-tour-t1288245/",
+    "n": "서울: 한강 레인보우 보트 그룹 투어",
+    "r": 4.8,
+    "c": 414,
+    "k": "boat"
+   },
+   {
+    "id": "440362",
+    "u": "/seoul-l197/moonlight-seoul-night-tour-cheonggyecheon-stream-gwangjang-t440362/",
+    "n": "서울 한강 야간 페리: 63빌딩 & 광장시장",
+    "r": 4.9,
+    "c": 340,
+    "k": "boat"
+   }
+  ],
+  "seville": [
+   {
+    "id": "521326",
+    "u": "/seville-l48/seville-guadalquivir-river-boat-tour-t521326/",
+    "n": "세비야: 가이드와 함께하는 과달키비르강 보트 투어",
+    "r": 4.6,
+    "c": 2086,
+    "k": "boat"
+   },
+   {
+    "id": "356995",
+    "u": "/seville-l48/seville-exclusive-river-boat-tour-with-tapas-t356995/",
+    "n": "세비야: 타파스가 포함된 특별한 리버 보트 투어",
+    "r": 4.3,
+    "c": 989,
+    "k": "boat"
+   }
+  ],
+  "singapore": [
+   {
+    "id": "1072669",
+    "u": "/singapore-l170/singapore-river-cruise-night-garden-rhapsody-spectra-show-t1072669/",
+    "n": "CYT의 싱가포르 강 크루즈 & 가든 랩소디 및 스펙트라 투어",
+    "r": 4.8,
+    "c": 1988,
+    "k": "boat"
+   },
+   {
+    "id": "712172",
+    "u": "/singapore-l170/singapore-starry-night-cruise-rhapsody-spectra-satay-t712172/",
+    "n": "싱가포르 별이 빛나는 야간 크루즈, 스펙트라 바이 더 보트, 랩소디",
+    "r": 4.5,
+    "c": 1767,
+    "k": "boat"
+   },
+   {
+    "id": "204319",
+    "u": "/singapore-l170/singapore-guided-city-tour-by-amphibious-duck-boat-t204319/",
+    "n": "싱가포르: 수륙양용 덕 보트로 떠나는 가이드 시티 투어",
+    "r": 4.5,
+    "c": 560,
+    "k": "duck"
+   }
+  ],
+  "split": [
+   {
+    "id": "741442",
+    "u": "/split-l268/split-blue-lagoon-3-island-tour-with-food-drinks-incl-t741442/",
+    "n": "스플리트: Blue Lagoon & 섬 3개 크루즈(식음료 포함)",
+    "r": 4.7,
+    "c": 4469,
+    "k": "boat"
+   },
+   {
+    "id": "432057",
+    "u": "/maslinica-l130003/split-blue-lagoon-3-islands-speedboat-tour-small-group-t432057/",
+    "n": "스플리트: Blue Lagoon & 섬 3개 – 프리미엄 쾌속선 투어",
+    "r": 5,
+    "c": 4279,
+    "k": "boat"
+   }
+  ],
+  "stockholm": [
+   {
+    "id": "33191",
+    "u": "/stockholm-l50/stockholm-archipelago-sightseeing-tour-t33191/",
+    "n": "스톡홀름: 프리미엄 선박을 타고 즐기는 가이드와 함께하는 군도 크루즈",
+    "r": 4.3,
+    "c": 12121,
+    "k": "boat"
+   },
+   {
+    "id": "811343",
+    "u": "/stockholm-l50/stockholm-archipelago-boat-tour-t811343/",
+    "n": "스톡홀름: 인솔 가이드와 함께하는 군도 크루즈",
+    "r": 4.5,
+    "c": 6554,
+    "k": "boat"
+   }
+  ],
+  "sydney": [
+   {
+    "id": "76095",
+    "u": "/sydney-l200/sydney-harbour-dinner-cruise-with-3-4-or-6-course-menu-t76095/",
+    "n": "시드니 하버 디너 크루즈(3코스, 4코스 또는 5코스 메뉴)",
+    "r": 4.4,
+    "c": 1095,
+    "k": "boat"
+   },
+   {
+    "id": "1083455",
+    "u": "/sydney-l200/sydney-harbour-dinner-cruise-with-buffet-t1083455/",
+    "n": "시드니: 하버 디너 크루즈(뷔페 포함)",
+    "r": 4.4,
+    "c": 1018,
+    "k": "boat"
+   }
+  ],
+  "tokyo": [
+   {
+    "id": "540102",
+    "u": "/tokyo-l193/shibuya-tokyo-street-go-kart-experience-by-street-kart-t540102/",
+    "n": "도쿄: 시부야에서 즐기는 스트리트 카트 체험",
+    "r": 4.9,
+    "c": 1974,
+    "k": "kart"
+   },
+   {
+    "id": "488035",
+    "u": "/tokyo-l193/tokyo-yakatabune-cruise-400-year-edo-tradition-odaiba-rou-t488035/",
+    "n": "도쿄 야카타부네 디너 크루즈: 400년 역사의 에도 & 오다이바 노선",
+    "r": 4.7,
+    "c": 1364,
+    "k": "boat"
+   },
+   {
+    "id": "438005",
+    "u": "/tokyo-l193/sumida-river-japanese-traditional-yakatabune-dinner-cruise-t438005/",
+    "n": "스미다강: 일본 전통 야카타부네 디너 크루즈",
+    "r": 4.6,
+    "c": 970,
+    "k": "boat"
+   }
+  ],
+  "toronto": [
+   {
+    "id": "235977",
+    "u": "/toronto-l177/toronto-scenic-harbor-cruise-with-lunch-brunch-or-dinner-t235977/",
+    "n": "토론토: 점심, 브런치 또는 저녁 식사가 포함된 프리미엄 항구 크루즈",
+    "r": 4.5,
+    "c": 1602,
+    "k": "boat"
+   }
+  ],
+  "warsaw": [
+   {
+    "id": "401717",
+    "u": "/warsaw-l41/warsaw-traditional-galar-cruise-on-the-vistula-river-t401717/",
+    "n": "바르샤바: 비스툴라강에서 즐기는 전통 갈라르 크루즈",
+    "r": 4.5,
+    "c": 2151,
+    "k": "boat"
+   },
+   {
+    "id": "581212",
+    "u": "/warsaw-l41/vistula-cruise-with-prosecco-t581212/",
+    "n": "바르샤바: 전통 목재 보트를 타고 즐기는 비스툴라강 크루즈",
+    "r": 4.4,
+    "c": 281,
+    "k": "boat"
+   },
+   {
+    "id": "827965",
+    "u": "/warsaw-l41/warsaw-scenic-cruise-by-gondola-on-the-vistula-river-t827965/",
+    "n": "바르샤바: 전통 곤돌라로 즐기는 비스툴라강 보트 크루즈",
+    "r": 4.4,
+    "c": 219,
+    "k": "gondola"
+   }
+  ],
+  "washington-dc": [
+   {
+    "id": "458125",
+    "u": "/washington-dc-l62/washington-dc-the-wharf-self-driven-boat-tour-with-map-t458125/",
+    "n": "워싱턴 D.C.: 지도와 함께하는 워프 셀프 드라이브 보트 투어",
+    "r": 4.5,
+    "c": 169,
+    "k": "boat"
+   }
+  ]
+ }
+}

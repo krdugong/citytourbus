@@ -4,7 +4,7 @@
 // canvas, because Naver/Google/Kakao crop og:image (1200×630) to a 1:1 thumbnail around the centre.
 import AppKit
 
-struct Card: Decodable { let out: String; let w: Int; let h: Int; let eyebrow: String; let title: String; let sub: String; let bg: String; let vehicle: String? } // vehicle: nil = bus, "kart", "rickshaw", "boat", "tram"
+struct Card: Decodable { let out: String; let w: Int; let h: Int; let eyebrow: String; let title: String; let sub: String; let bg: String; let vehicle: String? } // vehicle: nil = bus, "kart", "rickshaw", "boat", "tram", "jeep"
 
 func color(_ hex: String) -> NSColor {
   var v: UInt64 = 0; Scanner(string: hex.replacingOccurrences(of: "#", with: "")).scanHexInt64(&v)
@@ -155,6 +155,25 @@ func drawTram(_ box: NSRect, accent: NSColor) {
   NSGraphicsContext.restoreGraphicsState()
 }
 
+// 4x4 SUV on sand dunes (desert safari).
+func drawJeep(_ box: NSRect, accent: NSColor) {
+  let u = box.width / 1000
+  func R(_ x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) -> NSRect { NSRect(x: box.minX + x * u, y: box.minY + (y + 40) * u, width: w * u, height: h * u) }
+  let dark = accent.blended(withFraction: 0.3, of: .black)!, glass = color("#dff3ff"), glassEdge = color("#b7dcf3"), tire = color("#2b3442"), hub = color("#dde7ee"), ink = color("#2b3442")
+  let sand = color("#f2c48d"), sandDark = color("#e0a96a")
+  oval(R(-40, -44, 600, 96), sandDark); oval(R(400, -48, 660, 104), sand)      // dunes
+  oval(R(110, -30, 800, 50), NSColor(white: 0, alpha: 0.10))
+  rr(R(250, 330, 420, 24), 10 * u, ink); for x in [280, 400, 520, 620] { rr(R(CGFloat(x), 300, 14, 40), 6 * u, ink) } // roof rack
+  rr(R(230, 170, 470, 170), 40 * u, dark)                                        // cabin
+  rr(R(260, 195, 180, 115), 18 * u, glass); rr(R(460, 195, 210, 115), 18 * u, glass) // side windows
+  rr(R(260, 290, 410, 10), 5 * u, glassEdge)
+  rr(R(90, 40, 820, 170), 46 * u, accent)                                        // body
+  rr(R(90, 150, 820, 14), 7 * u, NSColor(white: 1, alpha: 0.85))
+  rr(R(840, 70, 70, 40), 14 * u, color("#ffd166"))                               // headlight
+  rr(R(60, 30, 880, 26), 13 * u, ink)                                            // bumper line
+  for cx in [250, 750] { oval(R(CGFloat(cx) - 95, -60, 190, 190), tire); oval(R(CGFloat(cx) - 48, -13, 96, 96), hub); oval(R(CGFloat(cx) - 16, 19, 32, 32), tire) }
+}
+
 let args = CommandLine.arguments
 let cards = try! JSONDecoder().decode([Card].self, from: Data(contentsOf: URL(fileURLWithPath: args[1])))
 let root = args[2]
@@ -180,7 +199,7 @@ for c in cards {
   drawLandmarks(CITY_LANDMARKS[cityKey(c.out)] ?? ["skyline", "mountains"], left: safeL, right: safeR, ground: ground, bandH: bandH, fill: accent.blended(withFraction: 0.68, of: .white)!, hole: bg)
   rr(NSRect(x: 0, y: busY + 36 * busW / 1000, width: W, height: 8 * s), 4 * s, accent.withAlphaComponent(0.14))
   let vbox = NSRect(x: cx - busW / 2, y: busY, width: busW, height: busW * 0.56)
-  switch c.vehicle { case "kart": drawKart(vbox, accent: accent); case "rickshaw": drawRickshaw(vbox, accent: accent); case "boat": drawBoat(vbox, accent: accent); case "tram": drawTram(vbox, accent: accent); default: drawBus(vbox, accent: accent) }
+  switch c.vehicle { case "kart": drawKart(vbox, accent: accent); case "rickshaw": drawRickshaw(vbox, accent: accent); case "boat": drawBoat(vbox, accent: accent); case "tram": drawTram(vbox, accent: accent); case "jeep": drawJeep(vbox, accent: accent); default: drawBus(vbox, accent: accent) }
   // eyebrow pill
   let ef = font(28 * s, bold: true)
   let ew = (c.eyebrow as NSString).size(withAttributes: [.font: ef]).width + 44 * s

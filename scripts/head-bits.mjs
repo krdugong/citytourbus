@@ -8,6 +8,15 @@ export const TAG = `<script async src="https://www.googletagmanager.com/gtag/js?
 // Matches any earlier form of the tag (with or without defer) so it can be swapped for the current one.
 export const TAG_RE = /<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=G-[A-Z0-9]+"><\/script><script(?: defer)? src="\/analytics\.js"><\/script>/;
 
+// AdSense: paste the publisher id from the AdSense account here (like 'ca-pub-1234567890123456') and run the build.
+// scripts/add_analytics.mjs then adds the verification meta + Auto ads script to every page and writes /ads.txt.
+// Left empty, no ad code is added (and any earlier copy is removed).
+export const ADSENSE_CLIENT = '';
+export const ADS_TAG = ADSENSE_CLIENT
+  ? `<meta name="google-adsense-account" content="${ADSENSE_CLIENT}"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>`
+  : '';
+export const ADS_RE = /<meta name="google-adsense-account" content="ca-pub-\d+">(?:<script async src="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-\d+" crossorigin="anonymous"><\/script>)?/g;
+
 // Fonts: only the three weights the CSS uses, loaded without blocking the first paint (media="print" swap with a
 // <noscript> fallback), plus preconnect to the host the font files come from.
 export const FONT_URL = 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;800&display=swap';

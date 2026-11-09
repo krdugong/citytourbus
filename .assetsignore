@@ -1,0 +1,21 @@
+# Files Cloudflare must not publish (same idea as .vercelignore, plus repo and Cloudflare source files).
+.git
+.github
+.claude
+.wrangler
+node_modules
+.gitignore
+.vercelignore
+.assetsignore
+vercel.json
+wrangler.jsonc
+api/
+cloudflare/
+
+# From .vercelignore. Keep data/price-sources.json published: /live-prices.js fetches it on /compare.
+data/keyword-pages/
+data/route-maps/
+data/i18n/
+scripts/
+astro-site/
+*.md

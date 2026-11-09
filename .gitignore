@@ -1,3 +1,9 @@
 scripts/keyword-pages/.cache/
 scripts/route-maps/.cache/
 .claude/
+
+# Cloudflare: generated from vercel.json by cloudflare/build.mjs, and local wrangler state
+/_redirects
+/_headers
+cloudflare/generated.json
+.wrangler/

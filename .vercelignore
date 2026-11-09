@@ -7,3 +7,8 @@ scripts/
 astro-site/
 *.md
 .gitignore
+
+# Cloudflare hosting files (not needed on Vercel)
+cloudflare/
+wrangler.jsonc
+.assetsignore

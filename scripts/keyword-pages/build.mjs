@@ -4,8 +4,9 @@
 //
 // Page JSON fields (optional ones marked ?):
 //   slug, keyword, city, flag, published?, updated, verified, title, description, h1Sub, lead, aka?[],
-//   (published = the day the URL first went live, kept fixed; updated = last content change. Article
-//   datePublished and the RSS pubDate use published, dateModified and the sitemap lastmod use updated.)
+//   (published = the day the URL first went live, kept fixed; updated = last content change. JSON-LD
+//   datePublished uses published; dateModified, the sitemap lastmod, article:published_time and the RSS pubDate
+//   use updated, because Naver shows that date in search results ("2주 전") and the pages are revised monthly.)
 //   booking{url,label}, official, routeCheck?{url,label}, cityGuide?{url,label},
 //   summary[[k,v]], routes[{color,name,area?,en,duration,interval,hours,stops?[],tip}],
 //   night?{time,start,duration,price,text}, tickets[{name,validity,price,includes[],for}], priceNote, payCurrency?,
@@ -276,7 +277,7 @@ ${TAG}
 <meta property="og:type" content="article"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="CITYTOURBUS">
 <meta property="og:title" content="${esc(p.title)}"><meta property="og:description" content="${esc(p.description)}"><meta property="og:url" content="${url}">
 <meta property="og:image" content="${ogImg}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(p.images.main.alt)}">
-<meta property="article:published_time" content="${published}T09:00:00+09:00"><meta property="article:modified_time" content="${p.updated}T09:00:00+09:00">
+<meta property="article:published_time" content="${p.updated}T09:00:00+09:00"><meta property="article:modified_time" content="${p.updated}T09:00:00+09:00">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(p.title)}"><meta name="twitter:image" content="${ogImg}">
 ${ICONS}
 ${PRECONNECT}${fontLinks()}
@@ -358,10 +359,10 @@ for (const p of pages) {
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
 
 // rss.xml (submitted to Naver Search Advisor): every keyword page plus the ticket guide, newest first.
-// pubDate is the first-publish date so an edit never makes an old page look like a new post; the channel's
-// lastBuildDate is the latest content change so the feed itself still reads as updated.
+// pubDate is the page's last content update (Naver shows it as the post date in search results); the
+// channel's lastBuildDate is the latest of those.
 const rssItems = [
-  ...pages.map(p => ({ title: p.title, link: `${SITE}/${p.slug}`, description: p.description, date: p.published || p.updated })),
+  ...pages.map(p => ({ title: p.title, link: `${SITE}/${p.slug}`, description: p.description, date: p.updated })),
   { title: '시티투어버스 티켓을 비교하는 방법', link: `${SITE}/guide/compare-tickets`, description: '이용시간, 노선, 정류장, 취소 조건을 기준으로 시티투어버스 티켓을 비교하는 방법을 설명합니다.', date: '2026-10-27' }
 ].sort((a, b) => b.date.localeCompare(a.date) || a.link.localeCompare(b.link));
 const rssDate = (d) => new Date(`${d}T09:00:00+09:00`).toUTCString();

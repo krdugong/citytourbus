@@ -11,7 +11,7 @@ export const TAG_RE = /<script async src="https:\/\/www\.googletagmanager\.com\/
 // AdSense: paste the publisher id from the AdSense account here (like 'ca-pub-1234567890123456') and run the build.
 // scripts/add_analytics.mjs then adds the verification meta + Auto ads script to every page and writes /ads.txt.
 // Left empty, no ad code is added (and any earlier copy is removed).
-export const ADSENSE_CLIENT = '';
+export const ADSENSE_CLIENT = 'ca-pub-9629968951151300';
 export const ADS_TAG = ADSENSE_CLIENT
   ? `<meta name="google-adsense-account" content="${ADSENSE_CLIENT}"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>`
   : '';

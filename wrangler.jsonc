@@ -17,5 +17,7 @@
     // Only these paths run code (they count toward the free 100k requests/day); everything else is static.
     "run_worker_first": ["/", "/compare", "/compare/*", "/api/*"]
   },
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
+  // Lets Workers Builds give every branch / PR its own preview (`wrangler preview`).
+  "previews": {}
 }

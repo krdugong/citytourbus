@@ -5,6 +5,8 @@
   "main": "cloudflare/worker.js",
   "compatibility_date": "2026-10-01",
   "build": { "command": "node cloudflare/build.mjs" },
+  // www is served here; the bare domain redirects to www via cloudflare/apex.
+  "routes": [{ "pattern": "www.citytourbus.kr", "custom_domain": true }],
   "assets": {
     "directory": ".",
     "binding": "ASSETS",
@@ -15,5 +17,7 @@
     // Only these paths run code (they count toward the free 100k requests/day); everything else is static.
     "run_worker_first": ["/", "/compare", "/compare/*", "/api/*"]
   },
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
+  // Lets Workers Builds give every branch / PR its own preview (`wrangler preview`).
+  "previews": {}
 }

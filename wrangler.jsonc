@@ -5,6 +5,8 @@
   "main": "cloudflare/worker.js",
   "compatibility_date": "2026-10-01",
   "build": { "command": "node cloudflare/build.mjs" },
+  // www is served here; the bare domain redirects to www via cloudflare/apex.
+  "routes": [{ "pattern": "www.citytourbus.kr", "custom_domain": true }],
   "assets": {
     "directory": ".",
     "binding": "ASSETS",

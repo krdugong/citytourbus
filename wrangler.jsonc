@@ -1,0 +1,19 @@
+// Cloudflare Workers config for www.citytourbus.kr (replaces Vercel hosting).
+// Redirects and headers still live in vercel.json; cloudflare/build.mjs converts them on every deploy.
+{
+  "name": "citytourbus",
+  "main": "cloudflare/worker.js",
+  "compatibility_date": "2026-10-01",
+  "build": { "command": "node cloudflare/build.mjs" },
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    // Like Vercel cleanUrls + trailingSlash:false: /paris-big-bus serves paris-big-bus.html,
+    // /paris-big-bus.html and /about/ redirect to the clean URL.
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page",
+    // Only these paths run code (they count toward the free 100k requests/day); everything else is static.
+    "run_worker_first": ["/", "/compare", "/compare/*", "/api/*"]
+  },
+  "observability": { "enabled": true }
+}

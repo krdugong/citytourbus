@@ -14,8 +14,8 @@
  "h1Sub": "입장료·티켓·운영시간 총정리",
  "lead": "우메다 공중정원 전망대는 JR 오사카역 북쪽 우메다 스카이빌딩의 39·40층과 옥상으로 이루어진 전망대입니다. 입장료는 성인(중학생 이상) 2,000엔이고, 공식 WEB 사전권을 전날까지 사면 1,800엔입니다. 9:30부터 22:30까지 열고 마지막 입장이 22:00이라 야경 보러 가기 좋습니다.",
  "booking": {
-  "url": "https://www.skybldg.co.jp/observatory/information/",
-  "label": "우메다 공중정원 공식 사이트 보기"
+  "url": "https://www.getyourguide.com/ko-kr/osaka-l1204/osaka-umeda-sky-underground-mall-nakazakicho-walk-t1116180/?partner_id=7NCF1BV&utm_medium=online_publisher&cmp=citytourbuskr-osaka-umeda-sky-building",
+  "label": "우메다 스카이 투어 예약"
  },
  "official": "https://www.skybldg.co.jp/observatory/information/",
  "aka": [
@@ -195,6 +195,5 @@
    "bg": "#334155"
   }
  },
- "asideNote": "성인 2,000엔 · 전날까지 WEB 1,800엔 · 22:00 입장 마감",
- "affiliate": false
+ "asideNote": "성인 2,000엔 · 전날까지 WEB 1,800엔 · 22:00 입장 마감"
 }

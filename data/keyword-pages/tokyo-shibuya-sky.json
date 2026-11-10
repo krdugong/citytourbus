@@ -14,8 +14,8 @@
  "h1Sub": "예약·가격·시간·옥상 주의사항 총정리",
  "lead": "시부야 스카이는 시부야역 바로 위 시부야 스크램블 스퀘어 꼭대기에 있는 전망대로, 14층에서 입장해 46층 실내 전망 회랑과 스크램블 교차로를 내려다보는 옥상으로 올라갑니다. 입장권은 20분 단위 시간 지정제이고, 공식 웹에서 12세 이상 2,700엔(15시 이후 입장 3,400엔)이며 현장 창구는 300엔 더 비쌉니다. 웹에서 매진된 시간대는 창구에서도 살 수 없어서, 해 질 녘 시간대를 원하면 입장일 2주 전 0시(일본 시간)에 판매가 열릴 때 예약해 두는 편이 안전합니다.",
  "booking": {
-  "url": "https://www.shibuya-scramble-square.com/sky/ticket/",
-  "label": "시부야 스카이 공식 예약하기"
+  "url": "https://www.getyourguide.com/ko-kr/tokyo-l193/tokyo-shibuya-sky-night-view-neon-3d-photo-tour-t1208208/?partner_id=7NCF1BV&utm_medium=online_publisher&cmp=citytourbuskr-tokyo-shibuya-sky",
+  "label": "시부야 스카이 야경 투어 예약"
  },
  "official": "https://www.shibuya-scramble-square.com/sky/ticket/",
  "aka": [
@@ -281,6 +281,5 @@
   }
  },
  "asideNote": "웹 2,700엔부터 · 2주 전 0시 예약 오픈 · 옥상 가방·모자 반입 금지",
- "picksIntro": "시부야 스카이 입장이 포함된 시부야 투어 등입니다. 공식 사이트는 공식 판매 사이트와 정규 판매 대리점 외에서 산 표로는 입장할 수 없다고 안내하니, 예약 전 상품 설명에서 입장 방식을 확인하세요. GetYourGuide에서 후기가 많은 순서로 골랐습니다.",
- "affiliate": false
+ "picksIntro": "시부야 스카이 입장이 포함된 시부야 투어 등입니다. 공식 사이트는 공식 판매 사이트와 정규 판매 대리점 외에서 산 표로는 입장할 수 없다고 안내하니, 예약 전 상품 설명에서 입장 방식을 확인하세요. GetYourGuide에서 후기가 많은 순서로 골랐습니다."
 }

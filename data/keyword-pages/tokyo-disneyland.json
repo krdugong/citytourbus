@@ -14,8 +14,8 @@
  "h1Sub": "티켓 가격·구매·DPA 총정리",
  "lead": "도쿄 디즈니랜드는 도쿄역에서 JR 게이요선으로 약 20분 걸리는 마이하마역에서 걸어서 약 5분 거리의 디즈니 테마파크입니다. 입장권은 날짜와 파크를 지정하는 변동 요금제라 성인 원데이 패스포트가 8,900엔부터이고, 2026년 11월은 날짜에 따라 10,900~12,400엔입니다. 지금은 파크 매표소가 닫혀 있어 공식 사이트나 공식 앱에서 미리 사야 합니다.",
  "booking": {
-  "url": "https://www.tokyodisneyresort.jp/en/ticket/index.html",
-  "label": "도쿄 디즈니 리조트 공식 티켓 보기"
+  "url": "https://www.getyourguide.com/ko-kr/urayasu-l157731/tokyo-disneyland-ticket-with-optional-hotel-transfer-t1551024/?partner_id=7NCF1BV&utm_medium=online_publisher&cmp=citytourbuskr-tokyo-disneyland",
+  "label": "GetYourGuide에서 도쿄 디즈니랜드 티켓 보기"
  },
  "official": "https://www.tokyodisneyresort.jp/en/ticket/index.html",
  "aka": [
@@ -273,7 +273,6 @@
    "bg": "#831843"
   }
  },
- "asideNote": "원데이 8,900엔부터 · 매표소 없음 · 공식 사이트·앱 구매",
- "picksIntro": "디즈니랜드 입장권이나 교통이 포함된 상품입니다. 공식 사이트는 지정 판매처가 아닌 곳에서 산 표는 무효가 될 수 있다고 안내하니, 예약 전 상품 설명을 확인하세요. GetYourGuide에서 후기가 많은 순서로 골랐습니다.",
- "affiliate": false
+ "asideNote": "원데이 8,900엔부터 · 날짜별 가격 · 현장 매표소 없음",
+ "picksIntro": "디즈니랜드 입장권이나 교통이 포함된 상품입니다. 공식 사이트는 지정 판매처가 아닌 곳에서 산 표는 무효가 될 수 있다고 안내하니, 예약 전 상품 설명을 확인하세요. GetYourGuide에서 후기가 많은 순서로 골랐습니다."
 }

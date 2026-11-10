@@ -193,7 +193,7 @@ function render(p, all) {
 
   // Sight pages: the GetYourGuide tickets and tours for this sight, most-reviewed first, right under the official prices.
   if (p.gygPicks && p.gygPicks.length) sec('picks', 'GETYOURGUIDE', `${(p.spotCard || {}).title || k} GetYourGuide 인기 상품`, '인기 상품',
-    `<p>${esc(p.picksIntro || `공식 티켓이 매진됐거나 한국어·영어 가이드 설명을 듣고 싶을 때 볼 만한 상품입니다. GetYourGuide에서 후기가 많은 순서로 골랐습니다.`)}</p><div class="kw-kids">` +
+    `<p>${esc(p.picksIntro || `공식 티켓이 매진됐거나 가이드 설명을 듣고 싶을 때 볼 만한 상품입니다. GetYourGuide에서 후기가 많은 순서로 골랐습니다.`)}</p><div class="kw-kids">` +
     p.gygPicks.map(x => `<a class="kw-kid" href="${esc(`https://www.getyourguide.com${x.u}?${GYG.partner}&cmp=citytourbuskr-${p.slug}`)}" target="_blank" rel="sponsored nofollow noopener"><b>${esc(x.n)}</b><span>★ ${x.r} · 후기 ${Number(x.c).toLocaleString('en-US')}개${x.d ? ` · ${esc(x.d)}` : ''}</span><em>GetYourGuide에서 가격 보기 →</em></a>`).join('') +
     `</div><p class="small">후기 수·평점은 ${esc(p.gygChecked || p.verified)} GetYourGuide 기준이며 GetYourGuide 링크는 제휴 링크입니다. 가격은 날짜·인원에 따라 달라 GetYourGuide 화면에서 확인하세요.</p>`);
 

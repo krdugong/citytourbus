@@ -55,7 +55,7 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 // Price parsing shared by the price bars and the card-payment tip (currency symbol → ISO code for the tip).
 // No won conversion on purpose: the user found "약 N원" made prices look higher and could be read as a won charge.
 const CUR_CODE = { '€': 'EUR', '유로': 'EUR', 'US$': 'USD', '$': 'USD', '달러': 'USD', '£': 'GBP', '¥': 'JPY', '엔': 'JPY', 'HK$': 'HKD', 'S$': 'SGD', 'AU$': 'AUD', 'CA$': 'CAD', 'C$': 'CAD', 'NZ$': 'NZD', '฿': 'THB', '바트': 'THB', '₫': 'VND', '동': 'VND', 'AED': 'AED', 'CHF': 'CHF', 'SEK': 'SEK', 'NOK': 'NOK', 'DKK': 'DKK', 'zł': 'PLN', 'Kč': 'CZK', 'Ft': 'HUF', 'R': 'ZAR', 'CZK': 'CZK', 'PLN': 'PLN', 'ISK': 'ISK', 'SAR': 'SAR', 'THB': 'THB', 'VND': 'VND', 'ZAR': 'ZAR' };
-const PRICE_RX = /(US\$|AU\$|HK\$|CA\$|NZ\$|S\$|R\$|C\$|[€£¥₩$฿₫]|AED|CHF|CZK|PLN|ISK|SAR|THB|VND|ZAR|kr|zł|Kč|Ft|SEK|NOK|DKK|R)\s?([\d,]+(?:\.\d+)?)|([\d,]+(?:\.\d+)?)(?:\s?[~–-]\s?[\d,]+(?:\.\d+)?)?\s?(원|엔|유로|달러|바트|동|루피)/g;
+const PRICE_RX = /(US\$|AU\$|HK\$|CA\$|NZ\$|S\$|R\$|C\$|[€£¥₩$฿₫]|AED|CHF|CZK|PLN|ISK|SAR|THB|VND|ZAR|kr|zł|Kč|Ft|SEK|NOK|DKK|R)\s?([\d,]+(?:\.\d+)?)|([\d,]+(?:\.\d+)?)(?:\s?[~–-]\s?[\d,]+(?:\.\d+)?)?\s?(원|엔|유로|달러|바트|동|루피|Ft|Kč|zł)/g;
 // lowest adult amount in a price string → {num, cur, label}; null when nothing parses. Text after a child/senior
 // label ("… · 어린이 1,200엔") is ignored so the figure is always the adult price.
 const NON_ADULT_RX = /어린이|소인|아동|유아|청소년|학생|경로|65세|장애인|child|youth|senior|kid/i;

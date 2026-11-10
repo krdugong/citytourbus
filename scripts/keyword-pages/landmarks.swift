@@ -172,7 +172,12 @@ func cityKey(_ out: String) -> String {
   let file = (out as NSString).lastPathComponent
   var slug = (file as NSString).deletingPathExtension
   if let r = slug.range(of: "-", options: .backwards) { slug = String(slug[..<r.lowerBound]) }
-  return slug.replacingOccurrences(of: "-city-tour-bus", with: "").replacingOccurrences(of: "-big-bus", with: "").replacingOccurrences(of: "-sky-hop-bus", with: "").replacingOccurrences(of: "-hato-bus", with: "").replacingOccurrences(of: "-go-kart", with: "").replacingOccurrences(of: "-asakusa-rickshaw", with: "").replacingOccurrences(of: "-rickshaw", with: "").replacingOccurrences(of: "-water-bus", with: "").replacingOccurrences(of: "-peak-tram", with: "").replacingOccurrences(of: "-river-cruise", with: "").replacingOccurrences(of: "-duck-tour", with: "").replacingOccurrences(of: "-bateaux-mouches", with: "").replacingOccurrences(of: "-desert-safari", with: "").replacingOccurrences(of: "-yacht-tour", with: "")
+  slug = slug.replacingOccurrences(of: "-city-tour-bus", with: "").replacingOccurrences(of: "-big-bus", with: "").replacingOccurrences(of: "-sky-hop-bus", with: "").replacingOccurrences(of: "-hato-bus", with: "").replacingOccurrences(of: "-go-kart", with: "").replacingOccurrences(of: "-asakusa-rickshaw", with: "").replacingOccurrences(of: "-rickshaw", with: "").replacingOccurrences(of: "-water-bus", with: "").replacingOccurrences(of: "-peak-tram", with: "").replacingOccurrences(of: "-river-cruise", with: "").replacingOccurrences(of: "-duck-tour", with: "").replacingOccurrences(of: "-bateaux-mouches", with: "").replacingOccurrences(of: "-desert-safari", with: "").replacingOccurrences(of: "-yacht-tour", with: "")
+  // Sight pages (barcelona-sagrada-familia, seville-alcazar...): the longest leading part that is a known city.
+  if CITY_LANDMARKS[slug] != nil { return slug }
+  var parts = slug.split(separator: "-").map(String.init)
+  while parts.count > 1 { parts.removeLast(); let k = parts.joined(separator: "-"); if CITY_LANDMARKS[k] != nil { return k } }
+  return slug
 }
 
 func drawLandmarks(_ names: [String], left: CGFloat, right: CGFloat, ground: CGFloat, bandH: CGFloat, fill: NSColor, hole: NSColor) {

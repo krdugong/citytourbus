@@ -16,7 +16,9 @@
 //   asideNote, operator?, affiliate? (false = booking button goes to the operator's own site)
 //   parent? (slug of the city page this operator page belongs to), cityKey? (GetYourGuide/card city when the slug
 //   has another suffix), fromParent?{sectionId: link label} (link added to that section of the parent page),
-//   courses? (true = fixed-course tours: no transfer labels or hop-on loop note), childCard?{title,desc,order?} (card in the parent's "종류별로 자세히" block), rideCard?{title,desc,order?} + busTip? (a non-bus ride such as a go-kart or rickshaw: card in the parent's "함께 타볼 만한 탈것" block instead), oneWay? (with courses: point-to-point lines such as a water bus). topics[].anchor may also be a /path.
+//   courses? (true = fixed-course tours: no transfer labels or hop-on loop note), childCard?{title,desc,order?} (card in the parent's "종류별로 자세히" block), rideCard?{title,desc,order?} + busTip? (a non-bus ride such as a go-kart or rickshaw: card in the parent's "함께 타볼 만한 탈것" block instead), oneWay? (with courses: point-to-point lines such as a water bus). spotCard?{title,desc,order?} + busTip? (a sight such as
+//   the Sagrada Familia: card in the parent's "버스로 가는 인기 명소" block; routes may be [], tickets = official admission;
+//   gygPicks?[{u,n,r,c}] = GetYourGuide products for it, checked on gygChecked; no howToRide needed). topics[].anchor may also be a /path.
 import fs from 'node:fs';
 import path from 'node:path';
 import { TAG, ICONS, PRECONNECT, fontLinks } from '../head-bits.mjs';
@@ -164,11 +166,12 @@ function render(p, all) {
     ? [`${p.city} 빅버스 투어`, `${p.city} 시티투어버스`, `${p.city} 시티투어 버스`, `${p.city} 2층버스 투어`, `${p.city} 홉온홉오프 버스`, `${p.city} 관광버스`]
     : [`${p.city} 시티투어 버스`, `${p.city} 버스투어`, `${p.city} 2층버스 투어`, `${p.city} 홉온홉오프 버스`, `${p.city} 관광버스`, ...(p.operator === 'city-sightseeing' ? [`${p.city} City Sightseeing`] : [])]);
   sec('summary', 'SUMMARY', `${k} 한눈에 보기`, '한눈에 보기', kvTable([['다른 이름', aka.join(', ')], ...p.summary], 'kw-summary') +
-    (parent ? `<p class="kw-sublink"><a href="/${parent.slug}">${esc(parent.keyword)} ${p.rideCard ? '노선·가격 보기' : '전체 비교 보기'} →</a></p>` : ''));
+    (parent ? `<p class="kw-sublink"><a href="/${parent.slug}">${esc(parent.keyword)} ${p.rideCard || p.spotCard ? '노선·가격 보기' : '전체 비교 보기'} →</a></p>` : ''));
   // Ride pages point readers back to the city's bus page: the bus is the site's main product.
-  if (p.rideCard && parent) sec('bus', 'CITY TOUR BUS', `${p.keyword}와 함께 ${parent.keyword} 타기`, '시티투어버스',
+  if ((p.rideCard || p.spotCard) && parent) sec('bus', 'CITY TOUR BUS', p.spotCard ? `${parent.keyword}로 ${p.spotCard.title} 가기` : `${p.keyword}와 함께 ${parent.keyword} 타기`, p.spotCard ? '버스로 가기' : '시티투어버스',
     `<p>${esc(p.busTip || `${p.keyword} 앞뒤로 ${parent.keyword}를 타면 ${p.city}의 다른 명소까지 하루에 이어서 돌 수 있습니다.`)}</p><div class="kw-kids"><a class="kw-kid" href="/${parent.slug}"><b>${esc(parent.keyword)}</b><span>${esc(parent.asideNote)}</span><em>노선·가격·예약 보기 →</em></a></div>`);
-  const kids = children.filter(c => !c.rideCard);
+  const kids = children.filter(c => !c.rideCard && !c.spotCard);
+  const spots = children.filter(c => c.spotCard).sort((a, b) => (a.spotCard.order || 9) - (b.spotCard.order || 9));
   const rides = children.filter(c => c.rideCard).sort((a, b) => (a.rideCard.order || 9) - (b.rideCard.order || 9));
   if (kids.length) sec('types', 'TYPES', `${k} 종류별로 자세히 보기`, '종류별 자세히',
     `<div class="kw-kids">${kids.map(c => `<a class="kw-kid" href="/${c.slug}"><b>${esc((c.childCard || {}).title || c.keyword)}</b><span>${esc((c.childCard || {}).desc || c.asideNote)}</span><em>노선·가격·예약 자세히 →</em></a>`).join('')}</div>`);
@@ -176,7 +179,7 @@ function render(p, all) {
   const routeNames = p.routes.map(r => `${r.name.replace(/ \(.*\)/, '')}${r.area ? `(${r.area})` : ''}`).join(', ');
   const map = routeMap(p);
   const diagram = routeDiagram(p);
-  sec('route', 'ROUTE', h2.route, '노선',
+  if (p.routes.length) sec('route', 'ROUTE', h2.route, '노선',
     (map.overview ? mapFigure(map.overview, `${k} 노선도`, map.uncertain.length ? `${map.uncertain.join(', ')} 위치는 대략적인 추정` : '') : '') +
     `<p>${esc(k)}는 ${esc(routeNames)} ${p.routes.length > 1 ? `${p.routes.length}개 ${p.courses ? '코스' : '노선'}으로` : `${p.courses ? '코스' : '노선'} 하나로`} 운행합니다.${p.routeCheck ? ` 정류장 위치는 <a href="${esc(p.routeCheck.url)}">${esc(p.routeCheck.label)}</a>에서 지도로 볼 수 있습니다.` : ''}${SIM[p.slug] ? ` 가고 싶은 곳을 넣으면 탈 노선과 내릴 정류장을 순서대로 짜 주는 <a href="${SIM[p.slug].url}">${esc(SIM[p.slug].label)}</a>도 있습니다.` : ''}</p>` +
     `<div class="kw-route-grid">` + p.routes.map((r, i) => `<div class="kw-route" style="--rc:${r.color}"><h3>${esc(k)} ${esc(r.name)}${r.area ? ` · ${esc(r.area)}` : ''}</h3><p class="small">${esc(r.en)} · ${esc(r.duration)} · ${esc(r.interval)} · ${esc(r.hours)}</p>${diagram[i] || ''}<p>${esc(r.tip)}</p>${map.perRoute[i] ? mapFigure(map.perRoute[i].src, `${k} ${map.perRoute[i].title} 노선도`) : ''}</div>`).join('') + `</div>`);
@@ -187,6 +190,12 @@ function render(p, all) {
   sec('price', 'PRICE', h2.price, '가격',
     priceBars(p) +
     `<div class="table-scroll"><table><thead><tr><th>티켓</th><th>유효</th><th>성인 가격</th><th>포함 내용</th><th>추천</th></tr></thead><tbody>${p.tickets.map(t => `<tr><th scope="row">${esc(t.name)}</th><td>${esc(t.validity)}</td><td>${esc(t.price)}</td><td>${t.includes.map(esc).join('<br>')}</td><td>${esc(t.for)}</td></tr>`).join('')}</tbody></table></div><p class="small">${esc(p.priceNote)}</p>`);
+
+  // Sight pages: the GetYourGuide tickets and tours for this sight, most-reviewed first, right under the official prices.
+  if (p.gygPicks && p.gygPicks.length) sec('picks', 'GETYOURGUIDE', `${(p.spotCard || {}).title || k} GetYourGuide 인기 상품`, '인기 상품',
+    `<p>${esc(p.picksIntro || `공식 티켓이 매진됐거나 한국어·영어 가이드 설명을 듣고 싶을 때 볼 만한 상품입니다. GetYourGuide에서 후기가 많은 순서로 골랐습니다.`)}</p><div class="kw-kids">` +
+    p.gygPicks.map(x => `<a class="kw-kid" href="${esc(`https://www.getyourguide.com${x.u}?${GYG.partner}&cmp=citytourbuskr-${p.slug}`)}" target="_blank" rel="sponsored nofollow noopener"><b>${esc(x.n)}</b><span>★ ${x.r} · 후기 ${Number(x.c).toLocaleString('en-US')}개${x.d ? ` · ${esc(x.d)}` : ''}</span><em>GetYourGuide에서 가격 보기 →</em></a>`).join('') +
+    `</div><p class="small">후기 수·평점은 ${esc(p.gygChecked || p.verified)} GetYourGuide 기준이며 GetYourGuide 링크는 제휴 링크입니다. 가격은 날짜·인원에 따라 달라 GetYourGuide 화면에서 확인하세요.</p>`);
 
   // Rides next to the bus, right under the prices: this site's own ride pages first, then GetYourGuide's
   // most-reviewed ride products for the city (data/keyword-pages/_ride-picks.json, scripts/keyword-pages/ride_picks.py).
@@ -199,6 +208,7 @@ function render(p, all) {
     `</div>${ridePicks.length ? `<p class="small">후기 수·평점은 ${esc(RIDE_PICKS.checked)} GetYourGuide 기준이며 GetYourGuide 링크는 제휴 링크입니다.</p>` : ''}`);
 
   const short = (s) => s.length > 30 ? `${s.slice(0, 29)}…` : s;
+  const asideSpots = spots.length ? `<div class="kw-aside-rides"><b>버스로 가는 인기 명소</b>${spots.slice(0, 4).map(c => `<a href="/${c.slug}">${esc(c.spotCard.title)}</a>`).join('')}<a class="kw-aside-more" href="#spots">명소 전체 보기 →</a></div>` : '';
   const asideRides = (rides.length || ridePicks.length) ? `<div class="kw-aside-rides"><b>함께 타볼 만한 탈것</b>${[
     ...rides.map(c => `<a href="/${c.slug}">${esc(c.rideCard.title)}</a>`),
     ...ridePicks.map(x => `<a href="${esc(rideUrl(x))}" target="_blank" rel="sponsored nofollow noopener">${esc(short(x.n))}</a>`)].slice(0, 3).join('')}<a class="kw-aside-more" href="#rides">탈것 전체 보기 →</a></div>` : '';
@@ -211,6 +221,11 @@ function render(p, all) {
   sec('booking', 'BOOKING', h2.booking, '예약 방법',
     `<ol class="kw-steps">${howToBook.map(s => `<li>${esc(s)}</li>`).join('')}</ol>${payTip(p)}${cta(p)}`);
 
+  // Sight pages of this city (Sagrada Familia, Alcázar...) right above the GetYourGuide tours button.
+  if (spots.length) sec('spots', 'SIGHTS', `${k}로 가는 ${p.city} 인기 명소`, '인기 명소',
+    `<p>버스 정류장에서 가까운 ${esc(p.city)} 명소의 입장권·예약 방법과 내릴 정류장을 따로 정리했습니다.</p><div class="kw-kids">` +
+    spots.map(c => `<a class="kw-kid" href="/${c.slug}"><b>${esc(c.spotCard.title)}</b><span>${esc(c.spotCard.desc)}</span><em>입장권·예약 자세히 →</em></a>`).join('') + `</div>`);
+
   const gyg = gygUrl(p);
   if (gyg) sec('more', 'MORE', `${p.city}를 더 풍요롭게 체험하기`, '투어 더 보기',
     `<p>시티투어버스 티켓 말고도 ${esc(p.city)}의 입장권, 가이드 투어, 근교 당일치기, 야경·크루즈 상품을 GetYourGuide에서 한 번에 비교할 수 있습니다. 24시간 전 무료 취소가 되는 상품이 많아 일정이 바뀌어도 부담이 적습니다.</p><a class="button kw-cta" href="${esc(gyg)}" target="_blank" rel="sponsored nofollow noopener">GetYourGuide에서 ${esc(p.city)} 투어·입장권 보기 →</a>`);
@@ -218,7 +233,7 @@ function render(p, all) {
   if (p.onsite) sec('onsite', 'ON-SITE', h2.onsite, '현장구매',
     `<p>${esc(p.onsite.text)}</p>${kvTable(p.onsite.compare)}`);
 
-  sec('ride', 'HOW TO RIDE', h2.ride, '타는법',
+  if (howToRide) sec('ride', 'HOW TO RIDE', h2.ride, '타는법',
     `<ol class="kw-steps">${howToRide.map(s => `<li>${esc(s)}</li>`).join('')}</ol>`);
 
   if (p.topics && p.topics.length) sec('topics', 'TOPICS', h2.topics || `${k} 궁금한 점별 정리`, '궁금한 점',
@@ -233,8 +248,9 @@ function render(p, all) {
   const others = all.filter(o => o.slug !== p.slug);
   const rank = (o) => { const i = POPULAR.indexOf(o.parent || o.slug); return (i < 0 ? 999 : i) + (o.parent ? 0.5 : 0); };
   const byRank = (a, b) => rank(a) - rank(b) || a.slug.localeCompare(b.slug);
-  const sameCountry = others.filter(o => o.flag === p.flag).sort(byRank);
-  const sameRegion = others.filter(o => o.flag !== p.flag && REGION[o.flag] === REGION[p.flag]).sort(byRank);
+  // Sight pages (spotCard) are linked from their own city's bus page, not from every page in the country/region.
+  const sameCountry = others.filter(o => o.flag === p.flag && !o.spotCard).sort(byRank);
+  const sameRegion = others.filter(o => o.flag !== p.flag && REGION[o.flag] === REGION[p.flag] && !o.spotCard).sort(byRank);
   const family = others.filter(o => o.slug === p.parent || (p.parent && o.parent === p.parent) || o.parent === p.slug);
   const picks = [...new Set([...family, ...sameCountry, ...sameRegion])].slice(0, 12);
   const related = [
@@ -291,7 +307,7 @@ ${PRECONNECT}${fontLinks()}
 <nav class="kw-toc" aria-label="목차">${toc.join('')}</nav>
 <div class="grid"><article class="main-content">
 ${sections.join('\n')}
-</article><aside><div class="aside-card"><strong>${esc(k)} 예약</strong><p>${esc(p.asideNote)}</p><a class="aside-link kw-aside-book" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${esc(bookLabel(p))} →</a>${gygUrl(p) ? `<a class="aside-link" href="${esc(gygUrl(p))}" target="_blank" rel="sponsored nofollow noopener">GetYourGuide에서 ${esc(p.city)} 투어 보기 →</a>` : ''}${p.routeCheck ? `<a class="aside-link" href="${esc(p.routeCheck.url)}">정류장 지도 보기 →</a>` : `<a class="aside-link" href="#route">노선·정류장 보기 →</a>`}${SIM[p.slug] ? `<a class="aside-link" href="${SIM[p.slug].url}">하루 코스 시뮬레이터 →</a>` : ''}${asideRides}</div></aside></div>
+</article><aside><div class="aside-card"><strong>${esc(k)} 예약</strong><p>${esc(p.asideNote)}</p><a class="aside-link kw-aside-book" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${esc(bookLabel(p))} →</a>${gygUrl(p) ? `<a class="aside-link" href="${esc(gygUrl(p))}" target="_blank" rel="sponsored nofollow noopener">GetYourGuide에서 ${esc(p.city)} 투어 보기 →</a>` : ''}${p.routeCheck ? `<a class="aside-link" href="${esc(p.routeCheck.url)}">정류장 지도 보기 →</a>` : p.routes.length ? `<a class="aside-link" href="#route">노선·정류장 보기 →</a>` : ''}${SIM[p.slug] ? `<a class="aside-link" href="${SIM[p.slug].url}">하루 코스 시뮬레이터 →</a>` : ''}${asideSpots}${asideRides}</div></aside></div>
 </div></main><footer><div class="wrap"><a href="/">CITYTOURBUS.KR</a><p>전 세계 시티투어버스를 비교합니다. ${p.affiliate === false ? '예약 버튼은 운영사 공식 사이트로 연결되며, GetYourGuide 링크는 제휴 링크라 예약 시 수수료를 받을 수 있습니다.' : '이 페이지의 예약 링크는 제휴 링크라 예약 시 수수료를 받을 수 있으며, 이용자가 내는 금액은 같습니다.'}</p><p>문의·제휴 <a href="mailto:contact@citytourbus.kr">contact@citytourbus.kr</a></p><a href="/terms">이용약관</a> · <a href="/privacy">개인정보처리방침</a></div></footer>
 <div class="kw-sticky" id="kw-sticky" hidden><div class="kw-sticky-txt"><b>${esc(k)}</b><small>${esc(p.tickets[0].price)}</small></div><a class="button kw-cta" href="${esc(p.booking.url)}" target="_blank" rel="${p.affiliate === false ? 'nofollow noopener' : 'sponsored nofollow noopener'}">${BRAND[p.operator] ? esc(BRAND[p.operator]) + ' 예약' : '예약하기'} →</a></div>
 <script>(function(){var s=document.getElementById('kw-sticky'),h=document.querySelector('.hero-actions');if(!s||!h||!('IntersectionObserver' in window))return;new IntersectionObserver(function(e){var r=e[0],show=!r.isIntersecting&&r.boundingClientRect.top<0;s.hidden=!show;document.body.classList.toggle('has-sticky',show)}).observe(h)})();
@@ -380,7 +396,7 @@ ${rssItems.map(i => `<item><title>${esc(i.title)}</title><link>${i.link}</link><
 // homepage: list every bus keyword page; rideCard pages (go-kart, rickshaw...) are linked from their city's bus page only (index.html is what "/" serves; keep index-v2.html in sync)
 const homeRank = (p) => { const i = POPULAR.indexOf(p.parent || p.slug); return (i < 0 ? 999 : i) + (p.parent ? 0.5 : 0); };
 const homeOrder = [...pages].sort((a, b) => homeRank(a) - homeRank(b) || a.slug.localeCompare(b.slug));
-const homeLinks = homeOrder.filter(p => !p.rideCard).map(p => `<a href="/${p.slug}" style="display:block;background:#fff;border:1px solid #e5e5ea;border-radius:12px;padding:16px;text-decoration:none;font-size:14px;font-weight:700">${esc(p.keyword)} <span style="float:right;color:#e22b37">→</span></a>`).join('');
+const homeLinks = homeOrder.filter(p => !p.rideCard && !p.spotCard).map(p => `<a href="/${p.slug}" style="display:block;background:#fff;border:1px solid #e5e5ea;border-radius:12px;padding:16px;text-decoration:none;font-size:14px;font-weight:700">${esc(p.keyword)} <span style="float:right;color:#e22b37">→</span></a>`).join('');
 const homeBlock = `<div style="max-width:1180px;margin:28px auto 0"><h2 style="font-size:22px;letter-spacing:-.6px;margin:0 0 14px">도시별 시티투어버스 노선·가격 총정리</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px">${homeLinks}</div></div>`;
 for (const f of ['index.html', 'index-v2.html']) setBlock(f, 'kw-home', homeBlock, '</section><footer>');
 

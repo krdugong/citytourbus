@@ -1,0 +1,131 @@
+{
+ "city": "파리",
+ "flag": "🇫🇷",
+ "parent": "paris-big-bus",
+ "cityKey": "paris",
+ "published": "2026-11-13",
+ "updated": "2026-11-13",
+ "verified": "2026-11-13",
+ "slug": "paris-seine-cruise",
+ "keyword": "센강 유람선 예약",
+ "operator": "getyourguide",
+ "title": "센강 유람선 예약·가격·후기 인기 상품 비교 (2026년 11월)",
+ "description": "2026년 11월 기준 파리 센강 유람선 투어와 투어를 GetYourGuide 후기 순으로 비교했습니다. 가장 많이 찾는 상품은 ‘파리: 에펠탑에서 출발하는 센 강 크루즈 온라인 요금’(★4.4·후기 92,590개)이고, 파리 빅버스와 함께 가는 법도 정리했습니다.",
+ "h1Sub": "투어 예약·인기 상품 비교",
+ "lead": "에펠탑·루브르·노트르담을 강 위에서 보는 센강 유람선으로, 바토무슈가 가장 잘 알려져 있습니다. GetYourGuide에서 후기가 많은 센강 유람선 상품 4개를 골라 평점·후기 수·소요 시간을 비교했습니다.",
+ "booking": {
+  "url": "https://www.getyourguide.com/ko-kr/paris-l16/paris-1-hour-seine-cruise-departing-from-the-eiffel-tower-t193940/?partner_id=7NCF1BV&utm_medium=online_publisher&cmp=citytourbuskr-paris-seine-cruise",
+  "label": "GetYourGuide에서 센강 유람선 예약"
+ },
+ "aka": [
+  "파리 센강 유람선",
+  "센강 유람선",
+  "센강 유람선 시간",
+  "센강 유람선 디너",
+  "센강 유람선 가격"
+ ],
+ "summary": [
+  [
+   "인기 상품",
+   "GetYourGuide 4개 · 후기 많은 순"
+  ],
+  [
+   "가장 많이 찾는 상품",
+   "파리: 에펠탑에서 출발하는 센 강 크루즈 온라인 요금 (★4.4 · 후기 92,590개)"
+  ],
+  [
+   "평점",
+   "★ 4.4"
+  ],
+  [
+   "소요 시간",
+   "1시간 / 70분"
+  ],
+  [
+   "버스로 가기",
+   "앞뒤로 버스 타고 시내 돌기"
+  ]
+ ],
+ "routes": [],
+ "tickets": [],
+ "priceNote": "",
+ "howToBook": [
+  "아래 버튼으로 GetYourGuide 상품 페이지(한국어 화면)에 들어갑니다.",
+  "날짜와 인원을 고르면 그날 가격과 예약 가능한 시간대가 나옵니다.",
+  "결제하면 이메일과 GetYourGuide 앱으로 바우처가 옵니다. 현장에서는 바우처 안내대로 보여주면 됩니다.",
+  "취소 조건은 상품마다 다르니 결제 전에 꼭 확인하세요."
+ ],
+ "h2": {
+  "booking": "센강 유람선 예약 방법",
+  "faq": "센강 유람선 자주 묻는 질문"
+ },
+ "faq": [
+  {
+   "q": "센강 유람선 예약은 어디서 하나요?",
+   "a": "GetYourGuide에서 날짜와 인원을 고르면 바로 예약할 수 있습니다. 2026년 11월 13일 기준 후기가 가장 많은 상품은 ‘파리: 에펠탑에서 출발하는 센 강 크루즈 온라인 요금’(★4.4, 후기 92,590개)입니다."
+  },
+  {
+   "q": "센강 유람선 가격은 얼마인가요?",
+   "a": "가격은 날짜·인원·옵션에 따라 달라집니다. GetYourGuide 상품 화면에서 날짜를 고르면 그날 가격이 바로 나옵니다."
+  },
+  {
+   "q": "센강 유람선 투어는 몇 시간 걸리나요?",
+   "a": "GetYourGuide 인기 상품 기준 1시간, 70분입니다. 상품마다 포함 내용이 달라 예약 전에 상품 설명을 확인하세요."
+  },
+  {
+   "q": "파리 빅버스로 센강 유람선에 갈 수 있나요?",
+   "a": "센강 유람선 앞뒤로 파리 빅버스를 타면 파리의 다른 명소까지 하루에 이어서 돌 수 있습니다."
+  },
+  {
+   "q": "센강 유람선 예약을 취소할 수 있나요?",
+   "a": "취소 조건은 상품마다 다릅니다. GetYourGuide 상품 화면의 취소 안내를 결제 전에 확인하세요."
+  }
+ ],
+ "busTip": "센강 유람선 앞뒤로 파리 빅버스를 타면 파리의 다른 명소까지 하루에 이어서 돌 수 있습니다.",
+ "spotCard": {
+  "title": "센강 유람선",
+  "desc": "인기 상품 4개 · 최다 후기 92,590개",
+  "order": 15
+ },
+ "gygPicks": [
+  {
+   "u": "/ko-kr/paris-l16/paris-1-hour-seine-cruise-departing-from-the-eiffel-tower-t193940/",
+   "n": "파리: 에펠탑에서 출발하는 센 강 크루즈 온라인 요금",
+   "r": 4.4,
+   "c": 92590,
+   "d": "1시간"
+  },
+  {
+   "u": "/ko-kr/paris-l16/paris-night-cruise-on-the-seine-river-with-aperitif-t405257/",
+   "n": "파리: 저녁 강 크루즈 & 음악",
+   "r": 4.4,
+   "c": 26221,
+   "d": "1시간"
+  },
+  {
+   "u": "/ko-kr/paris-l16/paris-seine-cruise-crepe-tasting-at-the-eiffel-tower-t374289/",
+   "n": "파리: 에펠탑에서 출발하는 센강 크루즈 + 무료 크레페",
+   "r": 4.4,
+   "c": 12976,
+   "d": "1시간"
+  },
+  {
+   "u": "/ko-kr/paris-l16/paris-bateaux-mouches-evening-cruise-souvenir-postcard-t1282311/",
+   "n": "파리: 전설적인 Bateaux-Mouches®와 함께하는 저녁 조명 크루즈",
+   "r": 4.4,
+   "c": 7215,
+   "d": "70분"
+  }
+ ],
+ "gygChecked": "2026년 11월 13일",
+ "images": {
+  "main": {
+   "alt": "센강 유람선 예약 센강 유람선",
+   "eyebrow": "2026년 11월 업데이트",
+   "title": "센강 유람선",
+   "sub": "투어 · 예약 · 후기",
+   "bg": "#0c4a6e"
+  }
+ },
+ "asideNote": "GetYourGuide 인기 상품 4개 · ★ 4.4"
+}

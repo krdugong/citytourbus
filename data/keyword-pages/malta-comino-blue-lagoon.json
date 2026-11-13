@@ -1,0 +1,127 @@
+{
+ "city": "몰타",
+ "flag": "🇲🇹",
+ "parent": "malta-city-tour-bus",
+ "cityKey": "malta",
+ "published": "2026-11-13",
+ "updated": "2026-11-13",
+ "verified": "2026-11-13",
+ "slug": "malta-comino-blue-lagoon",
+ "keyword": "몰타 블루라군 투어",
+ "operator": "getyourguide",
+ "title": "몰타 블루라군 투어·가격·후기 인기 상품 비교 (2026년 11월)",
+ "description": "2026년 11월 기준 몰타 블루라군 투어 투어와 투어를 GetYourGuide 후기 순으로 비교했습니다. 가장 많이 찾는 상품은 ‘몰타: 고조 및 코미노 섬, 블루라군 및 바다 동굴 투어’(★4.4·후기 22,015개)이고, 몰타 시티투어버스와 함께 가는 법도 정리했습니다.",
+ "h1Sub": "투어 예약·인기 상품 비교",
+ "lead": "몰타와 고조 사이 코미노섬의 블루라군으로 배를 타고 가는 투어입니다. GetYourGuide에서 후기가 많은 몰타 블루라군 투어 상품 4개를 골라 평점·후기 수·소요 시간을 비교했습니다.",
+ "booking": {
+  "url": "https://www.getyourguide.com/ko-kr/malta-l90/malta-gozo-comino-islands-blue-lagoon-seacaves-tour-t197872/?partner_id=7NCF1BV&utm_medium=online_publisher&cmp=citytourbuskr-malta-comino-blue-lagoon",
+  "label": "GetYourGuide에서 몰타 블루라군 투어 예약"
+ },
+ "aka": [
+  "몰타 블루라군 투어"
+ ],
+ "summary": [
+  [
+   "인기 상품",
+   "GetYourGuide 4개 · 후기 많은 순"
+  ],
+  [
+   "가장 많이 찾는 상품",
+   "몰타: 고조 및 코미노 섬, 블루라군 및 바다 동굴 투어 (★4.4 · 후기 22,015개)"
+  ],
+  [
+   "평점",
+   "★ 4.4–4.7"
+  ],
+  [
+   "소요 시간",
+   "7시간 / 6시간 / 5.5시간"
+  ],
+  [
+   "버스로 가기",
+   "앞뒤로 버스 타고 시내 돌기"
+  ]
+ ],
+ "routes": [],
+ "tickets": [],
+ "priceNote": "",
+ "howToBook": [
+  "아래 버튼으로 GetYourGuide 상품 페이지(한국어 화면)에 들어갑니다.",
+  "날짜와 인원을 고르면 그날 가격과 예약 가능한 시간대가 나옵니다.",
+  "결제하면 이메일과 GetYourGuide 앱으로 바우처가 옵니다. 현장에서는 바우처 안내대로 보여주면 됩니다.",
+  "취소 조건은 상품마다 다르니 결제 전에 꼭 확인하세요."
+ ],
+ "h2": {
+  "booking": "몰타 블루라군 투어 예약 방법",
+  "faq": "몰타 블루라군 투어 자주 묻는 질문"
+ },
+ "faq": [
+  {
+   "q": "몰타 블루라군 투어 예약은 어디서 하나요?",
+   "a": "GetYourGuide에서 날짜와 인원을 고르면 바로 예약할 수 있습니다. 2026년 11월 13일 기준 후기가 가장 많은 상품은 ‘몰타: 고조 및 코미노 섬, 블루라군 및 바다 동굴 투어’(★4.4, 후기 22,015개)입니다."
+  },
+  {
+   "q": "몰타 블루라군 투어 가격은 얼마인가요?",
+   "a": "가격은 날짜·인원·옵션에 따라 달라집니다. GetYourGuide 상품 화면에서 날짜를 고르면 그날 가격이 바로 나옵니다."
+  },
+  {
+   "q": "몰타 블루라군 투어 투어는 몇 시간 걸리나요?",
+   "a": "GetYourGuide 인기 상품 기준 7시간, 6시간, 5.5시간입니다. 상품마다 포함 내용이 달라 예약 전에 상품 설명을 확인하세요."
+  },
+  {
+   "q": "몰타 시티투어버스로 몰타 블루라군 투어에 갈 수 있나요?",
+   "a": "몰타 블루라군 투어 앞뒤로 몰타 시티투어버스를 타면 몰타의 다른 명소까지 하루에 이어서 돌 수 있습니다."
+  },
+  {
+   "q": "몰타 블루라군 투어 예약을 취소할 수 있나요?",
+   "a": "취소 조건은 상품마다 다릅니다. GetYourGuide 상품 화면의 취소 안내를 결제 전에 확인하세요."
+  }
+ ],
+ "busTip": "몰타 블루라군 투어 앞뒤로 몰타 시티투어버스를 타면 몰타의 다른 명소까지 하루에 이어서 돌 수 있습니다.",
+ "spotCard": {
+  "title": "몰타 블루라군 투어",
+  "desc": "인기 상품 4개 · 최다 후기 22,015개",
+  "order": 1
+ },
+ "gygPicks": [
+  {
+   "u": "/ko-kr/malta-l90/malta-gozo-comino-islands-blue-lagoon-seacaves-tour-t197872/",
+   "n": "몰타: 고조 및 코미노 섬, 블루라군 및 바다 동굴 투어",
+   "r": 4.4,
+   "c": 22015,
+   "d": "7시간"
+  },
+  {
+   "u": "/ko-kr/malta-l90/comino-blue-lagoon-crystal-lagoon-and-seacaves-tour-t196241/",
+   "n": "코미노: 블루 라군, 크리스탈 라군, 해안 동굴 투어",
+   "r": 4.7,
+   "c": 9123,
+   "d": "6시간"
+  },
+  {
+   "u": "/ko-kr/sliema-l117585/from-sliema-comino-crystal-lagoon-and-blue-lagoon-cruise-t463416/",
+   "n": "코미노: Blue Lagoon, Crystal Lagoon 및 해안 동굴",
+   "r": 4.5,
+   "c": 8662,
+   "d": "5.5시간"
+  },
+  {
+   "u": "/ko-kr/malta-l90/malta-gozo-comino-blue-lagoon-cruise-swim-sightsee-t215556/",
+   "n": "몰타 보트: 코미노 블루 라군, Crystal Lagoon, 고조 & 동굴",
+   "r": 4.7,
+   "c": 7735,
+   "d": "7시간"
+  }
+ ],
+ "gygChecked": "2026년 11월 13일",
+ "images": {
+  "main": {
+   "alt": "몰타 블루라군 투어 몰타 블루라군 투어",
+   "eyebrow": "2026년 11월 업데이트",
+   "title": "몰타\n블루라군 투어",
+   "sub": "투어 · 예약 · 후기",
+   "bg": "#0c4a6e"
+  }
+ },
+ "asideNote": "GetYourGuide 인기 상품 4개 · ★ 4.7"
+}
